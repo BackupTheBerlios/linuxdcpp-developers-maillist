@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] Fwd:  Some ideas about minor improvements
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Fwd%3A%20%20Some%20ideas%20about%20minor%20improvements&In-Reply-To=%3C500a54cf0708112051l36faf370i62f6942449c2074f%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000146.html">
+   <LINK REL="Next"  HREF="000148.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] Fwd:  Some ideas about minor improvements</H1>
+    <B>Alexey Kuznetsov</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Fwd%3A%20%20Some%20ideas%20about%20minor%20improvements&In-Reply-To=%3C500a54cf0708112051l36faf370i62f6942449c2074f%40mail.gmail.com%3E"
+       TITLE="[Linuxdcpp-developers] Fwd:  Some ideas about minor improvements">localstorm at gmail.com
+       </A><BR>
+    <I>Sun Aug 12 05:51:57 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000146.html">[Linuxdcpp-developers] Some ideas about minor improvements
+</A></li>
+        <LI>Next message: <A HREF="000148.html">[Linuxdcpp-developers] Fwd: Some ideas about minor improvements
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#147">[ date ]</a>
+              <a href="thread.html#147">[ thread ]</a>
+              <a href="subject.html#147">[ subject ]</a>
+              <a href="author.html#147">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>---------- Forwarded message ----------
+From: Alexey Kuznetsov &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">localstorm at gmail.com</A>&gt;
+Date: Aug 12, 2007 10:50 AM
+Subject: Re: [Linuxdcpp-developers] Some ideas about minor improvements
+To: Steven Sheehy &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">steven.sheehy at gmail.com</A>&gt;
+
+Hello :)
+
+I know about core/GUI. I've read some comments for LinuxDC++ feature
+requests.
+
+But I don't think that we need to improve DC++ core. I think it's enough to
+make some GUI changes (Finished uploads tab) to improve logs presentaion (to
+make it easier for perception). As I understand I need only to patch
+FinishedTransfers::addItem_gui(StringMap params, bool update) and it will be
+enough :) Am I right? Finally, many users in my network connects, downloads
+a part of the file, disconnects and connects again. May be partial upload is
+not supported but it seems to work okay :) Which special support is needed?
+
+The problem with file types is a bit more complicated. I thought that search
+function in the backend of P2P client is about to be a simple one. I thought
+we have the same situation with file types and file type is a something that
+is under our control because I don't see any reason file type to be used in
+DC++ core. But I've looked through DC++ core code more carefully and now I
+understand that my first ideas were not right. I'll think about it again :)
+
+On 8/12/07, Steven Sheehy &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">steven.sheehy at gmail.com</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i> Alexey Kuznetsov wrote:
+</I>&gt;<i> &gt; Good (hmm...) evening everybody :)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; So, I'd like to suggest some minor LinuxDC++ improvements. I know these
+</I>&gt;<i> &gt; improvements are not critical, but by making these patches I'll beter
+</I>&gt;<i> &gt; understand what's going on in LinuxDC++ project and it's quite
+</I>&gt;<i> &gt; reasonable for me to start with something like this :)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; So, I've two ideas:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 1) Finished Uploads. It's not very usable for me when some clients
+</I>&gt;<i> &gt; download files by parts. The &quot;Finished Uploads&quot; log shows many records
+</I>&gt;<i> &gt; with the same {user, file, hub} and different {time, size, speed}. This
+</I>&gt;<i> &gt; overhead depends on size of downloaded file and can be very very big.
+</I>&gt;<i> &gt; That's why it's quite difficult to look through this log. I think it
+</I>&gt;<i> &gt; would be much better if we'll merge records with the same {user, file,
+</I>&gt;<i> &gt; hub} by updating time to the latest, by summation of sizes and by
+</I>&gt;<i> &gt; averaging download speed. May be it is reasonable to make this logging
+</I>&gt;<i> &gt; mode optional ;)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 2) Searching. Well. When I tried LinuxDC++, the first thought was: how
+</I>&gt;<i> &gt; do they guess the file types? When I choose to search for &quot;Video&quot;, what
+</I>&gt;<i> &gt; video files would be accepted? Yesterday I looked through
+</I>&gt;<i> &gt; ShareManager::initTypeMap() and understood that extensions are hardcoded
+</I>&gt;<i> &gt; ;) May be it is cool to provide some kind of categories editor?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I can try to make these patches. Btw, it was a long time ago when I used
+</I>&gt;<i> &gt; to make C/C++ code and I'd like to make something easy for the first
+</I>&gt;<i> time :)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Waiting for your comments :)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; --
+</I>&gt;<i> &gt; Alexey Kuznetsov
+</I>&gt;<i>
+</I>&gt;<i> Hello,
+</I>&gt;<i>
+</I>&gt;<i> Thanks for your comments. One of the things you have to understand about
+</I>&gt;<i> LinuxDC++ is that it is split into two parts: the DC++ core and the GUI.
+</I>&gt;<i> The
+</I>&gt;<i> DC++ core (client/ folder) is copied from the windows version and any
+</I>&gt;<i> changes
+</I>&gt;<i> made to it are generally only to make it better support *nix platforms.
+</I>&gt;<i> These
+</I>&gt;<i> changes are then set upstream to DC++ for approval and hopefully added
+</I>&gt;<i> into
+</I>&gt;<i> their source. Any changes to the GUI is controlled by us, so there's no
+</I>&gt;<i> problem
+</I>&gt;<i> there.
+</I>&gt;<i>
+</I>&gt;<i> Both of the changes you mentioned are DC++ core changes that are not *nix
+</I>&gt;<i> specific bugs. Thus, if you want to make those changes you'd have to get
+</I>&gt;<i> DC++ to
+</I>&gt;<i> approve them so that they'll make their way into LinuxDC++ the next time
+</I>&gt;<i> we
+</I>&gt;<i> upgrade the core.
+</I>&gt;<i>
+</I>&gt;<i> As far as logging, I'm not sure if you mean the actual log file stored on
+</I>&gt;<i> the
+</I>&gt;<i> hard disk or if you mean the finished uploads tab in the gui. It's not
+</I>&gt;<i> practical
+</I>&gt;<i> to go back through the physical log file and merge entries since the log
+</I>&gt;<i> file
+</I>&gt;<i> entries are just appended each time and the file can get quite large. If
+</I>&gt;<i> you
+</I>&gt;<i> mean the finished upload tab, then it's a bit more easy to implement. But
+</I>&gt;<i> considering DC++ doesn't even officially support partial file uploads, I
+</I>&gt;<i> don't
+</I>&gt;<i> think adding support for it in finished uploads would be something
+</I>&gt;<i> upstream
+</I>&gt;<i> would accept.
+</I>&gt;<i>
+</I>&gt;<i> If you think the file types is bad now, you should've seen it before the
+</I>&gt;<i> patch
+</I>&gt;<i> to make ShareManager::checkTypes endian-safe (it also added a ton more
+</I>&gt;<i> file
+</I>&gt;<i> extensions to check). Upstream still hasn't accepted that patch we sent
+</I>&gt;<i> them.
+</I>&gt;<i>
+</I>&gt;<i> I'm not trying to discourage you, just letting you know it's probably
+</I>&gt;<i> better to
+</I>&gt;<i> focus on changes in the gui or *nix-specific bugs in the core if you want
+</I>&gt;<i> them
+</I>&gt;<i> to make their way into LinuxDC++.
+</I>&gt;<i>
+</I>&gt;<i> -Steven Sheehy
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Linuxdcpp-developers mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">Linuxdcpp-developers at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers</A>
+</I>&gt;<i>
+</I>
+
+
+-- 
+Alexey Kuznetsov
+
+-- 
+Alexey Kuznetsov
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070812/be58b1ba/attachment.html">https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070812/be58b1ba/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000146.html">[Linuxdcpp-developers] Some ideas about minor improvements
+</A></li>
+	<LI>Next message: <A HREF="000148.html">[Linuxdcpp-developers] Fwd: Some ideas about minor improvements
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#147">[ date ]</a>
+              <a href="thread.html#147">[ thread ]</a>
+              <a href="subject.html#147">[ subject ]</a>
+              <a href="author.html#147">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

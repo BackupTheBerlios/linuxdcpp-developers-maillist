@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Bug #14233] CRASH at random times,	usually after loading userlist
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2314233%5D%20CRASH%20at%20random%20times%2C%0A%09usually%20after%20loading%20userlist&In-Reply-To=%3C200807181655.m6IGtlVj018963%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000464.html">
+   <LINK REL="Next"  HREF="000466.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Bug #14233] CRASH at random times,	usually after loading userlist</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2314233%5D%20CRASH%20at%20random%20times%2C%0A%09usually%20after%20loading%20userlist&In-Reply-To=%3C200807181655.m6IGtlVj018963%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Bug #14233] CRASH at random times,	usually after loading userlist">admin at berlios.de
+       </A><BR>
+    <I>Fri Jul 18 18:55:47 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000464.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+        <LI>Next message: <A HREF="000466.html">[Linuxdcpp-developers] [Bug #14272] 1.0.2: can not browse files	without TTH
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#465">[ date ]</a>
+              <a href="thread.html#465">[ thread ]</a>
+              <a href="subject.html#465">[ subject ]</a>
+              <a href="author.html#465">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #14233, was updated on 2008-Jul-18 18:55
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: slechta
+Assigned to : none
+Summary: CRASH at random times, usually after loading userlist
+
+Details: (linuxdcpp:9025): Gtk-WARNING **: A floating object was finalized. This means that someone
+called g_object_unref() on an object that had only a floating
+reference; the initial floating reference is not owned by anyone
+and must be removed with g_object_ref_sink().
+[Thread 0xb086bb90 (LWP 9050) exited]
+**
+** ERROR:(gailtreeview.c:3825):traverse_cells: assertion failed: (row_path != NULL)
+
+Program received signal SIGABRT, Aborted.
+[Switching to Thread 0xb7127b20 (LWP 9025)]
+0xb7f40410 in __kernel_vsyscall ()
+(gdb) backtrace
+#0  0xb7f40410 in __kernel_vsyscall ()
+#1  0xb75e6085 in raise () from /lib/tls/i686/cmov/libc.so.6
+#2  0xb75e7a01 in abort () from /lib/tls/i686/cmov/libc.so.6
+#3  0xb78653e1 in g_assertion_message () from /usr/lib/libglib-2.0.so.0
+#4  0xb786593d in g_assertion_message_expr () from /usr/lib/libglib-2.0.so.0
+#5  0xb6013246 in ?? () from /usr/lib/gtk-2.0/modules/libgail.so
+#6  0xb78d6a4f in g_cclosure_marshal_VOID__VOID () from /usr/lib/libgobject-2.0.so.0
+#7  0xb78c9759 in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#8  0xb78ddd1d in ?? () from /usr/lib/libgobject-2.0.so.0
+#9  0xb78df916 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#10 0xb78dfc59 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#11 0xb7a362ba in IA__gtk_adjustment_value_changed (adjustment=0x8715e60)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkadjustment.c:363
+#12 0xb7c178aa in gtk_tree_view_top_row_to_dy (tree_view=0x84e3990)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtktreeview.c:6467
+#13 0xb7c22ccd in gtk_tree_view_size_allocate (widget=0x84e3990, allocation=0xbfade62c)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtktreeview.c:2425
+#14 0xb78d60ba in g_cclosure_marshal_VOID__BOXED () from /usr/lib/libgobject-2.0.so.0
+#15 0xb78c8079 in ?? () from /usr/lib/libgobject-2.0.so.0
+#16 0xb78c982f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#17 0xb78dd975 in ?? () from /usr/lib/libgobject-2.0.so.0
+#18 0xb78df916 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#19 0xb78dfc59 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#20 0xb7c461ba in IA__gtk_widget_size_allocate (widget=0x84e3990, allocation=0xbfade680)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkwidget.c:3818
+#21 0xb7b809d2 in gtk_scrolled_window_size_allocate (widget=0x86f3e48, 
+    allocation=0xbfadec5c) at /build/buildd/gtk+2.0-2.12.9/gtk/gtkscrolledwindow.c:1372
+---Type &lt;return&gt; to continue, or q &lt;return&gt; to quit---
+#22 0xb78d60ba in g_cclosure_marshal_VOID__BOXED () from /usr/lib/libgobject-2.0.so.0
+#23 0xb78c8079 in ?? () from /usr/lib/libgobject-2.0.so.0
+#24 0xb78c982f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#25 0xb78dd975 in ?? () from /usr/lib/libgobject-2.0.so.0
+#26 0xb78df916 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#27 0xb78dfc59 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#28 0xb7c461ba in IA__gtk_widget_size_allocate (widget=0x86f3e48, allocation=0xbfadecb8)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkwidget.c:3818
+#29 0xb7add6a9 in gtk_hpaned_size_allocate (widget=0x85b9f38, allocation=0xbfadf29c)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkhpaned.c:194
+#30 0xb78d60ba in g_cclosure_marshal_VOID__BOXED () from /usr/lib/libgobject-2.0.so.0
+#31 0xb78c8079 in ?? () from /usr/lib/libgobject-2.0.so.0
+#32 0xb78c982f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#33 0xb78dd975 in ?? () from /usr/lib/libgobject-2.0.so.0
+#34 0xb78df916 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#35 0xb78dfc59 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#36 0xb7c461ba in IA__gtk_widget_size_allocate (widget=0x85b9f38, allocation=0xbfadf308)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkwidget.c:3818
+#37 0xb7c3b97d in gtk_vbox_size_allocate (widget=0x86f80c0, allocation=0xbfadf8cc)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkvbox.c:234
+#38 0xb78d60ba in g_cclosure_marshal_VOID__BOXED () from /usr/lib/libgobject-2.0.so.0
+#39 0xb78c8079 in ?? () from /usr/lib/libgobject-2.0.so.0
+#40 0xb78c982f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#41 0xb78dd975 in ?? () from /usr/lib/libgobject-2.0.so.0
+#42 0xb78df916 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#43 0xb78dfc59 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#44 0xb7c461ba in IA__gtk_widget_size_allocate (widget=0x86f80c0, allocation=0xbfadf91c)
+---Type &lt;return&gt; to continue, or q &lt;return&gt; to quit---
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkwidget.c:3818
+#45 0xb7b40190 in gtk_notebook_size_allocate (widget=0x84d3800, allocation=0xbfadfedc)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtknotebook.c:2123
+#46 0xb78d60ba in g_cclosure_marshal_VOID__BOXED () from /usr/lib/libgobject-2.0.so.0
+#47 0xb78c8079 in ?? () from /usr/lib/libgobject-2.0.so.0
+#48 0xb78c982f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#49 0xb78dd975 in ?? () from /usr/lib/libgobject-2.0.so.0
+#50 0xb78df916 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#51 0xb78dfc59 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#52 0xb7c461ba in IA__gtk_widget_size_allocate (widget=0x84d3800, allocation=0xbfadff48)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkwidget.c:3818
+#53 0xb7c3dd83 in gtk_vpaned_size_allocate (widget=0x84b8710, allocation=0xbfae051c)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkvpaned.c:177
+#54 0xb78d60ba in g_cclosure_marshal_VOID__BOXED () from /usr/lib/libgobject-2.0.so.0
+#55 0xb78c8079 in ?? () from /usr/lib/libgobject-2.0.so.0
+#56 0xb78c982f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#57 0xb78dd975 in ?? () from /usr/lib/libgobject-2.0.so.0
+#58 0xb78df916 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#59 0xb78dfc59 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#60 0xb7c461ba in IA__gtk_widget_size_allocate (widget=0x84b8710, allocation=0xbfae0588)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkwidget.c:3818
+#61 0xb7c3b97d in gtk_vbox_size_allocate (widget=0x8443d10, allocation=0xbfae0b4c)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkvbox.c:234
+#62 0xb78d60ba in g_cclosure_marshal_VOID__BOXED () from /usr/lib/libgobject-2.0.so.0
+#63 0xb78c8079 in ?? () from /usr/lib/libgobject-2.0.so.0
+#64 0xb78c982f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#65 0xb78dd975 in ?? () from /usr/lib/libgobject-2.0.so.0
+---Type &lt;return&gt; to continue, or q &lt;return&gt; to quit---
+#66 0xb78df916 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#67 0xb78dfc59 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#68 0xb7c461ba in IA__gtk_widget_size_allocate (widget=0x8443d10, allocation=0xbfae0bb8)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkwidget.c:3818
+#69 0xb7c3b97d in gtk_vbox_size_allocate (widget=0x8443c70, allocation=0xbfae117c)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkvbox.c:234
+#70 0xb78d60ba in g_cclosure_marshal_VOID__BOXED () from /usr/lib/libgobject-2.0.so.0
+#71 0xb78c8079 in ?? () from /usr/lib/libgobject-2.0.so.0
+#72 0xb78c982f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#73 0xb78dd975 in ?? () from /usr/lib/libgobject-2.0.so.0
+#74 0xb78df916 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#75 0xb78dfc59 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#76 0xb7c461ba in IA__gtk_widget_size_allocate (widget=0x8443c70, allocation=0xbfae11ac)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkwidget.c:3818
+#77 0xb7c57521 in gtk_window_size_allocate (widget=0x84808e8, allocation=0xbfae176c)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkwindow.c:4733
+#78 0xb78d60ba in g_cclosure_marshal_VOID__BOXED () from /usr/lib/libgobject-2.0.so.0
+#79 0xb78c8079 in ?? () from /usr/lib/libgobject-2.0.so.0
+#80 0xb78c9759 in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#81 0xb78dd975 in ?? () from /usr/lib/libgobject-2.0.so.0
+#82 0xb78df916 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#83 0xb78dfc59 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#84 0xb7c461ba in IA__gtk_widget_size_allocate (widget=0x84808e8, allocation=0x848090c)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkwidget.c:3818
+#85 0xb7a83c0f in IA__gtk_container_resize_children (container=0x84808e8)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkcontainer.c:1424
+#86 0xb7c57a02 in gtk_window_check_resize (container=0x84808e8)
+---Type &lt;return&gt; to continue, or q &lt;return&gt; to quit---
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkwindow.c:6124
+#87 0xb78d6a4f in g_cclosure_marshal_VOID__VOID () from /usr/lib/libgobject-2.0.so.0
+#88 0xb78c8079 in ?? () from /usr/lib/libgobject-2.0.so.0
+#89 0xb78c9759 in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#90 0xb78ddea0 in ?? () from /usr/lib/libgobject-2.0.so.0
+#91 0xb78df916 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#92 0xb78dfc59 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#93 0xb7a83caa in IA__gtk_container_check_resize (container=0x84808e8)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkcontainer.c:1378
+#94 0xb7a83cf0 in gtk_container_idle_sizer (data=0x0)
+    at /build/buildd/gtk+2.0-2.12.9/gtk/gtkcontainer.c:1304
+#95 0xb796481b in gdk_threads_dispatch (data=0xaf11d020)
+    at /build/buildd/gtk+2.0-2.12.9/gdk/gdk.c:470
+#96 0xb783f081 in ?? () from /usr/lib/libglib-2.0.so.0
+#97 0xb7840bf8 in g_main_context_dispatch () from /usr/lib/libglib-2.0.so.0
+#98 0xb7843e5e in ?? () from /usr/lib/libglib-2.0.so.0
+#99 0xb78441e7 in g_main_loop_run () from /usr/lib/libglib-2.0.so.0
+#100 0xb7b1c264 in IA__gtk_main () at /build/buildd/gtk+2.0-2.12.9/gtk/gtkmain.c:1163
+#101 0x08262c1e in main (argc=1, argv=0xbfae20b4) at linux/wulfor.cc:75
+
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14233&amp;group_id=2230">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14233&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000464.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+	<LI>Next message: <A HREF="000466.html">[Linuxdcpp-developers] [Bug #14272] 1.0.2: can not browse files	without TTH
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#465">[ date ]</a>
+              <a href="thread.html#465">[ thread ]</a>
+              <a href="subject.html#465">[ subject ]</a>
+              <a href="author.html#465">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

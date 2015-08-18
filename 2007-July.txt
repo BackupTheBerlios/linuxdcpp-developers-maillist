@@ -1,0 +1,423 @@
+From stanislav.maslovski at gmail.com  Sun Jul  1 09:21:26 2007
+From: stanislav.maslovski at gmail.com (Stanislav Maslovski)
+Date: Sun, 1 Jul 2007 11:21:26 +0400
+Subject: [Linuxdcpp-developers] [PATCH] remove bogus CachedIp code
+In-Reply-To: <4686AFBF.8070907@gmail.com>
+References: <20070629081743.GA32103@shota.mine.nu> <4686AFBF.8070907@gmail.com>
+Message-ID: <20070701072126.GB3378@shota.mine.nu>
+
+On Sat, Jun 30, 2007 at 02:32:15PM -0500, Steven Sheehy wrote:
+> Please send this patch to arnetheduck at gmail.com to have it committed to upstream 
+> first. If he approves of it, I'll be glade to commit it to linuxdcpp.
+
+Forwarded.
+
+-- 
+Stanislav
+
+
+From cvs at linuxdcpp.berlios.de  Sat Jul  7 23:21:11 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sat, 7 Jul 2007 23:21:11 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200707072121.l67LLBPP011699@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 1216 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070707/57a183cf/attachment.xml>
+
+From admin at berlios.de  Wed Jul 11 21:11:54 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 11 Jul 2007 11:11:54 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Patch #2092] fixes Text::Convert when using
+	System default charset
+Message-ID: <200707111911.l6BJBsw4007541@unicorn.berlios.de>
+
+Patch #2092 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: piotrp
+Assigned to : none
+Summary: fixes Text::Convert when using System default charset
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2092&group_id=2230
+
+
+From admin at berlios.de  Sun Jul 15 03:57:26 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 14 Jul 2007 21:57:26 -0400 (EDT)
+Subject: [Linuxdcpp-developers] [Bug #11556] hashlist causes crash
+Message-ID: <200707150157.l6F1vQq7029430@unicorn.berlios.de>
+
+Bug #11556, was updated on 2007-Jul-14 21:57
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: rosc2112
+Assigned to : none
+Summary: hashlist causes crash
+
+Details: No clue why it's doing this, but it seems any time my shared files are over a certain size, dc++ crashes and then continues to crash when I try to restart it, with a sigbus error and very little clue about what's really going on.. I have to delete my hash files and start all over (which takes a dang long time :P)
+
+Here's a backtrace, maybe someone has a clue (using the latest cvs version as of today Jul14.) on a linux slackware v11 amd2100+ system, kernel v2.4.34, etc:
+
+
+GNU gdb 6.5
+Copyright (C) 2006 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "i486-slackware-linux"...Using host libthread_db library "/lib/libthread_db.so.1".
+
+(gdb) run
+Starting program: /usr/local/bin/dcpp
+[Thread debugging using libthread_db enabled]
+[New Thread 16384 (LWP 17812)]
+Thrown: FileException: Could not open file
+Thrown: FileException: Could not open file
+Loading: Hash database
+[New Thread 32769 (LWP 17813)]
+[New Thread 16386 (LWP 17814)]
+Loading: Shared Files
+UnBZFilter end, 299453/84010 = 3.5645
+[New Thread 32771 (LWP 17815)]
+Loading: Download Queue
+[New Thread 49156 (LWP 17816)]
+[New Thread 65541 (LWP 17817)]
+[New Thread 81926 (LWP 17818)]
+BufferedSocket::connect() 0x86e04f0
+[New Thread 98311 (LWP 17820)]
+BufferedSocket::run() start 0x86e04f0
+threadConnect lossless.rushdchub.com:411
+MyInfo rosc2112...
+
+Program received signal SIGBUS, Bus error.
+[Switching to Thread 16386 (LWP 17814)]
+0x407e02f7 in memcpy () from /lib/libc.so.6
+(gdb) backtrace full
+#0  0x407e02f7 in memcpy () from /lib/libc.so.6
+No symbol table info available.
+#1  0x08162d95 in TigerHash::update (this=0xbf7ff760, data=0x420de000, length=1024) at client/TigerHash.cpp:166
+        n = 63
+        tmppos = 1
+        str = (const uint8_t *) 0x420de000 <Address 0x420de000 out of bounds>
+        __PRETTY_FUNCTION__ = "void TigerHash::update(const void*, size_t)"
+#2  0x080bb447 in MerkleTree<TigerHash, 1024u>::update (this=0xbf7ff970, data=0x420de000, len=16777216)
+    at client/MerkleTree.h:105
+        n = 1024
+        h = {
+  tmp = "\000?k\b?????\233?@\r?s@??k\b\234\fv@??\177??o\001@?t\001@\234v\001@??\177??o\001@?t\001@\234v\001@??\177?l?\00
+0@", res = {81985529216486895, 18364758544493064720, 17336226011405279623}, pos = 1, static table = 0x8301b80}
+        buf = (uint8_t *) 0x420de000 <Address 0x420de000 out of bounds>
+        zero = 0 '\0'
+        i = 0
+#3  0x080db226 in HashManager::Hasher::fastHash (this=0x833fef0, filename=@0xbf7ffa80, tth=@0xbf7ff970,
+    size=894710478, xcrc32=0x0) at client/HashManager.cpp:629
+        fd = 9
+        size_left = 894710478
+        buf = (void *) 0x420de000
+        lastRead = 7272
+        pos = 0
+        size_read = 16777216
+#4  0x080db723 in HashManager::Hasher::run (this=0x833fef0) at client/HashManager.cpp:716
+        bs = 2097152
+        timestamp = 1175875672
+        slowTTH = {
+  blocks = {<std::_Vector_base<std::pair<HashValue<TigerHash>, int64_t>,std::allocator<std::pair<HashValue<TigerHash>, i
+nt64_t> > >> = {
+      _M_impl = {<std::allocator<std::pair<HashValue<TigerHash>, int64_t> >> = {<__gnu_cxx::new_allocator<std::pair<Hash
+Value<TigerHash>, int64_t> >> = {<No data fields>}, <No data fields>}, _M_start = 0x0, _M_finish = 0x0,
+        _M_end_of_storage = 0x0}}, <No data fields>},
+  leaves = {<std::_Vector_base<HashValue<TigerHash>,std::allocator<HashValue<TigerHash> > >> = {
+      _M_impl = {<std::allocator<HashValue<TigerHash> >> = {<__gnu_cxx::new_allocator<HashValue<TigerHash> >> = {<No dat
+a fields>}, <No data fields>}, _M_start = 0x0, _M_finish = 0x0, _M_end_of_storage = 0x0}}, <No data fields>},
+  root = {<FastAlloc<HashValue<TigerHash> >> = {<No data fields>}, static SIZE = 24,
+    data = "\000\000\000\0004?\177?\000\000\000\000\000\000\000\0004?\177?\000\000\000"}, fileSize = 0,
+  blockSize = 2097152}
+        tth = (TigerTree *) 0xbf7ff970
+        xcrc32 = (CRC32Filter *) 0x0
+        end = 3212835248
+        speed = -5570916710260285440
+        n = 0
+        f = {<IOStream> = {<InputStream> = {_vptr.InputStream = 0x82594e8}, <OutputStream> = {
+---Type <return> to continue, or q <return> to quit---
+      _vptr.OutputStream = 0x8259524}, <No data fields>}, h = 14}
+        start = 6974
+        crc32 = {crc = 0}
+        sfv = {crc32 = 0, crcFound = false}
+        fastTTH = {
+  blocks = {<std::_Vector_base<std::pair<HashValue<TigerHash>, int64_t>,std::allocator<std::pair<HashValue<TigerHash>, i
+nt64_t> > >> = {
+      _M_impl = {<std::allocator<std::pair<HashValue<TigerHash>, int64_t> >> = {<__gnu_cxx::new_allocator<std::pair<Hash
+Value<TigerHash>, int64_t> >> = {<No data fields>}, <No data fields>}, _M_start = 0x0, _M_finish = 0x0,
+        _M_end_of_storage = 0x0}}, <No data fields>},
+
+  leaves = {<std::_Vector_base<HashValue<TigerHash>,std::allocator<HashValue<TigerHash> > >> = {
+      _M_impl = {<std::allocator<HashValue<TigerHash> >> = {<__gnu_cxx::new_allocator<HashValue<TigerHash> >> = {<No dat
+a fields>}, <No data fields>}, _M_start = 0x0, _M_finish = 0x0, _M_end_of_storage = 0x0}}, <No data fields>},
+  root = {<FastAlloc<HashValue<TigerHash> >> = {<No data fields>}, static SIZE = 24,
+    data = "d?w at tsw@+\000\000\000(\221?@?\223?@??P\f"}, fileSize = 0, blockSize = 2097152}
+        size = 894710478
+        sizeLeft = 894710478
+        buf = (uint8_t *) 0x410dd008 ""
+        virtualBuf = false
+        fname = {static npos = 4294967295,
+  _M_dataplus = {<std::allocator<char>> = {<__gnu_cxx::new_allocator<char>> = {<No data fields>}, <No data fields>},
+    _M_p = 0x40f89b6c "/nfs.2/downloads/Rush.Boots/Soundboard.Recordings/Rush.1979.05.28.Black.Forest.SBD.zip"}}
+        last = true
+#5  0x08161d1c in Thread::starter (p=0x833fef0) at client/Thread.h:137
+        t = (class Thread *) 0x833fef0
+#6  0x4003cf5b in pthread_start_thread () from /lib/libpthread.so.0
+No symbol table info available.
+#7  0x4003cfdf in pthread_start_thread_event () from /lib/libpthread.so.0
+No symbol table info available.
+#8  0x4083cbea in clone () from /lib/libc.so.6
+No symbol table info available.
+(gdb)
+
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=11556&group_id=2230
+
+
+From admin at berlios.de  Tue Jul 17 19:13:03 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 17 Jul 2007 19:13:03 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #2099] Password dialog accepts enter
+Message-ID: <200707171713.l6HHD34P018195@unicorn.berlios.de>
+
+Patch #2099 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: kotnik
+Assigned to : none
+Summary: Password dialog accepts enter
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2099&group_id=2230
+
+
+From admin at berlios.de  Sat Jul 21 01:38:58 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 20 Jul 2007 23:38:58 GMT
+Subject: [Linuxdcpp-developers] [Bug #11597] Disconnected showing before no
+	slots available
+Message-ID: <200707202338.l6KNcwVA014240@unicorn.berlios.de>
+
+Bug #11597, was updated on 2007-Jul-20 23:38
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: stevensheehy
+Assigned to : none
+Summary: Disconnected showing before no slots available
+
+Details: Currently the transfer view shows "Disconnected" instead of "No slots available" as it should do. Would be nice if someone could look into this and fix it since I get complaints about this all the time. In my opinion, I think it should be fixed in the DC++ core (client/) instead of in the gui. If someone does fix it, please also send it upstream to DC++.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=11597&group_id=2230
+
+
+From admin at berlios.de  Mon Jul 23 03:45:27 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 23 Jul 2007 03:45:27 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Bug #11615] Quickconnext: default action in
+	dialog
+Message-ID: <200707230145.l6N1jReD006982@unicorn.berlios.de>
+
+Bug #11615, was updated on 2007-Jul-23 03:45
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: cpina
+Assigned to : none
+Summary: Quickconnext: default action in dialog
+
+Details: Hello,
+
+This is just a wishlist: in File-Quickconnect I would like to be able to write the IP or name server and press "Enter" (Yes, I have some mania :-) ). I send a very small patch to do it, against last CVS version:
+
+Index: glade/mainwindow.glade
+===================================================================
+RCS file: /cvsroot/linuxdcpp/linuxdcpp/glade/mainwindow.glade,v
+retrieving revision 1.40
+diff -u -r1.40 mainwindow.glade
+--- glade/mainwindow.glade      7 Jul 2007 21:21:06 -0000       1.40
++++ glade/mainwindow.glade      23 Jul 2007 01:32:55 -0000
+@@ -617,6 +617,7 @@
+                         <property name="visible">True</property>
+                         <property name="can_focus">True</property>
+                         <property name="invisible_char">*</property>
++                        <property name="activates_default">True</property>
+                       </widget>
+                     </child>
+                   </widget>
+@@ -658,6 +659,7 @@
+                 <property name="visible">True</property>
+                 <property name="can_focus">True</property>
+                 <property name="can_default">True</property>
++                <property name="has_default">True</property>
+                 <property name="response_id">-5</property>
+                 <child>
+                   <widget class="GtkAlignment" id="alignment3">
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=11615&group_id=2230
+
+
+From carles at pina.cat  Sun Jul 29 01:50:52 2007
+From: carles at pina.cat (Carles Pina i Estany)
+Date: Sun, 29 Jul 2007 01:50:52 +0200
+Subject: [Linuxdcpp-developers] Quick connect and IP
+Message-ID: <20070728235052.GA26495@pinux.info>
+
+
+Hello,
+
+I miss a "stupid" thing in Linuxdcpp. The thing is that I miss that
+quickconnect remembers the last used IP.
+
+Is anyone working on it? (to not duplicate work). Maybe next days I
+would implement it (or maybe no, just I will take a look on source code,
+like I did in "default action in dialog...", Bug 11615 :-) )
+
+Thank you,
+
+-- 
+Carles Pina i Estany		GPG id: 0x8CBDAE64
+	http://pinux.info	Manresa - Barcelona
+
+
+From admin at berlios.de  Sun Jul 29 20:08:46 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 29 Jul 2007 21:08:46 +0300 (EEST)
+Subject: [Linuxdcpp-developers] [Patch #2113] #011597 Disconnected instead
+	of no slots
+Message-ID: <200707291808.l6TI8kQT024425@unicorn.berlios.de>
+
+Patch #2113 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: razzloss
+Assigned to : none
+Summary: #011597 Disconnected instead of no slots
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2113&group_id=2230
+
+
+From steven.sheehy at gmail.com  Mon Jul 30 05:44:38 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sun, 29 Jul 2007 22:44:38 -0500
+Subject: [Linuxdcpp-developers] Quick connect and IP
+In-Reply-To: <20070728235052.GA26495@pinux.info>
+References: <20070728235052.GA26495@pinux.info>
+Message-ID: <46AD5EA6.8050400@gmail.com>
+
+Carles Pina i Estany wrote:
+> Hello,
+> 
+> I miss a "stupid" thing in Linuxdcpp. The thing is that I miss that
+> quickconnect remembers the last used IP.
+> 
+> Is anyone working on it? (to not duplicate work). Maybe next days I
+> would implement it (or maybe no, just I will take a look on source code,
+> like I did in "default action in dialog...", Bug 11615 :-) )
+> 
+> Thank you,
+> 
+
+Doesn't it already remember the last text inputted? When you open the dialog, 
+enter text, close it, and re-open it it will display the previously entered text 
+currently.
+
+Steven
+
+
+From admin at berlios.de  Tue Jul 31 20:47:33 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 31 Jul 2007 20:47:33 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Bug #11670] saves quick connect address
+	(with patch)
+Message-ID: <200707311847.l6VIlXq6013421@unicorn.berlios.de>
+
+Bug #11670, was updated on 2007-Jul-31 20:47
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: cpina
+Assigned to : none
+Summary: saves quick connect address (with patch)
+
+Details: Wishlist: File - QuickConnect remembers the last address used (even closing DirectConnect and opening again).
+
+"TestCase": in last LAN party everybody was loosing the HUB IP :-)
+
+Patch: it should shave this in configuration file and display it back.
+
+Carles
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=11670&group_id=2230
+
+
+From admin at berlios.de  Tue Jul 31 20:50:06 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 31 Jul 2007 20:50:06 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #2118] Saves QuickConnect address
+Message-ID: <200707311850.l6VIo60a018344@unicorn.berlios.de>
+
+Patch #2118 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: cpina
+Assigned to : none
+Summary: Saves QuickConnect address
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2118&group_id=2230
+
+

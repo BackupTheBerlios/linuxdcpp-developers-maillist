@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] Request to fix 1.0.1 tarball.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Request%20to%20fix%201.0.1%20tarball.&In-Reply-To=%3Cop.t3ye5ek79aq2h7%40mezz.mezzweb.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000290.html">
+   <LINK REL="Next"  HREF="000295.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] Request to fix 1.0.1 tarball.</H1>
+    <B>Jeremy Messenger</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Request%20to%20fix%201.0.1%20tarball.&In-Reply-To=%3Cop.t3ye5ek79aq2h7%40mezz.mezzweb.com%3E"
+       TITLE="[Linuxdcpp-developers] Request to fix 1.0.1 tarball.">mezz7 at cox.net
+       </A><BR>
+    <I>Wed Dec 26 19:04:16 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000290.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+        <LI>Next message: <A HREF="000295.html">[Linuxdcpp-developers] Request to fix 1.0.1 tarball.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#291">[ date ]</a>
+              <a href="thread.html#291">[ thread ]</a>
+              <a href="subject.html#291">[ subject ]</a>
+              <a href="author.html#291">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+The tarball of 1.0.1 doesn't work because of permission issue when it  
+installed. All of user accounts end up not able to run LinuxDC++ unless  
+they are in root account.
+
+=========================================
+% linuxdcpp
+Loading: Hash database
+Loading: Shared Files
+Loading: Download Queue
+I/O error : Permission denied
+I/O error : Permission denied
+I/O warning : failed to load external entity  
+&quot;/usr/local/share/linuxdcpp/glade/mainwindow.glade&quot;
+[...]
+(linuxdcpp:14483): Gtk-WARNING **: Error loading icon from file  
+'/usr/local/share/linuxdcpp/pixmaps/linuxdcpp-icon.png':
+	Failed to open file  
+'/usr/local/share/linuxdcpp/pixmaps/linuxdcpp-icon.png': Permission denied
+[...]
+(linuxdcpp:14483): Gtk-CRITICAL **:  
+gtk_tree_view_column_set_sort_indicator: assertion  
+`GTK_IS_TREE_VIEW_COLUMN (tree_column)' failed
+[1]    14483 segmentation fault (core dumped)  linuxdcpp
+=========================================
+
+=========================================
+# ls -l /usr/local/share/linuxdcpp/glade/
+total 446
+-rwx------  1 root  wheel   15772 Nov 10 12:17 downloadqueue.glade*
+-rwx------  1 root  wheel   24478 Jul 18 18:58 favoritehubs.glade*
+-rwx------  1 root  wheel    3832 Dec  1 14:52 finishedtransfers.glade*
+-rwx------  1 root  wheel    5816 Jul 18 19:03 hash.glade*
+-rwx------  1 root  wheel   11916 Dec  6 23:30 hub.glade*
+-rwx------  1 root  wheel   57414 Dec 25 13:36 mainwindow.glade*
+-rwx------  1 root  wheel    3797 Dec  6 23:22 privatemessage.glade*
+-rwx------  1 root  wheel   14010 Jul 18 19:05 publichubs.glade*
+-rwx------  1 root  wheel   21653 Nov 25 13:22 search.glade*
+-rwx------  1 root  wheel  259555 Dec 25 12:55 settingsdialog.glade*
+-rwx------  1 root  wheel   13880 Nov 10 12:12 sharebrowser.glade*
+=========================================
+
+Also, to extract the tarball and it doesn't put inside linuxdcpp-1.0.1,  
+which it extracts all over in my folder. I had to create linuxdcpp-1.0.1  
+folder first and extract inside linuxdcpp-1.0.1. Anyway, the permission  
+issues are on near all of files in the tarball.
+
+=========================================
+# ls -l linuxdcpp-1.0.1/glade
+total 446
+-rwx------  1 1000  1000   15772 Nov 10 12:17 downloadqueue.glade*
+-rwx------  1 1000  1000   24478 Jul 18 18:58 favoritehubs.glade*
+-rwx------  1 1000  1000    3832 Dec  1 14:52 finishedtransfers.glade*
+[...]
+
+# ls -l linuxdcpp-1.0.1/pixmaps
+total 54
+-rwx------  1 1000  1000   1505 Jul  7 15:57 FinishedDL.png*
+-rwx------  1 1000  1000   1480 Jul  7 15:57 FinishedUL.png*
+-rwx------  1 1000  1000   1083 Jul  7 15:57 connect.png*
+[...]
+=========================================
+
+Cheers,
+Mezz
+
+
+-- 
+<A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">mezz7 at cox.net</A>  -  <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">mezz at FreeBSD.org</A>
+FreeBSD GNOME Team  -  FreeBSD Multimedia Hat (ports, not src)
+<A HREF="http://www.FreeBSD.org/gnome/">http://www.FreeBSD.org/gnome/</A>  -  <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">gnome at FreeBSD.org</A>
+<A HREF="http://wiki.freebsd.org/multimedia">http://wiki.freebsd.org/multimedia</A>  -  <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">multimedia at FreeBSD.org</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000290.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+	<LI>Next message: <A HREF="000295.html">[Linuxdcpp-developers] Request to fix 1.0.1 tarball.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#291">[ date ]</a>
+              <a href="thread.html#291">[ thread ]</a>
+              <a href="subject.html#291">[ subject ]</a>
+              <a href="author.html#291">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

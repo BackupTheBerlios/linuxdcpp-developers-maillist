@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Bug #10891] Move of tree in dl queue	flattens the tree
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2310891%5D%20Move%20of%20tree%20in%20dl%20queue%0A%09flattens%20the%20tree&In-Reply-To=%3C200704151927.l3FJRTkd028515%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000098.html">
+   <LINK REL="Next"  HREF="000101.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Bug #10891] Move of tree in dl queue	flattens the tree</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2310891%5D%20Move%20of%20tree%20in%20dl%20queue%0A%09flattens%20the%20tree&In-Reply-To=%3C200704151927.l3FJRTkd028515%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Bug #10891] Move of tree in dl queue	flattens the tree">admin at berlios.de
+       </A><BR>
+    <I>Sun Apr 15 21:27:29 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000098.html">[Linuxdcpp-developers] [Bug #10890] LinuxDc++ eats up all upload	band.
+</A></li>
+        <LI>Next message: <A HREF="000101.html">[Linuxdcpp-developers] [Bug #10893] Long MOTD message let's	downloading fail?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#99">[ date ]</a>
+              <a href="thread.html#99">[ thread ]</a>
+              <a href="subject.html#99">[ subject ]</a>
+              <a href="author.html#99">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #10891, was updated on 2007-Apr-15 21:27
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: stoft
+Assigned to : none
+Summary: Move of tree in dl queue flattens the tree
+
+Details: In the download queue, when moving files in several subdirectories from one target dl directory to another, the tree is flattened.
+
+E.g.:
+
+/incoming_disk1 has the following:
+ - Directory1
+   - Subdirectory1
+      - file1
+   - Subdirectory2
+      - file2
+
+and move Directory1 to another target the structure gets flattened thus:
+/incoming_disk2
+ - file1
+ - file2
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=10891&amp;group_id=2230">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=10891&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000098.html">[Linuxdcpp-developers] [Bug #10890] LinuxDc++ eats up all upload	band.
+</A></li>
+	<LI>Next message: <A HREF="000101.html">[Linuxdcpp-developers] [Bug #10893] Long MOTD message let's	downloading fail?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#99">[ date ]</a>
+              <a href="thread.html#99">[ thread ]</a>
+              <a href="subject.html#99">[ subject ]</a>
+              <a href="author.html#99">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

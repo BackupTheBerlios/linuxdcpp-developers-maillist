@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Bug #10552] CPU high usage
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2310552%5D%20CPU%20high%20usage&In-Reply-To=%3C200703031610.l23GAHNO006919%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000057.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Bug #10552] CPU high usage</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2310552%5D%20CPU%20high%20usage&In-Reply-To=%3C200703031610.l23GAHNO006919%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Bug #10552] CPU high usage">admin at berlios.de
+       </A><BR>
+    <I>Sat Mar  3 17:10:17 CET 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000057.html">[Linuxdcpp-developers] [PATCH] getting filelists from users with	nicks in localized	charsets (russian, etc.)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#56">[ date ]</a>
+              <a href="thread.html#56">[ thread ]</a>
+              <a href="subject.html#56">[ subject ]</a>
+              <a href="author.html#56">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #10552, was updated on 2007-Mar-03 18:10
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: iancumihai
+Assigned to : none
+Summary: CPU high usage
+
+Details: Hello,
+
+There is a high cpu usage when the users number is pretty
+big (10.000 users)
+
+here is what i have found using a little gprof.
+Allocating a hashmap for each event (10.000 all at once - when joining a hub)
+and also creating a new Func1 (waiting for mem-allocator)
+can keep the system quite busy.
+
+I think a smart reallocation (taking *func from a pool)
+can be an optimization?
+
+I will do so more research whenever i will have the time.
+
+Here is the function with the problem. Commenting this
+drops cpu usage to 1-10% (but there no users anymore :) ) 
+
+void Hub::on(ClientListener::UserUpdated, Client *, const OnlineUser &amp;user) throw()
+{
+	Identity id = user.getIdentity();
+
+	if (!id.isHidden())
+	{
+		StringMap params;
+		getParams_client(params, id);
+		Func1&lt;Hub, StringMap&gt; *func = new Func1&lt;Hub, StringMap&gt;(this, &amp;Hub::updateUser_gui, params);
+		WulforManager::get()-&gt;dispatchGuiFunc(func);
+	}
+}
+
+Cheers,
+Mihai
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=10552&amp;group_id=2230">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=10552&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000057.html">[Linuxdcpp-developers] [PATCH] getting filelists from users with	nicks in localized	charsets (russian, etc.)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#56">[ date ]</a>
+              <a href="thread.html#56">[ thread ]</a>
+              <a href="subject.html#56">[ subject ]</a>
+              <a href="author.html#56">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

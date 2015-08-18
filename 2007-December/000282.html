@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [PATCH] cursor over tags update
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPATCH%5D%20cursor%20over%20tags%20update&In-Reply-To=%3C20071215165528.GA21505%40shota.mine.nu%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000281.html">
+   <LINK REL="Next"  HREF="000283.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [PATCH] cursor over tags update</H1>
+    <B>Stanislav Maslovski</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPATCH%5D%20cursor%20over%20tags%20update&In-Reply-To=%3C20071215165528.GA21505%40shota.mine.nu%3E"
+       TITLE="[Linuxdcpp-developers] [PATCH] cursor over tags update">stanislav.maslovski at gmail.com
+       </A><BR>
+    <I>Sat Dec 15 17:55:28 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000281.html">[Linuxdcpp-developers] [Patch #2279] Another bind address fix
+</A></li>
+        <LI>Next message: <A HREF="000283.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#282">[ date ]</a>
+              <a href="thread.html#282">[ thread ]</a>
+              <a href="subject.html#282">[ subject ]</a>
+              <a href="author.html#282">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+The gui code that treats urls or other tags in hub chat and PM windows does
+not work properly. When moved over the active text (tag) the cursor either does
+not change at all or changes in an unpredictable manner, or stays as hand after
+a click and moving the pointer off the tag, etc. 
+
+Therefore, I have changed its logic so that it is now somewhat intermediate
+between the original code of the magnet patch and Steven's code.
+
+It was also clear that there was some duplication of code in hub.cc and
+privatemessage.cc. I decided not to touch this and I simply edited the
+code in both places.
+
+The patch is attached.
+
+-- 
+Stanislav
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: linuxdcpp-cursor-over-tag.patch
+Type: text/x-diff
+Size: 7108 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071215/a18247ff/attachment.patch">https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071215/a18247ff/attachment.patch</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000281.html">[Linuxdcpp-developers] [Patch #2279] Another bind address fix
+</A></li>
+	<LI>Next message: <A HREF="000283.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#282">[ date ]</a>
+              <a href="thread.html#282">[ thread ]</a>
+              <a href="subject.html#282">[ subject ]</a>
+              <a href="author.html#282">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

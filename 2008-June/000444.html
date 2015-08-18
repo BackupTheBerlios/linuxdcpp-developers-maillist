@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Feature #4186] just simple script for you
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BFeature%20%234186%5D%20just%20simple%20script%20for%20you&In-Reply-To=%3C200806141127.m5EBRURH020269%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000443.html">
+   <LINK REL="Next"  HREF="000445.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Feature #4186] just simple script for you</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BFeature%20%234186%5D%20just%20simple%20script%20for%20you&In-Reply-To=%3C200806141127.m5EBRURH020269%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Feature #4186] just simple script for you">admin at berlios.de
+       </A><BR>
+    <I>Sat Jun 14 13:27:30 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000443.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+        <LI>Next message: <A HREF="000445.html">[Linuxdcpp-developers] [Feature #4187] CPU TIME
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#444">[ date ]</a>
+              <a href="thread.html#444">[ thread ]</a>
+              <a href="subject.html#444">[ subject ]</a>
+              <a href="author.html#444">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Feature Request #4186, was updated on 2008-Jun-14 15:27
+You can respond by visiting: 
+<A HREF="http://developer.berlios.de/feature/?func=detailfeature&amp;feature_id=4186&amp;group_id=2230">http://developer.berlios.de/feature/?func=detailfeature&amp;feature_id=4186&amp;group_id=2230</A>
+
+Category: None
+Status: Open
+Priority: 5
+Summary: just simple script for you
+
+By: guest
+Date: 2008-Jun-14 15:27
+
+Message:
+Logged In: YES 
+user_id=46391
+Browser: Opera/9.26 (X11; Linux i686; U; en)
+
+I use this simple bash scroptie to assign public IP to the client 
+each time it is restarted. My ISP tends to change IP every 12 
+hours, so when this happens Linuxdcpp crashes badly. BUT script 
+retrives new address, feeds it to the client and restarts it. quite 
+ugly, but working solution. Maybe it would be ok to build such a 
+function inside program itself. Script following:
+#~/bin/bash
+hostname=`hostname`
+cd &quot;~/.dc++/&quot;
+log=&quot;/home/headhunter/.dcpp_crash_log&quot;
+#30 is just some value in case it gets stuck on restart-fail cycle.
+for (( i=0 ; i&lt;30; i++))
+do
+        #cut parameters are not a good style, maybe sed would be 
+better
+        IP=`host $hostname | cut -c 38-`
+        echo &quot;running attempt $i with IP $IP&quot; &gt;&gt;$log
+        cat DCPlusPlus.xml | head -n 7 &gt; 1.tmp
+        echo '          &lt;ExternalIp type=&quot;string&quot;&gt;'$IP'&lt;/ExternalIp&gt;' 
+&gt;&gt;<i>1.tmp
+</I>        cat DCPlusPlus.xml | tail -n +9 &gt;&gt;1.tmp
+        mv 1.tmp DCPlusPlus.xml
+        sleep 2
+        nice -n 3 linuxdcpp &gt;&gt;$log
+done
+
+of course, all debug info goes to log as well as ip's obtained from 
+ISP. Good luck, answer directly to email in my profile.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+<A HREF="http://developer.berlios.de/feature/?func=detailfeature&amp;feature_id=4186&amp;group_id=2230">http://developer.berlios.de/feature/?func=detailfeature&amp;feature_id=4186&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000443.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+	<LI>Next message: <A HREF="000445.html">[Linuxdcpp-developers] [Feature #4187] CPU TIME
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#444">[ date ]</a>
+              <a href="thread.html#444">[ thread ]</a>
+              <a href="subject.html#444">[ subject ]</a>
+              <a href="author.html#444">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

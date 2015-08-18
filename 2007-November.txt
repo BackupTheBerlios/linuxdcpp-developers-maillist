@@ -1,0 +1,1410 @@
+From admin at berlios.de  Thu Nov  1 07:12:09 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 31 Oct 2007 22:12:09 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Bug #12310] Segmentation fault
+Message-ID: <200711010612.lA16C9WV014869@unicorn.berlios.de>
+
+Bug #12310, was updated on 2007-Oct-31 22:12
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: prinsedje80
+Assigned to : none
+Summary: Segmentation fault
+
+Details: I know I should be giving a detailed report, but currently I do not know what triggers the crash. I'm using the latest CVS version (28/10/2007).
+
+I just keep it running and at some point the icon in my tray disappears. I left the startup open and I noticed that it exits with status 139. And I hope this might help. What I can do a next time (although time is limited for me) is compile it with debug=1, run it and hope it crashes. It has happened now three times over the period of roughly an hour. I hope to have more details later, although I hope that the exit status info might help.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12310&group_id=2230
+
+
+From admin at berlios.de  Thu Nov  1 14:40:34 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 1 Nov 2007 14:40:34 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Feature #3820] right-clicking in chat
+Message-ID: <200711011340.lA1DeY88013145@unicorn.berlios.de>
+
+Feature Request #3820, was updated on 2007-Nov-01 14:40
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3820&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: right-clicking in chat
+
+By: sumesz
+Date: 2007-Nov-01 14:40
+
+Message:
+Logged In: YES 
+user_id=41788
+Browser: Mozilla/5.0 (X11; U; Linux i686; hu; rv:1.8.1.8) Gecko/20071022 Ubuntu/7.10 (gutsy) Firefox/2.0.0.8 Ubuntu
+
+hi
+I have a simple request. you can do it patch for jump
+to the user in the userlist when right-clicking on a
+nick in chat?
+thanks: sumesz
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3820&group_id=2230
+
+
+From admin at berlios.de  Sat Nov  3 00:25:47 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 3 Nov 2007 01:25:47 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Bug #12324] Not able to do a search nor to
+	get file list from others
+Message-ID: <200711022325.lA2NPl5x021309@unicorn.berlios.de>
+
+Bug #12324, was updated on 2007-Nov-03 01:25
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: cfg1
+Assigned to : none
+Summary: Not able to do a search nor to get file list from others
+
+Details: I have a RHEL 5. I got the latest cvs.
+
+I can connect to any hub.
+When try to do a search nothing came ...
+When try to get files list, it end up, after a while, with connection time out.
+
+So practically I'm not able to use Linuxdcpp.
+
+I run linuxdcpp from a generic user, in the terminal I got:
+(linuxdcpp:5429): Pango-WARNING **: Invalid UTF-8 string passed to pango_layout_set_text()
+
+
+Please help.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12324&group_id=2230
+
+
+From admin at berlios.de  Wed Nov  7 11:44:34 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 7 Nov 2007 11:44:34 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #2231] users interactive search by
+	regular expression
+Message-ID: <200711071044.lA7AiYWJ028384@unicorn.berlios.de>
+
+Patch #2231 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: terran
+Assigned to : none
+Summary:  users interactive search by regular expression 
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2231&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Thu Nov  8 05:29:06 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Thu, 8 Nov 2007 05:29:06 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200711080429.lA84T6Qn020821@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 636 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071108/f0f70da1/attachment.xml>
+
+From steven.sheehy at gmail.com  Thu Nov  8 05:45:02 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Wed, 07 Nov 2007 22:45:02 -0600
+Subject: [Linuxdcpp-developers] CVS Commit
+In-Reply-To: <200711080429.lA84T6Qn020821@sheep.berlios.de>
+References: <200711080429.lA84T6Qn020821@sheep.berlios.de>
+Message-ID: <4732944E.4050100@gmail.com>
+
+cvs at linuxdcpp.berlios.de wrote:
+> <message>
+>    <generator>
+>        <name>CIA Perl client for CVS</name>
+>        <version>2.4</version>
+>        <url>http://cia.navi.cx/clients/cvs/ciabot_cvs.pl</url>
+>    </generator>
+>    <source>
+>        <project>linuxdcpp</project>
+>        <module>linuxdcpp</module>
+>    </source>
+>    <timestamp>1194496146</timestamp>
+>    <body>
+>        <commit>
+>            <author>stevensheehy</author>
+>            <files>
+>              <file>Changelog.txt</file>
+>              <file>linux/entry.cc</file>
+>            </files>
+>            <log>
+> Fixed search results from sometimes never appearing in the GUI.
+>            </log>
+>        </commit>
+>    </body>
+> </message>
+
+Hello all,
+
+I switched the format of the changelog so that individual changes could be 
+associated more easily with their release version. Also, I will be changing how 
+I go about doing commits from now on. Instead of doing a large number of changes 
+on my local copy then committing them all at once, I will be committing a fix as 
+soon I've compiled and tested it. Thus each future CVS commit should only have 
+one fix in it. This should allow users to get the very latest fixes and it 
+should allow patch writers to create patches on top of the very latest code; 
+making my life more easier when I merge their changes ;). If these CVS commit 
+emails start spamming the list too often, I will disable them.
+
+Regards,
+Steven Sheehy
+
+
+From nagatoro at gmail.com  Thu Nov  8 06:33:03 2007
+From: nagatoro at gmail.com (Naga)
+Date: Thu, 8 Nov 2007 06:33:03 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+In-Reply-To: <4732944E.4050100@gmail.com>
+References: <200711080429.lA84T6Qn020821@sheep.berlios.de>
+	<4732944E.4050100@gmail.com>
+Message-ID: <200711080633.03386.nagatoro@gmail.com>
+
+On Thursday 08 November 2007 05:45:02 Steven Sheehy wrote:
+> changes ;). If these CVS commit emails start spamming the list too often, I
+> will disable them.
+
+Keep em spamming... :)
+
+-- 
+Naga
+
+
+From admin at berlios.de  Sun Nov 11 11:02:02 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 11 Nov 2007 11:02:02 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #2237] User commands - search menu
+Message-ID: <200711111002.lABA22mC001627@unicorn.berlios.de>
+
+Patch #2237 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: windkracht8
+Assigned to : none
+Summary: User commands - search menu
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2237&group_id=2230
+
+
+From admin at berlios.de  Sun Nov 11 23:10:50 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 11 Nov 2007 13:10:50 -0900 (AKST)
+Subject: [Linuxdcpp-developers] [Bug #12401] Toolbar style should default to
+	the environment setting
+Message-ID: <200711112210.lABMAoPg007948@unicorn.berlios.de>
+
+Bug #12401, was updated on 2007-Nov-11 13:10
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: er-ku
+Assigned to : none
+Summary: Toolbar style should default to the environment setting
+
+Details: From Changelog:
+[2007-10-13] Added an option to specify the main toolbar style.
+
+Implementation of this feature actually breaks stuff: LinuxDC++ no longer obeys the same setting I've set in Gnome. This sucks, because I certainly don't want to configure toolbar style for every application I use, and I want at least GTK-based applications to follow the setting I set in a GTK-based environment.
+
+I don't mind LDC++ having this feature, but in such case a "default" setting should be available and defaulted to.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12401&group_id=2230
+
+
+From alextud at gmail.com  Mon Nov 12 22:40:03 2007
+From: alextud at gmail.com (Alexandru Tudose)
+Date: Mon, 12 Nov 2007 23:40:03 +0200
+Subject: [Linuxdcpp-developers] Make search more suggestive
+In-Reply-To: <878a2ed60710300757p260e7087xf30f29d2f69856f7@mail.gmail.com>
+References: <878a2ed60710291512o4b3a383aw32b10d2ad7bf7590@mail.gmail.com>
+	<878a2ed60710300757p260e7087xf30f29d2f69856f7@mail.gmail.com>
+Message-ID: <878a2ed60711121340h2c3ad0b4te05e85a49c15b0e1@mail.gmail.com>
+
+Is there anyway to add icons for those 6 mime type, or to create new ones.
+Also we can include them in ShareManager class.
+ Another way will be to add those icons only if user use gnome
+specifications, to test at compilation time.
+
+On 30/10/2007, Alexandru Tudose <alextud at gmail.com> wrote:
+>
+> Those icons should be present in any gnome icon theme in section MimeTypes
+> and folder icon in section places.
+>
+> http://library.gnome.org/devel/icon-naming-spec/
+>
+>
+> On 30/10/2007, Alexandru Tudose <alextud at gmail.com> wrote:
+> >
+> > Hello,
+> >
+> > I make this patch to add  6 more icons for files type defined in
+> > SearchManager to make search more suggestive.
+> > Please include this in linuxdcpp,.
+> >
+> >
+> >
+> > Thanks.
+> >
+> >
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071112/f0f4f59a/attachment.html>
+
+From admin at berlios.de  Tue Nov 13 23:52:44 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 13 Nov 2007 14:52:44 -0800 (PST)
+Subject: [Linuxdcpp-developers] [Patch #2240] Patches to allow compilation
+	on OpenBSD
+Message-ID: <200711132252.lADMqiUj003168@unicorn.berlios.de>
+
+Patch #2240 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: jeremyevans
+Assigned to : none
+Summary: Patches to allow compilation on OpenBSD
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2240&group_id=2230
+
+
+From admin at berlios.de  Tue Nov 13 23:54:22 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 13 Nov 2007 14:54:22 -0800 (PST)
+Subject: [Linuxdcpp-developers] [Patch #2241] Fix bind address on UDP socket
+Message-ID: <200711132254.lADMsMjj008844@unicorn.berlios.de>
+
+Patch #2241 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: jeremyevans
+Assigned to : none
+Summary: Fix bind address on UDP socket
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2241&group_id=2230
+
+
+From admin at berlios.de  Wed Nov 14 10:24:32 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 14 Nov 2007 10:24:32 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Bug #12429] Uploaded/finished records with
+	frozen speed value
+Message-ID: <200711140924.lAE9OWNI022644@unicorn.berlios.de>
+
+Bug #12429, was updated on 2007-Nov-14 10:24
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: rpolach
+Assigned to : none
+Summary: Uploaded/finished records with frozen speed value
+
+Details: When a particular download/upload from/to an user finishes,
+the status changes to Done (e.g.) but in Speed column there
+is still a last speed value displayed.. so after some time there
+are many "dead" values here that confuse user if he wants to
+see e.g. highest current speeds (sorted view by Speed column).
+Moreover sum of displayed speed values several times exceeds
+line capacity which is confusing too.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12429&group_id=2230
+
+
+From admin at berlios.de  Wed Nov 14 22:19:51 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 15 Nov 2007 00:19:51 +0300 (MSK)
+Subject: [Linuxdcpp-developers] [Feature #3840] Define WM_WINDOW_ROLE for
+	main window
+Message-ID: <200711142119.lAELJpK0013634@unicorn.berlios.de>
+
+Feature Request #3840, was updated on 2007-Nov-15 00:19
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3840&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Define WM_WINDOW_ROLE for main window
+
+By: rikz
+Date: 2007-Nov-15 00:19
+
+Message:
+Logged In: YES 
+user_id=42089
+Browser: Opera/9.50 (X11; Linux i686; U; ru)
+
+I'm using Openbox3 as a window manager. It has built-in per-
+application configuration which allows me to start each application 
+with its own window parameters. I want to force Linux DC++ to start 
+in fullscreen mode, accoding to Openbox manual I can identify 
+application with WM_CLASS or WM_WINDOW_ROLE.  http://
+icculus.org/openbox/index.php/
+Help:Applications#Finding_the_class.2C_name_and_role_parameters
+
+If I use WM_CLASS with Linux DC++, the preferences that I want to 
+use are also applied to the file open dialog so it is made fullscreen 
+too. Can you please define the WM_WINDOW_ROLE variable for the 
+Linux DC++ main window? As far as I understand it won't have any 
+negative effects for any of ldcpp users, and I hope its not very hard 
+to implement.
+
+Thanks!
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3840&group_id=2230
+
+
+From pergoransson at gmail.com  Sat Nov 17 20:21:52 2007
+From: pergoransson at gmail.com (=?ISO-8859-1?Q?Per_G=F6ransson?=)
+Date: Sat, 17 Nov 2007 20:21:52 +0100
+Subject: [Linuxdcpp-developers] [patch] Mac OS X 10.5 support
+Message-ID: <98eb9d2a0711171121h69983006ge6c1811bf596b25d@mail.gmail.com>
+
+Hiya!
+First time poster. I took myself together and made a few adjustments
+to get linuxdc++ to work on mac os x 10.5.
+First of, i installed all the deps for linuxdc++ through macports.
+works great, except for iconv. This is issued by apple by default
+hence a small modification had to be issued so the SConstruct file.
+This and a casting problem in Text.cpp is all that was needed. I dont
+have a machine with Linux or any other OS so i dont know if this
+breaks anything for other people...
+Hope someone else finds this usefull.
+
+Im attaching the complete SConstruct and the Text.cpp.
+
+Best Regards
+Per G?ransson
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: SConstruct
+Type: application/octet-stream
+Size: 8096 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071117/c76719c4/attachment.obj>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: Text.cpp
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071117/c76719c4/attachment.ksh>
+
+From alextud at gmail.com  Sat Nov 17 12:39:54 2007
+From: alextud at gmail.com (Alexandru Tudose)
+Date: Sat, 17 Nov 2007 13:39:54 +0200
+Subject: [Linuxdcpp-developers] Support for old clients
+Message-ID: <878a2ed60711170339v4622fb7m4d071e7f76d22a25@mail.gmail.com>
+
+        I have created a new patch to add support for old dc clients, that
+doesn't use TTH and xml filelist. Please test, maybe you know better where I
+have introduce some bugs.
+        In windows land are more dc clients from where to choose, maybe this
+should be present as separate patch for those where linuxdcpp is only dc
+client. At least they should know that it exists.
+
+   Thanks.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071117/a8594698/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: linuxdcpp_support_odc.patch
+Type: text/x-patch
+Size: 44208 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071117/a8594698/attachment.bin>
+
+From pergoransson at gmail.com  Sat Nov 17 22:00:01 2007
+From: pergoransson at gmail.com (=?ISO-8859-1?Q?Per_G=F6ransson?=)
+Date: Sat, 17 Nov 2007 22:00:01 +0100
+Subject: [Linuxdcpp-developers] [Patch] Mac OS X 10.5 support
+Message-ID: <98eb9d2a0711171300i7157b1f0sf4c74b7f037fd2d4@mail.gmail.com>
+
+A modified Construct file for building on Mac OS X 10.5.
+All the dependencies for linuxdc++ have been installed through macports.
+ld does not like "--as-needed" and iconv had to be modified. Thats all.
+
+Best Regards
+Per G?ransson
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: macosx.patch
+Type: application/octet-stream
+Size: 933 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071117/9c5d6197/attachment.obj>
+
+From steven.sheehy at gmail.com  Sat Nov 17 23:08:54 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sat, 17 Nov 2007 16:08:54 -0600
+Subject: [Linuxdcpp-developers] Support for old clients
+In-Reply-To: <878a2ed60711170339v4622fb7m4d071e7f76d22a25@mail.gmail.com>
+References: <878a2ed60711170339v4622fb7m4d071e7f76d22a25@mail.gmail.com>
+Message-ID: <473F6676.9040908@gmail.com>
+
+Alexandru Tudose wrote:
+>         I have created a new patch to add support for old dc clients, 
+> that doesn't use TTH and xml filelist. Please test, maybe you know 
+> better where I have introduce some bugs.
+>         In windows land are more dc clients from where to choose, maybe 
+> this should be present as separate patch for those where linuxdcpp is 
+> only dc client. At least they should know that it exists.
+>  
+>    Thanks.
+> 
+> 
+> ------------------------------------------------------------------------
+
+Hello,
+
+I'm sorry, but I cannot include your patch in LinuxDC++ for a number of reasons. 
+First, you modify the DC++ core (client/). We copy this directory from Windows 
+DC++ so any changes to this have to generally be sent upstream first and 
+approved there. Secondly, even if you sent this upstream, I know they will 
+reject it. Namely because they specifically removed this functionality not too 
+long ago. Their intent is to force users to upgrade to newer clients and 
+technologies. We intend for LinuxDC++ to be a port DC++ to *nix, thus we try to 
+keep our core in sync with theirs as much as we can.
+
+-Steven
+
+
+From cvs at linuxdcpp.berlios.de  Tue Nov 20 20:39:18 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Tue, 20 Nov 2007 20:39:18 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200711201939.lAKJdIaR013814@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 1528 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071120/5c51df06/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Tue Nov 20 21:29:31 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Tue, 20 Nov 2007 21:29:31 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200711202029.lAKKTVbn017382@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 733 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071120/1e7663fb/attachment.xml>
+
+From admin at berlios.de  Tue Nov 20 21:34:43 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 20 Nov 2007 11:34:43 -0900 (AKST)
+Subject: [Linuxdcpp-developers] [Feature #3850] Hub menu
+Message-ID: <200711202034.lAKKYhO9006695@unicorn.berlios.de>
+
+Feature Request #3850, was updated on 2007-Nov-20 11:34
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3850&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Hub menu
+
+By: mrkernel
+Date: 2007-Nov-20 11:34
+
+Message:
+Logged In: YES 
+user_id=42223
+Browser: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.8.1.8) Gecko/20070914 Mandriva/2.0.0.8-1mdv2008.0 (2008.0) Firefox/2.0.0.8
+
+Please, add a menu with hub-provided commands, for
+example, I am an OP, and I can't use administration menu =(
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3850&group_id=2230
+
+
+From c04dgg at cs.umu.se  Thu Nov 22 23:07:24 2007
+From: c04dgg at cs.umu.se (David Grundberg)
+Date: Thu, 22 Nov 2007 23:07:24 +0100
+Subject: [Linuxdcpp-developers] Open file patch
+Message-ID: <4745FD9C.9000404@cs.umu.se>
+
+Hi,
+
+this patch (attached) makes it possible to open finished files through 
+the default application specified in your favourite desktop environment. 
+(In Windows this would be called open by association or something like 
+that.)
+
+I'm not satisfied with it yet, but it works. Right now the catch-all 
+script 'xdg-open' is hard coded into Wulfor::openURI. I'm open for 
+suggestions.
+
+As for error handling, I'm going with a dialog on error. This seems to 
+be the first instance of showing a error message dialog in the whole 
+program? I'm having trouble accessing the mainwindow pointer, which is 
+proper to set when creating modal dialogs. I guess I'm open to 
+suggestions on this one too :)
+
+The patch is work-in-progress.
+
+Regards,
+David (individ)
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: open-patch1
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071122/9b52e3f2/attachment.ksh>
+
+From amazon at phnet.fi  Sat Nov 24 01:30:32 2007
+From: amazon at phnet.fi (jone)
+Date: Sat, 24 Nov 2007 02:30:32 +0200
+Subject: [Linuxdcpp-developers] dc++
+Message-ID: <CE7073250EB0487890609A3DDF5B8654@intteli>
+
+miks vitussa osotteessa: http://linuxdcpp.berlios.de/document.php?id=1 on linkki download?!!! oletteko vh?n tyhmi? saatana.poistakaa se! koska sielt? ei saa ladattua mit??n eik? siell? ole linkki? lataus sivulle! saatana!
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071124/35a66049/attachment.html>
+
+From Razzloss at gmail.com  Sat Nov 24 02:40:59 2007
+From: Razzloss at gmail.com (Razzloss)
+Date: Sat, 24 Nov 2007 03:40:59 +0200
+Subject: [Linuxdcpp-developers] dc++
+In-Reply-To: <CE7073250EB0487890609A3DDF5B8654@intteli>
+References: <CE7073250EB0487890609A3DDF5B8654@intteli>
+Message-ID: <200711240340.59959.Razzloss@gmail.com>
+
+On Saturday 24 November 2007 02:30:32 jone wrote:
+> miks vitussa osotteessa: http://linuxdcpp.berlios.de/document.php?id=1 on
+> linkki download?!!! oletteko vh?n tyhmi? saatana.poistakaa se! koska sielt?
+> ei saa ladattua mit??n eik? siell? ole linkki? lataus sivulle! saatana!
+
+Let me translate this for you. And I try to emulate the typos as it really 
+brings out the quality of the mail...
+
+
+Why the f*ck there is an addy: (? couldn't figure out a retarded form for 
+address) http://linuxdcpp.berlios.de/document.php?id=1 with a link for 
+download?!!! are you a bt dumb satan.remove it! because you can't download 
+anything from there (ow... boohoo I can't use CVS (this isn't a part of the 
+original mail)) and there's no link to the down load page! satan! 
+
+
+
+Ok. The retard aside, Steven I think there really should be a link for the 
+1.0.0 source tarballs under the download page. Though I don't think it would 
+help much in this case.. Even if the tarball link was embedded within <blink> 
+tags... 
+
+--RZ
+
+
+From c04dgg at cs.umu.se  Sat Nov 24 16:15:47 2007
+From: c04dgg at cs.umu.se (David Grundberg)
+Date: Sat, 24 Nov 2007 16:15:47 +0100
+Subject: [Linuxdcpp-developers] dc++
+In-Reply-To: <200711240340.59959.Razzloss@gmail.com>
+References: <CE7073250EB0487890609A3DDF5B8654@intteli>
+	<200711240340.59959.Razzloss@gmail.com>
+Message-ID: <47484023.3090004@cs.umu.se>
+
+Instant classic. Brillant! [sic]
+
+Aside from the humor, I too think it's unusually hard to download 1.0. 
+But it sets a lower bar...
+
+Razzloss skrev:
+> On Saturday 24 November 2007 02:30:32 jone wrote:
+>   
+>> miks vitussa osotteessa: http://linuxdcpp.berlios.de/document.php?id=1 on
+>> linkki download?!!! oletteko vh?n tyhmi? saatana.poistakaa se! koska sielt?
+>> ei saa ladattua mit??n eik? siell? ole linkki? lataus sivulle! saatana!
+>>     
+>
+> Let me translate this for you. And I try to emulate the typos as it really 
+> brings out the quality of the mail...
+>
+>
+> Why the f*ck there is an addy: (? couldn't figure out a retarded form for 
+> address) http://linuxdcpp.berlios.de/document.php?id=1 with a link for 
+> download?!!! are you a bt dumb satan.remove it! because you can't download 
+> anything from there (ow... boohoo I can't use CVS (this isn't a part of the 
+> original mail)) and there's no link to the down load page! satan! 
+>
+>
+>
+> Ok. The retard aside, Steven I think there really should be a link for the 
+> 1.0.0 source tarballs under the download page. Though I don't think it would 
+> help much in this case.. Even if the tarball link was embedded within <blink> 
+> tags... 
+>
+> --RZ
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+>   
+
+
+
+From admin at berlios.de  Sun Nov 25 05:27:56 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 25 Nov 2007 07:27:56 +0300 (MSK)
+Subject: [Linuxdcpp-developers] [Patch #2255] Add script output to chat
+	support
+Message-ID: <200711250427.lAP4RuV7001376@unicorn.berlios.de>
+
+Patch #2255 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: kode
+Assigned to : none
+Summary: Add script output to chat support
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2255&group_id=2230
+
+
+From bobby.prani at gmail.com  Sun Nov 25 17:06:26 2007
+From: bobby.prani at gmail.com (Pranith Kumar)
+Date: Sun, 25 Nov 2007 21:36:26 +0530
+Subject: [Linuxdcpp-developers] Help - entry in nickMenu not visible
+Message-ID: <430c80e90711250806h50e4c053oe610f88acc35b802@mail.gmail.com>
+
+Hello,
+
+I've been trying to add some fucntionality to linuxdcpp like getting
+the latest files added
+ to the hub. I was checking for adding a latest entry in the nickMenu
+of glade/linux.glade
+and adding a method onLatestItemClicked in hub.cc. I also did a
+g_signal_connect for this.
+
+When i compile, no errors are there, but when i run this i get this
+error and also there is no
+latest entry in the nickMenu.
+
+(linuxdcpp:14953): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(linuxdcpp:14953): GLib-GObject-CRITICAL **: g_signal_connect_data:
+assertion `G_TYPE_CHECK_INSTANCE (instance)' failed
+
+Any help will be greatly appreciated!
+
+thanks.
+-- 
+D Pranith Kumar,
+4th yr Undergraduate Student,
+Computer Science And Engg.,
+Indian Institute Of Technology,
+Kharagpur, India.
+
+
+From bobby.prani at gmail.com  Sun Nov 25 17:12:51 2007
+From: bobby.prani at gmail.com (Pranith Kumar)
+Date: Sun, 25 Nov 2007 21:42:51 +0530
+Subject: [Linuxdcpp-developers] Help - entry in nickMenu not visible
+Message-ID: <430c80e90711250812vbf2b55bq54e061d480157776@mail.gmail.com>
+
+a small typo and indentation check, sorry, that was my first mail :)
+
+Hello,
+I've been trying to add some fucntionality to linuxdcpp like getting
+the latest files added to the hub. I was checking for adding a latest
+entry in the nickMenu
+of glade/hub.glade and adding a method onLatestItemClicked in hub.cc.
+I also did a g_signal_connect for this.
+
+When i compile, there are no errors, but when i run it i get the
+following error. In the nickMenu i cannot find the latest entry.
+Please suggest what should be done to get the latest entry in the
+nickMenu.
+
+(linuxdcpp:14953): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(linuxdcpp:14953): GLib-GObject-CRITICAL **: g_signal_connect_data:
+assertion `G_TYPE_CHECK_INSTANCE (instance)' failed
+
+Any help will be greatly appreciated!
+
+thanks.
+
+-- 
+D Pranith Kumar,
+4th yr Undergraduate Student,
+Computer Science And Engg.,
+Indian Institute Of Technology,
+Kharagpur, India.
+
+
+From steven.sheehy at gmail.com  Sun Nov 25 17:46:29 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sun, 25 Nov 2007 10:46:29 -0600
+Subject: [Linuxdcpp-developers] Help - entry in nickMenu not visible
+In-Reply-To: <430c80e90711250812vbf2b55bq54e061d480157776@mail.gmail.com>
+References: <430c80e90711250812vbf2b55bq54e061d480157776@mail.gmail.com>
+Message-ID: <4749A6E5.8050306@gmail.com>
+
+Pranith Kumar wrote:
+> a small typo and indentation check, sorry, that was my first mail :)
+> 
+> Hello,
+> I've been trying to add some fucntionality to linuxdcpp like getting
+> the latest files added to the hub. I was checking for adding a latest
+> entry in the nickMenu
+> of glade/hub.glade and adding a method onLatestItemClicked in hub.cc.
+> I also did a g_signal_connect for this.
+> 
+> When i compile, there are no errors, but when i run it i get the
+> following error. In the nickMenu i cannot find the latest entry.
+> Please suggest what should be done to get the latest entry in the
+> nickMenu.
+> 
+> (linuxdcpp:14953): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+> 
+> (linuxdcpp:14953): GLib-GObject-CRITICAL **: g_signal_connect_data:
+> assertion `G_TYPE_CHECK_INSTANCE (instance)' failed
+> 
+> Any help will be greatly appreciated!
+> 
+> thanks.
+> 
+
+Hi,
+
+I cannot tell what the problem is based on your description. If you attach the 
+patch I can probably figure it out.
+
+-Steven
+
+
+From bobby.prani at gmail.com  Sun Nov 25 17:57:52 2007
+From: bobby.prani at gmail.com (Pranith Kumar)
+Date: Sun, 25 Nov 2007 22:27:52 +0530
+Subject: [Linuxdcpp-developers] Help - entry in nickMenu not visible
+In-Reply-To: <4749A6E5.8050306@gmail.com>
+References: <430c80e90711250812vbf2b55bq54e061d480157776@mail.gmail.com>
+	<4749A6E5.8050306@gmail.com>
+Message-ID: <430c80e90711250857i3cf4c646mb454b94fad2f24a1@mail.gmail.com>
+
+On Nov 25, 2007 10:16 PM, Steven Sheehy <steven.sheehy at gmail.com> wrote:
+> Pranith Kumar wrote:
+> > a small typo and indentation check, sorry, that was my first mail :)
+> >
+> > Hello,
+> > I've been trying to add some fucntionality to linuxdcpp like getting
+> > the latest files added to the hub. I was checking for adding a latest
+> > entry in the nickMenu
+> > of glade/hub.glade and adding a method onLatestItemClicked in hub.cc.
+> > I also did a g_signal_connect for this.
+> >
+> > When i compile, there are no errors, but when i run it i get the
+> > following error. In the nickMenu i cannot find the latest entry.
+> > Please suggest what should be done to get the latest entry in the
+> > nickMenu.
+> >
+> > (linuxdcpp:14953): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+> >
+> > (linuxdcpp:14953): GLib-GObject-CRITICAL **: g_signal_connect_data:
+> > assertion `G_TYPE_CHECK_INSTANCE (instance)' failed
+> >
+> > Any help will be greatly appreciated!
+> >
+> > thanks.
+> >
+>
+> Hi,
+>
+> I cannot tell what the problem is based on your description. If you attach the
+> patch I can probably figure it out.
+>
+> -Steven
+>
+
+Here is the diff, nothin great, the function is yet to be implemented
+
+diff -uprN linuxdcpp-1.0.0/glade/hub.glade linuxdcpp-sandbox/glade/hub.glade
+--- linuxdcpp-1.0.0/glade/hub.glade	2007-08-05 02:51:46.000000000 +0530
++++ linuxdcpp-sandbox/glade/hub.glade	2007-11-25 21:18:37.000000000 +0530
+@@ -203,6 +203,13 @@
+       </widget>
+     </child>
+     <child>
++      <widget class="GtkMenuItem" id="latestItem">
++        <property name="visible">True</property>
++        <property name="label" translatable="yes">Latest Additions</property>
++        <property name="use_underline">True</property>
++      </widget>
++    </child>
++    <child>
+       <widget class="GtkMenuItem" id="favoriteUserItem">
+         <property name="visible">True</property>
+         <property name="label" translatable="yes">Add to favorites</property>
+diff -uprN linuxdcpp-1.0.0/linux/entry.cc linuxdcpp-sandbox/linux/entry.cc
+--- linuxdcpp-1.0.0/linux/entry.cc	2007-07-08 20:11:46.000000000 +0530
++++ linuxdcpp-sandbox/linux/entry.cc	2007-11-25 20:26:49.000000000 +0530
+@@ -50,7 +50,7 @@ GtkWidget *Entry::getWidget(const string
+ {
+ 	dcassert(xml && !name.empty());
+ 	GtkWidget *widget = glade_xml_get_widget(xml, name.c_str());
+-	dcassert(widget);
++	//dcassert(widget);
+ 	return widget;
+ }
+
+diff -uprN linuxdcpp-1.0.0/linux/hub.cc linuxdcpp-sandbox/linux/hub.cc
+--- linuxdcpp-1.0.0/linux/hub.cc	2007-07-08 20:11:46.000000000 +0530
++++ linuxdcpp-sandbox/linux/hub.cc	2007-11-25 21:08:09.000000000 +0530
+@@ -103,6 +103,7 @@ Hub::Hub(const string &address):
+ 	g_signal_connect(getWidget("browseItem"), "activate",
+G_CALLBACK(onBrowseItemClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("matchItem"), "activate",
+G_CALLBACK(onMatchItemClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("msgItem"), "activate",
+G_CALLBACK(onMsgItemClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget("latestItem"), "activate",
+G_CALLBACK(onLatestItemClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("grantItem"), "activate",
+G_CALLBACK(onGrantItemClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("removeUserItem"), "activate",
+G_CALLBACK(onRemoveUserItemClicked_gui), (gpointer)this);
+
+@@ -700,6 +701,31 @@ void Hub::onMatchItemClicked_gui(GtkMenu
+ 	}
+ }
+
++void Hub::onLatestItemClicked_gui(GtkMenuItem *item, gpointer data)
++{
++	// dummy
++	// yet to be implemented
++}
++
+ void Hub::onMsgItemClicked_gui(GtkMenuItem *item, gpointer data)
+ {
+ 	Hub *hub = (Hub *)data;
+diff -uprN linuxdcpp-1.0.0/linux/hub.hh linuxdcpp-sandbox/linux/hub.hh
+--- linuxdcpp-1.0.0/linux/hub.hh	2007-03-25 00:03:18.000000000 +0530
++++ linuxdcpp-sandbox/linux/hub.hh	2007-11-25 20:59:31.000000000 +0530
+@@ -52,13 +52,17 @@ class Hub:
+
+ 		// GUI callbacks
+ 		static void onMatchItemClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onMsgItemClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onLatestItemClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onGrantItemClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onRemoveUserItemClicked_gui(GtkMenuItem *item, gpointer data);
+
+
+
+
+
+-- 
+D Pranith Kumar,
+4th yr Undergraduate Student,
+Computer Science And Engg.,
+Indian Institute Of Technology,
+Kharagpur, India.
+
+
+From bobby.prani at gmail.com  Sun Nov 25 18:00:52 2007
+From: bobby.prani at gmail.com (Pranith Kumar)
+Date: Sun, 25 Nov 2007 22:30:52 +0530
+Subject: [Linuxdcpp-developers] Help - entry in nickMenu not visible
+In-Reply-To: <430c80e90711250857i3cf4c646mb454b94fad2f24a1@mail.gmail.com>
+References: <430c80e90711250812vbf2b55bq54e061d480157776@mail.gmail.com>
+	<4749A6E5.8050306@gmail.com>
+	<430c80e90711250857i3cf4c646mb454b94fad2f24a1@mail.gmail.com>
+Message-ID: <430c80e90711250900w7e78f5f4tb856e13000c8a83c@mail.gmail.com>
+
+On Nov 25, 2007 10:27 PM, Pranith Kumar <bobby.prani at gmail.com> wrote:
+>
+> On Nov 25, 2007 10:16 PM, Steven Sheehy <steven.sheehy at gmail.com> wrote:
+> > Pranith Kumar wrote:
+> > > a small typo and indentation check, sorry, that was my first mail :)
+> > >
+> > > Hello,
+> > > I've been trying to add some fucntionality to linuxdcpp like getting
+> > > the latest files added to the hub. I was checking for adding a latest
+> > > entry in the nickMenu
+> > > of glade/hub.glade and adding a method onLatestItemClicked in hub.cc.
+> > > I also did a g_signal_connect for this.
+> > >
+> > > When i compile, there are no errors, but when i run it i get the
+> > > following error. In the nickMenu i cannot find the latest entry.
+> > > Please suggest what should be done to get the latest entry in the
+> > > nickMenu.
+> > >
+> > > (linuxdcpp:14953): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+> > >
+> > > (linuxdcpp:14953): GLib-GObject-CRITICAL **: g_signal_connect_data:
+> > > assertion `G_TYPE_CHECK_INSTANCE (instance)' failed
+> > >
+> > > Any help will be greatly appreciated!
+> > >
+> > > thanks.
+> > >
+> >
+> > Hi,
+> >
+> > I cannot tell what the problem is based on your description. If you attach the
+> > patch I can probably figure it out.
+> >
+> > -Steven
+> >
+>
+> Here is the diff, nothin great, the function is yet to be implemented
+>
+> diff -uprN linuxdcpp-1.0.0/glade/hub.glade linuxdcpp-sandbox/glade/hub.glade
+> --- linuxdcpp-1.0.0/glade/hub.glade     2007-08-05 02:51:46.000000000 +0530
+> +++ linuxdcpp-sandbox/glade/hub.glade   2007-11-25 21:18:37.000000000 +0530
+> @@ -203,6 +203,13 @@
+>        </widget>
+>      </child>
+>      <child>
+> +      <widget class="GtkMenuItem" id="latestItem">
+> +        <property name="visible">True</property>
+> +        <property name="label" translatable="yes">Latest Additions</property>
+> +        <property name="use_underline">True</property>
+> +      </widget>
+> +    </child>
+> +    <child>
+>        <widget class="GtkMenuItem" id="favoriteUserItem">
+>          <property name="visible">True</property>
+>          <property name="label" translatable="yes">Add to favorites</property>
+> diff -uprN linuxdcpp-1.0.0/linux/entry.cc linuxdcpp-sandbox/linux/entry.cc
+> --- linuxdcpp-1.0.0/linux/entry.cc      2007-07-08 20:11:46.000000000 +0530
+> +++ linuxdcpp-sandbox/linux/entry.cc    2007-11-25 20:26:49.000000000 +0530
+> @@ -50,7 +50,7 @@ GtkWidget *Entry::getWidget(const string
+>  {
+>         dcassert(xml && !name.empty());
+>         GtkWidget *widget = glade_xml_get_widget(xml, name.c_str());
+> -       dcassert(widget);
+> +       //dcassert(widget);
+
+this was giving an error when compiled with scons debug=1. so i had to
+disable it. nothing to do with what im trying to implement.
+-- 
+D Pranith Kumar,
+4th yr Undergraduate Student,
+Computer Science And Engg.,
+Indian Institute Of Technology,
+Kharagpur, India.
+
+
+From steven.sheehy at gmail.com  Sun Nov 25 18:47:45 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sun, 25 Nov 2007 11:47:45 -0600
+Subject: [Linuxdcpp-developers] Help - entry in nickMenu not visible
+In-Reply-To: <430c80e90711250900w7e78f5f4tb856e13000c8a83c@mail.gmail.com>
+References: <430c80e90711250812vbf2b55bq54e061d480157776@mail.gmail.com>	
+	<4749A6E5.8050306@gmail.com>	
+	<430c80e90711250857i3cf4c646mb454b94fad2f24a1@mail.gmail.com>
+	<430c80e90711250900w7e78f5f4tb856e13000c8a83c@mail.gmail.com>
+Message-ID: <4749B541.9080807@gmail.com>
+
+Pranith Kumar wrote:
+> On Nov 25, 2007 10:27 PM, Pranith Kumar <bobby.prani at gmail.com> wrote:
+>> On Nov 25, 2007 10:16 PM, Steven Sheehy <steven.sheehy at gmail.com> wrote:
+>>> Pranith Kumar wrote:
+>>>> a small typo and indentation check, sorry, that was my first mail :)
+>>>>
+>>>> Hello,
+>>>> I've been trying to add some fucntionality to linuxdcpp like getting
+>>>> the latest files added to the hub. I was checking for adding a latest
+>>>> entry in the nickMenu
+>>>> of glade/hub.glade and adding a method onLatestItemClicked in hub.cc.
+>>>> I also did a g_signal_connect for this.
+>>>>
+>>>> When i compile, there are no errors, but when i run it i get the
+>>>> following error. In the nickMenu i cannot find the latest entry.
+>>>> Please suggest what should be done to get the latest entry in the
+>>>> nickMenu.
+>>>>
+>>>> (linuxdcpp:14953): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+>>>>
+>>>> (linuxdcpp:14953): GLib-GObject-CRITICAL **: g_signal_connect_data:
+>>>> assertion `G_TYPE_CHECK_INSTANCE (instance)' failed
+>>>>
+>>>> Any help will be greatly appreciated!
+>>>>
+>>>> thanks.
+>>>>
+>>> Hi,
+>>>
+>>> I cannot tell what the problem is based on your description. If you attach the
+>>> patch I can probably figure it out.
+>>>
+>>> -Steven
+>>>
+>> Here is the diff, nothin great, the function is yet to be implemented
+>>
+>> diff -uprN linuxdcpp-1.0.0/glade/hub.glade linuxdcpp-sandbox/glade/hub.glade
+>> --- linuxdcpp-1.0.0/glade/hub.glade     2007-08-05 02:51:46.000000000 +0530
+>> +++ linuxdcpp-sandbox/glade/hub.glade   2007-11-25 21:18:37.000000000 +0530
+>> @@ -203,6 +203,13 @@
+>>        </widget>
+>>      </child>
+>>      <child>
+>> +      <widget class="GtkMenuItem" id="latestItem">
+>> +        <property name="visible">True</property>
+>> +        <property name="label" translatable="yes">Latest Additions</property>
+>> +        <property name="use_underline">True</property>
+>> +      </widget>
+>> +    </child>
+>> +    <child>
+>>        <widget class="GtkMenuItem" id="favoriteUserItem">
+>>          <property name="visible">True</property>
+>>          <property name="label" translatable="yes">Add to favorites</property>
+>> diff -uprN linuxdcpp-1.0.0/linux/entry.cc linuxdcpp-sandbox/linux/entry.cc
+>> --- linuxdcpp-1.0.0/linux/entry.cc      2007-07-08 20:11:46.000000000 +0530
+>> +++ linuxdcpp-sandbox/linux/entry.cc    2007-11-25 20:26:49.000000000 +0530
+>> @@ -50,7 +50,7 @@ GtkWidget *Entry::getWidget(const string
+>>  {
+>>         dcassert(xml && !name.empty());
+>>         GtkWidget *widget = glade_xml_get_widget(xml, name.c_str());
+>> -       dcassert(widget);
+>> +       //dcassert(widget);
+> 
+> this was giving an error when compiled with scons debug=1. so i had to
+> disable it. nothing to do with what im trying to implement.
+
+I applied your patch and it worked fine for me. It didn't display any errors in 
+the console and properly called onLatestItemClicked_gui (I added a printout). If 
+the dcassert is failing in entry, then that means it can't find latestItem in 
+hub.glade on your system for some reason. You probably have some old glade files 
+installed in your install prefix and it's using those. Remove all linuxdcpp 
+installed files if you're going to run from the current directory.
+
+-Steven
+
+
+From bobby.prani at gmail.com  Sun Nov 25 19:11:46 2007
+From: bobby.prani at gmail.com (Pranith Kumar)
+Date: Sun, 25 Nov 2007 23:41:46 +0530
+Subject: [Linuxdcpp-developers] Help - entry in nickMenu not visible
+In-Reply-To: <4749B541.9080807@gmail.com>
+References: <430c80e90711250812vbf2b55bq54e061d480157776@mail.gmail.com>
+	<4749A6E5.8050306@gmail.com>
+	<430c80e90711250857i3cf4c646mb454b94fad2f24a1@mail.gmail.com>
+	<430c80e90711250900w7e78f5f4tb856e13000c8a83c@mail.gmail.com>
+	<4749B541.9080807@gmail.com>
+Message-ID: <430c80e90711251011w4732fa7xc8f49df680a93f34@mail.gmail.com>
+
+> I applied your patch and it worked fine for me. It didn't display any errors in
+> the console and properly called onLatestItemClicked_gui (I added a printout). If
+> the dcassert is failing in entry, then that means it can't find latestItem in
+> hub.glade on your system for some reason. You probably have some old glade files
+> installed in your install prefix and it's using those. Remove all linuxdcpp
+> installed files if you're going to run from the current directory.
+>
+> -Steven
+>
+
+Oops!! sorry, i had a previous installation at /usr/share/linuxdcpp, i
+think it was picking up from there.
+its working fine. Thanks a ton for the help :)
+
+-- 
+D Pranith Kumar,
+4th yr Undergraduate Student,
+Computer Science And Engg.,
+Indian Institute Of Technology,
+Kharagpur, India.
+
+
+From cvs at linuxdcpp.berlios.de  Sun Nov 25 23:04:09 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sun, 25 Nov 2007 23:04:09 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200711252204.lAPM49xo003899@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 839 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071125/1af46365/attachment.xml>
+
+From bobby.prani at gmail.com  Mon Nov 26 08:09:03 2007
+From: bobby.prani at gmail.com (Pranith Kumar)
+Date: Mon, 26 Nov 2007 12:39:03 +0530
+Subject: [Linuxdcpp-developers] Latest Stuff - Standard?
+Message-ID: <430c80e90711252309y6d1c1242p6e2fe2f8226a5b05@mail.gmail.com>
+
+Hello,
+I've implemented the latest added feature to linuxdcpp.
+But im not sure if its in the standard.
+
+In our college there is a [BOT]Offliner which keeps track of all the
+latest stuff
+added to the hub. So, when u send it the latest command it shows u the
+latest stuff in that
+particular category.
+
+Can this be submitted as a patch for inclusion?
+
+-- 
+D Pranith Kumar,
+4th yr Undergraduate Student,
+Computer Science And Engg.,
+Indian Institute Of Technology,
+Kharagpur, India.
+
+
+From steven.sheehy at gmail.com  Mon Nov 26 19:37:52 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Mon, 26 Nov 2007 12:37:52 -0600
+Subject: [Linuxdcpp-developers] Latest Stuff - Standard?
+In-Reply-To: <430c80e90711252309y6d1c1242p6e2fe2f8226a5b05@mail.gmail.com>
+References: <430c80e90711252309y6d1c1242p6e2fe2f8226a5b05@mail.gmail.com>
+Message-ID: <474B1280.3050109@gmail.com>
+
+Pranith Kumar wrote:
+> Hello,
+> I've implemented the latest added feature to linuxdcpp.
+> But im not sure if its in the standard.
+> 
+> In our college there is a [BOT]Offliner which keeps track of all the
+> latest stuff
+> added to the hub. So, when u send it the latest command it shows u the
+> latest stuff in that
+> particular category.
+> 
+> Can this be submitted as a patch for inclusion?
+> 
+
+Hello,
+
+I don't think that such a feature is present in very many hubs, so I don't think 
+it'd be good for inclusion. In addition, it would seem that such a feature could 
+be easily implemented as a user command, instead of the hardcoded approach you 
+took. You just need to send the raw command to the bot to request the latest 
+info and it should send back the data in the main chat or a pm. All the logic 
+should be handled by the bot so there should be need to modify the client as far 
+as I can tell. Thank you for the offer, though.
+
+Regards,
+Steven
+
+
+From bobby.prani at gmail.com  Mon Nov 26 20:13:08 2007
+From: bobby.prani at gmail.com (Pranith Kumar)
+Date: Tue, 27 Nov 2007 00:43:08 +0530
+Subject: [Linuxdcpp-developers] Latest Stuff - Standard?
+In-Reply-To: <474B1280.3050109@gmail.com>
+References: <430c80e90711252309y6d1c1242p6e2fe2f8226a5b05@mail.gmail.com>
+	<474B1280.3050109@gmail.com>
+Message-ID: <430c80e90711261113u1adadf79ifb36e43947d83c4@mail.gmail.com>
+
+On Nov 27, 2007 12:07 AM, Steven Sheehy <steven.sheehy at gmail.com> wrote:
+
+> Hello,
+>
+> I don't think that such a feature is present in very many hubs, so I don't think
+> it'd be good for inclusion. In addition, it would seem that such a feature could
+> be easily implemented as a user command, instead of the hardcoded approach you
+> took. You just need to send the raw command to the bot to request the latest
+> info and it should send back the data in the main chat or a pm. All the logic
+> should be handled by the bot so there should be need to modify the client as far
+> as I can tell. Thank you for the offer, though.
+
+Hi Steven,
+
+The option of sending the raw command is there. But should'nt there be
+the GUI option too like in DC++ of windows? We just right click it to
+get the latest info unlike having to type the command each time?? It
+would be easy for the endusers who dont like to type commands( the
+linux way :)
+
+thanks,
+-- 
+D Pranith Kumar,
+4th yr Undergraduate Student,
+Computer Science And Engg.,
+Indian Institute Of Technology,
+Kharagpur, India.
+
+
+From steven.sheehy at gmail.com  Tue Nov 27 06:46:11 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Mon, 26 Nov 2007 23:46:11 -0600
+Subject: [Linuxdcpp-developers] Latest Stuff - Standard?
+In-Reply-To: <430c80e90711261113u1adadf79ifb36e43947d83c4@mail.gmail.com>
+References: <430c80e90711252309y6d1c1242p6e2fe2f8226a5b05@mail.gmail.com>	
+	<474B1280.3050109@gmail.com>
+	<430c80e90711261113u1adadf79ifb36e43947d83c4@mail.gmail.com>
+Message-ID: <474BAF23.9050209@gmail.com>
+
+Pranith Kumar wrote:
+> On Nov 27, 2007 12:07 AM, Steven Sheehy <steven.sheehy at gmail.com> wrote:
+> 
+>> Hello,
+>>
+>> I don't think that such a feature is present in very many hubs, so I don't think
+>> it'd be good for inclusion. In addition, it would seem that such a feature could
+>> be easily implemented as a user command, instead of the hardcoded approach you
+>> took. You just need to send the raw command to the bot to request the latest
+>> info and it should send back the data in the main chat or a pm. All the logic
+>> should be handled by the bot so there should be need to modify the client as far
+>> as I can tell. Thank you for the offer, though.
+> 
+> Hi Steven,
+> 
+> The option of sending the raw command is there. But should'nt there be
+> the GUI option too like in DC++ of windows? We just right click it to
+> get the latest info unlike having to type the command each time?? It
+> would be easy for the endusers who dont like to type commands( the
+> linux way :)
+> 
+> thanks,
+
+There is a gui option which allows you to type it in the preferences once and 
+have it show up in the userlist right click menu from then on. If you're not 
+using latest cvs you might not see it.
+
+
+From bobby.prani at gmail.com  Tue Nov 27 07:48:42 2007
+From: bobby.prani at gmail.com (Pranith Kumar)
+Date: Tue, 27 Nov 2007 12:18:42 +0530
+Subject: [Linuxdcpp-developers] Latest Stuff - Standard?
+In-Reply-To: <474BAF23.9050209@gmail.com>
+References: <430c80e90711252309y6d1c1242p6e2fe2f8226a5b05@mail.gmail.com>
+	<474B1280.3050109@gmail.com>
+	<430c80e90711261113u1adadf79ifb36e43947d83c4@mail.gmail.com>
+	<474BAF23.9050209@gmail.com>
+Message-ID: <430c80e90711262248g2380f36ckda003cc683ab82c3@mail.gmail.com>
+
+On Nov 27, 2007 11:16 AM, Steven Sheehy <steven.sheehy at gmail.com> wrote:
+
+> There is a gui option which allows you to type it in the preferences once and
+> have it show up in the userlist right click menu from then on. If you're not
+> using latest cvs you might not see it.
+>
+
+Is there any other way i can get the latest cvs? im behind the
+university firewall and we use
+a http proxy to connect. It would really be a help if you could help
+me get the latest package.
+
+-- 
+D Pranith Kumar,
+4th yr Undergraduate Student,
+Computer Science And Engg.,
+Indian Institute Of Technology,
+Kharagpur, India.
+
+
+From mikael.eman at home.se  Tue Nov 27 09:02:13 2007
+From: mikael.eman at home.se (Mikael Eman)
+Date: Tue, 27 Nov 2007 09:02:13 +0100
+Subject: [Linuxdcpp-developers] Latest Stuff - Standard?
+In-Reply-To: <430c80e90711262248g2380f36ckda003cc683ab82c3@mail.gmail.com>
+References: <430c80e90711252309y6d1c1242p6e2fe2f8226a5b05@mail.gmail.com>	<474B1280.3050109@gmail.com>	<430c80e90711261113u1adadf79ifb36e43947d83c4@mail.gmail.com>	<474BAF23.9050209@gmail.com>
+	<430c80e90711262248g2380f36ckda003cc683ab82c3@mail.gmail.com>
+Message-ID: <474BCF05.504@home.se>
+
+Pranith Kumar skrev:
+
+>On Nov 27, 2007 11:16 AM, Steven Sheehy <steven.sheehy at gmail.com> wrote:
+>
+>  
+>
+>>There is a gui option which allows you to type it in the preferences once and
+>>have it show up in the userlist right click menu from then on. If you're not
+>>using latest cvs you might not see it.
+>>
+>>    
+>>
+>
+>Is there any other way i can get the latest cvs? im behind the
+>university firewall and we use
+>a http proxy to connect. It would really be a help if you could help
+>me get the latest package.
+>
+>  
+>
+I have used cvsgrab (http://cvsgrab.sourceforge.net/) at times when I've 
+been behind a firewall/proxy.
+
+Br,
+Micke
+
+
+From cvs at linuxdcpp.berlios.de  Fri Nov 30 20:35:50 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Fri, 30 Nov 2007 20:35:50 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200711301935.lAUJZoVC003377@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 814 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071130/8a51be85/attachment.xml>
+

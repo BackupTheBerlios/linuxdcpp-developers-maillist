@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] question about magnet links support
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20question%20about%20magnet%20links%20support&In-Reply-To=%3C20080114171354.GA16615%40fry.homenet.ru%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000311.html">
+   <LINK REL="Next"  HREF="000313.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] question about magnet links support</H1>
+    <B>Max Lapan</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20question%20about%20magnet%20links%20support&In-Reply-To=%3C20080114171354.GA16615%40fry.homenet.ru%3E"
+       TITLE="[Linuxdcpp-developers] question about magnet links support">max.lapan at gmail.com
+       </A><BR>
+    <I>Mon Jan 14 18:13:54 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000311.html">[Linuxdcpp-developers] question about magnet links support
+</A></li>
+        <LI>Next message: <A HREF="000313.html">[Linuxdcpp-developers] question about magnet links support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#312">[ date ]</a>
+              <a href="thread.html#312">[ thread ]</a>
+              <a href="subject.html#312">[ subject ]</a>
+              <a href="author.html#312">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Jan 14, 2008 at 08:24:05AM +0300, Stas Sergeev wrote:
+
+&gt;<i> And
+</I>&gt;<i> this:
+</I>&gt;<i> +      &lt;widget class=&quot;GtkMenuItem&quot; id=&quot;searchMagnetItem&quot;&gt;
+</I>&gt;<i> is where?
+</I>
+This is an item in magnet's context menu. It opens new search tab and
+starts search of magnet.
+
+&gt;<i> Passing the magnet link as a command-line
+</I>&gt;<i> argument can probably be easily done in
+</I>&gt;<i> an OS-independant way. But I guess also some
+</I>&gt;<i> GUI additions are needed. Like the explicit
+</I>&gt;<i> &quot;Open magnet link&quot; dialog somewhere and maybe
+</I>&gt;<i> a new search option. But that's what I think
+</I>&gt;<i> was in an original patch, so I am not sure if
+</I>&gt;<i> it is still missing or not. At least I was not
+</I>&gt;<i> able to find anything magnet-related in the GUI.
+</I>
+No, there was no 'open magnet link' in original patch. 
+
+I thought about command line option, but faced with internal problem 
+in DC core. If I remember right, there was no way to add entry in 
+download queue if we don't know at least one source CID. So, the 
+only option when we have magnet in hand is to open search tab and 
+hope that we find some sources which can be added by user via 
+right-click menu.
+
+Better approach of handling magnet link passed via command line would 
+be to add it to download queue without sources and let background
+search find sources to download from. But this cannot be done without
+internal DC core modification (at least I didn't find how to do this).
+
+&gt;<i> _______________________________________________
+</I>&gt;<i> Linuxdcpp-developers mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">Linuxdcpp-developers at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers</A>
+</I>
+-- 
+wbr, Max Lapan
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000311.html">[Linuxdcpp-developers] question about magnet links support
+</A></li>
+	<LI>Next message: <A HREF="000313.html">[Linuxdcpp-developers] question about magnet links support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#312">[ date ]</a>
+              <a href="thread.html#312">[ thread ]</a>
+              <a href="subject.html#312">[ subject ]</a>
+              <a href="author.html#312">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

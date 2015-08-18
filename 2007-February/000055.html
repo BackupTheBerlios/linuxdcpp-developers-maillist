@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Bug #10511] Crash when clicking &quot;OK&quot; in	configuration
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2310511%5D%20Crash%20when%20clicking%20%22OK%22%20in%0A%09configuration&In-Reply-To=%3C200702271823.l1RINaJ0013000%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000054.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Bug #10511] Crash when clicking &quot;OK&quot; in	configuration</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2310511%5D%20Crash%20when%20clicking%20%22OK%22%20in%0A%09configuration&In-Reply-To=%3C200702271823.l1RINaJ0013000%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Bug #10511] Crash when clicking &quot;OK&quot; in	configuration">admin at berlios.de
+       </A><BR>
+    <I>Tue Feb 27 19:23:36 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000054.html">[Linuxdcpp-developers] [Patch #1899] add kick and ban msg to the	status bar...
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#55">[ date ]</a>
+              <a href="thread.html#55">[ thread ]</a>
+              <a href="subject.html#55">[ subject ]</a>
+              <a href="author.html#55">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #10511, was updated on 2007-Feb-27 19:23
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: jazzgossen
+Assigned to : none
+Summary: Crash when clicking &quot;OK&quot; in configuration
+
+Details: Running ldcpp from the current CVS as of today, crashes when I click &quot;OK&quot; in the configuration dialog. Running it in gdb gives the following backtrace, after a number of GTK assertions:
+
+terminate called after throwing an instance of 'std::logic_error'
+  what():  basic_string::_S_construct NULL not valid
+
+Program received signal SIGABRT, Aborted.
+[Switching to Thread -1219660096 (LWP 7392)]
+0xffffe410 in __kernel_vsyscall ()
+(gdb) bt
+#0  0xffffe410 in __kernel_vsyscall ()
+#1  0xb75d49a1 in raise () from /lib/tls/i686/cmov/libc.so.6
+#2  0xb75d62b9 in abort () from /lib/tls/i686/cmov/libc.so.6
+#3  0xb77b3c84 in __gnu_cxx::__verbose_terminate_handler ()
+   from /usr/lib/libstdc++.so.6
+#4  0xb77b1915 in __gxx_personality_v0 () from /usr/lib/libstdc++.so.6
+#5  0xb77b194a in std::terminate () from /usr/lib/libstdc++.so.6
+#6  0xb77b1a7e in __cxa_throw () from /usr/lib/libstdc++.so.6
+#7  0xb774e3e9 in std::__throw_logic_error () from /usr/lib/libstdc++.so.6
+#8  0xb778f9b3 in std::string::_Rep::_M_destroy () from /usr/lib/libstdc++.so.6
+#9  0xb778fafd in std::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::basic_string () from /usr/lib/libstdc++.so.6
+#10 0x082208b0 in Settings::saveSettings ()
+#11 0x08246436 in WulforManager::onCloseDialogEntry_gui ()
+#12 0xb788168b in g_cclosure_marshal_VOID () from /usr/lib/libgobject-2.0.so.0
+#13 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#14 0xb78842ea in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#15 0xb7885b19 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#16 0xb7885e89 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#17 0xb7cd30ee in gtk_dialog_response () from /usr/lib/libgtk-x11-2.0.so.0
+#18 0xb7cd3143 in gtk_dialog_response () from /usr/lib/libgtk-x11-2.0.so.0
+#19 0xb7881423 in g_cclosure_marshal_VOID__VOID ()
+   from /usr/lib/libgobject-2.0.so.0
+#20 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#21 0xb78842ea in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#22 0xb7885b19 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#23 0xb7885e89 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#24 0xb7c8a49f in gtk_button_clicked () from /usr/lib/libgtk-x11-2.0.so.0
+#25 0xb7c8bcda in _gtk_button_set_depressed ()
+   from /usr/lib/libgtk-x11-2.0.so.0
+#26 0xb7881423 in g_cclosure_marshal_VOID__VOID ()
+   from /usr/lib/libgobject-2.0.so.0
+#27 0xb787516f in g_cclosure_new_swap () from /usr/lib/libgobject-2.0.so.0
+#28 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#29 0xb78845cc in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#30 0xb7885b19 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#31 0xb7885e89 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#32 0xb7c8a41c in gtk_button_released () from /usr/lib/libgtk-x11-2.0.so.0
+#33 0xb7c8b38c in _gtk_button_paint () from /usr/lib/libgtk-x11-2.0.so.0
+#34 0xb7d4b8e0 in _gtk_marshal_BOOLEAN__BOXED ()
+   from /usr/lib/libgtk-x11-2.0.so.0
+#35 0xb787516f in g_cclosure_new_swap () from /usr/lib/libgobject-2.0.so.0
+#36 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#37 0xb78849ce in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#38 0xb7885886 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#39 0xb7885e89 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#40 0xb7e2ddcf in gtk_widget_activate () from /usr/lib/libgtk-x11-2.0.so.0
+#41 0xb7d4a05d in gtk_propagate_event () from /usr/lib/libgtk-x11-2.0.so.0
+#42 0xb7d4a46b in gtk_main_do_event () from /usr/lib/libgtk-x11-2.0.so.0
+#43 0xb7adddec in _gdk_events_queue () from /usr/lib/libgdk-x11-2.0.so.0
+#44 0xb78048d6 in g_main_context_dispatch () from /usr/lib/libglib-2.0.so.0
+#45 0xb7807996 in g_main_context_check () from /usr/lib/libglib-2.0.so.0
+#46 0xb7807cb8 in g_main_loop_run () from /usr/lib/libglib-2.0.so.0
+---Type &lt;return&gt; to continue, or q &lt;return&gt; to quit---
+#47 0xb7cd3363 in gtk_dialog_run () from /usr/lib/libgtk-x11-2.0.so.0
+#48 0x082482cd in WulforManager::insertDialogEntry_gui ()
+#49 0x0824832d in WulforManager::openSettingsDialog_gui ()
+#50 0x081dc497 in MainWindow::settingsClicked_gui ()
+#51 0xb7881423 in g_cclosure_marshal_VOID__VOID ()
+   from /usr/lib/libgobject-2.0.so.0
+#52 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#53 0xb78842ea in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#54 0xb7885b19 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#55 0xb7889030 in g_signal_emit_by_name () from /usr/lib/libgobject-2.0.so.0
+#56 0xb7ded93e in gtk_tool_button_get_type () from /usr/lib/libgtk-x11-2.0.so.0
+#57 0xb7881423 in g_cclosure_marshal_VOID__VOID ()
+   from /usr/lib/libgobject-2.0.so.0
+#58 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#59 0xb78842ea in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#60 0xb7885b19 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#61 0xb7885e89 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#62 0xb7c8a49f in gtk_button_clicked () from /usr/lib/libgtk-x11-2.0.so.0
+#63 0xb7c8bcda in _gtk_button_set_depressed ()
+   from /usr/lib/libgtk-x11-2.0.so.0
+#64 0xb7881423 in g_cclosure_marshal_VOID__VOID ()
+   from /usr/lib/libgobject-2.0.so.0
+#65 0xb787516f in g_cclosure_new_swap () from /usr/lib/libgobject-2.0.so.0
+#66 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#67 0xb78845cc in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#68 0xb7885b19 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#69 0xb7885e89 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#70 0xb7c8a41c in gtk_button_released () from /usr/lib/libgtk-x11-2.0.so.0
+#71 0xb7c8b38c in _gtk_button_paint () from /usr/lib/libgtk-x11-2.0.so.0
+#72 0xb7d4b8e0 in _gtk_marshal_BOOLEAN__BOXED ()
+   from /usr/lib/libgtk-x11-2.0.so.0
+#73 0xb787516f in g_cclosure_new_swap () from /usr/lib/libgobject-2.0.so.0
+#74 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#75 0xb78849ce in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#76 0xb7885886 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#77 0xb7885e89 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#78 0xb7e2ddcf in gtk_widget_activate () from /usr/lib/libgtk-x11-2.0.so.0
+#79 0xb7d4a05d in gtk_propagate_event () from /usr/lib/libgtk-x11-2.0.so.0
+#80 0xb7d4a46b in gtk_main_do_event () from /usr/lib/libgtk-x11-2.0.so.0
+#81 0xb7adddec in _gdk_events_queue () from /usr/lib/libgdk-x11-2.0.so.0
+#82 0xb78048d6 in g_main_context_dispatch () from /usr/lib/libglib-2.0.so.0
+#83 0xb7807996 in g_main_context_check () from /usr/lib/libglib-2.0.so.0
+#84 0xb7807cb8 in g_main_loop_run () from /usr/lib/libglib-2.0.so.0
+#85 0xb7d49765 in gtk_main () from /usr/lib/libgtk-x11-2.0.so.0
+#86 0x08245a2d in main ()
+(gdb)
+
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=10511&amp;group_id=2230">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=10511&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000054.html">[Linuxdcpp-developers] [Patch #1899] add kick and ban msg to the	status bar...
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#55">[ date ]</a>
+              <a href="thread.html#55">[ thread ]</a>
+              <a href="subject.html#55">[ subject ]</a>
+              <a href="author.html#55">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

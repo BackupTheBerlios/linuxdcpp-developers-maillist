@@ -1,0 +1,897 @@
+From steven.sheehy at gmail.com  Tue Oct  2 05:22:41 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Mon, 01 Oct 2007 22:22:41 -0500
+Subject: [Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it
+In-Reply-To: <200709262216.52694.konstantin.vasiliev@gmail.com>
+References: <46F6DD73.4020407@gmail.com>
+	<200709262216.52694.konstantin.vasiliev@gmail.com>
+Message-ID: <4701B981.70009@gmail.com>
+
+Konstantin Vasiliev wrote:
+> ? ????????? ?? 24 ???????? 2007 01:41 Steven Sheehy ???????(a):
+>>                    Release Notes for LinuxDC++ 1.0.0
+>>                    ---------------------------------
+>>
+> I run 
+> $ scons PATH=/opt/linuxdcpp
+> 
+> and I see only this
+> 
+> client/Text.cpp: In static member function `static const std::string& 
+> Text::convert(const std::string&, std::string&, const std::string&, const 
+> std::string&)':
+> client/Text.cpp:339: error: invalid conversion from `const char**' to `char**'
+> client/Text.cpp:339: error:   initializing argument 2 of `size_t iconv(void*, 
+> char**, size_t*, char**, size_t*)'
+> scons: *** [build/client/Text.o] Error 1
+> 
+> :-(
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+
+Which distro are you using? What version of scons (run scons -v to check). Looks
+like scons is messed up in your distro and doesn't properly check to see what
+parameters iconv requires.
+
+
+From admin at berlios.de  Fri Oct  5 09:49:56 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 5 Oct 2007 09:49:56 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #2200] Add the filter kickmessages to
+	Hub::on(ClientListener::Messa
+Message-ID: <200710050749.l957nurR015197@unicorn.berlios.de>
+
+Patch #2200 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: naga
+Assigned to : none
+Summary: Add the filter kickmessages to Hub::on(ClientListener::Messa
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2200&group_id=2230
+
+
+From admin at berlios.de  Sat Oct  6 10:13:26 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 6 Oct 2007 11:13:26 +0300 (EEST)
+Subject: [Linuxdcpp-developers] [Patch #2201] Default for virtual name entry
+Message-ID: <200710060813.l968DQkD007708@unicorn.berlios.de>
+
+Patch #2201 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: razzloss
+Assigned to : none
+Summary: Default for virtual name entry
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2201&group_id=2230
+
+
+From c04dgg at cs.umu.se  Sat Oct  6 21:27:12 2007
+From: c04dgg at cs.umu.se (David Grundberg)
+Date: Sat, 06 Oct 2007 21:27:12 +0200
+Subject: [Linuxdcpp-developers] Disk full - but no error message
+Message-ID: <4707E190.2040405@cs.umu.se>
+
+Hejsan,
+
+I noticed a problem while downloading using linuxdcpp-cvs (updated 
+2007-10-06). While I was trying to download, I noticed that the download 
+started (progress bar and "Downloading..."), but the status immediately 
+changed to "Connection closed" (or similar).
+
+Digging into the code, and after adding a dcdebug(), I saw that a "Write 
+error" reason was being passed to the DownloadManager::failDownload... I 
+did a 'df' and noticed my download target partition being full!
+
+This message doesn't make it to the GUI, or (I suspect) is immediately 
+overwritten with the Connection closed message.
+
+Any tips on fixing this?
+
+David
+
+
+From admin at berlios.de  Sun Oct  7 18:25:57 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 7 Oct 2007 20:25:57 +0400 (MSD)
+Subject: [Linuxdcpp-developers] [Patch #2204] Magnets links support
+Message-ID: <200710071625.l97GPvBP007060@unicorn.berlios.de>
+
+Patch #2204 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: shmuma
+Assigned to : none
+Summary: Magnets links support
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2204&group_id=2230
+
+
+From konstantin.vasiliev at gmail.com  Tue Oct  9 20:59:12 2007
+From: konstantin.vasiliev at gmail.com (Konstantin Vasiliev)
+Date: Tue, 9 Oct 2007 22:59:12 +0400
+Subject: [Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it
+In-Reply-To: <4701B981.70009@gmail.com>
+References: <46F6DD73.4020407@gmail.com>
+	<200709262216.52694.konstantin.vasiliev@gmail.com>
+	<4701B981.70009@gmail.com>
+Message-ID: <200710092259.12577.konstantin.vasiliev@gmail.com>
+
+? ????????? ?? 2 ??????? 2007 07:22 Steven Sheehy ???????(a):
+> Konstantin Vasiliev wrote:
+> > ? ????????? ?? 24 ???????? 2007 01:41 Steven Sheehy ???????(a):
+> >>                    Release Notes for LinuxDC++ 1.0.0
+> >>                    ---------------------------------
+> >
+> > I run
+> > $ scons PATH=/opt/linuxdcpp
+> >
+> > and I see only this
+> >
+> > client/Text.cpp: In static member function `static const std::string&
+> > Text::convert(const std::string&, std::string&, const std::string&, const
+> > std::string&)':
+> > client/Text.cpp:339: error: invalid conversion from `const char**' to
+> > `char**' client/Text.cpp:339: error:   initializing argument 2 of `size_t
+> > iconv(void*, char**, size_t*, char**, size_t*)'
+> > scons: *** [build/client/Text.o] Error 1
+> >
+> > :-(
+> >
+> > _______________________________________________
+> > Linuxdcpp-developers mailing list
+> > Linuxdcpp-developers at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+>
+> Which distro are you using? What version of scons (run scons -v to check).
+> Looks like scons is messed up in your distro and doesn't properly check to
+> see what parameters iconv requires.
+
+I using Slackware 11. 
+
+bash-3.1$ scons -v
+SCons by Steven Knight et al.:
+        script: v0.96.92.D002, 2006/04/11 07:39:43, by knight on roxbury
+        engine: v0.96.92.D002, 2006/04/11 07:39:43, by knight on roxbury
+Copyright (c) 2001, 2002, 2003, 2004 The SCons Foundation
+
+Do you have ideas? Can you help me to build Linuxdcpp?
+
+
+From admin at berlios.de  Wed Oct 10 11:06:45 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 10 Oct 2007 11:06:45 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Bug #12151] Get file list won't show
+	directory right
+Message-ID: <200710100906.l9A96jpx011617@unicorn.berlios.de>
+
+Bug #12151, was updated on 2007-Oct-10 11:06
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: individ
+Assigned to : none
+Summary: Get file list won't  show directory right
+
+Details: Hi,
+
+I've fixed the bug where the share browser won't open the inital directory right.
+
+This bug is reproducible by doing:
+1. Run a search
+2. Right click on a search result row.
+3. Select Get file list.
+4. Wait for the file list to be downloaded. When the download is finished, a share browser opens.
+
+Received behavior:
+The tree is expanded right, but the contents is not shown. Selecting in the tree updates the contents of the selected folder.
+
+Expected behavior:
+When the file list has been downloaded, the contents of the directory containing the file should be displayed.
+
+I've fixed this in my copy of the CVS code. I'll prepare a patch later this day.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12151&group_id=2230
+
+
+From admin at berlios.de  Wed Oct 10 12:24:43 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 10 Oct 2007 12:24:43 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Bug #12152] Superfluous / in $HOME causes
+	file browsing problems
+Message-ID: <200710101024.l9AAOh1I009819@unicorn.berlios.de>
+
+Bug #12152, was updated on 2007-Oct-10 12:24
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: individ
+Assigned to : none
+Summary: Superfluous  / in $HOME causes file browsing problems
+
+Details: I noticed that if my HOME-variable ends with a superfluous  '/', the share browser will get an empty string instead of the initial directory when a file list has been downloaded for viewing. The string comparison between requested and downloaded filenames fails in the core. (The former has the superfluous /, the latter doesn't.)
+
+This bug is reproducible by doing:
+1. Start linuxdcpp in the bash shell: 
+
+HOME=/a/directory/path/ending/with/slash/ linuxdcpp 
+
+2. Run a search
+3. Right click on a search result row.
+4. Select Get file list.
+5. Wait for the file list to be downloaded. When the download is finished, a share browser opens.
+
+Received behavior:
+The browser opens the file list in the root directory, not in the directory containing the file searched for.
+
+Expected behavior:
+The contents of the directory containing the file should be displayed.
+
+Work-around:
+Start linuxdcpp with HOME set to a path not ending with /.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12152&group_id=2230
+
+
+From admin at berlios.de  Wed Oct 10 21:56:08 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 10 Oct 2007 21:56:08 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #2206] Show directory contents on
+	'Get file list' (bug 12151)
+Message-ID: <200710101956.l9AJu88D006356@unicorn.berlios.de>
+
+Patch #2206 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: individ
+Assigned to : none
+Summary: Show directory contents on 'Get file list' (bug 12151)
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2206&group_id=2230
+
+
+From steven.sheehy at gmail.com  Fri Oct 12 01:55:16 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Thu, 11 Oct 2007 18:55:16 -0500
+Subject: [Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it
+In-Reply-To: <200710092259.12577.konstantin.vasiliev@gmail.com>
+References: <46F6DD73.4020407@gmail.com>	<200709262216.52694.konstantin.vasiliev@gmail.com>	<4701B981.70009@gmail.com>
+	<200710092259.12577.konstantin.vasiliev@gmail.com>
+Message-ID: <470EB7E4.5040705@gmail.com>
+
+Konstantin Vasiliev wrote:
+> ? ????????? ?? 2 ??????? 2007 07:22 Steven Sheehy ???????(a):
+>> Konstantin Vasiliev wrote:
+>>> ? ????????? ?? 24 ???????? 2007 01:41 Steven Sheehy ???????(a):
+>>>>                    Release Notes for LinuxDC++ 1.0.0
+>>>>                    ---------------------------------
+>>> I run
+>>> $ scons PATH=/opt/linuxdcpp
+>>>
+>>> and I see only this
+>>>
+>>> client/Text.cpp: In static member function `static const std::string&
+>>> Text::convert(const std::string&, std::string&, const std::string&, const
+>>> std::string&)':
+>>> client/Text.cpp:339: error: invalid conversion from `const char**' to
+>>> `char**' client/Text.cpp:339: error:   initializing argument 2 of `size_t
+>>> iconv(void*, char**, size_t*, char**, size_t*)'
+>>> scons: *** [build/client/Text.o] Error 1
+>>>
+>>> :-(
+>>>
+>>> _______________________________________________
+>>> Linuxdcpp-developers mailing list
+>>> Linuxdcpp-developers at lists.berlios.de
+>>> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+>> Which distro are you using? What version of scons (run scons -v to check).
+>> Looks like scons is messed up in your distro and doesn't properly check to
+>> see what parameters iconv requires.
+> 
+> I using Slackware 11. 
+> 
+> bash-3.1$ scons -v
+> SCons by Steven Knight et al.:
+>         script: v0.96.92.D002, 2006/04/11 07:39:43, by knight on roxbury
+>         engine: v0.96.92.D002, 2006/04/11 07:39:43, by knight on roxbury
+> Copyright (c) 2001, 2002, 2003, 2004 The SCons Foundation
+> 
+> Do you have ideas? Can you help me to build Linuxdcpp?
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+
+I have the same version of scons as you do. Actually, your problem doesn't seem 
+to be with scons. Instead it seems your iconv headers and the iconv library API 
+is out of sync. The headers seem to expect `size_t iconv(void*, const char**, 
+size_t*, char**, size_t*)' while the library itself expects `size_t iconv(void*, 
+char**, size_t*, char**, size_t*)'. I can't fix that for you, that's an issue 
+with your distribution or your configuration of said distribution.
+
+I can however tell you how to hack the code in order to get it to work pretty 
+easily. :) You just need to delete "ICONV_CONST" from line 339 of 
+client/Text.cpp and it should compile.
+
+-Steven
+
+
+From cvs at linuxdcpp.berlios.de  Sat Oct 13 23:57:00 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sat, 13 Oct 2007 23:57:00 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200710132157.l9DLv0YZ015153@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 1294 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071013/92031aae/attachment.xml>
+
+From admin at berlios.de  Thu Oct 18 00:07:32 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 18 Oct 2007 00:07:32 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #2216] add hub topic to tab name
+Message-ID: <200710172207.l9HM7Wfn029145@unicorn.berlios.de>
+
+Patch #2216 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: stoft
+Assigned to : none
+Summary: add hub topic to tab name
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2216&group_id=2230
+
+
+From conf at htfi.info  Sat Oct 20 10:17:37 2007
+From: conf at htfi.info (Conference Organizing Committe)
+Date: Sat, 20 Oct 2007 12:17:37 +0400
+Subject: [Linuxdcpp-developers] SECOND INTERNATIONAL SCIENTIFIC - PRACTICAL
+	CONFERENCE "GEOPOLITICS, GEOECONOMICS AND INTERNATIONAL
+Message-ID: <200710200810.l9K8ArCV022592@mail.interzet.ru>
+
+Dear Colleagues!
+
+With this letter we send you information about the SECOND INTERNATIONAL SCIENTIFIC - PRACTICAL CONFERENCE "GEOPOLITICS, GEOECONOMICS AND INTERNATIONAL RELATIONS PROBLEMS. NATO AND EU EXPANSION TO THE EAST ? SECURITY PROBLEMS OF RUSSIA, CIS STATES, EUROPE AND ASIA" will be held in St. Petersburg in 20-21 November, 2007, and FIFTH INTERNATIONAL SCIENTIFIC - PRACTICAL CONFERENCE ?Research, Development and Application of High Technologies in Industry?, - March-April 2008, St. Petersburg, Russia and other conferences. We invite you and colleagues from your Institute (University) take part in these conferences, also as Organizing Committees members. 
+More information about conferences you can see on the site: htfi.ru
+With best regards,
+Co-Chairman and Chief Executive of the Organizing Committees,                A.P. Kudinov
+
+
+SECOND INTERNATIONAL SCIENTIFIC - PRACTICAL CONFERENCE
+"GEOPOLITICS, GEOECONOMICS AND INTERNATIONAL RELATIONS PROBLEMS. NATO AND EU EXPANSION TO THE EAST ? SECURITY PROBLEMS OF RUSSIA, CIS STATES, EUROPE AND ASIA"
+20-21 November 2007, St. Petersburg, Russia
+
+DEAR COLLEAGUES!
+
+We are glad to inform you that The SECOND INTERNATIONAL SCIENTIFIC - PRACTICAL CONFERENCE ?GEOPOLITICS, GEOECONOMICS AND INTERNATIONAL RELATIONS PROBLEMS. NATO AND EU EXPANSION TO THE EAST ? SECURITY PROBLEMS OF RUSSIA, CIS STATES, EUROPE AND ASIA" will be held in Saint Petersburg in 20-21 November, 2007. The following questions are to be discussed at plenary and sectional meetings: 
+1.	Historical aspects and consequences of one-way annulation of The Warsaw Treaty and saving military-and-political NATO bloc; 
+2.	Influence of The Warsaw Treaty annulation and the Soviet Union collapse on Russia, CIS sates, Europe and Asia security; 
+3.	Hiroshima and Nagasaki atomic bombing by US forces, Belgrade and Baghdad bombing and other US and EU states military operations in 20-21 centuries. Investigation of war management technologies and functional purpose of military operations; 
+4.	Analysis of the balance variation of Russia (Soviet Union) and NATO states military forces, their arming types, combativity in 1980-2007.; 
+5.	Analysis of the balance variation of military forces and military industrial complexes finance support in Russia (Soviet Union) and NATO states in 1980-2007; 
+6.	Problems and prospects of saving and developing geopolitically adequate defense potentialities and national security in Russia and CIS states in 2007-2035; 
+7.	All states self defense rights in monopolar world and nuclear non-proliferation treaties changing adequate to new geopolitical environment; 
+8.	Theoretical and practical basis under preventive measures developing for internal military intervention fight in the conditions of interstate conflicts blowing; 
+9.	Law, political, economic, financial and informative problems of Russia defense potentialities and national security maintenance in 2007-2035; 
+10.	Television, cinema and other media and propaganda tools as a mechanism for intervention, war preparation and war management in conditions of informational space globalization and liberalization; 
+11.	Technical, political, economic, financial and informative ways of the 3 rd World War running. Possible development alternative analysis; 
+12.	Theoretical and practical basis for Russia military-technical politics in conditions of fast-developing world geopolitical situation; 
+13.	Scientific and practical aspects of informative security; 
+14.	Scientific and technological, political, financial and purveyance state security. Problems and ways out; 
+15.	Up-to-date ecological security problems, including military threats; 
+16.	Problems and prospects of new global military-political blocks creation aiming to compensate NATO block military threats and develop new fair multipolar world; 
+17.	Problems and prospects of democratic and civilized international law and world construction, problems of all world states steady development; 
+18.	The army as the basic moving force and argument of interstate politics, geopolitics and international relations. 
+The list of questions to be introduced for discussion at the Conference may be widened at your request. 
+We propose you and scientific workers of your University, Institute to take an active part in the Conference and in the work of Organizing Committee. The deadline for sending applications to participate in the Conference and submitting papers is 10.11.2007. Please, send your proposals on the Conference subjects and applications to the following addresses: 
+E-mail: geopolitika at htfi.ru - for electronic correspondence. Alexander P. Kudinov, P/O box 01, St. Petersburg, 195298, Russia ? for printed materials. Requirements on registration and other useful information are on a bulletin board of the Conference, on the site: htfi.ru.
+
+Co-Chair and Chief Executive of the Conference Organizing Committee,
+Academic of the Academy of SRIHT                    Kudinov A.P.
+
+
+
+FIFTH INTERNATIONAL SCIENTIFIC - PRACTICAL CONFERENCE 
+?Research, Development and Application 
+of High Technologies in Industry? 
+March-April 2008, St. Petersburg, Russia 
+
+DEAR COLLEAGUES!
+
+We inform you that THE FIFTH INTERNATIONAL SCIENTIFIC - PRACTICAL CONFERENCE "RESEARCH, DEVELOPMENT AND APPLICATION OF HIGH TECHNOLOGIES IN INDUSTRY" will be held in March-April, 2008 in St. Petersburg, Russia by the Institute of Atmospheric Optics of the Siberian Branch of the Russian Academy of Sciences (RAS), the Administrative Department of President of Russia "Enterprise for Deliveries of Products", the Institute of Tests and Certification of Arms and Military Engineering of the ?inistry of Defense of the Russian Federation, the St.-Petersburg State Polytechnical University, S.M. Budennyi Military Academy of Communication of the ?inistry of Defense, I.P. Pavlov Institute of Physiology of the RAS, the Tomsk Polytechnical University, D.F. Ustinov Baltic State Technical University "Voenmekh", the Academy of Strategic Researches, Information and High Technologies, the Institute of Telecommunications, the National Congress of Young People, the St.-Petersburg Commercial and I!
+ ndustrial House and other institut
+1.	The role of federal and regional authorities, state and private industrial sectors, mass media in the development of the education, basic and applied researches (hereinafter, BAR) and high technologies (hereinafter, HT) in Russia, USA, CIS and EU countries and other developed countries. The comparative analysis, search of optimal mechanisms of interaction and management. 
+2.	The state of the art and prospects of application of H? results of basic and applied researches in various fields of science, education and industry (in particular, in military fields). Russia, the countries of CIS and EU, USA, China, India and other countries of the world: 
+1.	Information and computer technologies (ICT), computer modelling, robotics, radio electronics, scientific instrument making, telecommunication systems, applied mathematics, direct and return problems, programming, cryptography and information protection databases; 
+2.	Theoretical and applied physics, radiophysics, chemistry, physical chemistry, gas dynamics and hydrodynamics; 
+3.	Physics and technology of electric discharges, optical, laser, plasma, film and nanotechnologies, electronics, including the high capacities, nondestructive control; 
+4.	Atomic and nuclear technologies, aircraft, rocket design and astronautics; 
+5.	Powder metallurgy, materials technology, composition materials and strengthening technologies; 
+6.	Biotechnology, medicine, genetics, cytology, agriculture; 
+7.	Global and regional climatology and ecology. Research of processes, diagnostics, the analysis of development processes, development of methods of climate and ecology control; 
+8.	Extraction, processing and transportation of raw material, energetics, welding, construction, metallurgy, chemical and heavy industry, mechanical engineering, shipbuilding, transport, consumer production; 
+9.	Standardization and automation of control systems of business, science, industry, regions and the state. The theory of steady development, computer simulation; 
+10.	The international standardization of education, BAR, HT, and HT production. Problems, the analysis, forecasts; 
+3.	Problems and ways of solution of economic efficiency and competitiveness in the world education market, BAR and HT in Russia and the CIS countries. Experience of the Eurounion, USA, China, India and other countries. A policy and economy of education, BAR, HT and HT in industries. Analytics, the comparative analysis. 
+4.	The education, basic and applied researches, high technologies and highly technological industry, as factors of state security, independence of the state, quality of life of citizens and protection of human rights. 
+5.	BAR and H?, creation of H? business - incubators, technoparks, IC? - parks and "silicone" regions - as a basis of development of industry, including an export component, the performance of the state and defence orders. Practice, legislative base, the analysis and forecast. 
+6.	Financial-politological, legislative - legal, social and international aspects of the development of higher secondary technical education, BAR, H? and H? industry. Computer simulation. 
+7.	Intensification of works in the field of BAR, H?, development H? industry and preparation of highly skilled experts, as a basis for the solution of the problem of doubling of gross national product. Problems of youth in science and H? industry. 
+8.	Basic and applied researches, high technologies and the highly technological industry of double purpose of 21st century. Computer simulation. 
+9.	Historiography, dialectics and political science of the development of education, basic and applied researches, high technologies and the highly developed industry. 
+Such an expanded approach to the subjects of the Conference and the complex scientific analysis, as the experience of the first Conference has shown, make it possible to evaluate the state of the art, to develop and realize the optimal solutions and way of the development of education, BAR, H? and the highly developed industry. It is also confirmed by the long-term work of the best Russian and foreign Universities, Institutes, Academies of Sciences and the largest corporations of the world. 
+At the Conference the Trade Exhibition of Achievements in Education, Basic and Applied Researches and High Technologies in the Industry will be organized with participation of potential customers and investors, in particular, from foreign countries with an opportunity of concluding the contracts. We invite you and your colleagues to participate in the Trade Exhibition and to present materials about your achievements on the subjects of the Conference. The advertising information can be published in the Conference Proceedings and on the conference site: htfi.ru. 
+We propose you and scientific workers of your University, Institute to take an active part in the Conference and in the work of Organizing Committee. The deadline for sending applications to participate in the Conference is 20. 12. 2008. Your application should contain the following information: 
+1.	First name and last name of authors; 
+2.	Title and length of paper abstracts; 
+3.	Affiliation (if materials are presented by the institution); 
+4.	First name and last name of a speaker; 
+5.	Mailing address, fax and e-mail. 
+The number of papers is not limited. 
+More detailed information on conditions of participation in the International Conference will be sent after reception of the application. 
+Please send your Application and proposals on the Conference subjects to the following addresses:
+In Tomsk: 634055, Tomsk, Russia, Institute of Atmospheric Optics SB RAS, 1 Akademichesky Ave.
+Phone in Tomsk: +7(3822)492-738.
+In St. Petersburg: North-West Representative Office of IAO SB RAS
+Phone in St. Petersburg: +7(906)-22-99-647 - for English and German
+fax: +7(812)574-30-17. 
+Post address: P/O box 01, St. Petersburg, 195298 Russia.
+E-mail: spbtpd at mail.ru 
+Co-Chair and Chief Executive of the Conference Organizing Committee vice-director of IAO SB RAS              Kudinov A.P. 
+
+
+From admin at berlios.de  Sat Oct 20 14:07:40 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 20 Oct 2007 15:07:40 +0300 (EEST)
+Subject: [Linuxdcpp-developers] [Bug #12225] Slackware installation
+Message-ID: <200710201207.l9KC7eUp010451@unicorn.berlios.de>
+
+Bug #12225, was updated on 2007-Oct-20 15:07
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: magarus
+Assigned to : none
+Summary: Slackware installation
+
+Details: Afer updating from version 0.6.x to version 1.0.0 on a Slackware 12 running gnome no normal user can run the software anymore.
+Compiled with scons debug=1 I get: 
+
+Thrown: FileException: Could not open file
+Thrown: FileException: Could not open file
+Thrown: FileException: Could not open file
+FavoriteManager::load: FileException: Could not open file
+Loading: Hash database
+Thrown: FileException: Could not open file
+Loading: Shared Files
+Thrown: FileException: Could not open file
+FileException: Could not open file
+Loading: Download Queue
+Unable to initialize guiSem: Permission denied
+
+And also as the root user:
+
+Thrown: FileException: Could not open file
+Thrown: FileException: Could not open file
+Thrown: FileException: Could not open file
+FavoriteManager::load: FileException: Could not open file
+Loading: Hash database
+Thrown: FileException: Could not open file
+Loading: Shared Files
+Thrown: FileException: Could not open file
+FileException: Could not open file
+Loading: Download Queue
+
+I have tried getting more info on the problem, but no debug logs are created anywhere. Could I get more info on this guiSem problem?
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12225&group_id=2230
+
+
+From admin at berlios.de  Thu Oct 18 17:23:52 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 18 Oct 2007 12:23:52 -0300 (ART)
+Subject: [Linuxdcpp-developers] [Feature #3792] Set XUrgencyHint flag when
+	nick named in
+Message-ID: <200710181523.l9IFNqCD009509@unicorn.berlios.de>
+
+Feature Request #3792, was updated on 2007-Oct-18 12:23
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3792&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Set XUrgencyHint flag when nick named in
+
+By: adelfino
+Date: 2007-Oct-18 12:23
+
+Message:
+Logged In: YES 
+user_id=40821
+Browser: Mozilla/5.0 (X11; U; OpenBSD i386; en-US; rv:1.8.1.6) Gecko/20070825 Firefox/2.0.0.6
+
+This is sooo useful when working with different
+workspaces and window managing concepts (like tabbed
+window managment) that you wouldn't belive it :P
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3792&group_id=2230
+
+
+From dr-evil at elenet.info  Sat Oct 20 22:31:50 2007
+From: dr-evil at elenet.info (dr-evil)
+Date: Sun, 21 Oct 2007 00:31:50 +0400
+Subject: [Linuxdcpp-developers] About ignore user feature
+Message-ID: <20071021003150.f8e84823.dr-evil@elenet.info>
+
+Is there any plans or maybe patch realized 
+how to totally ignore a user n a chat?
+
+PS Sorry for my english
+
+
+
+-- 
+dr-evil <dr-evil at elenet.info>
+
+
+From admin at berlios.de  Mon Oct 22 00:13:44 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 21 Oct 2007 23:13:44 +0100 (BST)
+Subject: [Linuxdcpp-developers] [Bug #12242] Missing 'build' directory
+Message-ID: <200710212213.l9LMDiF8025846@unicorn.berlios.de>
+
+Bug #12242, was updated on 2007-Oct-21 23:13
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: linuxfever
+Assigned to : none
+Summary: Missing 'build' directory
+
+Details: When trying to build the cvs vesion scons complains:
+
+scons: *** Error writing options to file: build/sconf/scache.conf
+
+[Errno 2] No such file or directory: 'build/sconf/scache.conf'
+
+File "/home/nikos/Various/DC/linuxdcpp/SConstruct", line 68, in <module>
+
+
+This is actually true since a 'build' directory does not exist in the linuxdcpp folder.
+
+
+
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12242&group_id=2230
+
+
+From admin at berlios.de  Mon Oct 22 13:14:47 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 22 Oct 2007 14:14:47 +0300 (EEST)
+Subject: [Linuxdcpp-developers] [Bug #12245] Downloads gets disconnected
+	under Ubuntu Gutsy
+Message-ID: <200710221114.l9MBElGA002184@unicorn.berlios.de>
+
+Bug #12245, was updated on 2007-Oct-22 14:14
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: epeli
+Assigned to : none
+Summary: Downloads gets disconnected under Ubuntu Gutsy
+
+Details: I can't download anything but filelists in Ubuntu Gutsy. I'm using 1.0.0 version. Downloads works fine in windows version running in wine. So it is not about active/passive mode. Search also works.
+
+I compiled ldcpp with debug=true argument. Now when I trie to download something this pops in to terminal:
+NmdcHub::connect Andy1
+NmdcHub::connectToMe Andy1
+BufferedSocket::accept() 0x8f3ac60
+BufferedSocket::run() start 0x8f3ac60
+ConnectionManager::onMyNick 0x8f360a0, Andy1
+ConnectionManager::addDownloadConnection, leaving to downloadmanager
+Thrown: FileException: Could not open file
+BufferedSocket: New command when already failed: 1
+BufferedSocket::run() end 0x8f3ac60
+
+Screenshot: http://img88.imageshack.us/my.php?image=dcppmo2.png
+
+
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12245&group_id=2230
+
+
+From admin at berlios.de  Tue Oct 23 03:58:24 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 22 Oct 2007 17:58:24 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Bug #12253] Linux DC icon should to be
+	scalable (SVG)
+Message-ID: <200710230158.l9N1wOH6000650@unicorn.berlios.de>
+
+Bug #12253, was updated on 2007-Oct-22 17:58
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: dreadknight
+Assigned to : none
+Summary: Linux DC icon should to be scalable (SVG)
+
+Details: Linux DC's icon looks bad, very pixelated/low res in my linux distro (Ubuntu Gutsy) in several places, when it needs a bigger size icon, and the low one gets streched - like when alt-tab-ing with compiz activated or when using awn (avant window navigator) etc.
+
+If you need my help, i will gladly remake the icon using inkscape and provided you in a format like svg.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12253&group_id=2230
+
+
+From admin at berlios.de  Tue Oct 23 04:11:19 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 22 Oct 2007 18:11:19 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Feature #3801] Righ-click "Open Folder"
+	option
+Message-ID: <200710230211.l9N2BJRT029071@unicorn.berlios.de>
+
+Feature Request #3801, was updated on 2007-Oct-22 18:11
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3801&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Righ-click "Open Folder" option
+
+By: dreadknight
+Date: 2007-Oct-22 18:11
+
+Message:
+Logged In: YES 
+user_id=41525
+Browser: Mozilla/5.0 (X11; U; Linux i686; ro; rv:1.8.1.6) Gecko/20071008 Ubuntu/7.10 (gutsy) Firefox/2.0.0.6
+
+There should be a right-click contextual option for
+"Open Folder/Directory" available in Finished Downloads
+and perhaps even in Queue and Finished Uploads.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3801&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Sun Oct 28 21:41:51 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sun, 28 Oct 2007 21:41:51 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200710282041.l9SKfpdG019744@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 1287 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071028/7b921053/attachment.xml>
+
+From steven.sheehy at gmail.com  Sun Oct 28 23:16:38 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sun, 28 Oct 2007 17:16:38 -0500
+Subject: [Linuxdcpp-developers] About ignore user feature
+In-Reply-To: <20071021003150.f8e84823.dr-evil@elenet.info>
+References: <20071021003150.f8e84823.dr-evil@elenet.info>
+Message-ID: <47250A46.6090405@gmail.com>
+
+dr-evil wrote:
+> Is there any plans or maybe patch realized 
+> how to totally ignore a user n a chat?
+> 
+> PS Sorry for my english
+> 
+> 
+> 
+
+Most likely not. Such a change would require changes to the DC++ core (it could 
+be done outside, but it wouldn't be very elegant). So until this feature is 
+added to windows DC++, it won't be added to LinuxDC++.
+
+-Steven
+
+
+From stanislav.maslovski at gmail.com  Mon Oct 29 21:39:56 2007
+From: stanislav.maslovski at gmail.com (Stanislav Maslovski)
+Date: Mon, 29 Oct 2007 23:39:56 +0300
+Subject: [Linuxdcpp-developers] CVS Commit
+In-Reply-To: <200710282041.l9SKfpdG019744@sheep.berlios.de>
+References: <200710282041.l9SKfpdG019744@sheep.berlios.de>
+Message-ID: <20071029203956.GA11283@mail.post.ru>
+
+On Sun, Oct 28, 2007 at 09:41:51PM +0100, cvs at linuxdcpp.berlios.de wrote:
+>            <log>
+> user commands
+>            </log>
+
+Thanks a lot! Long awaited feature, testing now...
+
+-- 
+Stanislav
+
+
+From alextud at gmail.com  Mon Oct 29 23:12:02 2007
+From: alextud at gmail.com (Alexandru Tudose)
+Date: Tue, 30 Oct 2007 00:12:02 +0200
+Subject: [Linuxdcpp-developers] Make search more suggestive
+Message-ID: <878a2ed60710291512o4b3a383aw32b10d2ad7bf7590@mail.gmail.com>
+
+Hello,
+
+I make this patch to add  6 more icons for files type defined in
+SearchManager to make search more suggestive.
+Please include this in linuxdcpp,.
+
+
+
+Thanks.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071030/6615d567/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: search.cc.patch
+Type: text/x-patch
+Size: 2836 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071030/6615d567/attachment.bin>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: search.hh.patch
+Type: text/x-patch
+Size: 327 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071030/6615d567/attachment-0001.bin>
+
+From steven.sheehy at gmail.com  Tue Oct 30 01:02:42 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Mon, 29 Oct 2007 19:02:42 -0500
+Subject: [Linuxdcpp-developers] Make search more suggestive
+In-Reply-To: <878a2ed60710291512o4b3a383aw32b10d2ad7bf7590@mail.gmail.com>
+References: <878a2ed60710291512o4b3a383aw32b10d2ad7bf7590@mail.gmail.com>
+Message-ID: <472674A2.60902@gmail.com>
+
+Alexandru Tudose wrote:
+> Hello,
+> 
+> I make this patch to add  6 more icons for files type defined in 
+> SearchManager to make search more suggestive.
+> Please include this in linuxdcpp,.
+> 
+> 
+> 
+> Thanks.
+> 
+
+Can you tell me from where these icons originate? I need to know that they will 
+be available on all platforms without anyone having to add any additional packages.
+
+-Steven
+
+
+From alextud at gmail.com  Tue Oct 30 15:57:45 2007
+From: alextud at gmail.com (Alexandru Tudose)
+Date: Tue, 30 Oct 2007 16:57:45 +0200
+Subject: [Linuxdcpp-developers] Make search more suggestive
+In-Reply-To: <878a2ed60710291512o4b3a383aw32b10d2ad7bf7590@mail.gmail.com>
+References: <878a2ed60710291512o4b3a383aw32b10d2ad7bf7590@mail.gmail.com>
+Message-ID: <878a2ed60710300757p260e7087xf30f29d2f69856f7@mail.gmail.com>
+
+Those icons should be present in any gnome icon theme in section MimeTypes
+and folder icon in section places.
+
+http://library.gnome.org/devel/icon-naming-spec/
+
+
+On 30/10/2007, Alexandru Tudose <alextud at gmail.com> wrote:
+>
+> Hello,
+>
+> I make this patch to add  6 more icons for files type defined in
+> SearchManager to make search more suggestive.
+> Please include this in linuxdcpp,.
+>
+>
+>
+> Thanks.
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20071030/919de342/attachment.html>
+
+From steven.sheehy at gmail.com  Tue Oct 30 21:59:18 2007
+From: steven.sheehy at gmail.com (steven.sheehy at gmail.com)
+Date: Tue, 30 Oct 2007 15:59:18 -0500
+Subject: [Linuxdcpp-developers] Make search more suggestive
+In-Reply-To: <878a2ed60710300757p260e7087xf30f29d2f69856f7@mail.gmail.com>
+References: <878a2ed60710291512o4b3a383aw32b10d2ad7bf7590@mail.gmail.com>
+	<878a2ed60710300757p260e7087xf30f29d2f69856f7@mail.gmail.com>
+Message-ID: <6495fe8a0710301359q4a90d002i83db5461647c811f@mail.gmail.com>
+
+On 10/30/07, Alexandru Tudose <alextud at gmail.com> wrote:
+> Those icons should be present in any gnome icon theme in section MimeTypes
+> and folder icon in section places.
+>
+> http://library.gnome.org/devel/icon-naming-spec/
+>
+>
+
+And therein lies the problem. LinuxDC++ is a GTK+ application, not a
+Gnome application. If the icons are only present in Gnome, I cannot
+add them.
+
+

@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] 1.0.0 fails to compile
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%201.0.0%20fails%20to%20compile&In-Reply-To=%3Cop.ty6jonwitrbvx2%40bill%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000177.html">
+   <LINK REL="Next"  HREF="000179.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] 1.0.0 fails to compile</H1>
+    <B>Tom&#225;&#353; Hnyk</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%201.0.0%20fails%20to%20compile&In-Reply-To=%3Cop.ty6jonwitrbvx2%40bill%3E"
+       TITLE="[Linuxdcpp-developers] 1.0.0 fails to compile">tomashnyk at gmail.com
+       </A><BR>
+    <I>Tue Sep 25 00:35:01 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000177.html">[Linuxdcpp-developers] [Patch #2188] Search grouping
+</A></li>
+        <LI>Next message: <A HREF="000179.html">[Linuxdcpp-developers] 1.0.0 fails to compile
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#178">[ date ]</a>
+              <a href="thread.html#178">[ thread ]</a>
+              <a href="subject.html#178">[ subject ]</a>
+              <a href="author.html#178">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+I am an end user basically so feel free to disregard me, but since you  
+have released 1.0.0, I hope the situation has changed.
+I am on Ubuntu 7.04 (Feisty Fawn) and i try to install linuxDC++ iwth sudo  
+scons install but it gives me:
+cons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+Install file: &quot;glade/downloadqueue.glade&quot; as  
+&quot;/usr/local/share/linuxdcpp/glade/downloadqueue.glade&quot;
+Install file: &quot;glade/favoritehubs.glade&quot; as  
+&quot;/usr/local/share/linuxdcpp/glade/favoritehubs.glade&quot;
+Install file: &quot;glade/finishedtransfers.glade&quot; as  
+&quot;/usr/local/share/linuxdcpp/glade/finishedtransfers.glade&quot;
+Install file: &quot;glade/hash.glade&quot; as  
+&quot;/usr/local/share/linuxdcpp/glade/hash.glade&quot;
+Install file: &quot;glade/hub.glade&quot; as  
+&quot;/usr/local/share/linuxdcpp/glade/hub.glade&quot;
+Install file: &quot;glade/mainwindow.glade&quot; as  
+&quot;/usr/local/share/linuxdcpp/glade/mainwindow.glade&quot;
+Install file: &quot;glade/privatemessage.glade&quot; as  
+&quot;/usr/local/share/linuxdcpp/glade/privatemessage.glade&quot;
+Install file: &quot;glade/publichubs.glade&quot; as  
+&quot;/usr/local/share/linuxdcpp/glade/publichubs.glade&quot;
+Install file: &quot;glade/search.glade&quot; as  
+&quot;/usr/local/share/linuxdcpp/glade/search.glade&quot;
+Install file: &quot;glade/settingsdialog.glade&quot; as  
+&quot;/usr/local/share/linuxdcpp/glade/settingsdialog.glade&quot;
+Install file: &quot;glade/sharebrowser.glade&quot; as  
+&quot;/usr/local/share/linuxdcpp/glade/sharebrowser.glade&quot;
+Install file: &quot;pixmaps/connect.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/connect.png&quot;
+Install file: &quot;pixmaps/dc++.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/dc++.png&quot;
+Install file: &quot;pixmaps/dc++-fw.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/dc++-fw.png&quot;
+Install file: &quot;pixmaps/dc++-fw-op.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/dc++-fw-op.png&quot;
+Install file: &quot;pixmaps/dc++-op.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/dc++-op.png&quot;
+Install file: &quot;pixmaps/download.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/download.png&quot;
+Install file: &quot;pixmaps/favhubs.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/favhubs.png&quot;
+Install file: &quot;pixmaps/FinishedDL.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/FinishedDL.png&quot;
+Install file: &quot;pixmaps/FinishedUL.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/FinishedUL.png&quot;
+Install file: &quot;pixmaps/hash.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/hash.png&quot;
+Install file: &quot;pixmaps/linuxdcpp.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/linuxdcpp.png&quot;
+Install file: &quot;pixmaps/linuxdcpp-icon.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/linuxdcpp-icon.png&quot;
+Install file: &quot;pixmaps/normal.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/normal.png&quot;
+Install file: &quot;pixmaps/normal-fw.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/normal-fw.png&quot;
+Install file: &quot;pixmaps/normal-fw-op.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/normal-fw-op.png&quot;
+Install file: &quot;pixmaps/normal-op.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/normal-op.png&quot;
+Install file: &quot;pixmaps/publichubs.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/publichubs.png&quot;
+Install file: &quot;pixmaps/queue.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/queue.png&quot;
+Install file: &quot;pixmaps/quit.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/quit.png&quot;
+Install file: &quot;pixmaps/search.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/search.png&quot;
+Install file: &quot;pixmaps/settings.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/settings.png&quot;
+Install file: &quot;pixmaps/upload.png&quot; as  
+&quot;/usr/local/share/linuxdcpp/pixmaps/upload.png&quot;
+Install file: &quot;Changelog.txt&quot; as  
+&quot;/usr/local/share/doc/linuxdcpp/Changelog.txt&quot;
+Install file: &quot;Credits.txt&quot; as &quot;/usr/local/share/doc/linuxdcpp/Credits.txt&quot;
+Install file: &quot;License.txt&quot; as &quot;/usr/local/share/doc/linuxdcpp/License.txt&quot;
+Install file: &quot;Readme.txt&quot; as &quot;/usr/local/share/doc/linuxdcpp/Readme.txt&quot;
+scons: *** Source `linuxdcpp' not found, needed by target  
+`/usr/local/bin/linuxdcpp'.  Stop.
+scons: building terminated because of errors.
+
+I do not understand scons one bit, but I tried to look for linuxdcpp in  
+the tarball and there is no such file. I retrieved it from  
+<A HREF="tp://ftp.berlios.de/pub/linuxdcpp/">tp://ftp.berlios.de/pub/linuxdcpp/</A> (tried both gz and bz2).
+
+I compiled cvs version of LinuxDC++ several months ago without any  
+problems. But now upgrade seems to not work anymore.
+
+I uninstalled the earlier version, even though it took me some time to  
+figure out that -c option is needed. A mention about uninstalling would be  
+nice in the readme, I guess not that many people are so familiar with  
+scons.
+
+BTW: the earlier version I was running was great, certainly much better  
+than something through wine.
+
+Regards,
+Tomas Hnyk
+
+
+
+
+-- 
+A: Because it fouls the order in which people normally read text.
+Q: Why is top-posting such a bad thing?
+A: Top-posting.
+Q: What is the most annoying thing in e-mail?
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000177.html">[Linuxdcpp-developers] [Patch #2188] Search grouping
+</A></li>
+	<LI>Next message: <A HREF="000179.html">[Linuxdcpp-developers] 1.0.0 fails to compile
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#178">[ date ]</a>
+              <a href="thread.html#178">[ thread ]</a>
+              <a href="subject.html#178">[ subject ]</a>
+              <a href="author.html#178">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

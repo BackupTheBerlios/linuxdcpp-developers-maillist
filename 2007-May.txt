@@ -1,0 +1,311 @@
+From roberth.sjonoy at gmail.com  Thu May  3 10:15:34 2007
+From: roberth.sjonoy at gmail.com (Roberth =?ISO-8859-1?Q?Sjon=F8y?=)
+Date: Thu, 03 May 2007 10:15:34 +0200
+Subject: [Linuxdcpp-developers] Revconnect features?
+Message-ID: <1178180134.5839.0.camel@Magda.hjemmenettverk.home>
+
+I wonder if it's possible some of the Revconnects clients features could
+be in inplemented in Linuxdcpp?
+
+
+
+From admin at berlios.de  Thu May  3 17:33:26 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 3 May 2007 19:33:26 +0400 (MSD)
+Subject: [Linuxdcpp-developers] [Bug #10978] Incorrect charset names
+Message-ID: <200705031533.l43FXQTt011522@unicorn.berlios.de>
+
+Bug #10978, was updated on 2007-May-03 19:33
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: alexandermv
+Assigned to : none
+Summary: Incorrect charset names
+
+Details: Should replace
+charsets.push_back(_("CP1251 (Cyrillic)"))
+and other like strings in WulforUtil.cc to 
+charsets.push_back(_("CP1251"))
+or do something otherwise because iconv_open(..., "CP1251 (Cyrillic)") in Text::convert fails
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10978&group_id=2230
+
+
+From steven.sheehy at gmail.com  Thu May  3 19:41:04 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Thu, 03 May 2007 12:41:04 -0500
+Subject: [Linuxdcpp-developers] Revconnect features?
+In-Reply-To: <1178180134.5839.0.camel@Magda.hjemmenettverk.home>
+References: <1178180134.5839.0.camel@Magda.hjemmenettverk.home>
+Message-ID: <463A1EB0.3000102@gmail.com>
+
+Roberth Sjon?y wrote:
+> I wonder if it's possible some of the Revconnects clients features could
+> be in inplemented in Linuxdcpp?
+> 
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+> 
+
+Read the FAQ (http://openfacts.berlios.de/index-en.phtml?title=Ldcpp_FAQ).
+
+
+From cvs at linuxdcpp.berlios.de  Sat May  5 20:55:42 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sat, 5 May 2007 20:55:42 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200705051855.l45Itgx2002597@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 1675 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070505/f2ab9b2f/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Sun May  6 22:18:09 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sun, 6 May 2007 22:18:09 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200705062018.l46KI9xW005680@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 601 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070506/4ef36ffe/attachment.xml>
+
+From admin at berlios.de  Sun May  6 22:24:13 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 6 May 2007 23:24:13 +0300 (EEST)
+Subject: [Linuxdcpp-developers] [Bug #11002] The program dies radomly
+Message-ID: <200705062024.l46KODsi009484@unicorn.berlios.de>
+
+Bug #11002, was updated on 2007-May-06 23:24
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: bugposter1
+Assigned to : none
+Summary: The program dies radomly
+
+Details: This is what terminal says:
+
+** ERROR **: file gailtreeview.c: line 3723 (traverse_cells): assertion failed: (row_path != NULL)
+aborting...
+Aborted (core dumped)
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=11002&group_id=2230
+
+
+From admin at berlios.de  Tue May  8 22:48:26 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 8 May 2007 12:48:26 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Feature #3400] gettext for translators
+Message-ID: <200705082048.l48KmQ9f011491@unicorn.berlios.de>
+
+Feature Request #3400, was updated on 2007-May-08 12:48
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3400&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: gettext for translators
+
+By: mynameis_3ed
+Date: 2007-May-08 12:48
+
+Message:
+Logged In: YES 
+user_id=37941
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.3) Gecko/20070324 BonEcho/2.0.0.3
+
+There are many clones of your software translated into
+different than English language at present. Why there
+is no possibility of translations with the help gettext?
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3400&group_id=2230
+
+
+From admin at berlios.de  Mon May 14 23:45:27 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 15 May 2007 00:45:27 +0300 (EEST)
+Subject: [Linuxdcpp-developers] [Bug #11077] Crash with core dump
+Message-ID: <200705142145.l4ELjR9l008114@unicorn.berlios.de>
+
+Bug #11077, was updated on 2007-May-15 00:45
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: xpertbg
+Assigned to : none
+Summary: Crash with core dump
+
+Details: I had a crash with core dump. I'm running debian linux AMD64. The program is compiled from source. I'll keep the executable and core dump if you need it to investigate the crash. Here is the bcktrace:
+#0  0x00002ba1ca0fa675 in ?? () from /usr/lib/libpango-1.0.so.0
+#1  0x00002ba1ca0fbf29 in ?? () from /usr/lib/libpango-1.0.so.0
+#2  0x00002ba1ca53a218 in g_object_unref () from /usr/lib/libgobject-2.0.so.0
+#3  0x00002ba1c97c3a75 in gtk_label_clear_layout (label=0xc97e00)
+    at /build/buildd/gtk+2.0-2.10.12/gtk/gtklabel.c:1817
+#4  0x00002ba1c97c5bba in gtk_label_recalculate (label=0xc97e00)
+    at /build/buildd/gtk+2.0-2.10.12/gtk/gtklabel.c:1170
+#5  0x00002ba1c97c6717 in IA__gtk_label_set_text (label=0xc97e00, 
+    str=0x2ba1c991dd5d "") at /build/buildd/gtk+2.0-2.10.12/gtk/gtklabel.c:1196
+#6  0x00002ba1ca538349 in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#7  0x00002ba1ca548618 in ?? () from /usr/lib/libgobject-2.0.so.0
+#8  0x00002ba1ca549443 in g_signal_emit_valist ()
+   from /usr/lib/libgobject-2.0.so.0
+#9  0x00002ba1ca549613 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#10 0x00000000005af2fe in MainWindow::setStatus_gui ()
+#11 0x00000000005afedf in MainWindow::setStats_gui ()
+#12 0x00000000005bf1a4 in Func6<MainWindow, std::string, std::string, std::string, std::string, std::string, std::string>::call ()
+#13 0x0000000000620162 in WulforManager::processGuiQueue ()
+#14 0x0000000000620211 in WulforManager::threadFunc_gui ()
+#15 0x00002ba1c8f0f225 in start_thread () from /lib/libpthread.so.0
+#16 0x00002ba1cb1ef17d in clone () from /lib/libc.so.6
+#17 0x0000000000000000 in ?? ()
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=11077&group_id=2230
+
+
+From admin at berlios.de  Sun May 20 07:54:23 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 20 May 2007 12:54:23 +0700 (NOVST)
+Subject: [Linuxdcpp-developers] [Bug #11126] feature request: don't follow
+	symlinks
+Message-ID: <200705200554.l4K5sN6i019762@unicorn.berlios.de>
+
+Bug #11126, was updated on 2007-May-20 12:54
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: salmin
+Assigned to : none
+Summary: feature request: don't follow symlinks
+
+Details: Hello! Recently I tried to share a mounted iso image with debian etch system. Linuxdc++ occupied all my free memory before I understood that there was a symlink "debian -> ." and linuxdc++ was trying to share all directories  "debian/", "debain/debian/" etc.
+So, I think it will be useful to add a check box "Don't follow symlinks" (or something like it) in share options or may be just don't allow symlinks pointing to current directory.
+
+Sorry for my english.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=11126&group_id=2230
+
+
+From frank at splra.org  Sat May 26 21:48:18 2007
+From: frank at splra.org (Frank Claycomb)
+Date: Sat, 26 May 2007 15:48:18 -0400
+Subject: [Linuxdcpp-developers] few small problems with linuxdc++,
+	not really bugs, but annoyances
+Message-ID: <1180208898.10441.3.camel@localhost.localdomain>
+
+Hello,
+
+First off, great app.  I has come a long way since I first found it.
+Right now I have two majour annoyances with it, the first being when
+switching tabs the courser does not go to the typing area.  This causes
+one to have to click down in the area to type each time the user
+switches between tabs.  The second is the lack of (or apparent lack of)
+op commands.  Maybe I am just missing them, but I cannot find them if
+they need switched on.
+
+These are basically the only problems that I have been having lately
+with ldcpp, keep up the great work!
+
+-Frank
+
+
+
+From steven.sheehy at gmail.com  Mon May 28 04:02:34 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sun, 27 May 2007 21:02:34 -0500
+Subject: [Linuxdcpp-developers] few small problems with linuxdc++,
+ not really bugs, but annoyances
+In-Reply-To: <1180208898.10441.3.camel@localhost.localdomain>
+References: <1180208898.10441.3.camel@localhost.localdomain>
+Message-ID: <465A383A.4060304@gmail.com>
+
+Frank Claycomb wrote:
+> Hello,
+> 
+> First off, great app.  I has come a long way since I first found it.
+> Right now I have two majour annoyances with it, the first being when
+> switching tabs the courser does not go to the typing area.  This causes
+> one to have to click down in the area to type each time the user
+> switches between tabs.  The second is the lack of (or apparent lack of)
+> op commands.  Maybe I am just missing them, but I cannot find them if
+> they need switched on.
+> 
+> These are basically the only problems that I have been having lately
+> with ldcpp, keep up the great work!
+> 
+> -Frank
+> 
+
+There is currently work on both said issues. See these incomplete patches:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1978&group_id=2230
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1891&group_id=2230
+
+-Steven
+
+
+From admin at berlios.de  Wed May 30 23:45:32 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 30 May 2007 21:45:32 GMT
+Subject: [Linuxdcpp-developers] [Bug #11216] Some people are ignored
+Message-ID: <200705302145.l4ULjWAX021084@unicorn.berlios.de>
+
+Bug #11216, was updated on 2007-May-30 21:45
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: mikejj
+Assigned to : none
+Summary: Some people are ignored
+
+Details: When some people write in main, or pm everything they write is ignored / doesn't appear.  While i first noticed this last week, i thought nothing of it, but it consistantly ignores the same people.  Using latest cvs on ubuntu 7.04.
+Seems to be people who have ?'s in their nick in linuxdc++ and "special"  characters when viewing from dc++.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=11216&group_id=2230
+
+

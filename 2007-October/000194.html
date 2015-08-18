@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20LinuxDC%2B%2B%201.0.0%20I%20can%27t%20build%20it&In-Reply-To=%3C200710092259.12577.konstantin.vasiliev%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000189.html">
+   <LINK REL="Next"  HREF="000198.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it</H1>
+    <B>Konstantin Vasiliev</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20LinuxDC%2B%2B%201.0.0%20I%20can%27t%20build%20it&In-Reply-To=%3C200710092259.12577.konstantin.vasiliev%40gmail.com%3E"
+       TITLE="[Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it">konstantin.vasiliev at gmail.com
+       </A><BR>
+    <I>Tue Oct  9 20:59:12 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000189.html">[Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it
+</A></li>
+        <LI>Next message: <A HREF="000198.html">[Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#194">[ date ]</a>
+              <a href="thread.html#194">[ thread ]</a>
+              <a href="subject.html#194">[ subject ]</a>
+              <a href="author.html#194">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&#1042; &#1089;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1080; &#1086;&#1090; 2 &#1086;&#1082;&#1090;&#1103;&#1073;&#1088;&#1103; 2007 07:22 Steven Sheehy &#1085;&#1072;&#1087;&#1080;&#1089;&#1072;&#1083;(a):
+&gt;<i> Konstantin Vasiliev wrote:
+</I>&gt;<i> &gt; &#1042; &#1089;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1080; &#1086;&#1090; 24 &#1089;&#1077;&#1085;&#1090;&#1103;&#1073;&#1088;&#1103; 2007 01:41 Steven Sheehy &#1085;&#1072;&#1087;&#1080;&#1089;&#1072;&#1083;(a):
+</I>&gt;<i> &gt;&gt;                    Release Notes for LinuxDC++ 1.0.0
+</I>&gt;<i> &gt;&gt;                    ---------------------------------
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I run
+</I>&gt;<i> &gt; $ scons PATH=/opt/linuxdcpp
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; and I see only this
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; client/Text.cpp: In static member function `static const std::string&amp;
+</I>&gt;<i> &gt; Text::convert(const std::string&amp;, std::string&amp;, const std::string&amp;, const
+</I>&gt;<i> &gt; std::string&amp;)':
+</I>&gt;<i> &gt; client/Text.cpp:339: error: invalid conversion from `const char**' to
+</I>&gt;<i> &gt; `char**' client/Text.cpp:339: error:   initializing argument 2 of `size_t
+</I>&gt;<i> &gt; iconv(void*, char**, size_t*, char**, size_t*)'
+</I>&gt;<i> &gt; scons: *** [build/client/Text.o] Error 1
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; :-(
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; Linuxdcpp-developers mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">Linuxdcpp-developers at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers</A>
+</I>&gt;<i>
+</I>&gt;<i> Which distro are you using? What version of scons (run scons -v to check).
+</I>&gt;<i> Looks like scons is messed up in your distro and doesn't properly check to
+</I>&gt;<i> see what parameters iconv requires.
+</I>
+I using Slackware 11. 
+
+bash-3.1$ scons -v
+SCons by Steven Knight et al.:
+        script: v0.96.92.D002, 2006/04/11 07:39:43, by knight on roxbury
+        engine: v0.96.92.D002, 2006/04/11 07:39:43, by knight on roxbury
+Copyright (c) 2001, 2002, 2003, 2004 The SCons Foundation
+
+Do you have ideas? Can you help me to build Linuxdcpp?
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000189.html">[Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it
+</A></li>
+	<LI>Next message: <A HREF="000198.html">[Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#194">[ date ]</a>
+              <a href="thread.html#194">[ thread ]</a>
+              <a href="subject.html#194">[ subject ]</a>
+              <a href="author.html#194">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

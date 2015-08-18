@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [PATCH] getting filelists from users	with nicks in localized charsets (russian, etc.)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPATCH%5D%20getting%20filelists%20from%20users%0A%09with%20nicks%20in%20localized%20charsets%20%28russian%2C%20etc.%29&In-Reply-To=%3C20070317201237.GE18164%40hemmo.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000069.html">
+   <LINK REL="Next"  HREF="000074.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [PATCH] getting filelists from users	with nicks in localized charsets (russian, etc.)</H1>
+    <B>Jussi Peltola</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPATCH%5D%20getting%20filelists%20from%20users%0A%09with%20nicks%20in%20localized%20charsets%20%28russian%2C%20etc.%29&In-Reply-To=%3C20070317201237.GE18164%40hemmo.net%3E"
+       TITLE="[Linuxdcpp-developers] [PATCH] getting filelists from users	with nicks in localized charsets (russian, etc.)">pelzi at pelzi.net
+       </A><BR>
+    <I>Sat Mar 17 21:12:37 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000069.html">[Linuxdcpp-developers] [PATCH] getting filelists from	users	with nicks in localized charsets (russian, etc.)
+</A></li>
+        <LI>Next message: <A HREF="000074.html">[Linuxdcpp-developers] [PATCH] getting filelists from	users	with nicks in localized charsets (russian, etc.)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#70">[ date ]</a>
+              <a href="thread.html#70">[ thread ]</a>
+              <a href="subject.html#70">[ subject ]</a>
+              <a href="author.html#70">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sat, Mar 17, 2007 at 10:54:26PM +0300, Stanislav Maslovski wrote:
+&gt;<i> Hm. If this is so, then we are in a real trouble, because such conversions
+</I>&gt;<i> from acp -&gt; utf-8 -&gt; acp are all over the place ;)
+</I>
+This is true, we should try to avoid that. Real world network
+applications must be liberal in the input they accept, and unfortunately
+invalid bytes in strings are commonplace. This problem is especially
+real in DC because there are more clients than one can count and most of
+them are written without any thought about character encodings. The
+protocol also has strings like nicks that are both displayed to the
+users and used as identifiers that need to stay the same byte for byte.
+The unix filesystem has a similar problem, filenames can contain any
+byte sequence except null and /, and filenames are also identifiers and
+strings that are displayed to the user.
+
+Reworking the code to avoid conversions except when displaying strings
+to users is the most reliable way, but that's quite a big chore. If that
+can be achieved easily with this, it's a good beginning and we should go
+for it.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000069.html">[Linuxdcpp-developers] [PATCH] getting filelists from	users	with nicks in localized charsets (russian, etc.)
+</A></li>
+	<LI>Next message: <A HREF="000074.html">[Linuxdcpp-developers] [PATCH] getting filelists from	users	with nicks in localized charsets (russian, etc.)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#70">[ date ]</a>
+              <a href="thread.html#70">[ thread ]</a>
+              <a href="subject.html#70">[ subject ]</a>
+              <a href="author.html#70">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

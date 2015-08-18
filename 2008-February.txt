@@ -1,0 +1,1343 @@
+From admin at berlios.de  Fri Feb  1 04:45:22 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 1 Feb 2008 09:45:22 +0600 (NOVT)
+Subject: [Linuxdcpp-developers] [Bug #13051] net-p2p/linuxdcpp-1.0.1 memleak
+	in hasher
+Message-ID: <200802010345.m113jMPt016782@unicorn.berlios.de>
+
+Bug #13051, was updated on 2008-Feb-01 09:44
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: nerff
+Assigned to : none
+Summary: net-p2p/linuxdcpp-1.0.1 memleak in hasher
+
+Details: linuxdcpp fall into infinite cycle.
+
+probably, incorrect handling of unknown encoding in
+directory name. I find 2 directory with cyrillic name and broken encoding (my
+locale is ru_RU.utf8, these directory names looks like '??????????').
+After renaming these dirs, hashing completed successfully.
+expected result: if linuxdcpp unable to hash directory, it should skip it
+
+PS: see also original bug - http://bugs.gentoo.org/show_bug.cgi?id=208314
+with scr attached.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13051&group_id=2230
+
+
+From admin at berlios.de  Fri Feb  1 04:46:02 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 1 Feb 2008 09:46:02 +0600 (NOVT)
+Subject: [Linuxdcpp-developers] [Bug #13050] net-p2p/linuxdcpp-1.0.1 memleak
+	in hasher
+Message-ID: <200802010346.m113k2Ns017199@unicorn.berlios.de>
+
+Bug #13050, was updated on 2008-Feb-01 09:44
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: nerff
+Assigned to : none
+Summary: net-p2p/linuxdcpp-1.0.1 memleak in hasher
+
+Details: linuxdcpp fall into infinite cycle.
+
+probably, incorrect handling of unknown encoding in
+directory name. I find 2 directory with cyrillic name and broken encoding (my
+locale is ru_RU.utf8, these directory names looks like '??????????').
+After renaming these dirs, hashing completed successfully.
+expected result: if linuxdcpp unable to hash directory, it should skip it
+
+PS: see also original bug - http://bugs.gentoo.org/show_bug.cgi?id=208314
+with scr attached.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13050&group_id=2230
+
+
+From admin at berlios.de  Fri Feb  1 15:26:48 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 1 Feb 2008 16:26:48 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Patch #2353] Bug #13050 (and +1)
+Message-ID: <200802011426.m11EQmTB008014@unicorn.berlios.de>
+
+Patch #2353 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: razzloss
+Assigned to : none
+Summary: Bug #13050 (and +1)
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2353&group_id=2230
+
+
+From admin at berlios.de  Sat Feb  2 01:22:53 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 2 Feb 2008 01:22:53 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Bug #13060] Automatic Auto-Away on Minimize
+	not working
+Message-ID: <200802020022.m120MrNJ011501@unicorn.berlios.de>
+
+Bug #13060, was updated on 2008-Feb-02 01:22
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: sparhawk
+Assigned to : none
+Summary: Automatic Auto-Away on Minimize not working
+
+Details: Auto-away on minimize does not work.
+
+I minimize the application and expect my client to be set in the /away mode thus responding with the preconfigured /away message to PM and being visible as being "away" by hubsofts and other clients that look for such a thing.
+
+However, this is not the case. Recently discovered and verified by minimizing the client and using a different client to send a PM to linuxdcpp client, receiving no away response.
+Sending from hubsoft generates no response either and if I look at the tags there's nothing there indicating that I'm away. (Gotta be something there, as clients such as AirDC see certain status info about other clients, marking them with different colors for e.g. away status.)
+
+Sorry for my slightly long-winded explanation but it's late and I'm sleepy and just wanted to make sure you realized that I've tried everything short of completely reinstalling from CVS and nothing works to enable the "auto-away on minimize" feature.
+If I set my /away status manully, everything seems to be working fine.
+
+
+//Sparhawk
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13060&group_id=2230
+
+
+From admin at berlios.de  Fri Feb  1 08:12:38 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 1 Feb 2008 08:12:38 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Feature #3980] Tab handling + Match Queue
+Message-ID: <200802010712.m117Ccf2002853@unicorn.berlios.de>
+
+Feature Request #3980, was updated on 2008-Feb-01 08:12
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3980&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Tab handling + Match Queue
+
+By: sparhawk
+Date: 2008-Feb-01 08:12
+
+Message:
+Logged In: YES 
+user_id=43421
+Browser: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.8.1.11) Gecko/20071204 Ubuntu/7.10 (gutsy) Firefox/2.0.0.11
+
+Hi!
+
+I'd like to make a cosmetic suggestion for the tab
+handling. It becomes a little cumbersome to manage when
+there are more tabs than what fit on the width of the
+application window. You don't see the bold:ing of tabs
+outside the window width and when you scroll back to
+check them they are un-bolded upon selection, so with
+30 windows that makes for having to actually look at
+the text to see if there's anything new there.
+Either way, it's just not as efficient as having, say,
+two rows of tabs, or having them show up in a drop-down
+list like with the FireFox "Links" bar (or having the
+option of making it a drop-down or two rows would be
+even cooler. And automatically create a drop-down for
+the surplus tabs once width exceeds two rows.)
+Also, making the tabs smaller and with smaller print
+would fit more of them in the window.
+
+And a functions request (don't know if this is a bug or
+just the way match queue was designed)
+I can't seem to select multiple sources (search hits)
+and match queue from the search results. Since I have
+to disable "auto-match queue for search hits" I would
+like to be able to just select a few of the hits and
+match their queues. The option is greyed out when
+selecting more than one hit at a time. Tedious doing
+them one at a time if you need to match for 20 hits or so.
+
+Oh, and are there any plans of extending the scripting
+capabilities in LinuxDC++? Would be nice to be able to
+have some OP-client like features, like client tag
+checking + actions, fake file checking, virus
+files/unallowed files, that sort of stuff.
+Can't seem to do much with the commands feature as,
+again, there are limitations and the %[UserNI] doesn't
+work here.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3980&group_id=2230
+
+
+From admin at berlios.de  Fri Feb  1 08:40:23 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 1 Feb 2008 08:40:23 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Feature #3981] Custom Commands in
+	Right-Click Menu
+Message-ID: <200802010740.m117eNft028816@unicorn.berlios.de>
+
+Feature Request #3981, was updated on 2008-Feb-01 08:40
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3981&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Custom Commands in Right-Click Menu
+
+By: sparhawk
+Date: 2008-Feb-01 08:40
+
+Message:
+Logged In: YES 
+user_id=43421
+Browser: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.8.1.11) Gecko/20071204 Ubuntu/7.10 (gutsy) Firefox/2.0.0.11
+
+Hi!
+
+It'd be nice if we could add custom commands to the
+right-click menu that is displayed in the transfer
+window, ie when you right-click on a transfer.
+(e.g. "copy nick/IP/file name" etc from the active
+transfer)
+
+//Sparhawk
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3981&group_id=2230
+
+
+From admin at berlios.de  Fri Feb  1 08:45:42 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 1 Feb 2008 08:45:42 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Feature #3982] "Grant extra slot" from PM
+	window
+Message-ID: <200802010745.m117jgnY009281@unicorn.berlios.de>
+
+Feature Request #3982, was updated on 2008-Feb-01 08:45
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3982&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: "Grant extra slot" from PM window
+
+By: sparhawk
+Date: 2008-Feb-01 08:45
+
+Message:
+Logged In: YES 
+user_id=43421
+Browser: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.8.1.11) Gecko/20071204 Ubuntu/7.10 (gutsy) Firefox/2.0.0.11
+
+..and other features on a right-click menu.
+
+It'd be nice to be able to grant extra slots or add
+custom commands menus to the right-click inside a PM
+window (for instance if I want to perform a custom
+command action on someone I'm currently in a PM session
+with, as it is now, I have to find out which hub he's
+on -which it would be nice if it said in the actual
+window and not only on the tab label, say maybe at the
+top somewhere where it's always visible- I have to
+navigate through the user list with the lacking
+user/nick search (see my previous post on making that a
+"free text search") and only then can I perform a
+command on the user. Since I can't issue commands by
+typing them in the PM window either and since the tab
+display and navigation is a little cluttered, this
+becomes very repetitive, tedious and generates  much
+more mouse-work than necessary. 
+(Granted I can switch tabs with the keyboard but that
+cycles through them all which removes the bolding and
+then I lose track of which windows had new actions in them)
+
+//Sparhawk
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3982&group_id=2230
+
+
+From admin at berlios.de  Sat Feb  2 23:26:30 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 2 Feb 2008 23:26:30 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #2355] Bug #9501 Only one ldcpp
+	instance/profile
+Message-ID: <200802022226.m12MQUUu016451@unicorn.berlios.de>
+
+Patch #2355 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: windkracht8
+Assigned to : none
+Summary: Bug #9501 Only one ldcpp instance/profile
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2355&group_id=2230
+
+
+From admin at berlios.de  Sat Feb  2 23:56:59 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 2 Feb 2008 23:56:59 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #2356] Bug #12401 Main toolbar system
+	default
+Message-ID: <200802022256.m12MuxHQ002443@unicorn.berlios.de>
+
+Patch #2356 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: windkracht8
+Assigned to : none
+Summary: Bug #12401 Main toolbar system default
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2356&group_id=2230
+
+
+From admin at berlios.de  Sun Feb  3 12:31:48 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 3 Feb 2008 12:31:48 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #2357] Bug #12429 ] Clear speed after
+	up/download finished
+Message-ID: <200802031131.m13BVm0f024701@unicorn.berlios.de>
+
+Patch #2357 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: windkracht8
+Assigned to : none
+Summary: Bug #12429 ] Clear speed after up/download finished
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2357&group_id=2230
+
+
+From admin at berlios.de  Sun Feb  3 15:34:50 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 3 Feb 2008 15:34:50 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #2358] [ Bug #13060 ] Automatic
+	Auto-Away on Minimize not working
+Message-ID: <200802031434.m13EYoJB025161@unicorn.berlios.de>
+
+Patch #2358 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: windkracht8
+Assigned to : none
+Summary: [ Bug #13060 ] Automatic Auto-Away on Minimize not working
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2358&group_id=2230
+
+
+From steven.sheehy at gmail.com  Mon Feb  4 19:42:22 2008
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Mon, 04 Feb 2008 12:42:22 -0600
+Subject: [Linuxdcpp-developers] LinuxDC++ and I18N
+In-Reply-To: <4ab3f1e0802040547x5e5bbd76me551e89b926fc000@mail.gmail.com>
+References: <4ab3f1e0802040547x5e5bbd76me551e89b926fc000@mail.gmail.com>
+Message-ID: <47A75C8E.2030108@gmail.com>
+
+Nyitrai Istv?n wrote:
+> Hi!
+> 
+> There will be a Translator Weekend at this week-end and linuxdc++ is on 
+> our tasklist. But at this moment this LinuxDc++ doesn't support Gnu 
+> gettext. I don't ask to you do it, I just need a little help. I'm not a 
+> professional C++ programmer, but I know what is necessary for this. I 
+> can do the bigger part of this job, but I need your help.
+> 
+> So, can we work together?
+> 
+>  
+> -- 
+> Best regards...Nyitrai "Sianis" Istv?n
+
+Hello,
+
+We were actually waiting on the DC++ core to finish switching to gettext so we 
+can have a fully translated program. I think they just finished the switch last 
+week, now we just need a stable release from them that includes these changes. 
+The actual GUI part of the program does support gettext. I've gone through the 
+entire source and added _() around all translatable strings, although it still 
+may be missing some strings and we need to check if any strings have positional 
+arguments and handle accordingly.
+
+Any help you can give would be greatly appreciated in this regard. For now we 
+can't do anything with the core (e.g. the client/ folder), but until that time 
+we can get the GUI translated (since the core will have separate POT files 
+anyway). We can probably copy a lot of the l18n infrastructure code from DC++ 
+(pot, po, mo generation, etc.) since they also use scons. Let me know what you 
+think.
+
+Thanks,
+Steven
+
+
+From cvs at linuxdcpp.berlios.de  Wed Feb  6 04:28:26 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Wed, 6 Feb 2008 04:28:26 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200802060328.m163SQxq004192@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 719 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080206/951cf9e0/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Wed Feb  6 05:20:54 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Wed, 6 Feb 2008 05:20:54 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200802060420.m164KsxQ006506@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 643 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080206/d1612ffc/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Wed Feb  6 06:20:03 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Wed, 6 Feb 2008 06:20:03 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200802060520.m165K3fw010170@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 650 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080206/05a2fd04/attachment.xml>
+
+From az at alexbank.ru  Wed Feb  6 09:59:51 2008
+From: az at alexbank.ru (=?koi8-r?Q?=FA=C1=D3=CC=C1=D7=D3=CB=C9=CA_?= =?koi8-r?Q?=E1=CE=C4=D2=C5=CA?=)
+Date: Wed, 06 Feb 2008 11:59:51 +0300
+Subject: [Linuxdcpp-developers] user commands manual?
+Message-ID: <1202288391.20312.33.camel@azd.alexbank.fin>
+
+Wanna use a cup of commands for user management, 
+for exaple wanna get last user ips, 
+the command sending to hub is !lastip username
+how to write a username in command or create a window asking for it?
+-- 
+?????????? ?????? <az at alexbank.ru>
+??? ???? ???????????????
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080206/1205eb57/attachment.html>
+
+From steven.sheehy at gmail.com  Wed Feb  6 20:02:13 2008
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Wed, 06 Feb 2008 13:02:13 -0600
+Subject: [Linuxdcpp-developers] user commands manual?
+In-Reply-To: <1202288391.20312.33.camel@azd.alexbank.fin>
+References: <1202288391.20312.33.camel@azd.alexbank.fin>
+Message-ID: <47AA0435.6090303@gmail.com>
+
+?????????? ?????? wrote:
+> Wanna use a cup of commands for user management,
+> for exaple wanna get last user ips,
+> the command sending to hub is !lastip username
+> how to write a username in command or create a window asking for it?
+> -- 
+> ?????????? ?????? <az at alexbank.ru <mailto:az at alexbank.ru>>
+> ??? ???? ???????????????
+> 
+> 
+> ------------------------------------------------------------------------
+> 
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+
+Here's a link to some documentation for user commands:
+
+http://dcplusplus.svn.sourceforge.net/viewvc/*checkout*/dcplusplus/dcplusplus/trunk/help/settings_usercommands.html?revision=840
+
+It would be great if someone could make a patch to add a help dialog to the user 
+commands dialog with this info.
+
+-Steven
+
+
+From cvs at linuxdcpp.berlios.de  Thu Feb  7 02:50:55 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Thu, 7 Feb 2008 02:50:55 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200802070150.m171otI6011077@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 745 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080207/219780c7/attachment.xml>
+
+From admin at berlios.de  Thu Feb  7 11:17:21 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 7 Feb 2008 11:17:21 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Bug #13088] active connection doesn't work
+Message-ID: <200802071017.m17AHLRN023213@unicorn.berlios.de>
+
+Bug #13088, was updated on 2008-Feb-07 11:17
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: friekie
+Assigned to : none
+Summary: active connection doesn't work
+
+Details: i'm currently using version 1.0.0 on suse 10.2
+
+if i set the connection settings to 'active', other users who are passive can not connect. 
+this seems to me as the setting does not work. if i set it up to passive then everything works and also if the others set their connection to passive.
+
+for more information just ask and i'll see that i post it
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13088&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Fri Feb  8 06:12:06 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Fri, 8 Feb 2008 06:12:06 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200802080512.m185C5am013305@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 685 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080208/65bbf0e4/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Fri Feb  8 06:31:04 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Fri, 8 Feb 2008 06:31:04 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200802080531.m185V401016679@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 2280 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080208/8e518e58/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Fri Feb  8 06:33:11 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Fri, 8 Feb 2008 06:33:11 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200802080533.m185XBC1019975@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 595 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080208/dbd90c36/attachment.xml>
+
+From az at alexbank.ru  Fri Feb  8 07:10:21 2008
+From: az at alexbank.ru (=?koi8-r?Q?=FA=C1=D3=CC=C1=D7=D3=CB=C9=CA_?= =?koi8-r?Q?=E1=CE=C4=D2=C5=CA?=)
+Date: Fri, 08 Feb 2008 09:10:21 +0300
+Subject: [Linuxdcpp-developers] Menus
+Message-ID: <1202451021.25480.1.camel@azd.alexbank.fin>
+
+-Added the ability to view user command sub-menus (thanks Bart
+Vullings).
+
+It means that LinuxDC++ will have support of hub-created menus?
+
+-- 
+?????????? ?????? <az at alexbank.ru>
+??? ???? ???????????????
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080208/e8c2bec1/attachment.html>
+
+From steven.sheehy at gmail.com  Sat Feb  9 00:41:11 2008
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Fri, 08 Feb 2008 17:41:11 -0600
+Subject: [Linuxdcpp-developers] Menus
+In-Reply-To: <1202451021.25480.1.camel@azd.alexbank.fin>
+References: <1202451021.25480.1.camel@azd.alexbank.fin>
+Message-ID: <47ACE897.3070008@gmail.com>
+
+?????????? ?????? wrote:
+> -Added the ability to view user command sub-menus (thanks Bart Vullings).
+> 
+> It means that LinuxDC++ will have support of hub-created menus?
+> 
+> -- 
+> ?????????? ?????? <az at alexbank.ru <mailto:az at alexbank.ru>>
+> ??? ???? ???????????????
+> 
+> 
+> ------------------------------------------------------------------------
+> 
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+
+Yes, but only in chat and search at the moment.
+
+
+From cvs at linuxdcpp.berlios.de  Sat Feb  9 04:23:56 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sat, 9 Feb 2008 04:23:56 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200802090323.m193Nu0P027809@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 693 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080209/fe5dd8a0/attachment.xml>
+
+From admin at berlios.de  Sat Feb  9 09:46:43 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 9 Feb 2008 10:46:43 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Bug #13101] [feature]timestamps for all
+	messages in chat window
+Message-ID: <200802090846.m198kh61007421@unicorn.berlios.de>
+
+Bug #13101, was updated on 2008-Feb-09 10:46
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: elf2001
+Assigned to : none
+Summary: [feature]timestamps for all messages in chat window
+
+Details: It will be good thing to see message's timestamps (date and time) in chat window. 
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13101&group_id=2230
+
+
+From admin at berlios.de  Sat Feb  9 19:45:01 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 9 Feb 2008 19:45:01 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Bug #13105] Bus error
+Message-ID: <200802091845.m19Ij1nt001912@unicorn.berlios.de>
+
+Bug #13105, was updated on 2008-Feb-09 19:45
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: tybulewicz
+Assigned to : none
+Summary: Bus error 
+
+Details: Just after running linuxdcpp it quits with comment Bus error:
+
+$linuxdcpp 
+Thrown: FileException: Could not open file
+Thrown: FileException: Could not open file
+Thrown: FileException: Could not open file
+FavoriteManager::load: FileException: Could not open file
+Loading: Hash database
+Loading: Shared Files
+Thrown: FileException: Could not open file
+FileException: Could not open file
+Loading: Download Queue
+Bus error (core dumped)
+
+And a backtrace from gdb
+
+#0  0x08176b29 in TigerHash::update (this=0xb707c080, data=0xb4c86000, 
+    length=1024) at client/TigerHash.cpp:166
+#1  0x080c2325 in MerkleTree<TigerHash, 1024u>::update (this=0xb707c314, 
+    data=0xb407a000, len=16777216) at client/MerkleTree.h:105
+#2  0x080db6fd in HashManager::Hasher::fastHash (this=0x831b178, 
+    filename=@0xb707c2c4, tth=@0xb707c314, size=730607616, xcrc32=0x0)
+    at client/HashManager.cpp:629
+#3  0x080df84e in HashManager::Hasher::run (this=0x831b178)
+    at client/HashManager.cpp:716
+#4  0x081728cc in Thread::starter (p=0x831b178) at client/Thread.h:137
+#5  0xb7f6646b in start_thread () from /lib/tls/i686/cmov/libpthread.so.0
+#6  0xb75d96de in clone () from /lib/tls/i686/cmov/libc.so.6
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13105&group_id=2230
+
+
+From stsp at aknet.ru  Sat Feb  9 22:11:09 2008
+From: stsp at aknet.ru (Stas Sergeev)
+Date: Sun, 10 Feb 2008 00:11:09 +0300
+Subject: [Linuxdcpp-developers] [patch] add search by magnet links
+Message-ID: <47AE16ED.205@aknet.ru>
+
+Hello.
+
+Attached is the patch that adds an ability
+to search by the magnet links.
+I know the attitude to this approach here,
+but I couldn't help writing it. Without
+that patch the announced magnet support is
+basically useless and that have to be fixed.
+
+Would it be possible to get it applied?
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: magsrch.diff
+Type: text/x-patch
+Size: 11243 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080210/d14c0622/attachment.bin>
+
+From admin at berlios.de  Sat Feb  9 22:16:57 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 10 Feb 2008 00:16:57 +0300 (MSK)
+Subject: [Linuxdcpp-developers] [Patch #2368] add search by magnet links
+Message-ID: <200802092116.m19LGvqx029070@unicorn.berlios.de>
+
+Patch #2368 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: stsp
+Assigned to : none
+Summary: add search by magnet links
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2368&group_id=2230
+
+
+From stanislav.maslovski at gmail.com  Sat Feb  9 23:02:38 2008
+From: stanislav.maslovski at gmail.com (Stanislav Maslovski)
+Date: Sun, 10 Feb 2008 01:02:38 +0300
+Subject: [Linuxdcpp-developers] [patch] add search by magnet links
+In-Reply-To: <47AE16ED.205@aknet.ru>
+References: <47AE16ED.205@aknet.ru>
+Message-ID: <20080209220238.GA27977@shota.mine.nu>
+
+On Sun, Feb 10, 2008 at 12:11:09AM +0300, Stas Sergeev wrote:
+> Hello.
+> 
+> Attached is the patch that adds an ability
+> to search by the magnet links.
+> I know the attitude to this approach here,
+> but I couldn't help writing it.
+
+Contributing code is far better than trolling others, so personally
+I am glad that you have realized that. When you may need another brain
+surgery - just tell, I am here to help you ;)
+
+> With that patch the announced magnet support is
+> basically useless and that have to be fixed.
+
+Hm. Seems that the patient has not fully recovered yet :)
+
+-- 
+Stanislav
+
+
+From admin at berlios.de  Sun Feb 10 13:41:34 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 10 Feb 2008 03:41:34 -0900 (AKST)
+Subject: [Linuxdcpp-developers] [Bug #13107] [PATCH] System tray icon causes
+	BadMatch-crash in KDE4
+Message-ID: <200802101241.m1ACfYO5019574@unicorn.berlios.de>
+
+Bug #13107, was updated on 2008-Feb-10 03:41
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: scientica
+Assigned to : none
+Summary: [PATCH] System tray icon causes BadMatch-crash in KDE4
+
+Details: It seems to be some issue with GTK+KDE4 and system tray (afaik (after googling) something about RGBA [1]).
+This patch (appended) is a quick fix that stops the crashing. At least so you can enter the settings panel and disable the system tray icon.
+
+[1] <http://ubuntuforums.org/showpost.php?p=4193131&postcount=7>
+
+
+
+Index: wulfor.cc
+===================================================================
+RCS file: /cvsroot/linuxdcpp/linuxdcpp/linux/wulfor.cc,v
+retrieving revision 1.26
+diff -u -r1.26 wulfor.cc
+--- wulfor.cc   8 Feb 2008 05:30:53 -0000       1.26
++++ wulfor.cc   10 Feb 2008 12:34:36 -0000
+@@ -29,11 +29,26 @@
+ #include <iostream>
+ #include <signal.h>
+
++#include <X11/Xlib.h>
++
+ void callBack(void* x, const std::string& a)
+ {
+        std::cout << "Loading: " << a << std::endl;
+ }
+
++
++static int (*old_x_error_handler) (Display *, XErrorEvent *);
++int bad_match_xerror_handler(Display *edpy, XErrorEvent *ee) {
++       if(ee->error_code == BadMatch){
++         cerr << "(EE) Recieved an error from X!" << endl << \
++           "(EE)  This is probably caused by the system tray icon, please try disabling it." << endl;
++         return 0;
++       }
++       cerr << "(EE) Fatal Xerror: request code=" << ee->request_code << ", error code=" << ee->error_code << endl;
++       return old_x_error_handler(edpy, ee);
++}
++
++
+ int main(int argc, char *argv[])
+ {
+        // Initialize i18n support
+@@ -69,6 +84,10 @@
+        WulforSettingsManager::newInstance();
+        WulforManager::start();
+        gdk_threads_enter();
++
++       // install our Xerror handler, save the old one for restoring
++       old_x_error_handler = XSetErrorHandler(bad_match_xerror_handler);
++
+        gtk_main();
+        gdk_threads_leave();
+        WulforManager::stop();
+@@ -76,6 +95,10 @@
+
+        std::cout << "Shutting down..." << std::endl;
+        shutdown();
++
++       // restore the old Xerror handler
++       XSetErrorHandler(old_x_error_handler);
++       old_x_error_handler = NULL;
+
+        return 0;
+ }
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13107&group_id=2230
+
+
+From stsp at aknet.ru  Sun Feb 10 14:19:43 2008
+From: stsp at aknet.ru (Stas Sergeev)
+Date: Sun, 10 Feb 2008 16:19:43 +0300
+Subject: [Linuxdcpp-developers] [patch] add search by magnet links
+Message-ID: <47AEF9EF.9080501@aknet.ru>
+
+Hello.
+
+Stanislav Maslovski wrote:
+> Contributing code is far better than trolling others, so personally
+> I am glad that you have realized that.
+The only thing I realized is that most people
+here do not CC to the original poster, and so
+I missed the previous replies from you and
+Max Lapan.
+Now I have read those too.
+As for trolling - well, I am not sure what are
+you referring to. I was saying that the magnet
+support was incomplete and for the most real
+uses even non-existant. Let me demonstrate this
+with an example. There is a movie catalog in a
+LAN but it only has the magnet links within.
+You download linuxdcpp and find that you cant
+feed the magnet links to it. After spending the
+whole day you may or may not find out that you
+need to post the link to the chat and then click
+it to get searched.
+
+> When you may need another brain
+> surgery - just tell, I am here to help you ;)
+I am not subscribed to this list, so please CC
+your next brain surgery to my mail address.
+
+>> With that patch the announced magnet support is
+>> basically useless and that have to be fixed.
+> Hm. Seems that the patient has not fully recovered yet :)
+Well you can discuss me if you want, but without
+saying a word about the patch itself, it is probably
+not very usefull either. :)
+
+>> magnet links, and the command-line argument
+> Such a command line option will be a plus.
+Aparently Steven does not agree because it would
+not be possible to use it when dc is already running.
+So I have not implemented this.
+I am also unsure how will it work if you have
+no hubs configured for autoconnect.
+
+> Stas, we are both russians so we know very well what does that mean
+> when someone
+> says big words instead of doing something real. I am not going to play
+> a role
+> of anyone's advocate but if you had a look into the code of the magnet
+> patch you should get an idea that the interface part of it was a
+> secondary
+> thing when copared to the other more low-level tasks the patch does.
+I say what I think. The patch adds a low-level support
+which is very good and valueable for developers, but
+for the end-user like me the lowlevel support without
+an interface support is a pure nothing. This doesn't
+mean the guys did the bad work (and without their work
+my patch would not be possible either) but surely it was
+not complete. What I am trying to say is _only_ that
+adding the proper interface support is a must when the
+lowlevel support is already there. Otherwise the great
+work done by those who added the lowlevel support may
+be completely nullified by the lack of that effort.
+After all, everything is done for the end-user, so he
+judges.
+
+
+From stanislav.maslovski at gmail.com  Sun Feb 10 17:06:31 2008
+From: stanislav.maslovski at gmail.com (Stanislav Maslovski)
+Date: Sun, 10 Feb 2008 19:06:31 +0300
+Subject: [Linuxdcpp-developers] [patch] add search by magnet links
+In-Reply-To: <47AEF9EF.9080501@aknet.ru>
+References: <47AEF9EF.9080501@aknet.ru>
+Message-ID: <20080210160631.GA18780@shota.mine.nu>
+
+On Sun, Feb 10, 2008 at 04:19:43PM +0300, Stas Sergeev wrote:
+
+[skipped]
+
+IMO, patch submitters must always subscribe if they _want_ to get any
+feedback. I would recommend you to do it if you are going to continue
+working on your patch.
+
+I cannot comment much on the patch itself at the momement, except that
+I think it was good you dropped your original idea of adding yet another
+dialog and instead implemented it as a search option. I proposed the
+same in my reply to your original message (which you did not (want to) read).
+
+-- 
+Stanislav
+
+
+From stsp at aknet.ru  Sun Feb 10 17:55:44 2008
+From: stsp at aknet.ru (Stas Sergeev)
+Date: Sun, 10 Feb 2008 19:55:44 +0300
+Subject: [Linuxdcpp-developers] [patch] add search by magnet links
+Message-ID: <47AF2C90.3050204@aknet.ru>
+
+Hello.
+
+Stanislav Maslovski wrote:
+> IMO, patch submitters must always subscribe if they _want_ to get any
+> feedback.
+I submitted the patch to the tracker so
+this is no longer a problem.
+
+> I would recommend you to do it if you are going to continue
+> working on your patch.
+I am not unless some improvements are suggested.
+The patch is small and works as expected.
+I am not 100% sure but I think Steven said
+quite explicitly that he doesn't like that
+approach. So I coded up that patch mainly
+for my own use and posted it here just in case.
+Of course the explicit confirmation from Steven
+would be nice to make all the doubts go away. :)
+
+> I cannot comment much on the patch itself at the momement, except that
+> I think it was good you dropped your original idea of adding yet
+> another
+> dialog and instead implemented it as a search option.
+I initially thought about implementing both.
+But in a private conversation Max explained
+me that implementing such a dialog would not
+be easy. It will require adding a magnet support
+to the dc core so that you can queue multiple
+magnets and they'll search in a background and
+then start downloading automatically.
+I don't need to queue multiple magnets so I
+went an easy path. Yet I see it usefull for
+someone else so I don't think the idea itself
+was too bad.
+
+> I proposed the
+> same in my reply to your original message (which you did not (want to)
+> read).
+I never argued against a new search option, here's
+the quote:
+---
+But I guess also some
+GUI additions are needed. Like the explicit
+"Open magnet link" dialog somewhere and maybe
+a new search option.
+---
+I still think both are nice to have, but the
+first is simply isn't worth an efforts while the
+second is done.
+
+
+From stanislav.maslovski at gmail.com  Sun Feb 10 18:27:10 2008
+From: stanislav.maslovski at gmail.com (Stanislav Maslovski)
+Date: Sun, 10 Feb 2008 20:27:10 +0300
+Subject: [Linuxdcpp-developers] [patch] add search by magnet links
+In-Reply-To: <47AF2C90.3050204@aknet.ru>
+References: <47AF2C90.3050204@aknet.ru>
+Message-ID: <20080210172710.GA22237@shota.mine.nu>
+
+On Sun, Feb 10, 2008 at 07:55:44PM +0300, Stas Sergeev wrote:
+> Hello.
+> 
+> Stanislav Maslovski wrote:
+> > IMO, patch submitters must always subscribe if they _want_ to get any feedback.
+> I submitted the patch to the tracker so
+> this is no longer a problem.
+> 
+> > I would recommend you to do it if you are going to continue
+> > working on your patch.
+> I am not unless some improvements are suggested.
+
+You miss the point. Usually, if a patch gets applied to the main tree,
+the person who submitted it takes the responsibility for maintaning that
+piece of code, it is a common practice everywhere. Better be on-line then
+and aware of any changes.
+
+> The patch is small and works as expected.
+> I am not 100% sure but I think Steven said
+> quite explicitly that he doesn't like that
+> approach. So I coded up that patch mainly
+> for my own use and posted it here just in case.
+
+And I am not sure that I have seen that kind of reaction here.
+
+-- 
+Stanislav
+
+
+From stsp at aknet.ru  Sun Feb 10 18:50:59 2008
+From: stsp at aknet.ru (Stas Sergeev)
+Date: Sun, 10 Feb 2008 20:50:59 +0300
+Subject: [Linuxdcpp-developers] [patch] add search by magnet links
+Message-ID: <47AF3983.1060604@aknet.ru>
+
+Hello.
+
+Stanislav Maslovski wrote:
+> And I am not sure that I have seen that kind of reaction here.
+As far as I understand, it was basically
+said that any way of directly entering a
+magnet link is discouraged in favour of
+registering linuxdcpp as the URI handler
+in a platform-independant way (and I am
+not even aware about a truly platform-
+independant way of doing that, the one that
+can work on windows, macos and *nix for
+instance).
+But that was just my interpretation, I may
+very well be wrong with it. So lets just
+wait and see.
+I myself am of course ready to do whatever
+the modifications are necessary to get it applied.
+
+
+From cvs at linuxdcpp.berlios.de  Tue Feb 12 07:11:20 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Tue, 12 Feb 2008 07:11:20 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200802120611.m1C6BKrX027688@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 1185 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080212/c61761da/attachment.xml>
+
+From admin at berlios.de  Wed Feb 13 19:15:15 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 13 Feb 2008 20:15:15 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Patch #2372] Finished transfers totals not
+	shown when opened
+Message-ID: <200802131815.m1DIFFDZ009693@unicorn.berlios.de>
+
+Patch #2372 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: razzloss
+Assigned to : none
+Summary: Finished transfers totals not shown when opened
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2372&group_id=2230
+
+
+From admin at berlios.de  Wed Feb 13 20:05:58 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 13 Feb 2008 21:05:58 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Patch #2373] Filter already shared files
+	from search results
+Message-ID: <200802131905.m1DJ5wXK011716@unicorn.berlios.de>
+
+Patch #2373 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: razzloss
+Assigned to : none
+Summary: Filter already shared files from search results
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2373&group_id=2230
+
+
+From admin at berlios.de  Wed Feb 13 20:12:49 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 13 Feb 2008 21:12:49 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Patch #2374] Use CC env. var for compiler
+	(eggtrayicon.c)
+Message-ID: <200802131912.m1DJCntm025493@unicorn.berlios.de>
+
+Patch #2374 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: razzloss
+Assigned to : none
+Summary: Use CC env. var for compiler (eggtrayicon.c)
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2374&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Thu Feb 14 02:26:14 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Thu, 14 Feb 2008 02:26:14 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200802140126.m1E1QEi0027391@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 631 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080214/32afb928/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Thu Feb 14 03:14:38 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Thu, 14 Feb 2008 03:14:38 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200802140214.m1E2Ec2N031067@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 709 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080214/fcf48d8a/attachment.xml>
+
+From admin at berlios.de  Thu Feb 14 22:39:55 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 14 Feb 2008 22:39:55 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #2376] Patch for feature request
+	#3758: Scroll chat to bottom
+Message-ID: <200802142139.m1ELdtdI000206@unicorn.berlios.de>
+
+Patch #2376 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: pemiem
+Assigned to : none
+Summary: Patch for feature request #3758: Scroll chat to bottom
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2376&group_id=2230
+
+
+From admin at berlios.de  Sun Feb 24 16:01:43 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 24 Feb 2008 16:01:43 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Bug #13195] ver. 1.0.1 crash if receive an
+	empty msg body in "$To:"
+Message-ID: <200802241501.m1OF1hbl019042@unicorn.berlios.de>
+
+Bug #13195, was updated on 2008-Feb-24 16:01
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: antanius
+Assigned to : none
+Summary: ver. 1.0.1 crash if receive an empty msg body in "$To:"
+
+
+Details: the application crashes with the following error:
+
+terminate called after throwing an instance of 'std::out_of_range'
+  what():  basic_string::substr
+
+the problem happens when the client receives a "$To:" with 
+an empty message body.
+
+I have fixed with:
+
+File: NmdcHub.cpp
+699c701,705
+<               string msg = param.substr(j + 2);
+---
+>               j+=2;   
+>               if(j >param.size())
+>                       j=param.size();
+>               
+>               string msg = param.substr(j);
+
+bye
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13195&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Fri Feb 29 05:39:33 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Fri, 29 Feb 2008 05:39:33 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200802290439.m1T4dXux005197@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 1606 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080229/fe5a369a/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Fri Feb 29 06:14:39 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Fri, 29 Feb 2008 06:14:39 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200802290514.m1T5EddD007090@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 768 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080229/d11f65e3/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Fri Feb 29 06:23:32 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Fri, 29 Feb 2008 06:23:32 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200802290523.m1T5NWBW007497@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 641 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080229/91a19ebd/attachment.xml>
+
+From admin at berlios.de  Fri Feb 29 23:41:49 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 29 Feb 2008 23:41:49 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #2390] User command handler
+Message-ID: <200802292241.m1TMfnAH022484@unicorn.berlios.de>
+
+Patch #2390 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: windkracht8
+Assigned to : none
+Summary: User command handler
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2390&group_id=2230
+
+

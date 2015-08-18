@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Bug #13107] [PATCH] System tray icon causes	BadMatch-crash in KDE4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2313107%5D%20%5BPATCH%5D%20System%20tray%20icon%20causes%0A%09BadMatch-crash%20in%20KDE4&In-Reply-To=%3C200802101241.m1ACfYO5019574%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000363.html">
+   <LINK REL="Next"  HREF="000366.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Bug #13107] [PATCH] System tray icon causes	BadMatch-crash in KDE4</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2313107%5D%20%5BPATCH%5D%20System%20tray%20icon%20causes%0A%09BadMatch-crash%20in%20KDE4&In-Reply-To=%3C200802101241.m1ACfYO5019574%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Bug #13107] [PATCH] System tray icon causes	BadMatch-crash in KDE4">admin at berlios.de
+       </A><BR>
+    <I>Sun Feb 10 13:41:34 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000363.html">[Linuxdcpp-developers] [Patch #2368] add search by magnet links
+</A></li>
+        <LI>Next message: <A HREF="000366.html">[Linuxdcpp-developers] [patch] add search by magnet links
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#365">[ date ]</a>
+              <a href="thread.html#365">[ thread ]</a>
+              <a href="subject.html#365">[ subject ]</a>
+              <a href="author.html#365">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #13107, was updated on 2008-Feb-10 03:41
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: scientica
+Assigned to : none
+Summary: [PATCH] System tray icon causes BadMatch-crash in KDE4
+
+Details: It seems to be some issue with GTK+KDE4 and system tray (afaik (after googling) something about RGBA [1]).
+This patch (appended) is a quick fix that stops the crashing. At least so you can enter the settings panel and disable the system tray icon.
+
+[1] &lt;<A HREF="http://ubuntuforums.org/showpost.php?p=4193131&amp;postcount=7">http://ubuntuforums.org/showpost.php?p=4193131&amp;postcount=7</A>&gt;
+
+
+
+Index: wulfor.cc
+===================================================================
+RCS file: /cvsroot/linuxdcpp/linuxdcpp/linux/wulfor.cc,v
+retrieving revision 1.26
+diff -u -r1.26 wulfor.cc
+--- wulfor.cc   8 Feb 2008 05:30:53 -0000       1.26
++++ wulfor.cc   10 Feb 2008 12:34:36 -0000
+@@ -29,11 +29,26 @@
+ #include &lt;iostream&gt;
+ #include &lt;signal.h&gt;
+
++#include &lt;X11/Xlib.h&gt;
++
+ void callBack(void* x, const std::string&amp; a)
+ {
+        std::cout &lt;&lt; &quot;Loading: &quot; &lt;&lt; a &lt;&lt; std::endl;
+ }
+
++
++static int (*old_x_error_handler) (Display *, XErrorEvent *);
++int bad_match_xerror_handler(Display *edpy, XErrorEvent *ee) {
++       if(ee-&gt;error_code == BadMatch){
++         cerr &lt;&lt; &quot;(EE) Recieved an error from X!&quot; &lt;&lt; endl &lt;&lt; \
++           &quot;(EE)  This is probably caused by the system tray icon, please try disabling it.&quot; &lt;&lt; endl;
++         return 0;
++       }
++       cerr &lt;&lt; &quot;(EE) Fatal Xerror: request code=&quot; &lt;&lt; ee-&gt;request_code &lt;&lt; &quot;, error code=&quot; &lt;&lt; ee-&gt;error_code &lt;&lt; endl;
++       return old_x_error_handler(edpy, ee);
++}
++
++
+ int main(int argc, char *argv[])
+ {
+        // Initialize i18n support
+@@ -69,6 +84,10 @@
+        WulforSettingsManager::newInstance();
+        WulforManager::start();
+        gdk_threads_enter();
++
++       // install our Xerror handler, save the old one for restoring
++       old_x_error_handler = XSetErrorHandler(bad_match_xerror_handler);
++
+        gtk_main();
+        gdk_threads_leave();
+        WulforManager::stop();
+@@ -76,6 +95,10 @@
+
+        std::cout &lt;&lt; &quot;Shutting down...&quot; &lt;&lt; std::endl;
+        shutdown();
++
++       // restore the old Xerror handler
++       XSetErrorHandler(old_x_error_handler);
++       old_x_error_handler = NULL;
+
+        return 0;
+ }
+
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=13107&amp;group_id=2230">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=13107&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000363.html">[Linuxdcpp-developers] [Patch #2368] add search by magnet links
+</A></li>
+	<LI>Next message: <A HREF="000366.html">[Linuxdcpp-developers] [patch] add search by magnet links
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#365">[ date ]</a>
+              <a href="thread.html#365">[ thread ]</a>
+              <a href="subject.html#365">[ subject ]</a>
+              <a href="author.html#365">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

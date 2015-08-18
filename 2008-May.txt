@@ -1,0 +1,515 @@
+From cvs at linuxdcpp.berlios.de  Mon May  5 05:33:39 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Mon, 5 May 2008 05:33:39 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805050333.m453XdMf014240@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 2105 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080505/8239320a/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Mon May  5 05:35:26 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Mon, 5 May 2008 05:35:26 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805050335.m453ZQKb014338@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 620 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080505/598ecdae/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Mon May  5 05:55:33 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Mon, 5 May 2008 05:55:33 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805050355.m453tX76015191@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 681 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080505/b2ad3edb/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Mon May  5 06:11:46 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Mon, 5 May 2008 06:11:46 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805050411.m454Bkg8015803@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 644 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080505/659cd30d/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Mon May  5 06:19:35 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Mon, 5 May 2008 06:19:35 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805050419.m454JZna015980@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 639 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080505/68310d14/attachment.xml>
+
+From admin at berlios.de  Mon May  5 13:59:35 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 5 May 2008 14:59:35 +0300 (EEST)
+Subject: [Linuxdcpp-developers] [Bug #13748] Reconnect broken
+Message-ID: <200805051159.m45BxZfX029323@unicorn.berlios.de>
+
+Bug #13748, was updated on 2008-May-05 14:59
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: razzloss
+Assigned to : none
+Summary: Reconnect broken
+
+Details: CVS update broke reconnect. CTRL + r nor File->Reconnect won't work. 
+
+--RZ
+
+Index: linux/mainwindow.cc
+===================================================================
+RCS file: /cvsroot/linuxdcpp/linuxdcpp/linux/mainwindow.cc,v
+retrieving revision 1.109
+diff -u -r1.109 mainwindow.cc
+--- linux/mainwindow.cc 5 May 2008 03:55:28 -0000       1.109
++++ linux/mainwindow.cc 5 May 2008 11:57:00 -0000
+@@ -1129,7 +1129,7 @@
+{
+	BookEntry *entry = (BookEntry *)g_object_get_data(G_OBJECT(entryWidget), "entry");
+
+-       if (entry && entry->getID().substr(0, 5) == _("Hub: "))
++       if (entry && entry->getID().substr(0, Entry::HUB.length()) == Entry::HUB)
+	{
+		Func0<Hub> *func = new Func0<Hub>(dynamic_cast<Hub *>(entry), &Hub::reconnect_client);
+		WulforManager::get()->dispatchClientFunc(func);
+
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13748&group_id=2230
+
+
+From admin at berlios.de  Fri May  9 14:25:56 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 9 May 2008 04:25:56 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Bug #13782] Licence exception for ssl
+	linking
+Message-ID: <200805091225.m49CPuIv019407@unicorn.berlios.de>
+
+Bug #13782, was updated on 2008-May-09 04:25
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: toots
+Assigned to : none
+Summary: Licence exception for ssl linking
+
+Details:     Hi !
+
+There is an incompatibility with SSL licence and linuxdcpp's GPL licence, as explained there:
+  http://www.openssl.org/support/faq.html#LEGAL2
+
+The solution is to add an exception for linuxdcpp's licence as follow:
+"This program is released under the GPL with the additional exemption that compiling, linking, and/or using OpenSSL is allowed."
+
+
+Romain
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13782&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Sat May 10 21:51:24 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sat, 10 May 2008 21:51:24 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805101951.m4AJpOeh006103@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 1398 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080510/48ed0286/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Sat May 10 22:15:42 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sat, 10 May 2008 22:15:42 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805102015.m4AKFg5E009309@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 871 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080510/d97e0bd5/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Sat May 10 23:13:14 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sat, 10 May 2008 23:13:14 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805102113.m4ALDE2S016193@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 844 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080510/55014fef/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Sun May 11 02:22:09 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sun, 11 May 2008 02:22:09 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805110022.m4B0M9US029111@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 775 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080511/bfbd1821/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Sun May 11 07:11:59 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sun, 11 May 2008 07:11:59 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805110511.m4B5Bxdd025687@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 717 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080511/bc7ae4fd/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Sun May 11 21:30:34 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sun, 11 May 2008 21:30:34 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805111930.m4BJUYxc013739@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 652 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080511/f9af658c/attachment.xml>
+
+From admin at berlios.de  Sun May 11 22:11:09 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 11 May 2008 21:11:09 +0100 (BST)
+Subject: [Linuxdcpp-developers] [Bug #13792] Segmentation Fault on inserting
+	blank CD/DVD
+Message-ID: <200805112011.m4BKB9QT018881@unicorn.berlios.de>
+
+Bug #13792, was updated on 2008-May-11 21:11
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: rampageoberon
+Assigned to : none
+Summary: Segmentation Fault on inserting blank CD/DVD
+
+Details: I get the Segmentation Fault error when I insert a blank CD/DVD. I am running linuxdcpp under another user on my system and it terminates with Segmentation Fault error when I insert a blank disk. It starts up normally once I burn the disk but as long as a blank disk is in the drive it will not start. (It seems that running the appliaction as my normal user doesn't seem to have the same problem) Below is a backtrace of the crash.
+
+Loading: Shared Files
+UnBZFilter end, 773172/271824 = 2.8444
+[New Thread 0xb6855b90 (LWP 4659)]
+Loading: Download Queue
+[New Thread 0xb6054b90 (LWP 4660)]
+[New Thread 0xb5809b90 (LWP 4661)]
+[New Thread 0xb5008b90 (LWP 4662)]
+[New Thread 0xb471db90 (LWP 4663)]
+
+Program received signal SIGSEGV, Segmentation fault.
+[Switching to Thread 0xb471db90 (LWP 4663)]
+0x00000000 in ?? ()
+(gdb) bt full
+#0 0x00000000 in ?? ()
+No symbol table info available.
+#1 0xb47a4f31 in ?? () from /usr/lib/libgio-2.0.so.0
+No symbol table info available.
+#2 0x086a5148 in ?? ()
+No symbol table info available.
+#3 0x00000000 in ?? ()
+No symbol table info available.
+(gdb) quit
+The program is running. Exit anyway? (y or n) y
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13792&group_id=2230
+
+
+From admin at berlios.de  Thu May 15 03:10:37 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 14 May 2008 21:10:37 -0400 (EDT)
+Subject: [Linuxdcpp-developers] [Patch #2465] Don't make finished upload if
+	less than file's on-disk size.
+Message-ID: <200805150110.m4F1Abbl016811@unicorn.berlios.de>
+
+Patch #2465 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: cconnett
+Assigned to : none
+Summary: Don't make finished upload if less than file's on-disk size.
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2465&group_id=2230
+
+
+From admin at berlios.de  Thu May 15 23:19:01 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 15 May 2008 22:19:01 +0100 (BST)
+Subject: [Linuxdcpp-developers] [Bug #13815] Large filelists can not be
+	loaded
+Message-ID: <200805152119.m4FLJ1jc013441@unicorn.berlios.de>
+
+Bug #13815, was updated on 2008-May-15 22:19
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: rampageoberon
+Assigned to : none
+Summary: Large filelists can not be loaded
+
+Details: LinuxDC++ seems to be having trouble opening certain filelists. I get error "Unable to load file list: Missing '"' in File" for three filelists. All these lists are larger than 2mb.
+
+pelzi_ suggested that it could be an integer overflow error
+
+a link to one of the lists is http://www.lordoberon.co.uk/Estel.xml.bz2
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13815&group_id=2230
+
+
+From admin at berlios.de  Sat May 17 13:05:53 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 17 May 2008 15:05:53 +0400 (MSD)
+Subject: [Linuxdcpp-developers] [Feature #4156] Fix hotkey collision
+Message-ID: <200805171105.m4HB5rEs025000@unicorn.berlios.de>
+
+Feature Request #4156, was updated on 2008-May-17 15:05
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4156&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Fix hotkey collision
+
+By: borx
+Date: 2008-May-17 15:05
+
+Message:
+Logged In: YES 
+user_id=45864
+Browser: Mozilla/5.0 (X11; U; Linux i686 (x86_64); en-US; rv:1.8.1.14) Gecko/20080410 SUSE/2.0.0.14-0.1 Firefox/2.0.0.14
+
+Please, rename "Find" button to something else (e.g.
+"Search") so that alt+"F" hotkey doesn't collide with
+"File" menu.
+
+http://developer.berlios.de/dbimage.php?id=3306
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4156&group_id=2230
+
+
+From admin at berlios.de  Sun May 18 14:37:02 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 18 May 2008 14:37:02 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #2471] Close tab on middle button
+	release instead of press
+Message-ID: <200805181237.m4ICb2Xt014450@unicorn.berlios.de>
+
+Patch #2471 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: individ
+Assigned to : none
+Summary: Close tab on middle button release instead of press
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2471&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Mon May 19 20:36:04 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Mon, 19 May 2008 20:36:04 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805191836.m4JIa4mT019995@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 820 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080519/de7d632d/attachment.xml>
+
+From admin at berlios.de  Mon May 19 21:31:39 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 19 May 2008 21:31:39 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Bug #13838] Feature request: UPnP
+Message-ID: <200805191931.m4JJVdJO006101@unicorn.berlios.de>
+
+Bug #13838, was updated on 2008-May-19 21:31
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: rpolach
+Assigned to : none
+Summary: Feature request: UPnP
+
+Details: This is a feature request for LinuxDC++.
+As UPnP became widely used in Linux (aMule, Transmission, Deluge)
+and Windows DC++ support UPnP already,
+it would be nice to have UPnP in LinuxDC++ too.
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13838&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Tue May 27 01:41:30 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Tue, 27 May 2008 01:41:30 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805262341.m4QNfUi1006999@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 690 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080527/09ba2d9e/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Tue May 27 02:23:24 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Tue, 27 May 2008 02:23:24 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805270023.m4R0NOEw014068@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 705 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080527/ad0ca5b1/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Tue May 27 06:36:18 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Tue, 27 May 2008 06:36:18 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805270436.m4R4aI91008873@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 701 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080527/8ca96fad/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Tue May 27 08:55:32 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Tue, 27 May 2008 08:55:32 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805270655.m4R6tWsm003665@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 654 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080527/929164c8/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Tue May 27 18:45:06 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Tue, 27 May 2008 18:45:06 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805271645.m4RGj6KV020999@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 631 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080527/8c854681/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Tue May 27 18:48:32 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Tue, 27 May 2008 18:48:32 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805271648.m4RGmW75025200@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 580 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080527/a0159c81/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Tue May 27 19:20:52 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Tue, 27 May 2008 19:20:52 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200805271720.m4RHKq9x031529@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 714 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080527/e915209c/attachment.xml>
+

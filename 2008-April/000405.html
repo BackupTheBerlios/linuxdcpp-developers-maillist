@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] Fwd: Testers for 0.705-core with Linuxdcpp
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Fwd%3A%20Testers%20for%200.705-core%20with%20Linuxdcpp&In-Reply-To=%3C200804042259.35730.Razzloss%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000406.html">
+   <LINK REL="Next"  HREF="000407.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] Fwd: Testers for 0.705-core with Linuxdcpp</H1>
+    <B>Razzloss</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Fwd%3A%20Testers%20for%200.705-core%20with%20Linuxdcpp&In-Reply-To=%3C200804042259.35730.Razzloss%40gmail.com%3E"
+       TITLE="[Linuxdcpp-developers] Fwd: Testers for 0.705-core with Linuxdcpp">Razzloss at gmail.com
+       </A><BR>
+    <I>Fri Apr  4 21:59:35 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000406.html">[Linuxdcpp-developers] Testers for 0.705-core with Linuxdcpp
+</A></li>
+        <LI>Next message: <A HREF="000407.html">[Linuxdcpp-developers] [Patch #2432] remove bookentry stuff from	WulforManager
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#405">[ date ]</a>
+              <a href="thread.html#405">[ thread ]</a>
+              <a href="subject.html#405">[ subject ]</a>
+              <a href="author.html#405">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+The LinuxDCPP will eventually move to the latest stable dc++ core (0.705). 
+There is a branch for it in launchpad  
+<A HREF="https://code.launchpad.net/~razzloss/linuxdcpp/0705-core">https://code.launchpad.net/~razzloss/linuxdcpp/0705-core</A>
+
+Instructions and requirements:
+Bazaar
+Boost libraries (not sure about the required version, 1.34 seems to work)
+and gcc 4.1
+
+to checkout the branch use: bzr branch 
+<A HREF="http://bazaar.launchpad.net/~razzloss/linuxdcpp/0705-core">http://bazaar.launchpad.net/~razzloss/linuxdcpp/0705-core</A>
+
+and build with scons (preferably with debug=1, but it's up to you)
+
+
+It would be greatly appreciated, if you could build and test the branch, and 
+report any regressions to me (either directly (email or irc 
+<A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">linuxdc++ at freenode</A>) or via this list). As our plan is to do a minimal upgrade  
+== have all the old functionality with the new core and later take advantage 
+of the new features. 
+
+Currently know problems are:
+* Usercommands are disabled (will probably be fixed soon)
+* Transferview requires some work. It's rather hard to follow the status of 
+multisource downloads.  (you can use dlqueue for that)
+* And when resuming transfer, it seems that it begins from 0%, but actually 
+file size is reported as Size - Last position. So resuming is working 
+correctly.
+* I haven't even attempted to use the new translation features...
+
+But other than that, it has worked for my use for now. Though I'm rather 
+limited on hubs I can use (only one). So I'm asking you to test it and report 
+any problems so that we can (at some point) merge it to the main branch.
+
+Thanks,
+Razzloss
+
+PS. Sorry if this gets delivered twice (sent it once to 
+<A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">linux.. at bat.berlios.de</A>, but it seems its not delivered (or its just as 
+slow...))
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000406.html">[Linuxdcpp-developers] Testers for 0.705-core with Linuxdcpp
+</A></li>
+	<LI>Next message: <A HREF="000407.html">[Linuxdcpp-developers] [Patch #2432] remove bookentry stuff from	WulforManager
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#405">[ date ]</a>
+              <a href="thread.html#405">[ thread ]</a>
+              <a href="subject.html#405">[ subject ]</a>
+              <a href="author.html#405">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

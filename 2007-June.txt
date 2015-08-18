@@ -1,0 +1,149 @@
+From admin at berlios.de  Thu Jun 14 21:59:52 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 14 Jun 2007 22:59:52 +0300 (EEST)
+Subject: [Linuxdcpp-developers] [Bug #11382] Filelists are not removed when
+	closing LinuxDC++
+Message-ID: <200706141959.l5EJxq8P017716@unicorn.berlios.de>
+
+Bug #11382, was updated on 2007-Jun-14 22:59
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: mikah
+Assigned to : none
+Summary: Filelists are not removed when closing LinuxDC++
+
+Details: Noticed that even i have unselected "Don't delete filelists when exiting" in preferences, the filelists are not removed when closing LinuxDC++, using latest cvs and Ubuntu Feisty. Can't remember if filelist removal worked on earlier versions.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=11382&group_id=2230
+
+
+From admin at berlios.de  Fri Jun 15 00:08:36 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 14 Jun 2007 14:08:36 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Patch #2054] file::findFile fixes Bug #11382
+Message-ID: <200706142208.l5EM8aVI005134@unicorn.berlios.de>
+
+Patch #2054 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: piotrp
+Assigned to : none
+Summary: file::findFile fixes  Bug #11382
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2054&group_id=2230
+
+
+From admin at berlios.de  Sun Jun 24 23:22:54 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 25 Jun 2007 00:22:54 +0300 (EEST)
+Subject: [Linuxdcpp-developers] [Patch #2078] Detach nicklist from model
+	while updating users
+Message-ID: <200706242122.l5OLMsKv023640@unicorn.berlios.de>
+
+Patch #2078 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: pelzi_
+Assigned to : none
+Summary: Detach nicklist from model while updating users
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2078&group_id=2230
+
+
+From stanislav.maslovski at gmail.com  Fri Jun 29 10:17:43 2007
+From: stanislav.maslovski at gmail.com (Stanislav Maslovski)
+Date: Fri, 29 Jun 2007 12:17:43 +0400
+Subject: [Linuxdcpp-developers] [PATCH] remove bogus CachedIp code
+Message-ID: <20070629081743.GA32103@shota.mine.nu>
+
+My computer is connected to 2 huge LANs and the internet.
+Respectively, the outside world knows it by 3 different IPs.
+
+There are dc hubs on the two LANs and, of course, on the internet.
+I noticed that when I connect to hubs which are on networks different
+from the network of the hub I have first connected to, the active
+searches never work on these hubs. After some investigation I found that
+the IP my client sends to these hubs in search requests was wrong.
+In the same time the IP sent in ConnectToMe requests was correct,
+so that I could download files, but could not do searches.
+
+The attached patch solves this problem by removing bogus cachedIp
+code used in search requests, and makes the behaviour of search consistent
+with the behavior of ConnectToMe. Please notice that the functionality of
+Client::getLocalIp() is similar to that of the removed
+ClientManager::updateCachedIp(), except that the former does not make
+any assumptions about hosts having just a single IP.
+
+Moreover, despite the fact that the caching approach was simply incorrect,
+it was also useless because the IP was already stored locally
+(see the code of Client::getLocalIp()).
+
+-- 
+Stanislav
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: remove-cachedip-nonsense-patch.diff
+Type: text/x-diff
+Size: 4022 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070629/d9740d33/attachment.diff>
+
+From steven.sheehy at gmail.com  Sat Jun 30 21:32:15 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sat, 30 Jun 2007 14:32:15 -0500
+Subject: [Linuxdcpp-developers] [PATCH] remove bogus CachedIp code
+In-Reply-To: <20070629081743.GA32103@shota.mine.nu>
+References: <20070629081743.GA32103@shota.mine.nu>
+Message-ID: <4686AFBF.8070907@gmail.com>
+
+Stanislav Maslovski wrote:
+> My computer is connected to 2 huge LANs and the internet.
+> Respectively, the outside world knows it by 3 different IPs.
+> 
+> There are dc hubs on the two LANs and, of course, on the internet.
+> I noticed that when I connect to hubs which are on networks different
+> from the network of the hub I have first connected to, the active
+> searches never work on these hubs. After some investigation I found that
+> the IP my client sends to these hubs in search requests was wrong.
+> In the same time the IP sent in ConnectToMe requests was correct,
+> so that I could download files, but could not do searches.
+> 
+> The attached patch solves this problem by removing bogus cachedIp
+> code used in search requests, and makes the behaviour of search consistent
+> with the behavior of ConnectToMe. Please notice that the functionality of
+> Client::getLocalIp() is similar to that of the removed
+> ClientManager::updateCachedIp(), except that the former does not make
+> any assumptions about hosts having just a single IP.
+> 
+> Moreover, despite the fact that the caching approach was simply incorrect,
+> it was also useless because the IP was already stored locally
+> (see the code of Client::getLocalIp()).
+> 
+> 
+> 
+Hello,
+
+Please send this patch to arnetheduck at gmail.com to have it committed to upstream 
+first. If he approves of it, I'll be glade to commit it to linuxdcpp.
+
+Thanks,
+Steven
+
+

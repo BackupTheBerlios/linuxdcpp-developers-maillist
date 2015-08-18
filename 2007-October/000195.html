@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Bug #12151] Get file list won't show	directory right
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2312151%5D%20Get%20file%20list%20won%27t%20show%0A%09directory%20right&In-Reply-To=%3C200710100906.l9A96jpx011617%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000193.html">
+   <LINK REL="Next"  HREF="000196.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Bug #12151] Get file list won't show	directory right</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2312151%5D%20Get%20file%20list%20won%27t%20show%0A%09directory%20right&In-Reply-To=%3C200710100906.l9A96jpx011617%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Bug #12151] Get file list won't show	directory right">admin at berlios.de
+       </A><BR>
+    <I>Wed Oct 10 11:06:45 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000193.html">[Linuxdcpp-developers] [Patch #2204] Magnets links support
+</A></li>
+        <LI>Next message: <A HREF="000196.html">[Linuxdcpp-developers] [Bug #12152] Superfluous / in $HOME causes	file browsing problems
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#195">[ date ]</a>
+              <a href="thread.html#195">[ thread ]</a>
+              <a href="subject.html#195">[ subject ]</a>
+              <a href="author.html#195">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #12151, was updated on 2007-Oct-10 11:06
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: individ
+Assigned to : none
+Summary: Get file list won't  show directory right
+
+Details: Hi,
+
+I've fixed the bug where the share browser won't open the inital directory right.
+
+This bug is reproducible by doing:
+1. Run a search
+2. Right click on a search result row.
+3. Select Get file list.
+4. Wait for the file list to be downloaded. When the download is finished, a share browser opens.
+
+Received behavior:
+The tree is expanded right, but the contents is not shown. Selecting in the tree updates the contents of the selected folder.
+
+Expected behavior:
+When the file list has been downloaded, the contents of the directory containing the file should be displayed.
+
+I've fixed this in my copy of the CVS code. I'll prepare a patch later this day.
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=12151&amp;group_id=2230">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=12151&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000193.html">[Linuxdcpp-developers] [Patch #2204] Magnets links support
+</A></li>
+	<LI>Next message: <A HREF="000196.html">[Linuxdcpp-developers] [Bug #12152] Superfluous / in $HOME causes	file browsing problems
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#195">[ date ]</a>
+              <a href="thread.html#195">[ thread ]</a>
+              <a href="subject.html#195">[ subject ]</a>
+              <a href="author.html#195">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

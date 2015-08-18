@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] Disconnect when a file list is uploaded
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Disconnect%20when%20a%20file%20list%20is%20uploaded&In-Reply-To=%3C461BDD19.7010309%40home.se%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000083.html">
+   <LINK REL="Next"  HREF="000089.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] Disconnect when a file list is uploaded</H1>
+    <B>Mikael Eman</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Disconnect%20when%20a%20file%20list%20is%20uploaded&In-Reply-To=%3C461BDD19.7010309%40home.se%3E"
+       TITLE="[Linuxdcpp-developers] Disconnect when a file list is uploaded">mikael.eman at home.se
+       </A><BR>
+    <I>Tue Apr 10 20:53:13 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000083.html">[Linuxdcpp-developers] Disconnect when a file list is uploaded
+</A></li>
+        <LI>Next message: <A HREF="000089.html">[Linuxdcpp-developers] Disconnect when a file list is uploaded
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#87">[ date ]</a>
+              <a href="thread.html#87">[ thread ]</a>
+              <a href="subject.html#87">[ subject ]</a>
+              <a href="author.html#87">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Steven Sheehy skrev:
+
+&gt;<i>S W wrote:
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;&gt;<i>I wanted to report that when a user requests my file list, after it is 
+</I>&gt;&gt;<i>uploaded all connections are disconnected, downloads aborted. Linuxdcpp 
+</I>&gt;&gt;<i>will reconnect to all servers, however, it is UNable to reconnect to any 
+</I>&gt;&gt;<i>peer a download is being retrieved from. All download or connection 
+</I>&gt;&gt;<i>activity is hindered. However, others can still retrieve from me.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>This is recorded in a server's window when my file list is retrieved:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>*** Connect failed: Interrupted system call
+</I>&gt;&gt;<i>*** Connecting
+</I>&gt;&gt;<i>*** Connected
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>The status bar error is : HH:MM Listening socket failed (you need to 
+</I>&gt;&gt;<i>restart DC++)...Interrupted system call.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>However, no outgoing connections to other peers is possible. I must shut 
+</I>&gt;&gt;<i>down linuxdcpp and restart it. This occurs every time.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>I am behind a firewall, but am able to have an active connection to port 
+</I>&gt;&gt;<i>1412 since it is port forwarded.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>I only began looking at this product since 02/2007 and both cvs updates 
+</I>&gt;&gt;<i>show this problem, HTH
+</I>&gt;&gt;<i>    
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>I think I've seen this before. I believe this is caused by a bug in socket error 
+</I>&gt;<i>handling. ConnectionManager::accept() should retry instead of exiting if errno 
+</I>&gt;<i>equals EINTR. I've had it on my &quot;todo&quot; list for awhile, but don't have any time 
+</I>&gt;<i>to work on it. Hopefully someone else can look into it and submit a patch.
+</I>&gt;<i>
+</I>&gt;<i>-Steven
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>I've looked into this some, and I think it's the select call in 
+Socket::wait that cause the problem.
+
+I've created a patch that might solve the problem, but since it does not 
+occur for me I cannot
+verify if it helps or not - please try it out and report the result 
+(patch ID on berlios is #1953).
+
+Br,
+Mikael Eman
+
+&gt;<i>_______________________________________________
+</I>&gt;<i>Linuxdcpp-developers mailing list
+</I>&gt;<i><A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">Linuxdcpp-developers at lists.berlios.de</A>
+</I>&gt;<i><A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers</A>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000083.html">[Linuxdcpp-developers] Disconnect when a file list is uploaded
+</A></li>
+	<LI>Next message: <A HREF="000089.html">[Linuxdcpp-developers] Disconnect when a file list is uploaded
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#87">[ date ]</a>
+              <a href="thread.html#87">[ thread ]</a>
+              <a href="subject.html#87">[ subject ]</a>
+              <a href="author.html#87">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

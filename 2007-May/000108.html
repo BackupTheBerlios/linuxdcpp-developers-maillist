@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Bug #10978] Incorrect charset names
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2310978%5D%20Incorrect%20charset%20names&In-Reply-To=%3C200705031533.l43FXQTt011522%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000109.html">
+   <LINK REL="Next"  HREF="000110.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Bug #10978] Incorrect charset names</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2310978%5D%20Incorrect%20charset%20names&In-Reply-To=%3C200705031533.l43FXQTt011522%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Bug #10978] Incorrect charset names">admin at berlios.de
+       </A><BR>
+    <I>Thu May  3 17:33:26 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000109.html">[Linuxdcpp-developers] Revconnect features?
+</A></li>
+        <LI>Next message: <A HREF="000110.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#108">[ date ]</a>
+              <a href="thread.html#108">[ thread ]</a>
+              <a href="subject.html#108">[ subject ]</a>
+              <a href="author.html#108">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #10978, was updated on 2007-May-03 19:33
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: alexandermv
+Assigned to : none
+Summary: Incorrect charset names
+
+Details: Should replace
+charsets.push_back(_(&quot;CP1251 (Cyrillic)&quot;))
+and other like strings in WulforUtil.cc to 
+charsets.push_back(_(&quot;CP1251&quot;))
+or do something otherwise because iconv_open(..., &quot;CP1251 (Cyrillic)&quot;) in Text::convert fails
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=10978&amp;group_id=2230">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=10978&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000109.html">[Linuxdcpp-developers] Revconnect features?
+</A></li>
+	<LI>Next message: <A HREF="000110.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#108">[ date ]</a>
+              <a href="thread.html#108">[ thread ]</a>
+              <a href="subject.html#108">[ subject ]</a>
+              <a href="author.html#108">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,1301 @@
+From pergoransson at gmail.com  Tue Jan  1 01:05:53 2008
+From: pergoransson at gmail.com (=?ISO-8859-1?Q?Per_G=F6ransson?=)
+Date: Tue, 1 Jan 2008 01:05:53 +0100
+Subject: [Linuxdcpp-developers] LinuxDC++ refuse to exit,
+	backtrace available.
+In-Reply-To: <op.t37ugpwx9aq2h7@mezz.mezzweb.com>
+References: <op.t37ugpwx9aq2h7@mezz.mezzweb.com>
+Message-ID: <7DC0A33F-477B-4730-9741-C78A31CF1194@gmail.com>
+
+Have you tried with the latest version from cvs? I used to get the  
+same behavior on MacOS X but it disappered some time ago.
+
+BR
+Per
+
+31 dec 2007 kl. 21.13 skrev Jeremy Messenger:
+
+> Hello,
+>
+> For some reason, LinuxDC++ refuse to exit. If I click on close or quit
+> button, the interface will disappear but the LinuxDC++ still runs  
+> hide. I
+> had to kill it by manual. I have ran LinuxDC++ in gdb and kill it by
+> manual to get the backtraces.
+>
+> FreeBSD 7.0-BETA4
+> glib-2.14.4
+> gtk-2.12.3
+> linuxdcpp-1.0.1
+>
+> Backtrace: http://people.freebsd.org/~mezz/gdb/gdb-linuxdcpp.txt
+>
+> Cheers,
+> Mezz
+>
+>
+> -- 
+> mezz7 at cox.net  -  mezz at FreeBSD.org
+> FreeBSD GNOME Team  -  FreeBSD Multimedia Hat (ports, not src)
+> http://www.FreeBSD.org/gnome/  -  gnome at FreeBSD.org
+> http://wiki.freebsd.org/multimedia  -  multimedia at FreeBSD.org
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+
+
+
+From mezz7 at cox.net  Tue Jan  1 01:18:09 2008
+From: mezz7 at cox.net (Jeremy Messenger)
+Date: Mon, 31 Dec 2007 18:18:09 -0600
+Subject: [Linuxdcpp-developers] LinuxDC++ refuse to exit,
+	backtrace available.
+In-Reply-To: <7DC0A33F-477B-4730-9741-C78A31CF1194@gmail.com>
+References: <op.t37ugpwx9aq2h7@mezz.mezzweb.com>
+	<7DC0A33F-477B-4730-9741-C78A31CF1194@gmail.com>
+Message-ID: <op.t375sjyn9aq2h7@mezz.mezzweb.com>
+
+On Mon, 31 Dec 2007 18:05:53 -0600, Per G?ransson <pergoransson at gmail.com>  
+wrote:
+
+> Have you tried with the latest version from cvs? I used to get the same  
+> behavior on MacOS X but it disappered some time ago.
+
+The 1.0.1 and CVS are same right now from what I have taken a look in CVS.  
+Correct me if I am wrong. Maybe I should move my very old ~/.dc++ and see  
+if it will working better with fresh ~/.dc++.
+
+Cheers,
+Mezz
+
+> BR
+> Per
+>
+> 31 dec 2007 kl. 21.13 skrev Jeremy Messenger:
+>
+>> Hello,
+>>
+>> For some reason, LinuxDC++ refuse to exit. If I click on close or quit
+>> button, the interface will disappear but the LinuxDC++ still runs hide.  
+>> I
+>> had to kill it by manual. I have ran LinuxDC++ in gdb and kill it by
+>> manual to get the backtraces.
+>>
+>> FreeBSD 7.0-BETA4
+>> glib-2.14.4
+>> gtk-2.12.3
+>> linuxdcpp-1.0.1
+>>
+>> Backtrace: http://people.freebsd.org/~mezz/gdb/gdb-linuxdcpp.txt
+>>
+>> Cheers,
+>> Mezz
+>>
+>>
+>> --mezz7 at cox.net  -  mezz at FreeBSD.org
+>> FreeBSD GNOME Team  -  FreeBSD Multimedia Hat (ports, not src)
+>> http://www.FreeBSD.org/gnome/  -  gnome at FreeBSD.org
+>> http://wiki.freebsd.org/multimedia  -  multimedia at FreeBSD.org
+
+
+-- 
+mezz7 at cox.net  -  mezz at FreeBSD.org
+FreeBSD GNOME Team  -  FreeBSD Multimedia Hat (ports, not src)
+http://www.FreeBSD.org/gnome/  -  gnome at FreeBSD.org
+http://wiki.freebsd.org/multimedia  -  multimedia at FreeBSD.org
+
+
+From sergey.urbanovich at gmail.com  Wed Jan  2 17:21:15 2008
+From: sergey.urbanovich at gmail.com (Sergey Urbanovich)
+Date: Wed, 2 Jan 2008 19:21:15 +0300
+Subject: [Linuxdcpp-developers] [patch]ignore list
+Message-ID: <203552f90801020821j167c0e00od7126f676c5aea3f@mail.gmail.com>
+
+I have created a patch to add support ignore list
+
+====
+ linux/hub.cc |   55 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ linux/hub.hh |    5 +++++
+ 2 files changed, 60 insertions(+)
+
+-- 
+With best regards,
+  Sergey Urbanovich
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: patch
+Type: application/octet-stream
+Size: 3111 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080102/e1b48a05/attachment.obj>
+
+From admin at berlios.de  Fri Jan  4 05:23:57 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 4 Jan 2008 10:23:57 +0600 (NOVT)
+Subject: [Linuxdcpp-developers] [Patch #2322] Finished Uploads list rotation
+	patch
+Message-ID: <200801040423.m044NvNJ011551@unicorn.berlios.de>
+
+Patch #2322 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: localstorm
+Assigned to : none
+Summary: Finished Uploads list rotation patch
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2322&group_id=2230
+
+
+From steven.sheehy at gmail.com  Sat Jan  5 05:05:14 2008
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Fri, 04 Jan 2008 22:05:14 -0600
+Subject: [Linuxdcpp-developers] [patch]ignore list
+In-Reply-To: <203552f90801020821j167c0e00od7126f676c5aea3f@mail.gmail.com>
+References: <203552f90801020821j167c0e00od7126f676c5aea3f@mail.gmail.com>
+Message-ID: <477F01FA.4060404@gmail.com>
+
+Sergey Urbanovich wrote:
+> I have created a patch to add support ignore list
+> 
+> ====
+>  linux/hub.cc |   55 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+>  linux/hub.hh |    5 +++++
+>  2 files changed, 60 insertions(+)
+> 
+> 
+> 
+> ------------------------------------------------------------------------
+> 
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+
+Hello,
+
+This patch seems incomplete. It accesses new settings ("ignore-list" &
+"ignore-list-private"), but doesn't add them to settingsmanager.cc (which will
+cause it to crash in debug mode). It also doesn't include a way to add the user 
+to the ignore list. There should be a way to right click a user in the chat and 
+in the user list to add them to the ignore list. It is not practical to assume 
+that users will modify their xml settings file manually. Also, probably if you 
+want to ignore a user you don't need to differentiate between private messages 
+and hub messages, you can just ignore them everywhere using one setting.
+
+As for the code itself, what happens when user has a comma in his nick (a very 
+common occurrence)? set_ignore() will not properly parse the ignore-list setting 
+in this case. This type of setting needs to be escaped and stored in xml like 
+the core does for favorite users. I think such a feature would be better suited 
+for the DC++ core than LinuxDC++, though I am not sure of arnetheduck's position 
+on this matter.
+
+-Steven
+
+
+From cvs at linuxdcpp.berlios.de  Sat Jan  5 19:19:55 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sat, 5 Jan 2008 19:19:55 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200801051819.m05IJtJX008319@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 600 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080105/e7df6150/attachment.xml>
+
+From admin at berlios.de  Mon Jan  7 20:52:59 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 7 Jan 2008 20:52:59 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Bug #12878] crash on start on kde4
+Message-ID: <200801071952.m07Jqx6k019578@unicorn.berlios.de>
+
+Bug #12878, was updated on 2008-Jan-07 20:52
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: fracti0n
+Assigned to : none
+Summary: crash on start on kde4
+
+Details: fra at lnx:~/cvs/linuxdcpp> linuxdcpp
+Loading: Hash database
+Loading: Shared Files
+Loading: Download Queue
+StartSocket (tcp): Caught "Address already in use"
+The program 'linuxdcpp' received an X Window System error.
+This probably reflects a bug in the program.
+The error was 'BadMatch (invalid parameter attributes)'.
+  (Details: serial 4332 error_code 8 request_code 2 minor_code 0)
+  (Note to programmers: normally, X errors are reported asynchronously;
+   that is, you will receive the error a while after causing it.
+   To debug your program, run it with the --sync command line
+   option to change this behavior. You can then get a meaningful
+   backtrace from your debugger if you break on the gdk_x_error() function.)
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12878&group_id=2230
+
+
+From admin at berlios.de  Wed Jan  9 01:17:03 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 8 Jan 2008 15:17:03 -0900 (AKST)
+Subject: [Linuxdcpp-developers] [Bug #12902] Text in statusbar truncated
+Message-ID: <200801090017.m090H33Q000783@unicorn.berlios.de>
+
+Bug #12902, was updated on 2008-Jan-08 15:17
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: prinsedje80
+Assigned to : none
+Summary: Text in statusbar truncated
+
+Details: New system now (FC4 out of the door, Gutsy Gibbon in now). Running KDE 3.5.8, I notice that some text in the status is truncated and replaced by dots. To show you what I mean, I attached a small screen shot. Is it possible to either widen it, or make the sizes of the boxes adjustable?!? Thanks!!
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12902&group_id=2230
+
+
+From eduardwestra at gmail.com  Sat Jan 12 05:38:34 2008
+From: eduardwestra at gmail.com (Eduard Westra)
+Date: Sat, 12 Jan 2008 15:38:34 +1100
+Subject: [Linuxdcpp-developers] Text in statusbar truncated
+Message-ID: <4788444A.4010906@gmail.com>
+
+Running KDE 3.5.8 on Gutsy Gibbon, I notice that some text in the status 
+is truncated and replaced by dots. To show you what I mean, I attached a 
+small screen shot. Is it possible to either widen it, or make the sizes 
+of the boxes adjustable?!? Thanks!!
+
+Cheers,
+
+Eduard
+
+P.S.: I posted this also as a bug report #12902
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ldcpp_screen.png
+Type: image/png
+Size: 3565 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080112/68a1d5f3/attachment.png>
+
+From admin at berlios.de  Sun Jan 13 01:01:04 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 12 Jan 2008 19:01:04 -0500 (EST)
+Subject: [Linuxdcpp-developers] [Bug #12924] refresh not showing all files
+Message-ID: <200801130001.m0D0140W025698@unicorn.berlios.de>
+
+Bug #12924, was updated on 2008-Jan-12 19:01
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: rosc2112
+Assigned to : none
+Summary: refresh not showing all files
+
+Details: Sorry I don't have any more details, beyond saying that when I add a new directory and refresh, not all of the files are showing. Sometimes I can refresh multiple times and it'll eventually show them. The logs do indicate the files were hashed, but they simply do not show up on my shared files list, neither for me when browsing my own list, nor for others browsing it.
+
+Any ideas how to track down the problem?
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12924&group_id=2230
+
+
+From admin at berlios.de  Sun Jan 13 13:53:07 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 13 Jan 2008 13:53:07 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Feature #3948] Up-/Download statistics
+Message-ID: <200801131253.m0DCr7d0017652@unicorn.berlios.de>
+
+Feature Request #3948, was updated on 2008-Jan-13 13:53
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3948&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Up-/Download statistics
+
+By: heiko_r
+Date: 2008-Jan-13 13:53
+
+Message:
+Logged In: YES 
+user_id=43271
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.8.1.6) Gecko/20070829 Firefox/2.0.0.6
+
+The windows version has total up- and download and
+ratio in it's about dialog. ldcpp seems to have just
+the up- and download of the current session in the
+status bar.
+It would be cool to have the possibility to see how
+much traffic I had in all time, not just today. Nothing
+important, though...
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3948&group_id=2230
+
+
+From stsp at aknet.ru  Sun Jan 13 22:26:41 2008
+From: stsp at aknet.ru (Stas Sergeev)
+Date: Mon, 14 Jan 2008 00:26:41 +0300
+Subject: [Linuxdcpp-developers] question about magnet links support
+Message-ID: <478A8211.4070900@aknet.ru>
+
+Hi.
+
+I am new to linuxdcpp. I started to use it
+because the magnet links support was recently
+announced. However, I spent the whole day
+trying to figure out where that support
+actually is, and it was in vain.
+Then I started to look into the appropriate
+patch:
+http://developer.berlios.de/patch/download.php?id=2204
+and it seems to me that it was applied either
+partially or not at all. For example, there
+supposed to be a new dialog window:
+--- linuxdcpp/glade/magnet.glade	1970-01-01 03:00:00.000000000 +0300
++++ linuxdcpp-test/glade/magnet.glade	2007-10-07 20:06:58.000000000 +0400
+but browsing the CVS sources, I don't see the
+magnet.glade file here:
+http://cvs.berlios.de/cgi-bin/viewcvs.cgi/linuxdcpp/linuxdcpp/glade/
+A quick look over some other changes also
+suggests they are not there. The patch is
+marked as Accepted though...
+
+So my question is: was the magnet support actually
+added? And if so - how to pass the magnet links
+to linuxdcpp now?
+Well, I can see the ability to _export_ the magnet
+links - that's certainly nice, but not what I was
+looking for.
+
+
+From steven.sheehy at gmail.com  Mon Jan 14 00:03:53 2008
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sun, 13 Jan 2008 17:03:53 -0600
+Subject: [Linuxdcpp-developers] question about magnet links support
+In-Reply-To: <478A8211.4070900@aknet.ru>
+References: <478A8211.4070900@aknet.ru>
+Message-ID: <478A98D9.5040002@gmail.com>
+
+Stas Sergeev wrote:
+> Hi.
+> 
+> I am new to linuxdcpp. I started to use it
+> because the magnet links support was recently
+> announced. However, I spent the whole day
+> trying to figure out where that support
+> actually is, and it was in vain.
+> Then I started to look into the appropriate
+> patch:
+> http://developer.berlios.de/patch/download.php?id=2204
+> and it seems to me that it was applied either
+> partially or not at all. For example, there
+> supposed to be a new dialog window:
+> --- linuxdcpp/glade/magnet.glade	1970-01-01 03:00:00.000000000 +0300
+> +++ linuxdcpp-test/glade/magnet.glade	2007-10-07 20:06:58.000000000 +0400
+> but browsing the CVS sources, I don't see the
+> magnet.glade file here:
+> http://cvs.berlios.de/cgi-bin/viewcvs.cgi/linuxdcpp/linuxdcpp/glade/
+> A quick look over some other changes also
+> suggests they are not there. The patch is
+> marked as Accepted though...
+> 
+> So my question is: was the magnet support actually
+> added? And if so - how to pass the magnet links
+> to linuxdcpp now?
+> Well, I can see the ability to _export_ the magnet
+> links - that's certainly nice, but not what I was
+> looking for.
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+> 
+
+The patch was accepted and added to cvs, but not without major modifications. 
+For example, the magnet.glade you mentioned was not included but instead moved 
+to another file. The ability to pass magnet links from another application to 
+linuxdcpp (e.g. registering linuxdcpp as the OS default magnet uri handler) has 
+not been implemented. It was not part of the original patch either. You can 
+always copy the magnet and paste it into linuxdcpp, but this is probably not 
+what you are expecting. A patch to add this feature is welcome as long as it is 
+done in a way that is OS & desktop environment independent.
+
+-Steven
+
+
+From stsp at aknet.ru  Mon Jan 14 06:24:05 2008
+From: stsp at aknet.ru (Stas Sergeev)
+Date: Mon, 14 Jan 2008 08:24:05 +0300
+Subject: [Linuxdcpp-developers] question about magnet links support
+In-Reply-To: <478A98D9.5040002@gmail.com>
+References: <478A8211.4070900@aknet.ru> <478A98D9.5040002@gmail.com>
+Message-ID: <478AF1F5.7040104@aknet.ru>
+
+Hello.
+
+Steven Sheehy wrote:
+> The patch was accepted and added to cvs, but not without major
+> modifications. For example, the magnet.glade you mentioned was not
+> included but instead moved to another file.
+Could you please give me a quick hint
+where to look for that in a gui? The
+thing is that I've found nothing in the
+GUI related to magnet (except "Copy magnet"),
+while in the patch I can see a few magnet-
+related config settings for instance. And
+this:
++      <widget class="GtkMenuItem" id="searchMagnetItem">
+is where?
+
+> The ability to pass magnet
+> links from another application to linuxdcpp (e.g. registering linuxdcpp
+> as the OS default magnet uri handler) has not been implemented. It was
+> not part of the original patch either.
+Oh. :(
+
+> You can always copy the magnet
+> and paste it into linuxdcpp, but this is probably not what you are
+> expecting.
+I'd like that too - how to do? The only way
+I've found, is to paste it into a chat and
+then click on it, which is of course not what
+I was expecting, but is there any other way?
+
+> A patch to add this feature is welcome as long as it is done
+> in a way that is OS & desktop environment independent.
+Passing the magnet link as a command-line
+argument can probably be easily done in
+an OS-independant way. But I guess also some
+GUI additions are needed. Like the explicit
+"Open magnet link" dialog somewhere and maybe
+a new search option. But that's what I think
+was in an original patch, so I am not sure if
+it is still missing or not. At least I was not
+able to find anything magnet-related in the GUI.
+
+
+From max.lapan at gmail.com  Mon Jan 14 18:13:54 2008
+From: max.lapan at gmail.com (Max Lapan)
+Date: Mon, 14 Jan 2008 20:13:54 +0300
+Subject: [Linuxdcpp-developers] question about magnet links support
+In-Reply-To: <478AF1F5.7040104@aknet.ru>
+References: <478A8211.4070900@aknet.ru> <478A98D9.5040002@gmail.com>
+	<478AF1F5.7040104@aknet.ru>
+Message-ID: <20080114171354.GA16615@fry.homenet.ru>
+
+On Mon, Jan 14, 2008 at 08:24:05AM +0300, Stas Sergeev wrote:
+
+> And
+> this:
+> +      <widget class="GtkMenuItem" id="searchMagnetItem">
+> is where?
+
+This is an item in magnet's context menu. It opens new search tab and
+starts search of magnet.
+
+> Passing the magnet link as a command-line
+> argument can probably be easily done in
+> an OS-independant way. But I guess also some
+> GUI additions are needed. Like the explicit
+> "Open magnet link" dialog somewhere and maybe
+> a new search option. But that's what I think
+> was in an original patch, so I am not sure if
+> it is still missing or not. At least I was not
+> able to find anything magnet-related in the GUI.
+
+No, there was no 'open magnet link' in original patch. 
+
+I thought about command line option, but faced with internal problem 
+in DC core. If I remember right, there was no way to add entry in 
+download queue if we don't know at least one source CID. So, the 
+only option when we have magnet in hand is to open search tab and 
+hope that we find some sources which can be added by user via 
+right-click menu.
+
+Better approach of handling magnet link passed via command line would 
+be to add it to download queue without sources and let background
+search find sources to download from. But this cannot be done without
+internal DC core modification (at least I didn't find how to do this).
+
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+
+-- 
+wbr, Max Lapan
+
+
+From steven.sheehy at gmail.com  Mon Jan 14 20:05:27 2008
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Mon, 14 Jan 2008 13:05:27 -0600
+Subject: [Linuxdcpp-developers] question about magnet links support
+In-Reply-To: <478AF1F5.7040104@aknet.ru>
+References: <478A8211.4070900@aknet.ru> <478A98D9.5040002@gmail.com>
+	<478AF1F5.7040104@aknet.ru>
+Message-ID: <478BB277.3030701@gmail.com>
+
+Stas Sergeev wrote:
+> Could you please give me a quick hint
+> where to look for that in a gui? The
+> thing is that I've found nothing in the
+> GUI related to magnet (except "Copy magnet"),
+> while in the patch I can see a few magnet-
+> related config settings for instance. And
+> this:
+> +      <widget class="GtkMenuItem" id="searchMagnetItem">
+> is where?
+> 
+
+You can copy a magnet from, say, a file list then paste it into the main chat. 
+When you right click the magnet you can search for the magnet, copy it, or open 
+a magnet properties dialog (the dialog that was in magnet.glade).
+
+> I'd like that too - how to do? The only way
+> I've found, is to paste it into a chat and
+> then click on it, which is of course not what
+> I was expecting, but is there any other way?
+
+Nope.
+
+
+-Steven
+
+
+From stsp at aknet.ru  Mon Jan 14 21:01:32 2008
+From: stsp at aknet.ru (Stas Sergeev)
+Date: Mon, 14 Jan 2008 23:01:32 +0300
+Subject: [Linuxdcpp-developers] question about magnet links support
+In-Reply-To: <478BB277.3030701@gmail.com>
+References: <478A8211.4070900@aknet.ru> <478A98D9.5040002@gmail.com>
+	<478AF1F5.7040104@aknet.ru> <478BB277.3030701@gmail.com>
+Message-ID: <478BBF9C.3030100@aknet.ru>
+
+Hello.
+
+Steven Sheehy wrote:
+> You can copy a magnet from, say, a file list then paste it into the main
+> chat.
+But isn't it silly to post the link
+to the chat only to click it? That's
+what I've figured after spending the
+whole day (and thanks to google), so
+its a way counter-intuitive too.
+
+> When you right click the magnet you can search for the magnet,
+> copy it, or open a magnet properties dialog (the dialog that was in
+> magnet.glade).
+Thank you for explanation.
+Well, this dialog looks pretty much
+unhelpfull to me though...
+Also it does look like not all magnets
+are even recognized. For example, the
+magnet like this:
+magnet:?xt=urn:sha1:YNCKHTQCWBTRNJIV4WNAE52SJUQCZO5C
+is not recognized. This is probably a bug.
+
+>> I've found, is to paste it into a chat and
+>> then click on it, which is of course not what
+>> I was expecting, but is there any other way?
+> Nope.
+Are you interested in a further work in
+this area? I can't promise anything, but
+I may happen to have a look.
+What I would like to implement, is a
+text dialog for conviniently entering the
+magnet links, and the command-line argument
+for the same purpose, so that the linuxdcpp
+can be used as an URL handler with firefox.
+I know that the initial magnet support went
+in with troubles, so that's why I am asking
+beforehand. :)
+
+
+From steven.sheehy at gmail.com  Tue Jan 15 01:36:33 2008
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Mon, 14 Jan 2008 18:36:33 -0600
+Subject: [Linuxdcpp-developers] question about magnet links support
+In-Reply-To: <478BBF9C.3030100@aknet.ru>
+References: <478A8211.4070900@aknet.ru> <478A98D9.5040002@gmail.com>
+	<478AF1F5.7040104@aknet.ru> <478BB277.3030701@gmail.com>
+	<478BBF9C.3030100@aknet.ru>
+Message-ID: <478C0011.3090605@gmail.com>
+
+Stas Sergeev wrote:
+> But isn't it silly to post the link
+> to the chat only to click it? That's
+> what I've figured after spending the
+> whole day (and thanks to google), so
+> its a way counter-intuitive too.
+
+Well, maybe...but that's why I told you it was a workaround and that magnet uri 
+registering was not implemented yet.
+
+> Thank you for explanation.
+> Well, this dialog looks pretty much
+> unhelpfull to me though...
+> Also it does look like not all magnets
+> are even recognized. For example, the
+> magnet like this:
+> magnet:?xt=urn:sha1:YNCKHTQCWBTRNJIV4WNAE52SJUQCZO5C
+> is not recognized. This is probably a bug.
+
+Maybe I'm missing something, but what's the purpose of support other magnet 
+types besides TTH? DC++ doesn't recognize sha1 or other hash methods.
+
+
+> Are you interested in a further work in
+> this area? I can't promise anything, but
+> I may happen to have a look.
+> What I would like to implement, is a
+> text dialog for conviniently entering the
+> magnet links, and the command-line argument
+> for the same purpose, so that the linuxdcpp
+> can be used as an URL handler with firefox.
+> I know that the initial magnet support went
+> in with troubles, so that's why I am asking
+> beforehand. :)
+
+Of course, patches are always welcome. I don't think what you propose is what 
+I'd like to see implemented, though. Both your ideas sound like workarounds to 
+the whole concept of registering linuxdcpp as the default OS magnet handler. The 
+dialog is to create a magnet link when linuxdcpp is already open and the command 
+line is to open a new instance of linuxdcpp with the magnet. You cannot use the 
+command line feature for an already open instance and you cannot use the dialog 
+when linuxdcpp is not open. As I said before, I would like to see an OS/desktop 
+independent way to register linuxdcpp as the default OS magnet handler so that 
+it opens linuxdcpp if it's not already open and if it is open it handles the 
+magnet appropriately.
+
+-Steven
+
+
+From stsp at aknet.ru  Tue Jan 15 07:12:38 2008
+From: stsp at aknet.ru (Stas Sergeev)
+Date: Tue, 15 Jan 2008 09:12:38 +0300
+Subject: [Linuxdcpp-developers] question about magnet links support
+In-Reply-To: <478C0011.3090605@gmail.com>
+References: <478A8211.4070900@aknet.ru> <478A98D9.5040002@gmail.com>
+	<478AF1F5.7040104@aknet.ru> <478BB277.3030701@gmail.com>
+	<478BBF9C.3030100@aknet.ru> <478C0011.3090605@gmail.com>
+Message-ID: <478C4ED6.8010509@aknet.ru>
+
+Hello.
+
+Steven Sheehy wrote:
+> Of course, patches are always welcome. I don't think what you propose is
+> what I'd like to see implemented, though. Both your ideas sound like
+> workarounds to the whole concept of registering linuxdcpp as the default
+> OS magnet handler. The dialog is to create a magnet link when linuxdcpp
+> is already open and the command line is to open a new instance of
+> linuxdcpp with the magnet.
+I guess only a command-line parameter is a
+work-around for that. And it will have another
+problems too, eg what to do if there are no
+hubs to auto-connect? Then the passed magnet
+cannot be handled immediately.
+But the entry dialog is not for that. Its
+just so that the one can at least conviniently
+copy/paste the magnets to linuxdcpp. Unless
+even this is possible, I would say the magnet
+support is basically non-existant.
+
+> not open. As I said before, I would like to see an OS/desktop
+> independent way to register linuxdcpp as the default OS magnet handler
+> so that it opens linuxdcpp if it's not already open and if it is open it
+> handles the magnet appropriately.
+Unfortunately I am not aware of any. The
+OS-dependant ways do exist, but could you
+point me to an independant one that really
+works everywhere?
+Anyway, not what I wanted to see for the
+first pass at least.
+Leaving the command line aside, can we
+have at least the entry for copy/pasting
+magnets? The assumption that everyone just
+wants to click an URL is probably wrong -
+maybe I wrote it down to paper and want to
+type directly into linuxdcpp. :)
+Of course the handler support would be good,
+but it is not there and is unlikely to
+happen soon, so why dismissing all the other
+ways that can be implemented and used right
+now?
+
+
+From stanislav.maslovski at gmail.com  Tue Jan 15 10:06:11 2008
+From: stanislav.maslovski at gmail.com (Stanislav Maslovski)
+Date: Tue, 15 Jan 2008 12:06:11 +0300
+Subject: [Linuxdcpp-developers] question about magnet links support
+In-Reply-To: <478BBF9C.3030100@aknet.ru>
+References: <478A8211.4070900@aknet.ru> <478A98D9.5040002@gmail.com>
+	<478AF1F5.7040104@aknet.ru> <478BB277.3030701@gmail.com>
+	<478BBF9C.3030100@aknet.ru>
+Message-ID: <20080115090611.GA5461@shota.mine.nu>
+
+Hello,
+
+My 2 cents:
+
+On Mon, Jan 14, 2008 at 11:01:32PM +0300, Stas Sergeev wrote:
+> Also it does look like not all magnets
+> are even recognized. For example, the
+> magnet like this:
+> magnet:?xt=urn:sha1:YNCKHTQCWBTRNJIV4WNAE52SJUQCZO5C
+> is not recognized. This is probably a bug.
+
+AFAIK, the only hash dcpp core understands is Tiger. And the support of this one
+has been mplemented, of course.
+
+> What I would like to implement, is a
+> text dialog for conviniently entering the
+> magnet links, and the command-line argument
+> for the same purpose, so that the linuxdcpp
+> can be used as an URL handler with firefox.
+
+Such a command line option will be a plus. As for the dialog, I do not think
+that we need two of them. I see two options:
+
+1. Enhance the magnet properties dialog to make the url field of it
+editable, make the dialog accessible from the menu, add a search button to
+the dialog.
+
+2. Add an entry field for the magnets to the search tab.
+
+-- 
+Stanislav
+
+
+From stanislav.maslovski at gmail.com  Tue Jan 15 10:40:54 2008
+From: stanislav.maslovski at gmail.com (Stanislav Maslovski)
+Date: Tue, 15 Jan 2008 12:40:54 +0300
+Subject: [Linuxdcpp-developers] question about magnet links support
+In-Reply-To: <478C4ED6.8010509@aknet.ru>
+References: <478A8211.4070900@aknet.ru> <478A98D9.5040002@gmail.com>
+	<478AF1F5.7040104@aknet.ru> <478BB277.3030701@gmail.com>
+	<478BBF9C.3030100@aknet.ru> <478C0011.3090605@gmail.com>
+	<478C4ED6.8010509@aknet.ru>
+Message-ID: <20080115094054.GA8503@shota.mine.nu>
+
+On Tue, Jan 15, 2008 at 09:12:38AM +0300, Stas Sergeev wrote:
+> Hello.
+> 
+> Steven Sheehy wrote:
+> > Of course, patches are always welcome. I don't think what you propose is
+> > what I'd like to see implemented, though. Both your ideas sound like
+> > workarounds to the whole concept of registering linuxdcpp as the default
+> > OS magnet handler. The dialog is to create a magnet link when linuxdcpp
+> > is already open and the command line is to open a new instance of
+> > linuxdcpp with the magnet.
+> I guess only a command-line parameter is a
+> work-around for that. And it will have another
+> problems too, eg what to do if there are no
+> hubs to auto-connect? Then the passed magnet
+> cannot be handled immediately.
+> But the entry dialog is not for that. Its
+> just so that the one can at least conviniently
+> copy/paste the magnets to linuxdcpp. Unless
+> even this is possible, I would say the magnet
+> support is basically non-existant.
+
+Stas, we are both russians so we know very well what does that mean when someone
+says big words instead of doing something real. I am not going to play a role
+of anyone's advocate but if you had a look into the code of the magnet
+patch you should get an idea that the interface part of it was a secondary
+thing when copared to the other more low-level tasks the patch does.
+
+I would recommend you to start coding right now instead of making too much
+self-advertising noise ;) In this case we all will be happier, right?
+
+-- 
+Stanislav
+
+
+From az at alexbank.ru  Thu Jan 17 08:03:09 2008
+From: az at alexbank.ru (=?koi8-r?Q?=FA=C1=D3=CC=C1=D7=D3=CB=C9=CA_?= =?koi8-r?Q?=E1=CE=C4=D2=C5=CA?=)
+Date: Thu, 17 Jan 2008 10:03:09 +0300
+Subject: [Linuxdcpp-developers] Some new feature
+Message-ID: <1200553389.11773.18.camel@azd.alexbank.fin>
+
+Is it difficult to coders to add a menu for copypasting nick into chat?
+I mean feature like in StrongDC and other, allowing to select user in
+userlist and copypaste it's nick to chat input string.
+
+
+-- 
+?????????? ?????? <az at alexbank.ru>
+??? ???? ???????????????
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080117/ab45b510/attachment.html>
+
+From cvs at linuxdcpp.berlios.de  Fri Jan 18 04:01:08 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Fri, 18 Jan 2008 04:01:08 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200801180301.m0I318A3000401@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 693 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080118/d763a330/attachment.xml>
+
+From steven.sheehy at gmail.com  Fri Jan 18 04:23:21 2008
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Thu, 17 Jan 2008 21:23:21 -0600
+Subject: [Linuxdcpp-developers] Some new feature
+In-Reply-To: <1200553389.11773.18.camel@azd.alexbank.fin>
+References: <1200553389.11773.18.camel@azd.alexbank.fin>
+Message-ID: <47901BA9.4050708@gmail.com>
+
+?????????? ?????? wrote:
+> Is it difficult to coders to add a menu for copypasting nick into chat?
+> I mean feature like in StrongDC and other, allowing to select user in 
+> userlist and copypaste it's nick to chat input string.
+> 
+> 
+> -- 
+> ?????????? ?????? <az at alexbank.ru <mailto:az at alexbank.ru>>
+> ??? ???? ???????????????
+> 
+> 
+> ------------------------------------------------------------------------
+> 
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+
+Check the latest cvs. :)
+
+I forgot to make it work with multiple selected nicks though, so I'll fix that 
+in the next commit.
+
+-Steven
+
+
+From admin at berlios.de  Mon Jan 21 05:49:23 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 21 Jan 2008 05:49:23 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #2341] conditionalise use of
+	getifaddrs()
+Message-ID: <200801210449.m0L4nN8D013572@unicorn.berlios.de>
+
+Patch #2341 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: tnn
+Assigned to : none
+Summary: conditionalise use of getifaddrs()
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2341&group_id=2230
+
+
+From admin at berlios.de  Mon Jan 21 09:03:17 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 21 Jan 2008 09:03:17 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Bug #12989] Random crashes and memory/CPU
+	hogging
+Message-ID: <200801210803.m0L83HJv019105@unicorn.berlios.de>
+
+Bug #12989, was updated on 2008-Jan-21 09:03
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: sparhawk
+Assigned to : none
+Summary: Random crashes and memory/CPU hogging
+
+Details: Hi!
+
+This isn't a specific bug report, I'll be getting to that after I start running in debug mode, but more a general comment on the functionality (or lack thereof) in linuxdcpp
+
+Looks like you guys still have a long way to go in adapting the DC++ application.
+
+What's up with eating up almost 500Mb of physical memory and the excessive disk activity? Just loading a small xml file shouldn't be generating megabytes worth of disk activity when the application is already in memory, and using so much of it at that.
+Will you be implementing the "favorite users" function anytime soon? Need it for auto-grant of extra slots.
+Random crashes and hangs are something I've had to learn to live with. Crashing when closing a file list or a hub window is very common, segfaults generated.
+Also, noticing a lot of random application hangs where the windows hang and stop transmitting text but the application is still maintains open network connections and is transmitting data.
+
+I'll report some specific bugs when I encounter them and after enabling debug mode.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12989&group_id=2230
+
+
+From admin at berlios.de  Mon Jan 21 10:26:10 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 21 Jan 2008 04:26:10 -0500 (EST)
+Subject: [Linuxdcpp-developers] [Bug #12990] case-sensitivity in hash db?
+Message-ID: <200801210926.m0L9QABb001898@unicorn.berlios.de>
+
+Bug #12990, was updated on 2008-Jan-21 04:26
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: rosc2112
+Assigned to : none
+Summary: case-sensitivity in hash db?
+
+Details: This may or may not be related to the bug I reported about refresh not showing all files. I analyzed the system log a little more, and noticed this tonight after adding 2 new subdirs and doing a refresh.
+
+[2008-01-21 03:46] File list refresh initiated
+[2008-01-21 03:47] Finished hashing: .../2000-11-27.Geddy.Lee.KISW.Interview.FM/KISW.mht (1.58 MiB/s)
+[2008-01-21 03:47] File list refresh finished
+[2008-01-21 03:47] File list refresh initiated
+[2008-01-21 03:47] Finished hashing: .../2000-11-27.Geddy.Lee.KISW.Interview.FM/kisw.mht (2.90 MiB/s)
+[2008-01-21 03:47] Finished hashing: .../2000-11-27.Geddy.Lee.KISW.Interview.FM/KISW.mht (22.09 MiB/s)
+[2008-01-21 03:47] File list refresh finished
+[2008-01-21 03:47] File list refresh initiated
+[2008-01-21 03:48] Finished hashing: .../2000-11-27.Geddy.Lee.KISW.Interview.FM/kisw.mht (23.22 MiB/s)
+[2008-01-21 03:48] Finished hashing: .../2000-11-27.Geddy.Lee.KISW.Interview.FM/KISW.mht
+[2008-01-21 03:48] File list refresh finished
+
+and so on.
+
+Case should matter here, they are 2 different files (although yeah I suppose they would get clobbered under windows.) 
+
+Perhaps Linuxdc++ should at least produce an error message in such cases?
+
+I'll have to keep an eye on my share list next time I add a new boot to see if the missing files bug is gone now that I fixed the above problem (wish I'd noticed it sooner.)
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12990&group_id=2230
+
+
+From admin at berlios.de  Mon Jan 21 16:40:06 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 21 Jan 2008 16:40:06 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Bug #12993] TTH Download fails if there are
+	spaces in foldername.
+Message-ID: <200801211540.m0LFe6Lk010313@unicorn.berlios.de>
+
+Bug #12993, was updated on 2008-Jan-21 16:40
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: gonzzor
+Assigned to : none
+Summary: TTH Download fails if there are spaces in foldername.
+
+Details: When downloading files in folders with spaces, only small files works, nfo, sfv, and such. When downloading the TTH I get file not found.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12993&group_id=2230
+
+
+From admin at berlios.de  Mon Jan 21 20:12:52 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 21 Jan 2008 10:12:52 -0900 (AKST)
+Subject: [Linuxdcpp-developers] [Bug #12994] Long chat string doesn't
+	wordwrap
+Message-ID: <200801211912.m0LJCqID027361@unicorn.berlios.de>
+
+Bug #12994, was updated on 2008-Jan-21 10:12
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: cipherus
+Assigned to : none
+Summary: Long chat string doesn't wordwrap
+
+Details: I can't say this is so much of a bug as a feature request / inconsistency with DC++.  But for example if someone goes AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH!!!!!!!!!!!!!!!!!!!!!!
+then the chat window will create a bottom scrollbar to move left and right.  Kind of annoying but not that bad.  Also though, sometimes the text loses focus (doesn't automatically scroll down when more text is recieved), but I don't know why that only happens sometimes.
+
+Normal text (with spaces) will wordwrap normally (even after the scrollbar appears).  So I dunno. 
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12994&group_id=2230
+
+
+From az at alexbank.ru  Tue Jan 22 15:58:21 2008
+From: az at alexbank.ru (=?koi8-r?Q?=FA=C1=D3=CC=C1=D7=D3=CB=C9=CA_?= =?koi8-r?Q?=E1=CE=C4=D2=C5=CA?=)
+Date: Tue, 22 Jan 2008 17:58:21 +0300
+Subject: [Linuxdcpp-developers] Using user commands
+Message-ID: <1201013901.21135.4.camel@azd.alexbank.fin>
+
+Wanna use a cup of commands for user management, 
+for exaple wanna get last user ips, 
+the command sending to hub is !lastip username
+how to write a username in command or create a window asking for it?
+-- 
+?????????? ?????? <az at alexbank.ru>
+??? ???? ???????????????
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080122/92124254/attachment.html>
+
+From admin at berlios.de  Wed Jan 23 15:43:14 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 23 Jan 2008 20:43:14 +0600 (NOVT)
+Subject: [Linuxdcpp-developers] [Bug #13011] build fails with g++ 4.3
+Message-ID: <200801231443.m0NEhEVf024256@unicorn.berlios.de>
+
+Bug #13011, was updated on 2008-Jan-23 20:43
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: salmin
+Assigned to : none
+Summary: build fails with g++ 4.3
+
+Details: Build fails with g++ 4.3, but it's ok with 4.2.
+
+scons: Building targets ...
+g++ -o build/client/AdcHub.o -c -pthread -I. -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT -D_DATADIR='"/usr/local/share"' client/AdcHub.cpp
+In file included from /usr/include/c++/4.3/ext/hash_map:64,
+                 from client/stdinc.h:110,
+                 from client/AdcHub.cpp:19:
+/usr/include/c++/4.3/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header which may be removed without further notice at a future date. Please use a non-deprecated interface with equivalent functionality instead. For a listing of replacement headers and interfaces, consult the file backward_warning.h. To disable this warning use -Wno-deprecated.
+In file included from client/AdcHub.cpp:24:
+client/ShareManager.h:246: error: ISO C++ forbids declaration of 'auto_ptr' with no type
+client/ShareManager.h:246: error: expected ';' before '<' token
+scons: *** [build/client/AdcHub.o] Error 1
+scons: building terminated because of errors.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13011&group_id=2230
+
+
+From admin at berlios.de  Wed Jan 23 16:35:34 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 23 Jan 2008 16:35:34 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Feature #3960] show unread PMs notification
+	in icon
+Message-ID: <200801231535.m0NFZYDu023920@unicorn.berlios.de>
+
+Feature Request #3960, was updated on 2008-Jan-23 16:35
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3960&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: show unread PMs notification in icon
+
+By: fracti0n
+Date: 2008-Jan-23 16:35
+
+Message:
+Logged In: YES 
+user_id=37717
+Browser: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.8.1.11) Gecko/20071128 SUSE/2.0.0.11-3.1 Firefox/2.0.0.11
+
+show different linuxdcpp taskbar icon on unread private
+messages, helpful when dc++ is running in background
+(or different desktop) and someone pm you... maybe
+there can be number that shows how many unread messages
+is waiting there
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3960&group_id=2230
+
+
+From admin at berlios.de  Thu Jan 24 07:40:15 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 24 Jan 2008 01:40:15 -0500 (EST)
+Subject: [Linuxdcpp-developers] [Feature #3962] LOG IP's!!!
+Message-ID: <200801240640.m0O6eFoI023940@unicorn.berlios.de>
+
+Feature Request #3962, was updated on 2008-Jan-24 01:40
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3962&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: LOG IP's!!!
+
+By: rosc2112
+Date: 2008-Jan-24 01:40
+
+Message:
+Logged In: YES 
+user_id=39477
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.4) Gecko/20070509 SeaMonkey/1.1.2
+
+Would it be possible to have LinuxDC++ LOG IP numbers
+from people who upload/download?  I have someone who is
+a nuissance that I want to firewall, but I have not
+been able to catch em while he's doing any transfers so
+I can't get his dang IP. It would be *very* helpful if
+LinuxDC++ logged ip's along with the other data that's
+being logged in the Upload and Download log files.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3962&group_id=2230
+
+
+From admin at berlios.de  Thu Jan 24 17:43:43 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 24 Jan 2008 17:43:43 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Feature #3963] Various useful features
+Message-ID: <200801241643.m0OGhhR1011700@unicorn.berlios.de>
+
+Feature Request #3963, was updated on 2008-Jan-24 17:43
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3963&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Various useful features
+
+By: sparhawk
+Date: 2008-Jan-24 17:43
+
+Message:
+Logged In: YES 
+user_id=43421
+Browser: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.8.1.11) Gecko/20071204 Ubuntu/7.10 (gutsy) Firefox/2.0.0.11
+
+- Daily/Weekly/Monthly log rolling with an interval
+setting (logs grow huge and unmanageable otherwise)
+
+- Favorite users and auto-grant slots feature
+
+- "Grant extra slot" from PM window
+
+- option to only allow one connection per IP from other
+clients
+
+- adding custom commands to the right-click menu in
+transfer window (e.g. "copy nick/IP/file name" etc)
+
+- seamless search in user list (begin typing xxx and
+search will find all instances of xxx, not just nicks
+beginning with the search string)
+
+- proper nick completion in chat window
+
+- fix the highlighting of nicks (currently all words in
+main chat window which have a match in the userlist are
+highlighted or made italic)
+
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3963&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Sat Jan 26 07:59:12 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sat, 26 Jan 2008 07:59:12 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200801260659.m0Q6xCFI019479@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 796 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080126/f9c1d800/attachment.xml>
+
+From admin at berlios.de  Sat Jan 26 22:10:10 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 26 Jan 2008 23:10:10 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Patch #2346] "Proper" nick completion
+	(feature req. #3963/7)
+Message-ID: <200801262110.m0QLAAff028655@unicorn.berlios.de>
+
+Patch #2346 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: razzloss
+Assigned to : none
+Summary: "Proper" nick completion (feature req. #3963/7)
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2346&group_id=2230
+
+
+From admin at berlios.de  Mon Jan 28 19:13:51 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 28 Jan 2008 19:13:51 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #2350] Usercommand submenu
+Message-ID: <200801281813.m0SIDpXX025725@unicorn.berlios.de>
+
+Patch #2350 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: windkracht8
+Assigned to : none
+Summary: Usercommand submenu
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2350&group_id=2230
+
+

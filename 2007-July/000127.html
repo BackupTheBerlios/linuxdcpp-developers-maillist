@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Bug #11556] hashlist causes crash
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-July/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2311556%5D%20hashlist%20causes%20crash&In-Reply-To=%3C200707150157.l6F1vQq7029430%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000126.html">
+   <LINK REL="Next"  HREF="000128.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Bug #11556] hashlist causes crash</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2311556%5D%20hashlist%20causes%20crash&In-Reply-To=%3C200707150157.l6F1vQq7029430%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Bug #11556] hashlist causes crash">admin at berlios.de
+       </A><BR>
+    <I>Sun Jul 15 03:57:26 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000126.html">[Linuxdcpp-developers] [Patch #2092] fixes Text::Convert when using	System default charset
+</A></li>
+        <LI>Next message: <A HREF="000128.html">[Linuxdcpp-developers] [Patch #2099] Password dialog accepts enter
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#127">[ date ]</a>
+              <a href="thread.html#127">[ thread ]</a>
+              <a href="subject.html#127">[ subject ]</a>
+              <a href="author.html#127">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #11556, was updated on 2007-Jul-14 21:57
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: rosc2112
+Assigned to : none
+Summary: hashlist causes crash
+
+Details: No clue why it's doing this, but it seems any time my shared files are over a certain size, dc++ crashes and then continues to crash when I try to restart it, with a sigbus error and very little clue about what's really going on.. I have to delete my hash files and start all over (which takes a dang long time :P)
+
+Here's a backtrace, maybe someone has a clue (using the latest cvs version as of today Jul14.) on a linux slackware v11 amd2100+ system, kernel v2.4.34, etc:
+
+
+GNU gdb 6.5
+Copyright (C) 2006 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type &quot;show copying&quot; to see the conditions.
+There is absolutely no warranty for GDB.  Type &quot;show warranty&quot; for details.
+This GDB was configured as &quot;i486-slackware-linux&quot;...Using host libthread_db library &quot;/lib/libthread_db.so.1&quot;.
+
+(gdb) run
+Starting program: /usr/local/bin/dcpp
+[Thread debugging using libthread_db enabled]
+[New Thread 16384 (LWP 17812)]
+Thrown: FileException: Could not open file
+Thrown: FileException: Could not open file
+Loading: Hash database
+[New Thread 32769 (LWP 17813)]
+[New Thread 16386 (LWP 17814)]
+Loading: Shared Files
+UnBZFilter end, 299453/84010 = 3.5645
+[New Thread 32771 (LWP 17815)]
+Loading: Download Queue
+[New Thread 49156 (LWP 17816)]
+[New Thread 65541 (LWP 17817)]
+[New Thread 81926 (LWP 17818)]
+BufferedSocket::connect() 0x86e04f0
+[New Thread 98311 (LWP 17820)]
+BufferedSocket::run() start 0x86e04f0
+threadConnect lossless.rushdchub.com:411
+MyInfo rosc2112...
+
+Program received signal SIGBUS, Bus error.
+[Switching to Thread 16386 (LWP 17814)]
+0x407e02f7 in memcpy () from /lib/libc.so.6
+(gdb) backtrace full
+#0  0x407e02f7 in memcpy () from /lib/libc.so.6
+No symbol table info available.
+#1  0x08162d95 in TigerHash::update (this=0xbf7ff760, data=0x420de000, length=1024) at client/TigerHash.cpp:166
+        n = 63
+        tmppos = 1
+        str = (const uint8_t *) 0x420de000 &lt;Address 0x420de000 out of bounds&gt;
+        __PRETTY_FUNCTION__ = &quot;void TigerHash::update(const void*, size_t)&quot;
+#2  0x080bb447 in MerkleTree&lt;TigerHash, 1024u&gt;::update (this=0xbf7ff970, data=0x420de000, len=16777216)
+    at client/MerkleTree.h:105
+        n = 1024
+        h = {
+  tmp = &quot;\000&#216;k\b&#255;&#255;&#255;&#255;&#194;\233&#248;@\r&#199;s@&#208;&#216;k\b\234\fv@&#168;&#247;\177&#191;&#248;o\001@&#240;t\001@\234v\001@&#192;&#247;\177&#191;&#248;o\001@&#240;t\001@\234v\001@&#208;&#247;\177&#191;l&#187;\00
+0@&quot;, res = {81985529216486895, 18364758544493064720, 17336226011405279623}, pos = 1, static table = 0x8301b80}
+        buf = (uint8_t *) 0x420de000 &lt;Address 0x420de000 out of bounds&gt;
+        zero = 0 '\0'
+        i = 0
+#3  0x080db226 in HashManager::Hasher::fastHash (this=0x833fef0, filename=@0xbf7ffa80, tth=@0xbf7ff970,
+    size=894710478, xcrc32=0x0) at client/HashManager.cpp:629
+        fd = 9
+        size_left = 894710478
+        buf = (void *) 0x420de000
+        lastRead = 7272
+        pos = 0
+        size_read = 16777216
+#4  0x080db723 in HashManager::Hasher::run (this=0x833fef0) at client/HashManager.cpp:716
+        bs = 2097152
+        timestamp = 1175875672
+        slowTTH = {
+  blocks = {&lt;std::_Vector_base&lt;std::pair&lt;HashValue&lt;TigerHash&gt;, int64_t&gt;,std::allocator&lt;std::pair&lt;HashValue&lt;TigerHash&gt;, i
+nt64_t&gt; &gt; &gt;&gt; = {
+      _M_impl = {&lt;std::allocator&lt;std::pair&lt;HashValue&lt;TigerHash&gt;, int64_t&gt; &gt;&gt; = {&lt;__gnu_cxx::new_allocator&lt;std::pair&lt;Hash
+Value&lt;TigerHash&gt;, int64_t&gt; &gt;&gt; = {&lt;No data fields&gt;}, &lt;No data fields&gt;}, _M_start = 0x0, _M_finish = 0x0,
+        _M_end_of_storage = 0x0}}, &lt;No data fields&gt;},
+  leaves = {&lt;std::_Vector_base&lt;HashValue&lt;TigerHash&gt;,std::allocator&lt;HashValue&lt;TigerHash&gt; &gt; &gt;&gt; = {
+      _M_impl = {&lt;std::allocator&lt;HashValue&lt;TigerHash&gt; &gt;&gt; = {&lt;__gnu_cxx::new_allocator&lt;HashValue&lt;TigerHash&gt; &gt;&gt; = {&lt;No dat
+a fields&gt;}, &lt;No data fields&gt;}, _M_start = 0x0, _M_finish = 0x0, _M_end_of_storage = 0x0}}, &lt;No data fields&gt;},
+  root = {&lt;FastAlloc&lt;HashValue&lt;TigerHash&gt; &gt;&gt; = {&lt;No data fields&gt;}, static SIZE = 24,
+    data = &quot;\000\000\000\0004&#250;\177&#191;\000\000\000\000\000\000\000\0004&#250;\177&#191;\000\000\000&quot;}, fileSize = 0,
+  blockSize = 2097152}
+        tth = (TigerTree *) 0xbf7ff970
+        xcrc32 = (CRC32Filter *) 0x0
+        end = 3212835248
+        speed = -5570916710260285440
+        n = 0
+        f = {&lt;IOStream&gt; = {&lt;InputStream&gt; = {_vptr.InputStream = 0x82594e8}, &lt;OutputStream&gt; = {
+---Type &lt;return&gt; to continue, or q &lt;return&gt; to quit---
+      _vptr.OutputStream = 0x8259524}, &lt;No data fields&gt;}, h = 14}
+        start = 6974
+        crc32 = {crc = 0}
+        sfv = {crc32 = 0, crcFound = false}
+        fastTTH = {
+  blocks = {&lt;std::_Vector_base&lt;std::pair&lt;HashValue&lt;TigerHash&gt;, int64_t&gt;,std::allocator&lt;std::pair&lt;HashValue&lt;TigerHash&gt;, i
+nt64_t&gt; &gt; &gt;&gt; = {
+      _M_impl = {&lt;std::allocator&lt;std::pair&lt;HashValue&lt;TigerHash&gt;, int64_t&gt; &gt;&gt; = {&lt;__gnu_cxx::new_allocator&lt;std::pair&lt;Hash
+Value&lt;TigerHash&gt;, int64_t&gt; &gt;&gt; = {&lt;No data fields&gt;}, &lt;No data fields&gt;}, _M_start = 0x0, _M_finish = 0x0,
+        _M_end_of_storage = 0x0}}, &lt;No data fields&gt;},
+
+  leaves = {&lt;std::_Vector_base&lt;HashValue&lt;TigerHash&gt;,std::allocator&lt;HashValue&lt;TigerHash&gt; &gt; &gt;&gt; = {
+      _M_impl = {&lt;std::allocator&lt;HashValue&lt;TigerHash&gt; &gt;&gt; = {&lt;__gnu_cxx::new_allocator&lt;HashValue&lt;TigerHash&gt; &gt;&gt; = {&lt;No dat
+a fields&gt;}, &lt;No data fields&gt;}, _M_start = 0x0, _M_finish = 0x0, _M_end_of_storage = 0x0}}, &lt;No data fields&gt;},
+  root = {&lt;FastAlloc&lt;HashValue&lt;TigerHash&gt; &gt;&gt; = {&lt;No data fields&gt;}, static SIZE = 24,
+    data = &quot;d&#251;<A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">w at tsw</A>@+\000\000\000(\221&#225;@&#216;\223&#225;@&#181;&#252;P\f&quot;}, fileSize = 0, blockSize = 2097152}
+        size = 894710478
+        sizeLeft = 894710478
+        buf = (uint8_t *) 0x410dd008 &quot;&quot;
+        virtualBuf = false
+        fname = {static npos = 4294967295,
+  _M_dataplus = {&lt;std::allocator&lt;char&gt;&gt; = {&lt;__gnu_cxx::new_allocator&lt;char&gt;&gt; = {&lt;No data fields&gt;}, &lt;No data fields&gt;},
+    _M_p = 0x40f89b6c &quot;/nfs.2/downloads/Rush.Boots/Soundboard.Recordings/Rush.1979.05.28.Black.Forest.SBD.zip&quot;}}
+        last = true
+#5  0x08161d1c in Thread::starter (p=0x833fef0) at client/Thread.h:137
+        t = (class Thread *) 0x833fef0
+#6  0x4003cf5b in pthread_start_thread () from /lib/libpthread.so.0
+No symbol table info available.
+#7  0x4003cfdf in pthread_start_thread_event () from /lib/libpthread.so.0
+No symbol table info available.
+#8  0x4083cbea in clone () from /lib/libc.so.6
+No symbol table info available.
+(gdb)
+
+
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=11556&amp;group_id=2230">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=11556&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000126.html">[Linuxdcpp-developers] [Patch #2092] fixes Text::Convert when using	System default charset
+</A></li>
+	<LI>Next message: <A HREF="000128.html">[Linuxdcpp-developers] [Patch #2099] Password dialog accepts enter
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#127">[ date ]</a>
+              <a href="thread.html#127">[ thread ]</a>
+              <a href="subject.html#127">[ subject ]</a>
+              <a href="author.html#127">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

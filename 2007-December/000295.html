@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] Request to fix 1.0.1 tarball.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Request%20to%20fix%201.0.1%20tarball.&In-Reply-To=%3C47786A67.1020807%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000291.html">
+   <LINK REL="Next"  HREF="000296.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] Request to fix 1.0.1 tarball.</H1>
+    <B>Steven Sheehy</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Request%20to%20fix%201.0.1%20tarball.&In-Reply-To=%3C47786A67.1020807%40gmail.com%3E"
+       TITLE="[Linuxdcpp-developers] Request to fix 1.0.1 tarball.">steven.sheehy at gmail.com
+       </A><BR>
+    <I>Mon Dec 31 05:04:55 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000291.html">[Linuxdcpp-developers] Request to fix 1.0.1 tarball.
+</A></li>
+        <LI>Next message: <A HREF="000296.html">[Linuxdcpp-developers] Request to fix 1.0.1 tarball.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#295">[ date ]</a>
+              <a href="thread.html#295">[ thread ]</a>
+              <a href="subject.html#295">[ subject ]</a>
+              <a href="author.html#295">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Jeremy Messenger wrote:
+&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;<i> The tarball of 1.0.1 doesn't work because of permission issue when it  
+</I>&gt;<i> installed. All of user accounts end up not able to run LinuxDC++ unless  
+</I>&gt;<i> they are in root account.
+</I>&gt;<i> 
+</I>&gt;<i> =========================================
+</I>&gt;<i> % linuxdcpp
+</I>&gt;<i> Loading: Hash database
+</I>&gt;<i> Loading: Shared Files
+</I>&gt;<i> Loading: Download Queue
+</I>&gt;<i> I/O error : Permission denied
+</I>&gt;<i> I/O error : Permission denied
+</I>&gt;<i> I/O warning : failed to load external entity  
+</I>&gt;<i> &quot;/usr/local/share/linuxdcpp/glade/mainwindow.glade&quot;
+</I>&gt;<i> [...]
+</I>&gt;<i> (linuxdcpp:14483): Gtk-WARNING **: Error loading icon from file  
+</I>&gt;<i> '/usr/local/share/linuxdcpp/pixmaps/linuxdcpp-icon.png':
+</I>&gt;<i> 	Failed to open file  
+</I>&gt;<i> '/usr/local/share/linuxdcpp/pixmaps/linuxdcpp-icon.png': Permission denied
+</I>&gt;<i> [...]
+</I>&gt;<i> (linuxdcpp:14483): Gtk-CRITICAL **:  
+</I>&gt;<i> gtk_tree_view_column_set_sort_indicator: assertion  
+</I>&gt;<i> `GTK_IS_TREE_VIEW_COLUMN (tree_column)' failed
+</I>&gt;<i> [1]    14483 segmentation fault (core dumped)  linuxdcpp
+</I>&gt;<i> =========================================
+</I>&gt;<i> 
+</I>&gt;<i> =========================================
+</I>&gt;<i> # ls -l /usr/local/share/linuxdcpp/glade/
+</I>&gt;<i> total 446
+</I>&gt;<i> -rwx------  1 root  wheel   15772 Nov 10 12:17 downloadqueue.glade*
+</I>&gt;<i> -rwx------  1 root  wheel   24478 Jul 18 18:58 favoritehubs.glade*
+</I>&gt;<i> -rwx------  1 root  wheel    3832 Dec  1 14:52 finishedtransfers.glade*
+</I>&gt;<i> -rwx------  1 root  wheel    5816 Jul 18 19:03 hash.glade*
+</I>&gt;<i> -rwx------  1 root  wheel   11916 Dec  6 23:30 hub.glade*
+</I>&gt;<i> -rwx------  1 root  wheel   57414 Dec 25 13:36 mainwindow.glade*
+</I>&gt;<i> -rwx------  1 root  wheel    3797 Dec  6 23:22 privatemessage.glade*
+</I>&gt;<i> -rwx------  1 root  wheel   14010 Jul 18 19:05 publichubs.glade*
+</I>&gt;<i> -rwx------  1 root  wheel   21653 Nov 25 13:22 search.glade*
+</I>&gt;<i> -rwx------  1 root  wheel  259555 Dec 25 12:55 settingsdialog.glade*
+</I>&gt;<i> -rwx------  1 root  wheel   13880 Nov 10 12:12 sharebrowser.glade*
+</I>&gt;<i> =========================================
+</I>&gt;<i> 
+</I>&gt;<i> Also, to extract the tarball and it doesn't put inside linuxdcpp-1.0.1,  
+</I>&gt;<i> which it extracts all over in my folder. I had to create linuxdcpp-1.0.1  
+</I>&gt;<i> folder first and extract inside linuxdcpp-1.0.1. Anyway, the permission  
+</I>&gt;<i> issues are on near all of files in the tarball.
+</I>&gt;<i> 
+</I>&gt;<i> =========================================
+</I>&gt;<i> # ls -l linuxdcpp-1.0.1/glade
+</I>&gt;<i> total 446
+</I>&gt;<i> -rwx------  1 1000  1000   15772 Nov 10 12:17 downloadqueue.glade*
+</I>&gt;<i> -rwx------  1 1000  1000   24478 Jul 18 18:58 favoritehubs.glade*
+</I>&gt;<i> -rwx------  1 1000  1000    3832 Dec  1 14:52 finishedtransfers.glade*
+</I>&gt;<i> [...]
+</I>&gt;<i> 
+</I>&gt;<i> # ls -l linuxdcpp-1.0.1/pixmaps
+</I>&gt;<i> total 54
+</I>&gt;<i> -rwx------  1 1000  1000   1505 Jul  7 15:57 FinishedDL.png*
+</I>&gt;<i> -rwx------  1 1000  1000   1480 Jul  7 15:57 FinishedUL.png*
+</I>&gt;<i> -rwx------  1 1000  1000   1083 Jul  7 15:57 connect.png*
+</I>&gt;<i> [...]
+</I>&gt;<i> =========================================
+</I>&gt;<i> 
+</I>&gt;<i> Cheers,
+</I>&gt;<i> Mezz
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>
+Should be fixed now.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000291.html">[Linuxdcpp-developers] Request to fix 1.0.1 tarball.
+</A></li>
+	<LI>Next message: <A HREF="000296.html">[Linuxdcpp-developers] Request to fix 1.0.1 tarball.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#295">[ date ]</a>
+              <a href="thread.html#295">[ thread ]</a>
+              <a href="subject.html#295">[ subject ]</a>
+              <a href="author.html#295">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

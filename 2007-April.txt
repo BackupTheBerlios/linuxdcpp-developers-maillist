@@ -1,0 +1,899 @@
+From sw98234 at hotmail.com  Mon Apr  2 23:14:36 2007
+From: sw98234 at hotmail.com (S W)
+Date: Mon, 02 Apr 2007 16:14:36 -0500
+Subject: [Linuxdcpp-developers] Disconnect when a file list is uploaded
+Message-ID: <BAY144-F6479EC4ADC47C2FC5DDB1FF600@phx.gbl>
+
+I wanted to report that when a user requests my file list, after it is 
+uploaded all connections are disconnected, downloads aborted. Linuxdcpp will 
+reconnect to all servers, however, it is UNable to reconnect to any peer a 
+download is being retrieved from. All download or connection activity is 
+hindered. However, others can still retrieve from me.
+
+This is recorded in a server's window when my file list is retrieved:
+
+*** Connect failed: Interrupted system call
+*** Connecting
+*** Connected
+
+The status bar error is : HH:MM Listening socket failed (you need to restart 
+DC++)...Interrupted system call.
+
+However, no outgoing connections to other peers is possible. I must shut 
+down linuxdcpp and restart it. This occurs every time.
+
+I am behind a firewall, but am able to have an active connection to port 
+1412 since it is port forwarded.
+
+I only began looking at this product since 02/2007 and both cvs updates show 
+this problem, HTH
+
+_________________________________________________________________
+Live Search Maps ? find all the local information you need, right when you 
+need it. http://maps.live.com/?icid=hmtag2&FORM=MGAC01
+
+
+
+From steven.sheehy at gmail.com  Tue Apr  3 03:53:02 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Mon, 02 Apr 2007 20:53:02 -0500
+Subject: [Linuxdcpp-developers] Disconnect when a file list is uploaded
+In-Reply-To: <BAY144-F6479EC4ADC47C2FC5DDB1FF600@phx.gbl>
+References: <BAY144-F6479EC4ADC47C2FC5DDB1FF600@phx.gbl>
+Message-ID: <4611B37E.3070700@gmail.com>
+
+S W wrote:
+> I wanted to report that when a user requests my file list, after it is 
+> uploaded all connections are disconnected, downloads aborted. Linuxdcpp 
+> will reconnect to all servers, however, it is UNable to reconnect to any 
+> peer a download is being retrieved from. All download or connection 
+> activity is hindered. However, others can still retrieve from me.
+> 
+> This is recorded in a server's window when my file list is retrieved:
+> 
+> *** Connect failed: Interrupted system call
+> *** Connecting
+> *** Connected
+> 
+> The status bar error is : HH:MM Listening socket failed (you need to 
+> restart DC++)...Interrupted system call.
+> 
+> However, no outgoing connections to other peers is possible. I must shut 
+> down linuxdcpp and restart it. This occurs every time.
+> 
+> I am behind a firewall, but am able to have an active connection to port 
+> 1412 since it is port forwarded.
+> 
+> I only began looking at this product since 02/2007 and both cvs updates 
+> show this problem, HTH
+
+I think I've seen this before. I believe this is caused by a bug in socket error 
+handling. ConnectionManager::accept() should retry instead of exiting if errno 
+equals EINTR. I've had it on my "todo" list for awhile, but don't have any time 
+to work on it. Hopefully someone else can look into it and submit a patch.
+
+-Steven
+
+
+From admin at berlios.de  Tue Apr  3 19:43:36 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 3 Apr 2007 19:43:36 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #1943] Patch for bug #10261
+Message-ID: <200704031743.l33Hha3N025902@unicorn.berlios.de>
+
+Patch #1943 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: pemiem
+Assigned to : none
+Summary: Patch for bug #10261
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1943&group_id=2230
+
+
+From admin at berlios.de  Tue Apr  3 19:58:04 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 3 Apr 2007 19:58:04 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #1944] Patch to get rid of delayed
+	downloads
+Message-ID: <200704031758.l33Hw4hO021100@unicorn.berlios.de>
+
+Patch #1944 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: pemiem
+Assigned to : none
+Summary: Patch to get rid of delayed downloads
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1944&group_id=2230
+
+
+From admin at berlios.de  Tue Apr 10 20:43:14 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 10 Apr 2007 20:43:14 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #1953] Possible fix for "disconnect
+	when a file is uploaded"
+Message-ID: <200704101843.l3AIhEBU014105@unicorn.berlios.de>
+
+Patch #1953 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: pemiem
+Assigned to : none
+Summary: Possible fix for "disconnect when a file is uploaded"
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1953&group_id=2230
+
+
+From mikael.eman at home.se  Tue Apr 10 20:53:13 2007
+From: mikael.eman at home.se (Mikael Eman)
+Date: Tue, 10 Apr 2007 20:53:13 +0200
+Subject: [Linuxdcpp-developers] Disconnect when a file list is uploaded
+In-Reply-To: <4611B37E.3070700@gmail.com>
+References: <BAY144-F6479EC4ADC47C2FC5DDB1FF600@phx.gbl>
+	<4611B37E.3070700@gmail.com>
+Message-ID: <461BDD19.7010309@home.se>
+
+Steven Sheehy skrev:
+
+>S W wrote:
+>  
+>
+>>I wanted to report that when a user requests my file list, after it is 
+>>uploaded all connections are disconnected, downloads aborted. Linuxdcpp 
+>>will reconnect to all servers, however, it is UNable to reconnect to any 
+>>peer a download is being retrieved from. All download or connection 
+>>activity is hindered. However, others can still retrieve from me.
+>>
+>>This is recorded in a server's window when my file list is retrieved:
+>>
+>>*** Connect failed: Interrupted system call
+>>*** Connecting
+>>*** Connected
+>>
+>>The status bar error is : HH:MM Listening socket failed (you need to 
+>>restart DC++)...Interrupted system call.
+>>
+>>However, no outgoing connections to other peers is possible. I must shut 
+>>down linuxdcpp and restart it. This occurs every time.
+>>
+>>I am behind a firewall, but am able to have an active connection to port 
+>>1412 since it is port forwarded.
+>>
+>>I only began looking at this product since 02/2007 and both cvs updates 
+>>show this problem, HTH
+>>    
+>>
+>
+>I think I've seen this before. I believe this is caused by a bug in socket error 
+>handling. ConnectionManager::accept() should retry instead of exiting if errno 
+>equals EINTR. I've had it on my "todo" list for awhile, but don't have any time 
+>to work on it. Hopefully someone else can look into it and submit a patch.
+>
+>-Steven
+>  
+>
+I've looked into this some, and I think it's the select call in 
+Socket::wait that cause the problem.
+
+I've created a patch that might solve the problem, but since it does not 
+occur for me I cannot
+verify if it helps or not - please try it out and report the result 
+(patch ID on berlios is #1953).
+
+Br,
+Mikael Eman
+
+>_______________________________________________
+>Linuxdcpp-developers mailing list
+>Linuxdcpp-developers at lists.berlios.de
+>https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+> 
+>
+>  
+>
+
+
+
+From sw98234 at hotmail.com  Wed Apr 11 20:23:32 2007
+From: sw98234 at hotmail.com (S W)
+Date: Wed, 11 Apr 2007 13:23:32 -0500
+Subject: [Linuxdcpp-developers] Disconnect when a file list is uploaded
+Message-ID: <BAY144-F25562996F442B0566C3094FF5F0@phx.gbl>
+
+snip.....
+
+-----
+I've looked into this some, and I think it's the select call in
+Socket::wait that cause the problem.
+
+I've created a patch that might solve the problem, but since it does not
+occur for me I cannot
+verify if it helps or not - please try it out and report the result
+(patch ID on berlios is #1953).
+
+Br,
+Mikael Eman
+-----
+I will check out your patch and report.
+
+Thanks
+
+_________________________________________________________________
+Exercise your brain! Try Flexicon. 
+http://games.msn.com/en/flexicon/default.htm?icid=flexicon_hmemailtaglineapril07
+
+
+
+From sw98234 at hotmail.com  Wed Apr 11 23:13:52 2007
+From: sw98234 at hotmail.com (S W)
+Date: Wed, 11 Apr 2007 16:13:52 -0500
+Subject: [Linuxdcpp-developers] Disconnect when a file list is uploaded
+In-Reply-To: <BAY144-F6479EC4ADC47C2FC5DDB1FF600@phx.gbl>
+Message-ID: <BAY144-F24612FA63C2885C546D3DCFF5F0@phx.gbl>
+
+Sadly, the patch has the same result. Total disconnect and error message 
+plus inability to reconnect to anyone on download list.
+
+*** Connect failed: Interrupted system call
+*** Connecting
+*** Connected
+
+and [HH:MM] Listening socket failed (you need to restart DC++): Interrupted 
+System Call.
+
+_________________________________________________________________
+Mortgage refinance is Hot. *Terms. Get a 5.375%* fix rate. Check savings 
+https://www2.nextag.com/goto.jsp?product=100000035&url=%2fst.jsp&tm=y&search=mortgage_text_links_88_h2bbb&disc=y&vers=925&s=4056&p=5117
+
+
+
+From mikael.eman at home.se  Thu Apr 12 07:50:11 2007
+From: mikael.eman at home.se (Mikael Eman)
+Date: Thu, 12 Apr 2007 05:50:11 +0000
+Subject: [Linuxdcpp-developers] Disconnect when a file list is uploaded
+Message-ID: <80879467725213@lycos-europe.com>
+
+Hi again,
+
+> Sadly, the patch has the same result. Total disconnect and error message 
+> plus inability to reconnect to anyone on download list.
+> 
+> *** Connect failed: Interrupted system call
+> *** Connecting
+> *** Connected
+> 
+> and [HH:MM] Listening socket failed (you need to restart DC++): Interrupted
+> 
+> System Call.
+> 
+
+Actually this isn't so bad after all, since the patch I submitted really couldn't solve the
+problem (sorry for that, don't know what I was thinking or even if I was thinking ;-)
+
+Anyway, I will submit a new patch with better chances to fix the problem tonight.
+
+Br,
+Mikael Eman
+
+Om du ?r singel och vill tr?ffa n?gon, bes?k d? Spray Date! P? Spray Date finns det 500 000 glada singlar som bara l?ngtar efter att tr?ffa n?gon alldeles speciell. http://spraydate.spray.se/
+
+From sw98234 at hotmail.com  Fri Apr 13 12:10:45 2007
+From: sw98234 at hotmail.com (S W)
+Date: Fri, 13 Apr 2007 05:10:45 -0500
+Subject: [Linuxdcpp-developers] [Patch #1953] Possible fix for
+	"disconnect when a file is uploaded"
+In-Reply-To: <80879467725213@lycos-europe.com>
+Message-ID: <BAY144-F10EC0FE45FBF0A9289E922FF5D0@phx.gbl>
+
+Patch #1953 has been updated.
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: pemiem
+Assigned to : none
+Summary: Possible fix for "disconnect when a file is uploaded"
+
+This patch works. The problem seems to be removed. File list retrieves go 
+smoothly without interrupting pending or current downloads. I had others on 
+the hub help test while I did other things. Current uploads and downloads 
+are unaffected.
+
+After a file list upload completes, the connection shows idle for approx 2 
+minutes. Is that the normal timeout?
+
+One comment. When a file list is retrieved, it does not show in Finished 
+Uploads. Is that normal?
+
+Thank you all very much!
+
+_________________________________________________________________
+The average US Credit Score is 675. The cost to see yours: $0 by Experian. 
+http://www.freecreditreport.com/pm/default.aspx?sc=660600&bcd=EMAILFOOTERAVERAGE
+
+
+
+From ullner at gmail.com  Fri Apr 13 12:28:33 2007
+From: ullner at gmail.com (Fredrik Ullner)
+Date: Fri, 13 Apr 2007 12:28:33 +0200
+Subject: [Linuxdcpp-developers] [Patch #1953] Possible fix for
+	"disconnect when a file is uploaded"
+In-Reply-To: <BAY144-F10EC0FE45FBF0A9289E922FF5D0@phx.gbl>
+References: <80879467725213@lycos-europe.com>
+	<BAY144-F10EC0FE45FBF0A9289E922FF5D0@phx.gbl>
+Message-ID: <d63d9b370704130328u4adbd961j8787afd2cf20e32c@mail.gmail.com>
+
+On 4/13/07, S W <sw98234 at hotmail.com> wrote:
+>
+> Patch #1953 has been updated.
+>
+> Project: linuxdcpp
+> Category: None
+> Status: Open
+> Submitted by: pemiem
+> Assigned to : none
+> Summary: Possible fix for "disconnect when a file is uploaded"
+>
+> This patch works. The problem seems to be removed. File list retrieves go
+> smoothly without interrupting pending or current downloads. I had others
+> on
+> the hub help test while I did other things. Current uploads and downloads
+> are unaffected.
+>
+> After a file list upload completes, the connection shows idle for approx 2
+> minutes. Is that the normal timeout?
+>
+> One comment. When a file list is retrieved, it does not show in Finished
+> Uploads. Is that normal?
+>
+> Thank you all very much!
+>
+I can't say if two minutes is exactly correct, but that sounds about right
+for the old behaviour.
+
+You need to enable "Log filelist transfers" to have file lists show up in
+the finished downloads/uploads window. (This is intentional.) The option is
+off by default, and I actually can't see it in LinuxDC++'s GUI. One of the
+few unimplemented (yet, hopefully - shouldn't be difficult to add) features.
+
+
+
+-- 
+Fredrik Ullner
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070413/d0779c88/attachment.html>
+
+From nagatoro at gmail.com  Fri Apr 13 12:25:37 2007
+From: nagatoro at gmail.com (Naga)
+Date: Fri, 13 Apr 2007 12:25:37 +0200
+Subject: [Linuxdcpp-developers] [Patch #1953] Possible fix for
+	"disconnect when a file is uploaded"
+In-Reply-To: <BAY144-F10EC0FE45FBF0A9289E922FF5D0@phx.gbl>
+References: <BAY144-F10EC0FE45FBF0A9289E922FF5D0@phx.gbl>
+Message-ID: <200704131225.37759.nagatoro@gmail.com>
+
+On Friday 13 April 2007 12.10.45 S W wrote:
+> One comment. When a file list is retrieved, it does not show in Finished
+> Uploads. Is that normal?
+
+There's an option for this.
+-- 
+Naga
+
+
+From steven.sheehy at gmail.com  Sat Apr 14 02:49:22 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Fri, 13 Apr 2007 19:49:22 -0500
+Subject: [Linuxdcpp-developers] [Patch #1953] Possible fix
+ for	"disconnect when a file is uploaded"
+In-Reply-To: <d63d9b370704130328u4adbd961j8787afd2cf20e32c@mail.gmail.com>
+References: <80879467725213@lycos-europe.com>	<BAY144-F10EC0FE45FBF0A9289E922FF5D0@phx.gbl>
+	<d63d9b370704130328u4adbd961j8787afd2cf20e32c@mail.gmail.com>
+Message-ID: <46202512.6080304@gmail.com>
+
+Fredrik Ullner wrote:
+> On 4/13/07, *S W* <sw98234 at hotmail.com <mailto:sw98234 at hotmail.com>> wrote:
+> 
+>     Patch #1953 has been updated.
+> 
+>     Project: linuxdcpp
+>     Category: None
+>     Status: Open
+>     Submitted by: pemiem
+>     Assigned to : none
+>     Summary: Possible fix for "disconnect when a file is uploaded"
+> 
+>     This patch works. The problem seems to be removed. File list
+>     retrieves go
+>     smoothly without interrupting pending or current downloads. I had
+>     others on
+>     the hub help test while I did other things. Current uploads and
+>     downloads
+>     are unaffected.
+> 
+>     After a file list upload completes, the connection shows idle for
+>     approx 2
+>     minutes. Is that the normal timeout?
+> 
+>     One comment. When a file list is retrieved, it does not show in Finished
+>     Uploads. Is that normal?
+> 
+>     Thank you all very much!
+> 
+> I can't say if two minutes is exactly correct, but that sounds about 
+> right for the old behaviour.
+>  
+> You need to enable "Log filelist transfers" to have file lists show up 
+> in the finished downloads/uploads window. (This is intentional.) The 
+> option is off by default, and I actually can't see it in LinuxDC++'s 
+> GUI. One of the few unimplemented (yet, hopefully - shouldn't be 
+> difficult to add) features.
+> 
+> 
+> -- 
+> Fredrik Ullner
+> 
+> 
+
+I've implemented it on my local copy. It'll be in next CVS. Keep bug reports 
+like these a comin'.
+
+
+From rotmer at gmail.com  Sat Apr 14 21:45:27 2007
+From: rotmer at gmail.com (Alex Dedul)
+Date: Sat, 14 Apr 2007 22:45:27 +0300
+Subject: [Linuxdcpp-developers] Magnet links support
+Message-ID: <46212F57.6030409@gmail.com>
+
+Hello,
+
+	I'd like to ask about status of magnet links support that already was 
+discussed some months ago.
+	Previous result was that magnet links seemed useless despite arguments 
+by the original author of patch for magnet support Max Laplan(by the 
+way, thanks for the patch! :) It works flawlessly), despite that it is 
+implemented in many windows Direct Connect clients(if it is useless - 
+why it was implemented there ? Obvious reason - because there are common 
+use cases to utilize it), despite that for query "linuxdcpp magnet" 
+google returns quite modest but anyway significant amount of results in 
+the light of decision whether it is useful or not. I could describe my 
+own use case for magnet links if this possibly can help to move for at 
+least a bit decision to positive side but hardly it will be something 
+new and should be already known one.
+	So what is the current status of all this and what could be done from 
+users and developers side to help accept magnet links patch to main tree ?
+
+Regards, Alex
+
+
+From max.lapan at gmail.com  Sun Apr 15 06:38:26 2007
+From: max.lapan at gmail.com (Max Lapan)
+Date: Sun, 15 Apr 2007 08:38:26 +0400
+Subject: [Linuxdcpp-developers] Magnet links support
+In-Reply-To: <46212F57.6030409@gmail.com>
+References: <46212F57.6030409@gmail.com>
+Message-ID: <20070415043826.GA29978@homenet.ru>
+
+Hello, Alex,
+
+the last agreement with Steven was to include magnets support in CVS
+right after the 1.0. 
+
+Before that, latest patch is available here http://linuxdcpp-ru.sf.net.
+
+On Sat, Apr 14, 2007 at 10:45:27PM +0300, Alex Dedul wrote:
+> Hello,
+> 
+> 	I'd like to ask about status of magnet links support that already was 
+> discussed some months ago.
+> 	Previous result was that magnet links seemed useless despite arguments 
+> by the original author of patch for magnet support Max Laplan(by the 
+> way, thanks for the patch! :) It works flawlessly), despite that it is 
+> implemented in many windows Direct Connect clients(if it is useless - 
+> why it was implemented there ? Obvious reason - because there are common 
+> use cases to utilize it), despite that for query "linuxdcpp magnet" 
+> google returns quite modest but anyway significant amount of results in 
+> the light of decision whether it is useful or not. I could describe my 
+> own use case for magnet links if this possibly can help to move for at 
+> least a bit decision to positive side but hardly it will be something 
+> new and should be already known one.
+> 	So what is the current status of all this and what could be done from 
+> users and developers side to help accept magnet links patch to main tree ?
+
+wbr,
+-- 
+Max Lapan <max.lapan at gmail.com>, +7(0855)296471, ICQ: 233841810
+PGP Fingerprint: 0C47 91E3 35BA 3E6D 64D5  5740 6F3C A37F C112 4765
+HPC Architect/Administrator, Engineering Analysis Systems Department
+JSC Saturn http://www.npo-saturn.ru
+
+
+From rotmer at gmail.com  Sun Apr 15 08:31:13 2007
+From: rotmer at gmail.com (Alex Dedul)
+Date: Sun, 15 Apr 2007 09:31:13 +0300
+Subject: [Linuxdcpp-developers] Magnet links support
+In-Reply-To: <20070415043826.GA29978@homenet.ru>
+References: <46212F57.6030409@gmail.com> <20070415043826.GA29978@homenet.ru>
+Message-ID: <4621C6B1.9090808@gmail.com>
+
+Max Lapan wrote:
+> Hello, Alex,
+> 
+> the last agreement with Steven was to include magnets support in CVS
+> right after the 1.0. 
+
+	This is a good news for sure. Thanks for the info. :)
+
+> Before that, latest patch is available here http://linuxdcpp-ru.sf.net.
+
+	Thanks and keep up the good work! :)
+
+> 
+> On Sat, Apr 14, 2007 at 10:45:27PM +0300, Alex Dedul wrote:
+>> Hello,
+>>
+>> 	I'd like to ask about status of magnet links support that already was 
+>> discussed some months ago.
+>> 	Previous result was that magnet links seemed useless despite arguments 
+>> by the original author of patch for magnet support Max Laplan(by the 
+>> way, thanks for the patch! :) It works flawlessly), despite that it is 
+>> implemented in many windows Direct Connect clients(if it is useless - 
+>> why it was implemented there ? Obvious reason - because there are common 
+>> use cases to utilize it), despite that for query "linuxdcpp magnet" 
+>> google returns quite modest but anyway significant amount of results in 
+>> the light of decision whether it is useful or not. I could describe my 
+>> own use case for magnet links if this possibly can help to move for at 
+>> least a bit decision to positive side but hardly it will be something 
+>> new and should be already known one.
+>> 	So what is the current status of all this and what could be done from 
+>> users and developers side to help accept magnet links patch to main tree ?
+> 
+> wbr,
+
+
+From admin at berlios.de  Sun Apr 15 13:23:25 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 15 Apr 2007 13:23:25 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Bug #10890] LinuxDc++ eats up all upload
+	band.
+Message-ID: <200704151123.l3FBNPEu026464@unicorn.berlios.de>
+
+Bug #10890, was updated on 2007-Apr-15 13:23
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: assasukasse
+Assigned to : none
+Summary: LinuxDc++ eats up all upload band.
+
+Details: I noticed that there is no option to reduce to a reasonable level the band used in upload by linuxdc++. This causes severe lags, and makes almost impossible for me to browse the net, not talking about istant messaging, that keeps disconnecting.
+I would strongly suggest a system to link upload and download rates, so that is possible to reduce the upload to a reasonable level, otherwise it will be very difficult for me to keep using this application: i can only let it run at night when i don't need to use the computer, otherwise slows things down so much that i feel like i am on an old 28800modem..
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10890&group_id=2230
+
+
+From admin at berlios.de  Sun Apr 15 21:27:29 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 15 Apr 2007 21:27:29 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Bug #10891] Move of tree in dl queue
+	flattens the tree
+Message-ID: <200704151927.l3FJRTkd028515@unicorn.berlios.de>
+
+Bug #10891, was updated on 2007-Apr-15 21:27
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: stoft
+Assigned to : none
+Summary: Move of tree in dl queue flattens the tree
+
+Details: In the download queue, when moving files in several subdirectories from one target dl directory to another, the tree is flattened.
+
+E.g.:
+
+/incoming_disk1 has the following:
+ - Directory1
+   - Subdirectory1
+      - file1
+   - Subdirectory2
+      - file2
+
+and move Directory1 to another target the structure gets flattened thus:
+/incoming_disk2
+ - file1
+ - file2
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10891&group_id=2230
+
+
+From thresh at altlinux.ru  Sun Apr 15 22:04:19 2007
+From: thresh at altlinux.ru (Pavlov Konstantin)
+Date: Mon, 16 Apr 2007 00:04:19 +0400
+Subject: [Linuxdcpp-developers] Magnet links support
+In-Reply-To: <4621C6B1.9090808@gmail.com>
+References: <46212F57.6030409@gmail.com> <20070415043826.GA29978@homenet.ru>
+	<4621C6B1.9090808@gmail.com>
+Message-ID: <20070415200419.GA27053@cryo.net.ru>
+
+On Sun, Apr 15, 2007 at 09:31:13AM +0300, Alex Dedul wrote:
+> Max Lapan wrote:
+> > Hello, Alex,
+> > 
+> > the last agreement with Steven was to include magnets support in CVS
+> > right after the 1.0. 
+> 
+> 	This is a good news for sure. Thanks for the info. :)
+> 
+> > Before that, latest patch is available here http://linuxdcpp-ru.sf.net.
+> 
+> 	Thanks and keep up the good work! :)
+
+Yeah, +1.
+
+Patch applied in ALT Linux builds.
+
+-- 
+        "MIME, oh mime, how I hate thee.  Let me stick pins in you to
+         count the ways..." -- Ben LaHaise
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070416/4f7c8420/attachment.pgp>
+
+From admin at berlios.de  Mon Apr 16 11:18:00 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 16 Apr 2007 01:18:00 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Bug #10893] Long MOTD message let's
+	downloading fail?
+Message-ID: <200704160918.l3G9I0nU024808@unicorn.berlios.de>
+
+Bug #10893, was updated on 2007-Apr-16 01:17
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: prinsedje80
+Assigned to : none
+Summary: Long MOTD message let's downloading fail?
+
+Details: The hub I connect to has changed to have a very long MOTD (Message Of The Day). This was the only change since the last time I connected and downloaded successfully from it. So, I suspect that something in that area went wrong. I have the latest CVS version (20070324) on an FC4 system. I ran the linuxdcpp with debug. Output below (IP has been masked out). A previous version (CVS version 20061012) has no problems...
+
+****
+[code]
+Thrown: FileException: Could not open file
+Thrown: FileException: Could not open file
+Loading: Hash database
+Loading: Shared Files
+UnBZFilter end, 490351/169893 = 2.8862
+Loading: Download Queue
+/usr/local/share/linuxdcpp is inaccessible, falling back to current directory instead.
+
+(linuxdcpp:15144): libglade-WARNING **: unknown property `wrap_license' for class `GtkAboutDialog'
+BufferedSocket::connect() 0x8d2d4e0
+BufferedSocket::run() start 0x8d2d4e0
+threadConnect XXX.XXX.XXX.XXX:411
+MyInfo PrinsEdje80...
+MyInfo PrinsEdje80...
+NmdcHub::onLine Unknown command $HubTopic VerliHub
+
+(linuxdcpp:15144): Gtk-CRITICAL **: gtk_text_buffer_emit_insert: assertion `g_utf8_validate (text, len, NULL)' failed
+BufferedSocket::connect() 0x8d5a988
+BufferedSocket::run() start 0x8d5a988
+threadConnect XXX.XXX.XXX.XXX:3351
+ConnectionManager::onMyNick 0x8e5e0b8, SUZ
+ConnectionManager::addUploadConnection, leaving to uploadmanager
+Thrown: ShareException: File Not Available
+Thrown: SocketException: Connection closed
+BufferedSocket: New command when already failed: 1
+BufferedSocket::run() end 0x8d5a988
+BufferedSocket::connect() 0x8e52da8
+BufferedSocket::run() start 0x8e52da8
+threadConnect XXX.XXX.XXX.XXX:7256
+Unknown NMDC command: $hebywveeoyvqnmwfsqxq
+ConnectionManager::onMyNick 0x8e5e0b8, definitelymaybe
+ConnectionManager::addUploadConnection, leaving to uploadmanager
+Thrown: ShareException: File Not Available
+Thrown: SocketException: Connection closed
+BufferedSocket: New command when already failed: 1
+BufferedSocket::run() end 0x8e52da8
+BufferedSocket::connect() 0x892b360
+BufferedSocket::run() start 0x892b360
+threadConnect XXX.XXX.XXX.XXX:23599
+[/code]
+
+Compiling with debugging on gave one warning (without debugging, I think no warnings):
+
+g++ -pthread -DXTHREADS -D_REENTRANT -DXUSE_MTSAFE_API -I. -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -g -ggdb -D_DEBUG -Wall -O3 -D_DATADIR='"/usr/local/share"' -I/usr/include/libglade-2.0 -I/usr/include/gtk-2.0 -I/usr/include/libxml2 -I/usr/lib/gtk-2.0/include -I/usr/X11R6/include -I/usr/include/atk-1.0 -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/freetype2/config -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -c -o build/gui/mainwindow.o linux/mainwindow.cc
+linux/mainwindow.cc: In member function ?virtual void MainWindow::on(UploadManagerListener::X<3>, const std::vector<Upload*, std::allocator<Upload*> >&)?:
+linux/mainwindow.cc:1419: warning: ?percent? may be used uninitialized in this function
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10893&group_id=2230
+
+
+From admin at berlios.de  Sat Apr 28 16:19:05 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 28 Apr 2007 16:19:05 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Feature #3360] fav users
+Message-ID: <200704281419.l3SEJ5A8013154@unicorn.berlios.de>
+
+Feature Request #3360, was updated on 2007-Apr-28 16:19
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3360&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: fav users
+
+By: fracti0n
+Date: 2007-Apr-28 16:19
+
+Message:
+Logged In: YES 
+user_id=37717
+Browser: Mozilla/5.0 (X11; U; Linux i686 (x86_64); en-US; rv:1.8.1.3) Gecko/20070320 SUSE/2.0.0.3-8.1 Firefox/2.0.0.3
+
+would be fine if fav users with autoslots working
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3360&group_id=2230
+
+
+From admin at berlios.de  Sat Apr 28 16:21:05 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 28 Apr 2007 16:21:05 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Feature #3361] hide share
+Message-ID: <200704281421.l3SEL5rB016585@unicorn.berlios.de>
+
+Feature Request #3361, was updated on 2007-Apr-28 16:21
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3361&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: hide share
+
+By: fracti0n
+Date: 2007-Apr-28 16:21
+
+Message:
+Logged In: YES 
+user_id=37717
+Browser: Mozilla/5.0 (X11; U; Linux i686 (x86_64); en-US; rv:1.8.1.3) Gecko/20070320 SUSE/2.0.0.3-8.1 Firefox/2.0.0.3
+
+hide share for specific hubs, good feature when you are
+op somewhere and you do not want to share your files on
+public hubs...
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3361&group_id=2230
+
+
+From admin at berlios.de  Sat Apr 28 16:33:27 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 28 Apr 2007 16:33:27 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Feature #3362] right click on user in chat
+	to send mess
+Message-ID: <200704281433.l3SEXRRR005563@unicorn.berlios.de>
+
+Feature Request #3362, was updated on 2007-Apr-28 16:33
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3362&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: right click on user in chat to send mess
+
+By: fracti0n
+Date: 2007-Apr-28 16:33
+
+Message:
+Logged In: YES 
+user_id=37717
+Browser: Mozilla/5.0 (X11; U; Linux i686 (x86_64); en-US; rv:1.8.1.3) Gecko/20070320 SUSE/2.0.0.3-8.1 Firefox/2.0.0.3
+
+right click on user in the main chat to send pm or
+public message
+useful in private hubs with nick prefixes like [REG] so
+you don`t need to write for example [REG]ni tab
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3362&group_id=2230
+
+
+From admin at berlios.de  Sat Apr 28 16:34:06 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 28 Apr 2007 16:34:06 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Feature #3363] upload queue
+Message-ID: <200704281434.l3SEY6BT006887@unicorn.berlios.de>
+
+Feature Request #3363, was updated on 2007-Apr-28 16:34
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3363&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: upload queue
+
+By: fracti0n
+Date: 2007-Apr-28 16:34
+
+Message:
+Logged In: YES 
+user_id=37717
+Browser: Mozilla/5.0 (X11; U; Linux i686 (x86_64); en-US; rv:1.8.1.3) Gecko/20070320 SUSE/2.0.0.3-8.1 Firefox/2.0.0.3
+
+just an upload queue like it is in win dc++ .)
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3363&group_id=2230
+
+
+From admin at berlios.de  Mon Apr 30 00:13:51 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 30 Apr 2007 00:13:51 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #1978] Patch for feature request
+	#2821: chat focus
+Message-ID: <200704292213.l3TMDpuO020004@unicorn.berlios.de>
+
+Patch #1978 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: pemiem
+Assigned to : none
+Summary: Patch for feature request #2821: chat focus
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1978&group_id=2230
+
+

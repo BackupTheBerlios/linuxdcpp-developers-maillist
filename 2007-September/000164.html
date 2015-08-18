@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] problem building from cvs on	FreeBSD6.2-RELEASE
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20problem%20building%20from%20cvs%20on%0A%09FreeBSD6.2-RELEASE&In-Reply-To=%3Cop.tytywdfr9aq2h7%40mezz.mezzweb.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000163.html">
+   <LINK REL="Next"  HREF="000165.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] problem building from cvs on	FreeBSD6.2-RELEASE</H1>
+    <B>Jeremy Messenger</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20problem%20building%20from%20cvs%20on%0A%09FreeBSD6.2-RELEASE&In-Reply-To=%3Cop.tytywdfr9aq2h7%40mezz.mezzweb.com%3E"
+       TITLE="[Linuxdcpp-developers] problem building from cvs on	FreeBSD6.2-RELEASE">mezz7 at cox.net
+       </A><BR>
+    <I>Tue Sep 18 05:34:51 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000163.html">[Linuxdcpp-developers] problem building from cvs	on	FreeBSD6.2-RELEASE
+</A></li>
+        <LI>Next message: <A HREF="000165.html">[Linuxdcpp-developers] problem building from cvs on	FreeBSD6.2-RELEASE
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#164">[ date ]</a>
+              <a href="thread.html#164">[ thread ]</a>
+              <a href="subject.html#164">[ subject ]</a>
+              <a href="author.html#164">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I am not on the list, but I do read in the archive once a while.
+
+You need to add /usr/local/include in CPPPATH and /usr/local/lib in  
+LIBPATH to run scons. It's how linuxdcpp port in FreeBSD can build it. I  
+haven't been able to update to the latest version of CVS, because  
+linuxdcpp doesn't work very well with new glib/gtk as I am testing  
+bleeding edge version on my desktop. I have glib 2.14.0, gtk 2.11.6 and  
+gnome 2.19.6. The gtk 2.12.0 has been released recently and a lot of GNOME  
+2.20 tarballs are out right now. I will see if linuxdcpp will working  
+again with new glib/gtk.
+
+If you still have stable version of glib/gtk, feel free to test  
+<A HREF="http://people.freebsd.org/~mezz/diff/linuxdcpp.diff">http://people.freebsd.org/~mezz/diff/linuxdcpp.diff</A> that will update to  
+0.0.1.20070804. If it works for you, let me know and I shall commit it.
+
+As for your comment of 'it's really buggy'. I won't be surpised if you  
+will get same result if you install it on your own. LinuxDC++ is stable to  
+me until with that new glib/gtk. However, if you want to kill that 'it's  
+really buggy', I suggest you to start to make bug report with better  
+details.
+
+Cheers,
+Mezz
+
+
+-- 
+<A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">mezz7 at cox.net</A>  -  <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">mezz at FreeBSD.org</A>
+FreeBSD GNOME Team  -  FreeBSD Multimedia Hat (ports, not src)
+<A HREF="http://www.FreeBSD.org/gnome/">http://www.FreeBSD.org/gnome/</A>  -  <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">gnome at FreeBSD.org</A>
+<A HREF="http://wiki.freebsd.org/multimedia">http://wiki.freebsd.org/multimedia</A>  -  <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">multimedia at FreeBSD.org</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000163.html">[Linuxdcpp-developers] problem building from cvs	on	FreeBSD6.2-RELEASE
+</A></li>
+	<LI>Next message: <A HREF="000165.html">[Linuxdcpp-developers] problem building from cvs on	FreeBSD6.2-RELEASE
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#164">[ date ]</a>
+              <a href="thread.html#164">[ thread ]</a>
+              <a href="subject.html#164">[ subject ]</a>
+              <a href="author.html#164">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

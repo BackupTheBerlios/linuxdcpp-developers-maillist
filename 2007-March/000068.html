@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [PATCH] getting filelists from users with nicks in localized	charsets (russian, etc.)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPATCH%5D%20getting%20filelists%20from%20users%0A%20with%20nicks%20in%20localized%09charsets%20%28russian%2C%20etc.%29&In-Reply-To=%3C45FC1B33.7050400%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000057.html">
+   <LINK REL="Next"  HREF="000069.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [PATCH] getting filelists from users with nicks in localized	charsets (russian, etc.)</H1>
+    <B>Steven Sheehy</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPATCH%5D%20getting%20filelists%20from%20users%0A%20with%20nicks%20in%20localized%09charsets%20%28russian%2C%20etc.%29&In-Reply-To=%3C45FC1B33.7050400%40gmail.com%3E"
+       TITLE="[Linuxdcpp-developers] [PATCH] getting filelists from users with nicks in localized	charsets (russian, etc.)">steven.sheehy at gmail.com
+       </A><BR>
+    <I>Sat Mar 17 17:45:39 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000057.html">[Linuxdcpp-developers] [PATCH] getting filelists from users with	nicks in localized	charsets (russian, etc.)
+</A></li>
+        <LI>Next message: <A HREF="000069.html">[Linuxdcpp-developers] [PATCH] getting filelists from	users	with nicks in localized charsets (russian, etc.)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#68">[ date ]</a>
+              <a href="thread.html#68">[ thread ]</a>
+              <a href="subject.html#68">[ subject ]</a>
+              <a href="author.html#68">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Stanislav Maslovski wrote:
+&gt;<i> Consider a client operating in active mode. In order to get a filelist
+</I>&gt;<i> NmdcHub::connectToMe() first places the triplet (( peerNick, myNick, hubUrl ))
+</I>&gt;<i> on the list of expected connections. Internally, nicks are stored in utf-8.
+</I>&gt;<i> Note that peerNick in this triplet gets stored also in utf-8.
+</I>&gt;<i> 
+</I>&gt;<i> Next, NmdcHub::connectToMe() sends
+</I>&gt;<i> &quot;$ConnectToMe &quot; + toAcp(peerNick) + ....
+</I>&gt;<i> 
+</I>&gt;<i> So far so good. Now the peer connects. ConnectionManager::accept() creates
+</I>&gt;<i> new UserConnection, sets flags, etc. but because it does not know anything
+</I>&gt;<i> about peer's encoding (the new connection can be from an arbitrary user from
+</I>&gt;<i> arbitrary hub) it leaves it with the default (which is Text::systemCharset).
+</I>&gt;<i> 
+</I>&gt;<i> Now peer sends
+</I>&gt;<i> $MyNick peerNick_in_acp
+</I>&gt;<i> 
+</I>&gt;<i> UserConnection::on() receives this, blindly translates peerNick_in_acp to
+</I>&gt;<i> utf-8 from the encoding associated with the connection (which is
+</I>&gt;<i> Text::systemCharset at the moment). If peer's encoding was different we get
+</I>&gt;<i> an obvious result: the connection is rejected in ConnectionManager::on(MyNick)
+</I>&gt;<i> because the translation fails and the peer is not found in the list of
+</I>&gt;<i> expected connections.
+</I>&gt;<i> 
+</I>&gt;<i> Here goes an example session (text below contains russian chars):
+</I>&gt;<i> 
+</I>&gt;<i> NmdcHub::connect &#1058;&#1088;&#1077;&#1083;&#1100;&#1085;&#1080;&#1082;
+</I>&gt;<i> NmdcHub::connectToMe &#1058;&#1088;&#1077;&#1083;&#1100;&#1085;&#1080;&#1082;
+</I>&gt;<i> BufferedSocket::accept() 0x86d2a00
+</I>&gt;<i> BufferedSocket::run() start 0x86d2a00
+</I>&gt;<i> ConnectionManager::onMyNick 0x86974e0, ________
+</I>&gt;<i> Unknown incoming connection from ________
+</I>&gt;<i> BufferedSocket::run() end 0x86d2a00
+</I>&gt;<i> 
+</I>&gt;<i> In this example, the system locale was ru_RU.UTF-8, but the hub charset was CP1251.
+</I>&gt;<i> If someone thinks that setting locale to CP1251 will solve the problem, then it
+</I>&gt;<i> is not so, because there always will be hubs with different encodings and we
+</I>&gt;<i> want linuxdcpp operate _simultaneously_ on all of them.
+</I>&gt;<i> 
+</I>&gt;<i> The attached patch solves this in the following way. First, the peer nick is
+</I>&gt;<i> stored on the list of expected connections in ACP, not in uft-8. This is not
+</I>&gt;<i> a problem, because the stored nick is just a key and is not used for any
+</I>&gt;<i> other purpose. Next, when UserConnection::on() receives $MyNick it is passed
+</I>&gt;<i> further untranslated. Peer's nick gets translated to utf-8 later inside
+</I>&gt;<i> ConnectionManager::on(MyNick) when it becomes possible to determine and set
+</I>&gt;<i> the correct encoding.
+</I>&gt;<i> 
+</I>&gt;<i> This all can be seen directly from the patch, of course. Perhaps, a better
+</I>&gt;<i> way of doing things could be to separate incomming connection checking from
+</I>&gt;<i> ConnectionManager::on(MyNick) and put it in UserConnection::on() or do
+</I>&gt;<i> something similar.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>
+Yep, this is a definite problem. I could've swore I searched for all calls to 
+&quot;new UserConnection&quot; and ensured that setEncoding() was called on it, but I 
+guess I missed one. Your approach is valid, but I would prefer to see it done 
+differently. It would be better to store the exact acp nick that initially comes 
+over the socket somewhere so that it can be retrieved later. Going from acp -&gt; 
+utf-8 -&gt; acp could potentially produce a different string from the initial string.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000057.html">[Linuxdcpp-developers] [PATCH] getting filelists from users with	nicks in localized	charsets (russian, etc.)
+</A></li>
+	<LI>Next message: <A HREF="000069.html">[Linuxdcpp-developers] [PATCH] getting filelists from	users	with nicks in localized charsets (russian, etc.)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#68">[ date ]</a>
+              <a href="thread.html#68">[ thread ]</a>
+              <a href="subject.html#68">[ subject ]</a>
+              <a href="author.html#68">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

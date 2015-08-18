@@ -1,0 +1,81 @@
+From admin at berlios.de  Mon Sep 15 19:04:37 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 15 Sep 2008 09:04:37 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Bug #14504] Looks weird with netbook remix
+Message-ID: <200809151704.m8FH4bnM024388@unicorn.berlios.de>
+
+Bug #14504, was updated on 2008-Sep-15 09:04
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: rimmugygur
+Assigned to : none
+Summary: Looks weird with netbook remix
+
+Details: Installed linuxdc++ 1.0.1 on asus eee 900 with a ubuntu eee 8.04.1 operating system. Most windows should maximize with this setup but linux dc++ does not, it just hangs there somewhere near the middle of the screen. It is possible to resize the window but haven't been able to make it fit the screen properly though.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=14504&group_id=2230
+
+
+From admin at berlios.de  Sat Sep 20 01:36:28 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 19 Sep 2008 19:36:28 -0400 (EDT)
+Subject: [Linuxdcpp-developers] [Bug #14527] crash on deleting selected
+	finished downloads
+Message-ID: <200809192336.m8JNaSjx029521@unicorn.berlios.de>
+
+Bug #14527, was updated on 2008-Sep-19 19:36
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: rosc2112
+Assigned to : none
+Summary: crash on deleting selected finished downloads
+
+Details: Happening every time, if I select some files from the finished downloads list, then try to remove, crash. Using v1.0.2.
+
+BT:
+
+(gdb) backtrace full
+#0  0xb75f3c87 in raise () from /lib/libc.so.6
+No symbol table info available.
+#1  0xb75f54f8 in abort () from /lib/libc.so.6
+No symbol table info available.
+#2  0xb75ed30c in __assert_fail () from /lib/libc.so.6
+No symbol table info available.
+#3  0x082824ea in ?? ()
+No symbol table info available.
+#4  0x081bd1f0 in ?? ()
+No symbol table info available.
+#5  0x081cfb1e in ?? ()
+No symbol table info available.
+#6  0x081d668c in ?? ()
+No symbol table info available.
+#7  0x0828bb54 in ?? ()
+No symbol table info available.
+#8  0x0828bc0f in ?? ()
+No symbol table info available.
+#9  0xb784a2eb in g_thread_create_proxy (data=0x8b40c48) at gthread.c:635
+        __PRETTY_FUNCTION__ = "g_thread_create_proxy"
+#10 0xb7ec91b3 in start_thread () from /lib/libpthread.so.0
+No symbol table info available.
+#11 0xb769a03e in clone () from /lib/libc.so.6
+No symbol table info available.
+(gdb) 
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=14527&group_id=2230
+
+

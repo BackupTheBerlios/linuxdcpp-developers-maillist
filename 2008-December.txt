@@ -1,0 +1,112 @@
+From knatte_fnatte_tjatte at yahoo.com  Mon Dec  1 00:00:20 2008
+From: knatte_fnatte_tjatte at yahoo.com (Kalle Anka)
+Date: Sun, 30 Nov 2008 15:00:20 -0800 (PST)
+Subject: [Linuxdcpp-developers] Port to Solaris?
+Message-ID: <787494.27074.qm@web51407.mail.re2.yahoo.com>
+
+I wonder, is it much work to port LinuxDC++ to Solaris? Can it easily be done, or should I forget about it? Is there any patch available?
+
+Regards,
+Sean
+
+
+      
+
+
+From steven.sheehy at gmail.com  Mon Dec  1 00:13:33 2008
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sun, 30 Nov 2008 17:13:33 -0600
+Subject: [Linuxdcpp-developers] Port to Solaris?
+In-Reply-To: <787494.27074.qm@web51407.mail.re2.yahoo.com>
+References: <787494.27074.qm@web51407.mail.re2.yahoo.com>
+Message-ID: <49331E1D.3000606@gmail.com>
+
+Hi,
+
+It shouldn't be much work to port it to Solaris. No one has worked on this yet 
+that I know of. Give it a shot if you want and let us know how it turns out. If 
+you have to make any code changes we'd appreciate it if you'd attach it to a bug 
+on our Launchpad site (https://launchpad.net/linuxdcpp).
+
+--Steven
+
+Kalle Anka wrote:
+> I wonder, is it much work to port LinuxDC++ to Solaris? Can it easily be done, or should I forget about it? Is there any patch available?
+> 
+> Regards,
+> Sean
+> 
+> 
+>       
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+> 
+
+
+From mikael.eman at home.se  Mon Dec  1 14:27:36 2008
+From: mikael.eman at home.se (Mikael Eman)
+Date: Mon, 1 Dec 2008 05:27:36 -0800
+Subject: [Linuxdcpp-developers] Port to Solaris?
+Message-ID: <C33DDC603A224093B28CACAF73D9FD6E@mail2world.com>
+
+Hi,
+
+I actually did the changes that was needed to run linuxdcpp on Solaris,
+but I never made a patch for it (shame on me!).
+
+As I remember it there was some function, a few defines and some flag to
+ld that wasn't available on Solaris (at least not
+on my setup) that I had to make changes for. I have probably forgotten
+something (and something else might have been
+introduced), but if you ask me I'd say it can easily be done ..
+
+Br,
+Mikael Eman
+
+
+<-----Ursprungligt Meddelande----->
+
+ 	 	From: Steven Sheehy [steven.sheehy at gmail.com]
+Sent: 1/12/2008 12:14:33 AM
+To: knatte_fnatte_tjatte at yahoo.com
+Cc: linuxdcpp-developers at lists.berlios.de
+Subject: Re: [Linuxdcpp-developers] Port to Solaris? 
+
+Hi, 
+
+It shouldn't be much work to port it to Solaris. No one has worked on
+this yet 
+that I know of. Give it a shot if you want and let us know how it turns
+out. If 
+you have to make any code changes we'd appreciate it if you'd attach it
+to a bug 
+on our Launchpad site (https://launchpad.net/linuxdcpp). 
+
+--Steven 
+
+Kalle Anka wrote: 
+> I wonder, is it much work to port LinuxDC++ to Solaris? Can it easily
+be done, or should I forget about it? Is there any patch available? 
+> 
+> Regards, 
+> Sean 
+> 
+> 
+> 
+> _______________________________________________ 
+> Linuxdcpp-developers mailing list 
+> Linuxdcpp-developers at lists.berlios.de 
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers 
+> 
+_______________________________________________ 
+Linuxdcpp-developers mailing list 
+Linuxdcpp-developers at lists.berlios.de 
+https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers 
+. 
+	
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20081201/c8246b98/attachment.html>
+

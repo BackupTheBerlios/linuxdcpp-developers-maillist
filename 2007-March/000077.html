@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] Official release of LinuxDC++?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Official%20release%20of%20LinuxDC%2B%2B%3F&In-Reply-To=%3C460DA9A3.3040709%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000076.html">
+   <LINK REL="Next"  HREF="000081.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] Official release of LinuxDC++?</H1>
+    <B>Steven Sheehy</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Official%20release%20of%20LinuxDC%2B%2B%3F&In-Reply-To=%3C460DA9A3.3040709%40gmail.com%3E"
+       TITLE="[Linuxdcpp-developers] Official release of LinuxDC++?">steven.sheehy at gmail.com
+       </A><BR>
+    <I>Sat Mar 31 02:21:55 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000076.html">[Linuxdcpp-developers] Official release of LinuxDC++?
+</A></li>
+        <LI>Next message: <A HREF="000081.html">[Linuxdcpp-developers] Official release of LinuxDC++?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#77">[ date ]</a>
+              <a href="thread.html#77">[ thread ]</a>
+              <a href="subject.html#77">[ subject ]</a>
+              <a href="author.html#77">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Marcin Garski wrote:
+&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;<i> I'm trying to push LinuxDC++ into Fedora repository
+</I>&gt;<i> (<A HREF="https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=234331">https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=234331</A>), but I've
+</I>&gt;<i> encounter one major problem. The person who reviews my package said that
+</I>&gt;<i> it won't be included because it's a development release from CVS.
+</I>&gt;<i> 
+</I>&gt;<i> So my question is, when are you planing alpha/beta/stable release of 
+</I>&gt;<i> LinuxDC++? It allows me to pass package review and include LinuxDC++ in 
+</I>&gt;<i> Fedora repo.
+</I>&gt;<i> 
+</I>
+I had originally planned to get a release out late last year, but I had to fix 
+two major problems first that delayed any such plans. The first was charset 
+support, which took me a lot longer than anticipated since I had to change a 
+huge portion of the dcpp core and get it accepted upstream. Now I'm trying to 
+add i18n support, but again the dcpp core is giving me huge problems (doesn't 
+work with gettext). I have to work with dcpp's maintainer in order to come up 
+with a solution, then implement it.
+
+So the only thing holding back a release is the incomplete i18n support, which 
+could take one or two months more to complete (at my slow pace, anyway). At that 
+time, I will either release a 1.0 beta or a 1.0 (haven't decided which; we've 
+basically been in alpha and/or beta for 2 years now). This is probably not the 
+time frame you were wanting, but it's the truth. You can try pointing out to 
+them it's both in Gentoo and Debian and see if that helps them accept it. Also, 
+they no doubt have ffmpeg in their repository which, like us, doesn't make releases.
+
+-Steven
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000076.html">[Linuxdcpp-developers] Official release of LinuxDC++?
+</A></li>
+	<LI>Next message: <A HREF="000081.html">[Linuxdcpp-developers] Official release of LinuxDC++?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#77">[ date ]</a>
+              <a href="thread.html#77">[ thread ]</a>
+              <a href="subject.html#77">[ subject ]</a>
+              <a href="author.html#77">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

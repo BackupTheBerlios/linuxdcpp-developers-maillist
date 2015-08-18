@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Patch #1953] Possible fix for	&quot;disconnect when a file is uploaded&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPatch%20%231953%5D%20Possible%20fix%20for%0A%09%22disconnect%20when%20a%20file%20is%20uploaded%22&In-Reply-To=%3Cd63d9b370704130328u4adbd961j8787afd2cf20e32c%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000093.html">
+   <LINK REL="Next"  HREF="000094.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Patch #1953] Possible fix for	&quot;disconnect when a file is uploaded&quot;</H1>
+    <B>Fredrik Ullner</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPatch%20%231953%5D%20Possible%20fix%20for%0A%09%22disconnect%20when%20a%20file%20is%20uploaded%22&In-Reply-To=%3Cd63d9b370704130328u4adbd961j8787afd2cf20e32c%40mail.gmail.com%3E"
+       TITLE="[Linuxdcpp-developers] [Patch #1953] Possible fix for	&quot;disconnect when a file is uploaded&quot;">ullner at gmail.com
+       </A><BR>
+    <I>Fri Apr 13 12:28:33 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000093.html">[Linuxdcpp-developers] [Patch #1953] Possible fix for	&quot;disconnect when a file is uploaded&quot;
+</A></li>
+        <LI>Next message: <A HREF="000094.html">[Linuxdcpp-developers] [Patch #1953] Possible fix for	&quot;disconnect when a file is uploaded&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#92">[ date ]</a>
+              <a href="thread.html#92">[ thread ]</a>
+              <a href="subject.html#92">[ subject ]</a>
+              <a href="author.html#92">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 4/13/07, S W &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">sw98234 at hotmail.com</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i> Patch #1953 has been updated.
+</I>&gt;<i>
+</I>&gt;<i> Project: linuxdcpp
+</I>&gt;<i> Category: None
+</I>&gt;<i> Status: Open
+</I>&gt;<i> Submitted by: pemiem
+</I>&gt;<i> Assigned to : none
+</I>&gt;<i> Summary: Possible fix for &quot;disconnect when a file is uploaded&quot;
+</I>&gt;<i>
+</I>&gt;<i> This patch works. The problem seems to be removed. File list retrieves go
+</I>&gt;<i> smoothly without interrupting pending or current downloads. I had others
+</I>&gt;<i> on
+</I>&gt;<i> the hub help test while I did other things. Current uploads and downloads
+</I>&gt;<i> are unaffected.
+</I>&gt;<i>
+</I>&gt;<i> After a file list upload completes, the connection shows idle for approx 2
+</I>&gt;<i> minutes. Is that the normal timeout?
+</I>&gt;<i>
+</I>&gt;<i> One comment. When a file list is retrieved, it does not show in Finished
+</I>&gt;<i> Uploads. Is that normal?
+</I>&gt;<i>
+</I>&gt;<i> Thank you all very much!
+</I>&gt;<i>
+</I>I can't say if two minutes is exactly correct, but that sounds about right
+for the old behaviour.
+
+You need to enable &quot;Log filelist transfers&quot; to have file lists show up in
+the finished downloads/uploads window. (This is intentional.) The option is
+off by default, and I actually can't see it in LinuxDC++'s GUI. One of the
+few unimplemented (yet, hopefully - shouldn't be difficult to add) features.
+
+
+
+-- 
+Fredrik Ullner
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070413/d0779c88/attachment.html">https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070413/d0779c88/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000093.html">[Linuxdcpp-developers] [Patch #1953] Possible fix for	&quot;disconnect when a file is uploaded&quot;
+</A></li>
+	<LI>Next message: <A HREF="000094.html">[Linuxdcpp-developers] [Patch #1953] Possible fix for	&quot;disconnect when a file is uploaded&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#92">[ date ]</a>
+              <a href="thread.html#92">[ thread ]</a>
+              <a href="subject.html#92">[ subject ]</a>
+              <a href="author.html#92">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

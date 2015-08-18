@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Bug #12045] Found and solved bug from gui	handling
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2312045%5D%20Found%20and%20solved%20bug%20from%20gui%0A%09handling&In-Reply-To=%3C200709221221.l8MCL5Gb028267%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000167.html">
+   <LINK REL="Next"  HREF="000169.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Bug #12045] Found and solved bug from gui	handling</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2312045%5D%20Found%20and%20solved%20bug%20from%20gui%0A%09handling&In-Reply-To=%3C200709221221.l8MCL5Gb028267%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Bug #12045] Found and solved bug from gui	handling">admin at berlios.de
+       </A><BR>
+    <I>Sat Sep 22 14:21:05 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000167.html">[Linuxdcpp-developers] [Bug #12033] High CPU usage,	slow user list loading. and crash.
+</A></li>
+        <LI>Next message: <A HREF="000169.html">[Linuxdcpp-developers] [Bug #12051] Better fix to gui handling bug
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#168">[ date ]</a>
+              <a href="thread.html#168">[ thread ]</a>
+              <a href="subject.html#168">[ subject ]</a>
+              <a href="author.html#168">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #12045, was updated on 2007-Sep-22 04:21
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: jikaheim
+Assigned to : none
+Summary: Found and solved bug from gui handling
+
+Details: Gui and client commands were queued in wuldorfmanager but only one item was read from the queue at a time, causing the queues to fill all the time.
+Solution was to handle all queued commands in a loop:
+method void WulforManager::processGuiQueue(
+...
+                pthread_rwlock_rdlock(&amp;guiQueueLock);
+		int count =guiFuncs.size();
+		pthread_rwlock_unlock(&amp;guiQueueLock);
+
+		for (int i=0;i&lt;count;i++)
+		{
+			pthread_rwlock_rdlock(&amp;guiQueueLock);
+			func = guiFuncs.front();
+			pthread_rwlock_unlock(&amp;guiQueueLock);
+
+			func-&gt;call();
+
+			pthread_rwlock_wrlock(&amp;guiQueueLock);
+			delete func;
+			guiFuncs.erase(guiFuncs.begin());
+			pthread_rwlock_unlock(&amp;guiQueueLock);
+	
+			
+		}
+...
+
+Method WulforManager::processClientQueue()
+..
+                pthread_mutex_lock(&amp;clientCallLock);
+		pthread_rwlock_rdlock(&amp;clientQueueLock);
+		int count=clientFuncs.size();
+		pthread_rwlock_unlock(&amp;clientQueueLock);
+
+		for (int i=0;i&lt;count;i++)
+		{
+			pthread_rwlock_rdlock(&amp;clientQueueLock);
+			func = clientFuncs.front();
+			pthread_rwlock_unlock(&amp;clientQueueLock);
+
+			func-&gt;call();
+
+			pthread_rwlock_wrlock(&amp;clientQueueLock);
+			delete func;
+			clientFuncs.erase(clientFuncs.begin());
+			pthread_rwlock_unlock(&amp;clientQueueLock);
+		}
+		pthread_mutex_unlock(&amp;clientCallLock);
+...
+
+Have fun!
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=12045&amp;group_id=2230">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=12045&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000167.html">[Linuxdcpp-developers] [Bug #12033] High CPU usage,	slow user list loading. and crash.
+</A></li>
+	<LI>Next message: <A HREF="000169.html">[Linuxdcpp-developers] [Bug #12051] Better fix to gui handling bug
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#168">[ date ]</a>
+              <a href="thread.html#168">[ thread ]</a>
+              <a href="subject.html#168">[ subject ]</a>
+              <a href="author.html#168">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

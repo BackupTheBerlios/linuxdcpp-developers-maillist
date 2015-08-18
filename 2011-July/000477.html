@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] linuxdcpp moving entire directories to the FileLists dir
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20linuxdcpp%20moving%20entire%20directories%20to%0A%20the%20FileLists%20dir&In-Reply-To=%3C1311052262.1832.20.camel%40steven-laptop%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000476.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] linuxdcpp moving entire directories to the FileLists dir</H1>
+    <B>Steven Sheehy</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20linuxdcpp%20moving%20entire%20directories%20to%0A%20the%20FileLists%20dir&In-Reply-To=%3C1311052262.1832.20.camel%40steven-laptop%3E"
+       TITLE="[Linuxdcpp-developers] linuxdcpp moving entire directories to the FileLists dir">steven.sheehy at gmail.com
+       </A><BR>
+    <I>Tue Jul 19 07:11:02 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000476.html">[Linuxdcpp-developers] linuxdcpp moving entire directories to the	FileLists dir
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#477">[ date ]</a>
+              <a href="thread.html#477">[ thread ]</a>
+              <a href="subject.html#477">[ subject ]</a>
+              <a href="author.html#477">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>LinuxDC++ no longer uses berlios. Please open a bug on our launchpad
+site <A HREF="https://bugs.launchpad.net/linuxdcpp.">https://bugs.launchpad.net/linuxdcpp.</A> Please attach your ~/.dc
+++/DCPlusPlus.xml to the bug as well. I'm guessing this may be some
+profile migration issue between 1.0.3 -&gt; 1.1.0 that we missed. In
+particular the settings dialog was modified pretty heavily and your
+description sounds like a trailing / is missing on some directory
+somewhere.
+
+Steven
+
+
+On Mon, 2011-07-11 at 23:52 +0200, Florian Lindner wrote:
+&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;<i> since the upgrade to linuxdcpp 1.1.0 on arch linux I've twice encountered a 
+</I>&gt;<i> strange bug.
+</I>&gt;<i> 
+</I>&gt;<i> In both cases contents of entire directories on the home filesystem have been 
+</I>&gt;<i> moved to a directory in .dc++/FileLists, named like 
+</I>&gt;<i> &quot;rainer.HJGE3UITRXWHLGJYEUXZOOWFWDTGE3BBCMSTRKY&quot;.
+</I>&gt;<i> 
+</I>&gt;<i> For the first time it was my entire music folder (~100GB) which is shared.
+</I>&gt;<i> 
+</I>&gt;<i> For the second time it was my Downloads directory. My directory hierarchy 
+</I>&gt;<i> looks like that:
+</I>&gt;<i> 
+</I>&gt;<i> ~/Downloads/DC   &lt;-- download target, folder not shared
+</I>&gt;<i> ~/Downloads/DC/.incoming
+</I>&gt;<i> ~/Downloads/DC/shared
+</I>&gt;<i> 
+</I>&gt;<i> The contents of the entire Downloads folder, including the DC subfolder was 
+</I>&gt;<i> moved.
+</I>&gt;<i> 
+</I>&gt;<i> I got no idea on which event it happend nor how to reproduce it.
+</I>&gt;<i> 
+</I>&gt;<i> For the first time it was very shocking to me, seeing all my music having 
+</I>&gt;<i> disappeared.
+</I>&gt;<i> 
+</I>&gt;<i> I'll be happy to provide any more information,
+</I>&gt;<i> 
+</I>&gt;<i> Florian
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Linuxdcpp-developers mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">Linuxdcpp-developers at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers</A>
+</I>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20110719/cf8b9225/attachment.pgp">https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20110719/cf8b9225/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000476.html">[Linuxdcpp-developers] linuxdcpp moving entire directories to the	FileLists dir
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#477">[ date ]</a>
+              <a href="thread.html#477">[ thread ]</a>
+              <a href="subject.html#477">[ subject ]</a>
+              <a href="author.html#477">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

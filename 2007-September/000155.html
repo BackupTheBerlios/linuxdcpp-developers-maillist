@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Bug #11915] Segmentation fault
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2311915%5D%20Segmentation%20fault&In-Reply-To=%3C200709031941.l83JfDO6007083%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000154.html">
+   <LINK REL="Next"  HREF="000156.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Bug #11915] Segmentation fault</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2311915%5D%20Segmentation%20fault&In-Reply-To=%3C200709031941.l83JfDO6007083%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Bug #11915] Segmentation fault">admin at berlios.de
+       </A><BR>
+    <I>Mon Sep  3 21:41:13 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000154.html">[Linuxdcpp-developers] [Bug #11904] crash and close
+</A></li>
+        <LI>Next message: <A HREF="000156.html">[Linuxdcpp-developers] [Bug #11916] crash while loading users list,	and closing hub window.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#155">[ date ]</a>
+              <a href="thread.html#155">[ thread ]</a>
+              <a href="subject.html#155">[ subject ]</a>
+              <a href="author.html#155">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #11915, was updated on 2007-Sep-03 11:41
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: stefanandrei02
+Assigned to : none
+Summary: Segmentation fault
+
+Details: I was looking in the main chat window when the program crashed.
+
+the console said:
+(linuxdcpp:3836): Gtk-CRITICAL **: gtk_text_buffer_emit_insert: assertion `g_utf8_validate (text, len, NULL)' failed
+
+(linuxdcpp:3836): Gtk-CRITICAL **: gtk_text_buffer_emit_insert: assertion `g_utf8_validate (text, len, NULL)' failed
+
+(linuxdcpp:3836): Gtk-CRITICAL **: gtk_text_buffer_emit_insert: assertion `g_utf8_validate (text, len, NULL)' failed
+
+Program received signal SIGSEGV, Segmentation fault.
+[Switching to Thread -1258624112 (LWP 3844)]
+0x005dced7 in glade_xml_get_widget () from /usr/lib/libglade-2.0.so.0
+
+
+
+
+
+the gdb backtrace full is:
+
+
+(gdb) backtrace full
+#0  0x005dced7 in glade_xml_get_widget () from /usr/lib/libglade-2.0.so.0
+No symbol table info available.
+#1  0x081b3666 in Entry::getWidget (this=0xa214488, name=@0xb4fae308) at linux/entry.cc:52
+        widget = (GtkWidget *) 0x0
+        __PRETTY_FUNCTION__ = &quot;GtkWidget* Entry::getWidget(const std::string&amp;)&quot;
+#2  0x081d141d in Hub::addMessage_gui (this=0xa214488, message=@0xb4fae360) at linux/hub.cc:295
+        iter = {dummy1 = 0xb4faeb50, dummy2 = 0x20fb24, dummy3 = 0, dummy4 = 165852664, dummy5 = -1258626296,
+  dummy6 = 1382468, dummy7 = 165852664, dummy8 = -1258626272, dummy9 = 0x20, dummy10 = 0x3119ff4, dummy11 = 178651888,
+  dummy12 = 3531061, dummy13 = -1379400572, dummy14 = 0xb4fae340}
+        adj = (GtkAdjustment *) 0xb4fae338
+        setBottom = 8
+        line = {static npos = 4294967295,
+  _M_dataplus = {&lt;std::allocator&lt;char&gt;&gt; = {&lt;__gnu_cxx::new_allocator&lt;char&gt;&gt; = {&lt;No data fields&gt;}, &lt;No data fields&gt;},
+    _M_p = 0x9eacde4 &quot;[22:32] &lt;[FL]CrIsTyVIP&gt; ziceti`mi si mie un program care sa gaseasca daca am 2 melodii la fel in calc..si sa stearga una..ceva d genu :( plsss\n&quot;}}
+#3  0x081ddd6b in Func1&lt;Hub, std::string&gt;::call (this=0xad5834c8) at linux/func.hh:67
+No locals.
+#4  0x0825f76f in WulforManager::processGuiQueue (this=0x9fbc8d8) at linux/wulformanager.cc:187
+        func = (FuncBase *) 0xad5834c8
+#5  0x0825f827 in WulforManager::threadFunc_gui (data=0x9fbc8d8) at linux/wulformanager.cc:153
+        man = (WulforManager *) 0x9fbc8d8
+#6  0x00dbb44b in start_thread () from /lib/libpthread.so.0
+No symbol table info available.
+#7  0x00ce980e in clone () from /lib/libc.so.6
+No symbol table info available.
+(gdb)                
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=11915&amp;group_id=2230">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=11915&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000154.html">[Linuxdcpp-developers] [Bug #11904] crash and close
+</A></li>
+	<LI>Next message: <A HREF="000156.html">[Linuxdcpp-developers] [Bug #11916] crash while loading users list,	and closing hub window.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#155">[ date ]</a>
+              <a href="thread.html#155">[ thread ]</a>
+              <a href="subject.html#155">[ subject ]</a>
+              <a href="author.html#155">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

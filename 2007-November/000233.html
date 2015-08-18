@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] Support for old clients
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Support%20for%20old%20clients&In-Reply-To=%3C473F6676.9040908%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000231.html">
+   <LINK REL="Next"  HREF="000230.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] Support for old clients</H1>
+    <B>Steven Sheehy</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Support%20for%20old%20clients&In-Reply-To=%3C473F6676.9040908%40gmail.com%3E"
+       TITLE="[Linuxdcpp-developers] Support for old clients">steven.sheehy at gmail.com
+       </A><BR>
+    <I>Sat Nov 17 23:08:54 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000231.html">[Linuxdcpp-developers] Support for old clients
+</A></li>
+        <LI>Next message: <A HREF="000230.html">[Linuxdcpp-developers] [patch] Mac OS X 10.5 support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#233">[ date ]</a>
+              <a href="thread.html#233">[ thread ]</a>
+              <a href="subject.html#233">[ subject ]</a>
+              <a href="author.html#233">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Alexandru Tudose wrote:
+&gt;<i>         I have created a new patch to add support for old dc clients, 
+</I>&gt;<i> that doesn't use TTH and xml filelist. Please test, maybe you know 
+</I>&gt;<i> better where I have introduce some bugs.
+</I>&gt;<i>         In windows land are more dc clients from where to choose, maybe 
+</I>&gt;<i> this should be present as separate patch for those where linuxdcpp is 
+</I>&gt;<i> only dc client. At least they should know that it exists.
+</I>&gt;<i>  
+</I>&gt;<i>    Thanks.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>
+Hello,
+
+I'm sorry, but I cannot include your patch in LinuxDC++ for a number of reasons. 
+First, you modify the DC++ core (client/). We copy this directory from Windows 
+DC++ so any changes to this have to generally be sent upstream first and 
+approved there. Secondly, even if you sent this upstream, I know they will 
+reject it. Namely because they specifically removed this functionality not too 
+long ago. Their intent is to force users to upgrade to newer clients and 
+technologies. We intend for LinuxDC++ to be a port DC++ to *nix, thus we try to 
+keep our core in sync with theirs as much as we can.
+
+-Steven
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000231.html">[Linuxdcpp-developers] Support for old clients
+</A></li>
+	<LI>Next message: <A HREF="000230.html">[Linuxdcpp-developers] [patch] Mac OS X 10.5 support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#233">[ date ]</a>
+              <a href="thread.html#233">[ thread ]</a>
+              <a href="subject.html#233">[ subject ]</a>
+              <a href="author.html#233">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

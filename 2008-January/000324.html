@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Bug #12990] case-sensitivity in hash db?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2312990%5D%20case-sensitivity%20in%20hash%20db%3F&In-Reply-To=%3C200801210926.m0L9QABb001898%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000323.html">
+   <LINK REL="Next"  HREF="000325.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Bug #12990] case-sensitivity in hash db?</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2312990%5D%20case-sensitivity%20in%20hash%20db%3F&In-Reply-To=%3C200801210926.m0L9QABb001898%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Bug #12990] case-sensitivity in hash db?">admin at berlios.de
+       </A><BR>
+    <I>Mon Jan 21 10:26:10 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000323.html">[Linuxdcpp-developers] [Bug #12989] Random crashes and memory/CPU	hogging
+</A></li>
+        <LI>Next message: <A HREF="000325.html">[Linuxdcpp-developers] [Bug #12993] TTH Download fails if there are	spaces in foldername.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#324">[ date ]</a>
+              <a href="thread.html#324">[ thread ]</a>
+              <a href="subject.html#324">[ subject ]</a>
+              <a href="author.html#324">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #12990, was updated on 2008-Jan-21 04:26
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: rosc2112
+Assigned to : none
+Summary: case-sensitivity in hash db?
+
+Details: This may or may not be related to the bug I reported about refresh not showing all files. I analyzed the system log a little more, and noticed this tonight after adding 2 new subdirs and doing a refresh.
+
+[2008-01-21 03:46] File list refresh initiated
+[2008-01-21 03:47] Finished hashing: .../2000-11-27.Geddy.Lee.KISW.Interview.FM/KISW.mht (1.58 MiB/s)
+[2008-01-21 03:47] File list refresh finished
+[2008-01-21 03:47] File list refresh initiated
+[2008-01-21 03:47] Finished hashing: .../2000-11-27.Geddy.Lee.KISW.Interview.FM/kisw.mht (2.90 MiB/s)
+[2008-01-21 03:47] Finished hashing: .../2000-11-27.Geddy.Lee.KISW.Interview.FM/KISW.mht (22.09 MiB/s)
+[2008-01-21 03:47] File list refresh finished
+[2008-01-21 03:47] File list refresh initiated
+[2008-01-21 03:48] Finished hashing: .../2000-11-27.Geddy.Lee.KISW.Interview.FM/kisw.mht (23.22 MiB/s)
+[2008-01-21 03:48] Finished hashing: .../2000-11-27.Geddy.Lee.KISW.Interview.FM/KISW.mht
+[2008-01-21 03:48] File list refresh finished
+
+and so on.
+
+Case should matter here, they are 2 different files (although yeah I suppose they would get clobbered under windows.) 
+
+Perhaps Linuxdc++ should at least produce an error message in such cases?
+
+I'll have to keep an eye on my share list next time I add a new boot to see if the missing files bug is gone now that I fixed the above problem (wish I'd noticed it sooner.)
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=12990&amp;group_id=2230">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=12990&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000323.html">[Linuxdcpp-developers] [Bug #12989] Random crashes and memory/CPU	hogging
+</A></li>
+	<LI>Next message: <A HREF="000325.html">[Linuxdcpp-developers] [Bug #12993] TTH Download fails if there are	spaces in foldername.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#324">[ date ]</a>
+              <a href="thread.html#324">[ thread ]</a>
+              <a href="subject.html#324">[ subject ]</a>
+              <a href="author.html#324">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,101 @@
+From mailinglists at xgm.de  Mon Jul 11 23:52:57 2011
+From: mailinglists at xgm.de (Florian Lindner)
+Date: Mon, 11 Jul 2011 23:52:57 +0200
+Subject: [Linuxdcpp-developers] linuxdcpp moving entire directories to the
+	FileLists dir
+Message-ID: <2541672.LMHmbrJadP@horus>
+
+Hello,
+
+since the upgrade to linuxdcpp 1.1.0 on arch linux I've twice encountered a 
+strange bug.
+
+In both cases contents of entire directories on the home filesystem have been 
+moved to a directory in .dc++/FileLists, named like 
+"rainer.HJGE3UITRXWHLGJYEUXZOOWFWDTGE3BBCMSTRKY".
+
+For the first time it was my entire music folder (~100GB) which is shared.
+
+For the second time it was my Downloads directory. My directory hierarchy 
+looks like that:
+
+~/Downloads/DC   <-- download target, folder not shared
+~/Downloads/DC/.incoming
+~/Downloads/DC/shared
+
+The contents of the entire Downloads folder, including the DC subfolder was 
+moved.
+
+I got no idea on which event it happend nor how to reproduce it.
+
+For the first time it was very shocking to me, seeing all my music having 
+disappeared.
+
+I'll be happy to provide any more information,
+
+Florian
+
+
+From steven.sheehy at gmail.com  Tue Jul 19 07:11:02 2011
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Tue, 19 Jul 2011 00:11:02 -0500
+Subject: [Linuxdcpp-developers] linuxdcpp moving entire directories to
+ the FileLists dir
+In-Reply-To: <2541672.LMHmbrJadP@horus>
+References: <2541672.LMHmbrJadP@horus>
+Message-ID: <1311052262.1832.20.camel@steven-laptop>
+
+LinuxDC++ no longer uses berlios. Please open a bug on our launchpad
+site https://bugs.launchpad.net/linuxdcpp. Please attach your ~/.dc
+++/DCPlusPlus.xml to the bug as well. I'm guessing this may be some
+profile migration issue between 1.0.3 -> 1.1.0 that we missed. In
+particular the settings dialog was modified pretty heavily and your
+description sounds like a trailing / is missing on some directory
+somewhere.
+
+Steven
+
+
+On Mon, 2011-07-11 at 23:52 +0200, Florian Lindner wrote:
+> Hello,
+> 
+> since the upgrade to linuxdcpp 1.1.0 on arch linux I've twice encountered a 
+> strange bug.
+> 
+> In both cases contents of entire directories on the home filesystem have been 
+> moved to a directory in .dc++/FileLists, named like 
+> "rainer.HJGE3UITRXWHLGJYEUXZOOWFWDTGE3BBCMSTRKY".
+> 
+> For the first time it was my entire music folder (~100GB) which is shared.
+> 
+> For the second time it was my Downloads directory. My directory hierarchy 
+> looks like that:
+> 
+> ~/Downloads/DC   <-- download target, folder not shared
+> ~/Downloads/DC/.incoming
+> ~/Downloads/DC/shared
+> 
+> The contents of the entire Downloads folder, including the DC subfolder was 
+> moved.
+> 
+> I got no idea on which event it happend nor how to reproduce it.
+> 
+> For the first time it was very shocking to me, seeing all my music having 
+> disappeared.
+> 
+> I'll be happy to provide any more information,
+> 
+> Florian
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20110719/cf8b9225/attachment.pgp>
+

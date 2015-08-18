@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] CVS Commit
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20CVS%20Commit&In-Reply-To=%3C45C64B2D.8050707%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000036.html">
+   <LINK REL="Next"  HREF="000038.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] CVS Commit</H1>
+    <B>Steven Sheehy</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20CVS%20Commit&In-Reply-To=%3C45C64B2D.8050707%40gmail.com%3E"
+       TITLE="[Linuxdcpp-developers] CVS Commit">steven.sheehy at gmail.com
+       </A><BR>
+    <I>Sun Feb  4 22:07:57 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000036.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+        <LI>Next message: <A HREF="000038.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#37">[ date ]</a>
+              <a href="thread.html#37">[ thread ]</a>
+              <a href="subject.html#37">[ subject ]</a>
+              <a href="author.html#37">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Yep, finally a proper 100% fix for character encoding issues that everyone has 
+been waiting forever for. No more gtk/glib-specific hacks. There's now a global 
+default hub encoding and a per hub encoding. If you join a hub from the public 
+hub list, it uses your default hub encoding. If you reconnect to a different hub 
+from within the existing hub (e.g. /join command or a redirect) then it will use 
+the current hub's encoding). Every user is assumed to have the same encoding as 
+the hub they are on. Enjoy.
+
+Next up: adding translation capability and preparing for a release.
+
+Steven Sheehy
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">cvs at linuxdcpp.berlios.de</A> wrote:
+&gt;<i> &lt;message&gt;
+</I>&gt;<i>    &lt;generator&gt;
+</I>&gt;<i>        &lt;name&gt;CIA Perl client for CVS&lt;/name&gt;
+</I>&gt;<i>        &lt;version&gt;2.4&lt;/version&gt;
+</I>&gt;<i>        &lt;url&gt;<A HREF="http://cia.navi.cx/clients/cvs/ciabot_cvs.pl&lt;/url">http://cia.navi.cx/clients/cvs/ciabot_cvs.pl&lt;/url</A>&gt;
+</I>&gt;<i>    &lt;/generator&gt;
+</I>&gt;<i>    &lt;source&gt;
+</I>&gt;<i>        &lt;project&gt;linuxdcpp&lt;/project&gt;
+</I>&gt;<i>        &lt;module&gt;linuxdcpp&lt;/module&gt;
+</I>&gt;<i>    &lt;/source&gt;
+</I>&gt;<i>    &lt;timestamp&gt;1170622254&lt;/timestamp&gt;
+</I>&gt;<i>    &lt;body&gt;
+</I>&gt;<i>        &lt;commit&gt;
+</I>&gt;<i>            &lt;author&gt;stevensheehy&lt;/author&gt;
+</I>&gt;<i>            &lt;files&gt;
+</I>&gt;<i>              &lt;file&gt;Changelog.txt&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;Readme.txt&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;SConstruct&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/Client.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/Client.h&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/ClientManager.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/ClientManager.h&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/ConnectionManager.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/ConnectionManager.h&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/CryptoManager.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/DirectoryListing.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/DirectoryListing.h&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/FavoriteManager.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/FavoriteManager.h&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/File.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/HashManager.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/NmdcHub.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/NmdcHub.h&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/QueueManager.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/SConstruct&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/SFVReader.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/SearchManager.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/SettingsManager.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/ShareManager.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/SimpleXML.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/SimpleXML.h&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/Text.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/Text.h&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/UserConnection.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/UserConnection.h&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/Util.cpp&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;client/Util.h&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;glade/favoritehubs.glade&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;glade/mainwindow.glade&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;glade/search.glade&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;glade/settingsdialog.glade&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/WulforUtil.cc&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/WulforUtil.hh&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/downloadqueue.cc&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/downloadqueue.hh&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/favoritehubs.cc&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/favoritehubs.hh&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/finishedtransfers.cc&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/hub.cc&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/hub.hh&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/mainwindow.cc&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/mainwindow.hh&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/privatemessage.cc&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/search.cc&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/settingsdialog.cc&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/settingsdialog.hh&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/settingsmanager.cc&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/sharebrowser.cc&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/wulformanager.cc&lt;/file&gt;
+</I>&gt;<i>              &lt;file&gt;linux/wulformanager.hh&lt;/file&gt;
+</I>&gt;<i>            &lt;/files&gt;
+</I>&gt;<i>            &lt;log&gt;
+</I>&gt;<i> Fixed character encoding issues
+</I>&gt;<i>            &lt;/log&gt;
+</I>&gt;<i>        &lt;/commit&gt;
+</I>&gt;<i>    &lt;/body&gt;
+</I>&gt;<i> &lt;/message&gt;
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Linuxdcpp-developers mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">Linuxdcpp-developers at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000036.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+	<LI>Next message: <A HREF="000038.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#37">[ date ]</a>
+              <a href="thread.html#37">[ thread ]</a>
+              <a href="subject.html#37">[ subject ]</a>
+              <a href="author.html#37">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

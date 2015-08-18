@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [PATCH] remove bogus CachedIp code
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPATCH%5D%20remove%20bogus%20CachedIp%20code&In-Reply-To=%3C20070629081743.GA32103%40shota.mine.nu%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000121.html">
+   <LINK REL="Next"  HREF="000123.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [PATCH] remove bogus CachedIp code</H1>
+    <B>Stanislav Maslovski</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPATCH%5D%20remove%20bogus%20CachedIp%20code&In-Reply-To=%3C20070629081743.GA32103%40shota.mine.nu%3E"
+       TITLE="[Linuxdcpp-developers] [PATCH] remove bogus CachedIp code">stanislav.maslovski at gmail.com
+       </A><BR>
+    <I>Fri Jun 29 10:17:43 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000121.html">[Linuxdcpp-developers] [Patch #2078] Detach nicklist from model	while updating users
+</A></li>
+        <LI>Next message: <A HREF="000123.html">[Linuxdcpp-developers] [PATCH] remove bogus CachedIp code
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#122">[ date ]</a>
+              <a href="thread.html#122">[ thread ]</a>
+              <a href="subject.html#122">[ subject ]</a>
+              <a href="author.html#122">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>My computer is connected to 2 huge LANs and the internet.
+Respectively, the outside world knows it by 3 different IPs.
+
+There are dc hubs on the two LANs and, of course, on the internet.
+I noticed that when I connect to hubs which are on networks different
+from the network of the hub I have first connected to, the active
+searches never work on these hubs. After some investigation I found that
+the IP my client sends to these hubs in search requests was wrong.
+In the same time the IP sent in ConnectToMe requests was correct,
+so that I could download files, but could not do searches.
+
+The attached patch solves this problem by removing bogus cachedIp
+code used in search requests, and makes the behaviour of search consistent
+with the behavior of ConnectToMe. Please notice that the functionality of
+Client::getLocalIp() is similar to that of the removed
+ClientManager::updateCachedIp(), except that the former does not make
+any assumptions about hosts having just a single IP.
+
+Moreover, despite the fact that the caching approach was simply incorrect,
+it was also useless because the IP was already stored locally
+(see the code of Client::getLocalIp()).
+
+-- 
+Stanislav
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: remove-cachedip-nonsense-patch.diff
+Type: text/x-diff
+Size: 4022 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070629/d9740d33/attachment.diff">https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070629/d9740d33/attachment.diff</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000121.html">[Linuxdcpp-developers] [Patch #2078] Detach nicklist from model	while updating users
+</A></li>
+	<LI>Next message: <A HREF="000123.html">[Linuxdcpp-developers] [PATCH] remove bogus CachedIp code
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#122">[ date ]</a>
+              <a href="thread.html#122">[ thread ]</a>
+              <a href="subject.html#122">[ subject ]</a>
+              <a href="author.html#122">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Bug #10254] buss error (while hashing)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2310254%5D%20buss%20error%20%28while%20hashing%29&In-Reply-To=%3C200702052316.l15NGns0020303%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000038.html">
+   <LINK REL="Next"  HREF="000040.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Bug #10254] buss error (while hashing)</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2310254%5D%20buss%20error%20%28while%20hashing%29&In-Reply-To=%3C200702052316.l15NGns0020303%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Bug #10254] buss error (while hashing)">admin at berlios.de
+       </A><BR>
+    <I>Tue Feb  6 00:16:49 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000038.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+        <LI>Next message: <A HREF="000040.html">[Linuxdcpp-developers] [Patch #1874] DL queue regression fix,	DLQ won't show &quot;root&quot; entries.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#39">[ date ]</a>
+              <a href="thread.html#39">[ thread ]</a>
+              <a href="subject.html#39">[ subject ]</a>
+              <a href="author.html#39">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #10254, was updated on 2007-Feb-06 00:16
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: ronaldb
+Assigned to : none
+Summary: buss error (while hashing)
+
+Details: this error raises when hashing... here's the backtrace:
+
+&lt;code&gt;
+(gdb) run --sync
+Starting program: /usr/local/bin/linuxdcpp --sync
+[Thread debugging using libthread_db enabled]
+[New Thread -1221711568 (LWP 5923)]
+Thrown: FileException: Could not open file
+Thrown: FileException: Could not open file
+Loading: Hash database
+[New Thread -1222976608 (LWP 5954)]
+Loading: Shared Files
+Thrown: FileException: Could not open file
+FileException: Could not open file
+[New Thread -1231369312 (LWP 5957)]
+[Thread -1231369312 (LWP 5957) exited]
+Loading: Download Queue
+[New Thread -1231369312 (LWP 6024)]
+[New Thread -1271497824 (LWP 6028)]
+[New Thread -1279890528 (LWP 6029)]
+[New Thread -1311749216 (LWP 6039)]
+[New Thread -1320141920 (LWP 6040)]
+[Thread -1311749216 (LWP 6039) exited]
+[Thread -1320141920 (LWP 6040) exited]
+[New Thread -1320141920 (LWP 6041)]
+[New Thread -1311749216 (LWP 6042)]
+[New Thread -1328534624 (LWP 6043)]
+BufferedSocket::connect() 0xb4a00a90
+[New Thread -1336927328 (LWP 6044)]
+BufferedSocket::run() start 0xb4a00a90
+threadConnect 127.0.0.1:18643
+Thrown: SocketException: Connection closed
+BufferedSocket::connect() 0xb4a00798
+BufferedSocket: New command when already failed: 1
+BufferedSocket::run() end 0xb4a00a90
+[Thread -1336927328 (LWP 6044) exited]
+[New Thread -1302946912 (LWP 6087)]
+BufferedSocket::run() start 0xb4a00798
+threadConnect 127.0.0.1:18643
+Thrown: SocketException: Connection closed
+BufferedSocket: New command when already failed: 1
+BufferedSocket::run() end 0xb4a00798
+BufferedSocket::connect() 0xb4a00a70
+[Thread -1302946912 (LWP 6087) exited]
+[New Thread -1336927328 (LWP 6090)]
+BufferedSocket::run() start 0xb4a00a70
+threadConnect 127.0.0.1:18643
+Thrown: SocketException: Connection closed
+[New Thread -1302946912 (LWP 6095)]
+[New Thread -1345320032 (LWP 6096)]
+[Thread -1302946912 (LWP 6095) exited]
+[Thread -1345320032 (LWP 6096) exited]
+
+Program received signal SIGBUS, Bus error.
+[Switching to Thread -1222976608 (LWP 5954)]
+0x08172751 in TigerHash::update (this=0xb71ad130, data=0xaf3af000, length=1024)
+    at client/TigerHash.cpp:166
+166     client/TigerHash.cpp: No such file or directory.
+        in client/TigerHash.cpp
+(gdb) 
+(gdb) backtrace
+#0  0x08172751 in TigerHash::update (this=0xb71ad130, data=0xaf3af000, 
+    length=1024) at client/TigerHash.cpp:166
+#1  0x080c1d6d in MerkleTree&lt;TigerHash, 1024u&gt;::update (this=0xb71ad3c4, 
+    data=0xaecaf000, len=8719539) at client/MerkleTree.h:105
+#2  0x080db161 in HashManager::Hasher::fastHash (this=0x82f9488, 
+    filename=@0xb71ad374, tth=@0xb71ad3c4, size=8719539, xcrc32=0x0)
+    at client/HashManager.cpp:629
+#3  0x080df360 in HashManager::Hasher::run (this=0x82f9488)
+    at client/HashManager.cpp:716
+#4  0x0816e4f4 in Thread::starter (p=0x82f9488) at client/Thread.h:137
+#5  0xb7f94504 in start_thread () from /lib/tls/i686/cmov/libpthread.so.0
+#6  0xb780251e in clone () from /lib/tls/i686/cmov/libc.so.6
+
+&lt;/code&gt;
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=10254&amp;group_id=2230">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=10254&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000038.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+	<LI>Next message: <A HREF="000040.html">[Linuxdcpp-developers] [Patch #1874] DL queue regression fix,	DLQ won't show &quot;root&quot; entries.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#39">[ date ]</a>
+              <a href="thread.html#39">[ thread ]</a>
+              <a href="subject.html#39">[ subject ]</a>
+              <a href="author.html#39">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

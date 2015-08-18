@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [PATCH] parse locale string to get the charset
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPATCH%5D%20parse%20locale%20string%20to%20get%20the%0A%20charset&In-Reply-To=%3C45F3775F.8030904%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000061.html">
+   <LINK REL="Next"  HREF="000063.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [PATCH] parse locale string to get the charset</H1>
+    <B>Steven Sheehy</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPATCH%5D%20parse%20locale%20string%20to%20get%20the%0A%20charset&In-Reply-To=%3C45F3775F.8030904%40gmail.com%3E"
+       TITLE="[Linuxdcpp-developers] [PATCH] parse locale string to get the charset">steven.sheehy at gmail.com
+       </A><BR>
+    <I>Sun Mar 11 04:28:31 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000061.html">[Linuxdcpp-developers] [PATCH] parse locale string to get the charset
+</A></li>
+        <LI>Next message: <A HREF="000063.html">[Linuxdcpp-developers] [PATCH] parse locale string to get	the	charset
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#62">[ date ]</a>
+              <a href="thread.html#62">[ thread ]</a>
+              <a href="subject.html#62">[ subject ]</a>
+              <a href="author.html#62">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Stanislav Maslovski wrote:
+&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;<i> On 10/03/07, Steven Sheehy &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">steven.sheehy at gmail.com</A>&gt; wrote:
+</I>&gt;&gt;<i> Text::getSystemCharset() is never passed to iconv()
+</I>&gt;<i> 
+</I>&gt;<i> If, and only if, Text::convert() is used to translate between utf-8
+</I>&gt;<i> and something (in both directions). I understood that you added
+</I>&gt;<i> iconv() to treat more general case.
+</I>&gt;<i> 
+</I>
+I reread what you said and I think I understand what you mean now. You're saying 
+its value would matter if the to and from charsets passed to Text::convert() 
+were Text::systemCharset and some other charset that isn't utf-8. This would 
+cause the check to see whether utf8ToAcp/acpToUtf8 should be called to fail and 
+subsequently iconv_open would be passed Text::systemCharset. If you grep the 
+code, you can see that all calls to Text::convert() are currently either 
+converting from or to utf-8 (since I use the rule that all text must be 
+immediately converted to utf-8 when it is read from a socket or a file). But I 
+can see your point where it might be useful in the future if this situation 
+should ever change.
+
+This then brings up the point whether we should switch to nl_langinfo(CODESET) 
+or stick with setlocale(LC_CTYPE, NULL) if we do this. nl_langinfo() is 
+supposedly more accurate, but not useable on windows like setlocale().
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000061.html">[Linuxdcpp-developers] [PATCH] parse locale string to get the charset
+</A></li>
+	<LI>Next message: <A HREF="000063.html">[Linuxdcpp-developers] [PATCH] parse locale string to get	the	charset
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#62">[ date ]</a>
+              <a href="thread.html#62">[ thread ]</a>
+              <a href="subject.html#62">[ subject ]</a>
+              <a href="author.html#62">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

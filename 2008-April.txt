@@ -1,0 +1,273 @@
+From az at alexbank.ru  Wed Apr  2 08:04:17 2008
+From: az at alexbank.ru (=?koi8-r?Q?=FA=C1=D3=CC=C1=D7=D3=CB=C9=CA_?= =?koi8-r?Q?=E1=CE=C4=D2=C5=CA?=)
+Date: Wed, 02 Apr 2008 10:04:17 +0400
+Subject: [Linuxdcpp-developers] One more feature wanted
+Message-ID: <1207116257.11253.8.camel@azd.alexbank.fin>
+
+Feature about using commands with OpChat reports, now, when we got a
+report about something, we need to copy his nick/ip and in the main
+window do what we want with him by hand, so, wanted that in Everyone
+window right-clicking on username - shows default user menu, 
+If it could be done - the same for ip.
+Thanks.
+
+-- 
+?????????? ?????? <az at alexbank.ru>
+??? ???? ???????????????
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080402/77a7833d/attachment.html>
+
+From admin at berlios.de  Thu Apr  3 23:04:15 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 3 Apr 2008 23:04:15 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #2428] Performance enhancement for
+	user list
+Message-ID: <200804032104.m33L4FBW022376@unicorn.berlios.de>
+
+Patch #2428 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: olsner
+Assigned to : none
+Summary: Performance enhancement for user list
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2428&group_id=2230
+
+
+From Razzloss at gmail.com  Fri Apr  4 21:59:35 2008
+From: Razzloss at gmail.com (Razzloss)
+Date: Fri, 4 Apr 2008 22:59:35 +0300
+Subject: [Linuxdcpp-developers] Fwd: Testers for 0.705-core with Linuxdcpp
+Message-ID: <200804042259.35730.Razzloss@gmail.com>
+
+Hi,
+
+The LinuxDCPP will eventually move to the latest stable dc++ core (0.705). 
+There is a branch for it in launchpad  
+https://code.launchpad.net/~razzloss/linuxdcpp/0705-core
+
+Instructions and requirements:
+Bazaar
+Boost libraries (not sure about the required version, 1.34 seems to work)
+and gcc 4.1
+
+to checkout the branch use: bzr branch 
+http://bazaar.launchpad.net/~razzloss/linuxdcpp/0705-core
+
+and build with scons (preferably with debug=1, but it's up to you)
+
+
+It would be greatly appreciated, if you could build and test the branch, and 
+report any regressions to me (either directly (email or irc 
+linuxdc++ at freenode) or via this list). As our plan is to do a minimal upgrade  
+== have all the old functionality with the new core and later take advantage 
+of the new features. 
+
+Currently know problems are:
+* Usercommands are disabled (will probably be fixed soon)
+* Transferview requires some work. It's rather hard to follow the status of 
+multisource downloads.  (you can use dlqueue for that)
+* And when resuming transfer, it seems that it begins from 0%, but actually 
+file size is reported as Size - Last position. So resuming is working 
+correctly.
+* I haven't even attempted to use the new translation features...
+
+But other than that, it has worked for my use for now. Though I'm rather 
+limited on hubs I can use (only one). So I'm asking you to test it and report 
+any problems so that we can (at some point) merge it to the main branch.
+
+Thanks,
+Razzloss
+
+PS. Sorry if this gets delivered twice (sent it once to 
+linux.. at bat.berlios.de, but it seems its not delivered (or its just as 
+slow...))
+
+
+From Razzloss at gmail.com  Fri Apr  4 21:40:55 2008
+From: Razzloss at gmail.com (Razzloss)
+Date: Fri, 4 Apr 2008 22:40:55 +0300
+Subject: [Linuxdcpp-developers] Testers for 0.705-core with Linuxdcpp
+Message-ID: <200804042240.56411.Razzloss@gmail.com>
+
+Hi,
+
+The LinuxDCPP will eventually move to the latest stable dc++ core (0.705). 
+There is a branch for it in launchpad  
+https://code.launchpad.net/~razzloss/linuxdcpp/0705-core
+
+Instructions and requirements:
+Bazaar
+Boost libraries (not sure about the required version, 1.34 seems to work)
+and gcc 4.1
+
+to checkout the branch use: bzr branch 
+http://bazaar.launchpad.net/~razzloss/linuxdcpp/0705-core
+
+and build with scons (preferably with debug=1, but it's up to you)
+
+
+It would be greatly appreciated, if you could build and test the branch, and 
+report any regressions to me (either directly (email or irc 
+linuxdc++ at freenode) or via this list). As our plan is to do a minimal upgrade  
+== have all the old functionality with the new core and later take advantage 
+of the new features. 
+
+Currently know problems are:
+* Usercommands are disabled (will probably be fixed soon)
+* Transferview requires some work. It's rather hard to follow the status of 
+multisource downloads.  (you can use dlqueue for that)
+* And when resuming transfer, it seems that it begins from 0%, but actually 
+file size is reported as Size - Last position. So resuming is working 
+correctly.
+* I haven't even attempted to use the new translation features...
+
+But other than that, it has worked for my use for now. Though I'm rather 
+limited on hubs I can use (only one). So I'm asking you to test it and report 
+any problems so that we can (at some point) merge it to the main branch.
+
+Thanks,
+Razzloss
+
+
+From admin at berlios.de  Sat Apr  5 11:07:04 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 5 Apr 2008 11:07:04 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #2432] remove bookentry stuff from
+	WulforManager
+Message-ID: <200804050907.m35974CB004057@unicorn.berlios.de>
+
+Patch #2432 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: individ
+Assigned to : none
+Summary: remove bookentry stuff from WulforManager
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2432&group_id=2230
+
+
+From admin at berlios.de  Tue Apr  8 23:07:55 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 8 Apr 2008 23:07:55 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #2434] Change 'xdg-open' to 'open' on
+	Mac OSX
+Message-ID: <200804082107.m38L7tdE022295@unicorn.berlios.de>
+
+Patch #2434 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: individ
+Assigned to : none
+Summary: Change 'xdg-open' to 'open' on Mac OSX
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2434&group_id=2230
+
+
+From admin at berlios.de  Sat Apr 26 21:42:38 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 26 Apr 2008 11:42:38 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Feature #4125] Show/hide system status tray
+	window
+Message-ID: <200804261942.m3QJgcPC019246@unicorn.berlios.de>
+
+Feature Request #4125, was updated on 2008-Apr-26 11:42
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4125&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Show/hide system status tray window
+
+By: mag_num
+Date: 2008-Apr-26 11:42
+
+Message:
+Logged In: YES 
+user_id=45466
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13
+
+A new option is introduced which controls whether the
+user wants to see the tray popup window when moving the
+mouse onto the tray icon, or not.
+
+If this option is not set and the window is minimized,
+then upload and download calculations are skipped which
+is a little performance improvement. (In each second a
+timer event initiates the speed calculation in
+linux/mainwindow.cc)
+
+The new setting is placed in wulfor and can be set in
+Preferences/Appearance/Options, under the scrollwindow.
+After changing this setting the application should be
+restarted.
+
+The core remains unmodified.
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4125&group_id=2230
+
+
+From admin at berlios.de  Sun Apr 27 01:30:41 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 26 Apr 2008 15:30:41 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Patch #2451] Show/hide system status tray
+	window
+Message-ID: <200804262330.m3QNUf4A006596@unicorn.berlios.de>
+
+Patch #2451 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: mag_num
+Assigned to : none
+Summary: Show/hide system status tray window
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2451&group_id=2230
+
+
+From admin at berlios.de  Tue Apr 29 16:36:05 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 29 Apr 2008 17:36:05 +0300 (EEST)
+Subject: [Linuxdcpp-developers] [Patch #2453] Keep dialogs above the
+	application
+Message-ID: <200804291436.m3TEa5Hr027366@unicorn.berlios.de>
+
+Patch #2453 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: razzloss
+Assigned to : none
+Summary: Keep dialogs above the application
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2453&group_id=2230
+
+

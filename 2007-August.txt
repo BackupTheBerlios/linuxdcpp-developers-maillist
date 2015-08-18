@@ -1,0 +1,748 @@
+From admin at berlios.de  Wed Aug  1 21:03:07 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 1 Aug 2007 21:03:07 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #2121] Make the trayicon transparent
+Message-ID: <200708011903.l71J37Uk005167@unicorn.berlios.de>
+
+Patch #2121 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: windkracht8
+Assigned to : none
+Summary: Make the trayicon transparent
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2121&group_id=2230
+
+
+From admin at berlios.de  Sat Aug  4 21:47:36 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 4 Aug 2007 11:47:36 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Patch #2126] eggtrayicon.c C to C++
+Message-ID: <200708041947.l74JlaAK016868@unicorn.berlios.de>
+
+Patch #2126 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: claudiusmaximus
+Assigned to : none
+Summary: eggtrayicon.c C to C++
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2126&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Sat Aug  4 23:17:26 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sat, 4 Aug 2007 23:17:26 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200708042117.l74LHQQd014760@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 1611 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070804/a3784a70/attachment.xml>
+
+From localstorm at gmail.com  Wed Aug  8 15:44:03 2007
+From: localstorm at gmail.com (Alexey Kuznetsov)
+Date: Wed, 8 Aug 2007 20:44:03 +0700
+Subject: [Linuxdcpp-developers] I'd like to contribute
+Message-ID: <500a54cf0708080644k6e637011pf6ec41e3a98d85eb@mail.gmail.com>
+
+Good day, LinuxDC++ team!
+
+Well, first of all, I'd like to make some excuses for my English, I've not
+enough practice in it :)
+
+I am LinuxDC++ user since I tried Linux on my home PC.
+
+What I can do for you and LinuxDC++:
+
+1) Some non-critical development. I have some experience in C/C++ and POSIX
+threads but it may require much time to understand how system works and so
+on.
+2) Perform some LinuxDC++ testing in my network before commit
+3) I could make some l10n (Russian)
+4) May be something else. Feel free asking me if I can help :)
+
+
+Although I've found (known?) bug:
+ - Search doesn't work for me in active connection mode
+
+-- 
+Best regards, Alexey Kuznetsov
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070808/8cfe9819/attachment.html>
+
+From stanislav.maslovski at gmail.com  Wed Aug  8 16:06:00 2007
+From: stanislav.maslovski at gmail.com (Stanislav Maslovski)
+Date: Wed, 8 Aug 2007 18:06:00 +0400
+Subject: [Linuxdcpp-developers] I'd like to contribute
+In-Reply-To: <500a54cf0708080644k6e637011pf6ec41e3a98d85eb@mail.gmail.com>
+References: <500a54cf0708080644k6e637011pf6ec41e3a98d85eb@mail.gmail.com>
+Message-ID: <20070808140600.GA4862@mail.post.ru>
+
+On Wed, Aug 08, 2007 at 08:44:03PM +0700, Alexey Kuznetsov wrote:
+> Good day, LinuxDC++ team!
+> 
+> Well, first of all, I'd like to make some excuses for my English, I've not
+> enough practice in it :)
+> 
+> I am LinuxDC++ user since I tried Linux on my home PC.
+> 
+> What I can do for you and LinuxDC++:
+> 
+> 1) Some non-critical development. I have some experience in C/C++ and POSIX
+> threads but it may require much time to understand how system works and so on.
+> 2) Perform some LinuxDC++ testing in my network before commit
+> 3) I could make some l10n (Russian)
+> 4) May be something else. Feel free asking me if I can help :)
+> 
+> 
+> Although I've found (known?) bug:
+>  - Search doesn't work for me in active connection mode
+
+Does your PC have several network interfaces with different IPs?
+Please check if the last CVS works for you.
+
+-- 
+Stanislav
+
+
+From steven.sheehy at gmail.com  Wed Aug  8 19:59:46 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Wed, 08 Aug 2007 12:59:46 -0500
+Subject: [Linuxdcpp-developers] I'd like to contribute
+In-Reply-To: <500a54cf0708080644k6e637011pf6ec41e3a98d85eb@mail.gmail.com>
+References: <500a54cf0708080644k6e637011pf6ec41e3a98d85eb@mail.gmail.com>
+Message-ID: <46BA0492.60808@gmail.com>
+
+Alexey Kuznetsov wrote:
+> Good day, LinuxDC++ team!
+> 
+> Well, first of all, I'd like to make some excuses for my English, I've 
+> not enough practice in it :)
+> 
+> I am LinuxDC++ user since I tried Linux on my home PC.
+> 
+> What I can do for you and LinuxDC++:
+> 
+> 1) Some non-critical development. I have some experience in C/C++ and 
+> POSIX threads but it may require much time to understand how system 
+> works and so on.
+> 2) Perform some LinuxDC++ testing in my network before commit
+> 3) I could make some l10n (Russian)
+> 4) May be something else. Feel free asking me if I can help :)
+> 
+> 
+> Although I've found (known?) bug:
+>  - Search doesn't work for me in active connection mode
+> 
+> -- 
+> Best regards, Alexey Kuznetsov
+
+Hello,
+
+Thanks for the offer of assistance. We can always use more contributors and any 
+help you can give is very much appreciated.
+
+If you want to contribute, the best way is just to find bugs and submit patches 
+to fix them. There's some bugs listed in our bug tracker, or you can test the 
+program to try to find some. You can also check the changelog and test for 
+regressions after a commit (like Stanislav mentioned in the other email). 
+There's also features in the feature request tracker you can implement if you'd 
+like. Documentation on the code structure, etc. is on our wiki 
+(http://openfacts.berlios.de/index-en.phtml?title=LinuxDC%2B%2B). Currently 
+we're still trying to add l10n support to the code so we don't need translations 
+quite yet. I'd also recommend joining our irc channel if you want to get more 
+involved. Hopefully this helps!
+
+Thanks,
+Steven Sheehy
+
+
+From localstorm at gmail.com  Thu Aug  9 06:27:43 2007
+From: localstorm at gmail.com (Alexey Kuznetsov)
+Date: Thu, 9 Aug 2007 11:27:43 +0700
+Subject: [Linuxdcpp-developers] Replies for Stanislav and Steven
+Message-ID: <500a54cf0708082127y245a303h577eadbbe70f4abc@mail.gmail.com>
+
+Stanislav wrote:
+
+> Does your PC have several network interfaces with different IPs?
+> Please check if the last CVS works for you.
+
+---
+
+Well, I've just subscribed to mailing list, so I've read these messages from
+the archives. Unfortunately I've only lo and one eth interface on my
+computer.
+
+Steven Sheehy wrote:
+
+> Hello,
+
+
+> Thanks for the offer of assistance. We can always use more contributors and any
+> help you can give is very much appreciated.
+>
+> If you want to contribute, the best way is just to find bugs and submit patches
+> to fix them. There's some bugs listed in our bug tracker, or you can test the
+> program to try to find some. You can also check the changelog and test for
+> regressions after a commit (like Stanislav mentioned in the other email).
+> There's also features in the feature request tracker you can implement if you'd
+> like. Documentation on the code structure, etc. is on our wiki
+> (http://openfacts.berlios.de/index-en.phtml?title=LinuxDC%2B%2B). Currently
+> we're still trying to add l10n support to the code so we don't need translations
+> quite yet. I'd also recommend joining our irc channel if you want to get more
+> involved. Hopefully this helps!
+
+> Thanks,
+> Steven Sheehy
+
+Thank you for your reply!
+
+So, I'll try to follow your advices and to make some patches when I'll
+understand LinuxDC++ code enough. I've already checked out the latest
+repository version (I was using the old one before and it used to crash
+after some hours) and first of all I'll try to test if the new one crashes
+too.
+
+Unfortunately I've not enough experience with Gtk, but I'll try to learn it.
+Can you suggest any good docs on Gtk?
+
+
+-- 
+Best regards, Alexey Kuznetsov
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070809/2c1ab9a3/attachment.html>
+
+From stanislav.maslovski at gmail.com  Thu Aug  9 07:50:41 2007
+From: stanislav.maslovski at gmail.com (Stanislav Maslovski)
+Date: Thu, 9 Aug 2007 09:50:41 +0400
+Subject: [Linuxdcpp-developers] Replies for Stanislav and Steven
+In-Reply-To: <500a54cf0708082127y245a303h577eadbbe70f4abc@mail.gmail.com>
+References: <500a54cf0708082127y245a303h577eadbbe70f4abc@mail.gmail.com>
+Message-ID: <20070809055041.GA25579@mail.post.ru>
+
+On Thu, Aug 09, 2007 at 11:27:43AM +0700, Alexey Kuznetsov wrote:
+
+[ skipped ]
+
+> So, I'll try to follow your advices and to make some patches when I'll
+> understand LinuxDC++ code enough.
+
+It can be also usefull if you file an _informative_ bug report when you notice
+that something going wrong with your linuxdcpp.
+
+> I've already checked out the latest
+> repository version (I was using the old one before and it used to crash after
+> some hours) and first of all I'll try to test if the new one crashes too.
+> 
+> Unfortunately I've not enough experience with Gtk, but I'll try to learn it.
+> Can you suggest any good docs on Gtk?
+
+http://www.gtk.org/
+
+-- 
+Stanislav
+
+
+From thresh at altlinux.ru  Thu Aug  9 23:12:04 2007
+From: thresh at altlinux.ru (Pavlov Konstantin)
+Date: Fri, 10 Aug 2007 01:12:04 +0400
+Subject: [Linuxdcpp-developers] I'd like to contribute
+In-Reply-To: <46BA0492.60808@gmail.com>
+References: <500a54cf0708080644k6e637011pf6ec41e3a98d85eb@mail.gmail.com>
+	<46BA0492.60808@gmail.com>
+Message-ID: <20070809211204.GB12437@cryo.net.ru>
+
+On Wed, Aug 08, 2007 at 12:59:46PM -0500, Steven Sheehy wrote:
+> Alexey Kuznetsov wrote:
+> > Good day, LinuxDC++ team!
+> > 
+> > Well, first of all, I'd like to make some excuses for my English, I've 
+> > not enough practice in it :)
+> > 
+> > I am LinuxDC++ user since I tried Linux on my home PC.
+> > 
+> > What I can do for you and LinuxDC++:
+> > 
+> > 1) Some non-critical development. I have some experience in C/C++ and 
+> > POSIX threads but it may require much time to understand how system 
+> > works and so on.
+> > 2) Perform some LinuxDC++ testing in my network before commit
+> > 3) I could make some l10n (Russian)
+> > 4) May be something else. Feel free asking me if I can help :)
+> 
+> Hello,
+> 
+> Thanks for the offer of assistance. We can always use more contributors and any 
+> help you can give is very much appreciated.
+> 
+> If you want to contribute, the best way is just to find bugs and submit patches 
+> to fix them. There's some bugs listed in our bug tracker, or you can test the 
+> program to try to find some. You can also check the changelog and test for 
+> regressions after a commit (like Stanislav mentioned in the other email). 
+> There's also features in the feature request tracker you can implement if you'd 
+> like. Documentation on the code structure, etc. is on our wiki 
+> (http://openfacts.berlios.de/index-en.phtml?title=LinuxDC%2B%2B). Currently 
+> we're still trying to add l10n support to the code so we don't need translations 
+> quite yet. I'd also recommend joining our irc channel if you want to get more 
+> involved. Hopefully this helps!
+
+And i think we would have no problems with translation LinuxDC++ in
+Russian. :)
+
+Welcome aboard, Alexey.
+
+-- 
+love,  n.:
+	Love ties in a knot in the end of the rope.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070810/381e90fa/attachment.pgp>
+
+From localstorm at gmail.com  Sat Aug 11 17:16:51 2007
+From: localstorm at gmail.com (Alexey Kuznetsov)
+Date: Sat, 11 Aug 2007 22:16:51 +0700
+Subject: [Linuxdcpp-developers] Some ideas about minor improvements
+Message-ID: <500a54cf0708110816w5051c3b0idd29b11782ff6108@mail.gmail.com>
+
+Good (hmm...) evening everybody :)
+
+So, I'd like to suggest some minor LinuxDC++ improvements. I know these
+improvements are not critical, but by making these patches I'll beter
+understand what's going on in LinuxDC++ project and it's quite reasonable
+for me to start with something like this :)
+
+So, I've two ideas:
+
+1) Finished Uploads. It's not very usable for me when some clients download
+files by parts. The "Finished Uploads" log shows many records with the same
+{user, file, hub} and different {time, size, speed}. This overhead depends
+on size of downloaded file and can be very very big. That's why it's quite
+difficult to look through this log. I think it would be much better if we'll
+merge records with the same {user, file, hub} by updating time to the
+latest, by summation of sizes and by averaging download speed. May be it is
+reasonable to make this logging mode optional ;)
+
+2) Searching. Well. When I tried LinuxDC++, the first thought was: how do
+they guess the file types? When I choose to search for "Video", what video
+files would be accepted? Yesterday I looked through
+ShareManager::initTypeMap() and understood that extensions are hardcoded ;)
+May be it is cool to provide some kind of categories editor?
+
+I can try to make these patches. Btw, it was a long time ago when I used to
+make C/C++ code and I'd like to make something easy for the first time :)
+
+Waiting for your comments :)
+
+-- 
+Alexey Kuznetsov
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070811/92f8d4ba/attachment.html>
+
+From steven.sheehy at gmail.com  Sat Aug 11 19:38:19 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sat, 11 Aug 2007 12:38:19 -0500
+Subject: [Linuxdcpp-developers] Some ideas about minor improvements
+In-Reply-To: <500a54cf0708110816w5051c3b0idd29b11782ff6108@mail.gmail.com>
+References: <500a54cf0708110816w5051c3b0idd29b11782ff6108@mail.gmail.com>
+Message-ID: <46BDF40B.8030900@gmail.com>
+
+Alexey Kuznetsov wrote:
+> Good (hmm...) evening everybody :)
+> 
+> So, I'd like to suggest some minor LinuxDC++ improvements. I know these 
+> improvements are not critical, but by making these patches I'll beter 
+> understand what's going on in LinuxDC++ project and it's quite 
+> reasonable for me to start with something like this :)
+> 
+> So, I've two ideas:
+> 
+> 1) Finished Uploads. It's not very usable for me when some clients 
+> download files by parts. The "Finished Uploads" log shows many records 
+> with the same {user, file, hub} and different {time, size, speed}. This 
+> overhead depends on size of downloaded file and can be very very big. 
+> That's why it's quite difficult to look through this log. I think it 
+> would be much better if we'll merge records with the same {user, file, 
+> hub} by updating time to the latest, by summation of sizes and by 
+> averaging download speed. May be it is reasonable to make this logging 
+> mode optional ;)
+> 
+> 2) Searching. Well. When I tried LinuxDC++, the first thought was: how 
+> do they guess the file types? When I choose to search for "Video", what 
+> video files would be accepted? Yesterday I looked through 
+> ShareManager::initTypeMap() and understood that extensions are hardcoded 
+> ;) May be it is cool to provide some kind of categories editor?
+> 
+> I can try to make these patches. Btw, it was a long time ago when I used 
+> to make C/C++ code and I'd like to make something easy for the first time :)
+> 
+> Waiting for your comments :)
+> 
+> -- 
+> Alexey Kuznetsov
+
+Hello,
+
+Thanks for your comments. One of the things you have to understand about 
+LinuxDC++ is that it is split into two parts: the DC++ core and the GUI. The 
+DC++ core (client/ folder) is copied from the windows version and any changes 
+made to it are generally only to make it better support *nix platforms. These 
+changes are then set upstream to DC++ for approval and hopefully added into 
+their source. Any changes to the GUI is controlled by us, so there's no problem 
+there.
+
+Both of the changes you mentioned are DC++ core changes that are not *nix 
+specific bugs. Thus, if you want to make those changes you'd have to get DC++ to 
+approve them so that they'll make their way into LinuxDC++ the next time we 
+upgrade the core.
+
+As far as logging, I'm not sure if you mean the actual log file stored on the 
+hard disk or if you mean the finished uploads tab in the gui. It's not practical 
+to go back through the physical log file and merge entries since the log file 
+entries are just appended each time and the file can get quite large. If you 
+mean the finished upload tab, then it's a bit more easy to implement. But 
+considering DC++ doesn't even officially support partial file uploads, I don't 
+think adding support for it in finished uploads would be something upstream 
+would accept.
+
+If you think the file types is bad now, you should've seen it before the patch 
+to make ShareManager::checkTypes endian-safe (it also added a ton more file 
+extensions to check). Upstream still hasn't accepted that patch we sent them.
+
+I'm not trying to discourage you, just letting you know it's probably better to 
+focus on changes in the gui or *nix-specific bugs in the core if you want them 
+to make their way into LinuxDC++.
+
+-Steven Sheehy
+
+
+From localstorm at gmail.com  Sun Aug 12 05:51:57 2007
+From: localstorm at gmail.com (Alexey Kuznetsov)
+Date: Sun, 12 Aug 2007 10:51:57 +0700
+Subject: [Linuxdcpp-developers] Fwd:  Some ideas about minor improvements
+In-Reply-To: <500a54cf0708112050v26362051vffa14db97047a93f@mail.gmail.com>
+References: <500a54cf0708110816w5051c3b0idd29b11782ff6108@mail.gmail.com>
+	<46BDF40B.8030900@gmail.com>
+	<500a54cf0708112050v26362051vffa14db97047a93f@mail.gmail.com>
+Message-ID: <500a54cf0708112051l36faf370i62f6942449c2074f@mail.gmail.com>
+
+---------- Forwarded message ----------
+From: Alexey Kuznetsov <localstorm at gmail.com>
+Date: Aug 12, 2007 10:50 AM
+Subject: Re: [Linuxdcpp-developers] Some ideas about minor improvements
+To: Steven Sheehy <steven.sheehy at gmail.com>
+
+Hello :)
+
+I know about core/GUI. I've read some comments for LinuxDC++ feature
+requests.
+
+But I don't think that we need to improve DC++ core. I think it's enough to
+make some GUI changes (Finished uploads tab) to improve logs presentaion (to
+make it easier for perception). As I understand I need only to patch
+FinishedTransfers::addItem_gui(StringMap params, bool update) and it will be
+enough :) Am I right? Finally, many users in my network connects, downloads
+a part of the file, disconnects and connects again. May be partial upload is
+not supported but it seems to work okay :) Which special support is needed?
+
+The problem with file types is a bit more complicated. I thought that search
+function in the backend of P2P client is about to be a simple one. I thought
+we have the same situation with file types and file type is a something that
+is under our control because I don't see any reason file type to be used in
+DC++ core. But I've looked through DC++ core code more carefully and now I
+understand that my first ideas were not right. I'll think about it again :)
+
+On 8/12/07, Steven Sheehy <steven.sheehy at gmail.com> wrote:
+>
+> Alexey Kuznetsov wrote:
+> > Good (hmm...) evening everybody :)
+> >
+> > So, I'd like to suggest some minor LinuxDC++ improvements. I know these
+> > improvements are not critical, but by making these patches I'll beter
+> > understand what's going on in LinuxDC++ project and it's quite
+> > reasonable for me to start with something like this :)
+> >
+> > So, I've two ideas:
+> >
+> > 1) Finished Uploads. It's not very usable for me when some clients
+> > download files by parts. The "Finished Uploads" log shows many records
+> > with the same {user, file, hub} and different {time, size, speed}. This
+> > overhead depends on size of downloaded file and can be very very big.
+> > That's why it's quite difficult to look through this log. I think it
+> > would be much better if we'll merge records with the same {user, file,
+> > hub} by updating time to the latest, by summation of sizes and by
+> > averaging download speed. May be it is reasonable to make this logging
+> > mode optional ;)
+> >
+> > 2) Searching. Well. When I tried LinuxDC++, the first thought was: how
+> > do they guess the file types? When I choose to search for "Video", what
+> > video files would be accepted? Yesterday I looked through
+> > ShareManager::initTypeMap() and understood that extensions are hardcoded
+> > ;) May be it is cool to provide some kind of categories editor?
+> >
+> > I can try to make these patches. Btw, it was a long time ago when I used
+> > to make C/C++ code and I'd like to make something easy for the first
+> time :)
+> >
+> > Waiting for your comments :)
+> >
+> > --
+> > Alexey Kuznetsov
+>
+> Hello,
+>
+> Thanks for your comments. One of the things you have to understand about
+> LinuxDC++ is that it is split into two parts: the DC++ core and the GUI.
+> The
+> DC++ core (client/ folder) is copied from the windows version and any
+> changes
+> made to it are generally only to make it better support *nix platforms.
+> These
+> changes are then set upstream to DC++ for approval and hopefully added
+> into
+> their source. Any changes to the GUI is controlled by us, so there's no
+> problem
+> there.
+>
+> Both of the changes you mentioned are DC++ core changes that are not *nix
+> specific bugs. Thus, if you want to make those changes you'd have to get
+> DC++ to
+> approve them so that they'll make their way into LinuxDC++ the next time
+> we
+> upgrade the core.
+>
+> As far as logging, I'm not sure if you mean the actual log file stored on
+> the
+> hard disk or if you mean the finished uploads tab in the gui. It's not
+> practical
+> to go back through the physical log file and merge entries since the log
+> file
+> entries are just appended each time and the file can get quite large. If
+> you
+> mean the finished upload tab, then it's a bit more easy to implement. But
+> considering DC++ doesn't even officially support partial file uploads, I
+> don't
+> think adding support for it in finished uploads would be something
+> upstream
+> would accept.
+>
+> If you think the file types is bad now, you should've seen it before the
+> patch
+> to make ShareManager::checkTypes endian-safe (it also added a ton more
+> file
+> extensions to check). Upstream still hasn't accepted that patch we sent
+> them.
+>
+> I'm not trying to discourage you, just letting you know it's probably
+> better to
+> focus on changes in the gui or *nix-specific bugs in the core if you want
+> them
+> to make their way into LinuxDC++.
+>
+> -Steven Sheehy
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+>
+
+
+
+-- 
+Alexey Kuznetsov
+
+-- 
+Alexey Kuznetsov
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070812/be58b1ba/attachment.html>
+
+From ullner at gmail.com  Sun Aug 12 14:55:25 2007
+From: ullner at gmail.com (Fredrik Ullner)
+Date: Sun, 12 Aug 2007 14:55:25 +0200
+Subject: [Linuxdcpp-developers] Fwd: Some ideas about minor improvements
+In-Reply-To: <500a54cf0708112051l36faf370i62f6942449c2074f@mail.gmail.com>
+References: <500a54cf0708110816w5051c3b0idd29b11782ff6108@mail.gmail.com>
+	<46BDF40B.8030900@gmail.com>
+	<500a54cf0708112050v26362051vffa14db97047a93f@mail.gmail.com>
+	<500a54cf0708112051l36faf370i62f6942449c2074f@mail.gmail.com>
+Message-ID: <d63d9b370708120555n6d9e5141y638df11e158bae91@mail.gmail.com>
+
+File types are hard coded to DC++ because of NMDC. This is because the
+protocol doesn't allow "I want this and that file type", but instead "I want
+video files" (which is quite ambigious, as you've noticed). ADC have this
+fixed, while I doubt DC++ support it at the moment.
+
+-- 
+Fredrik Ullner
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070812/f7e8c36b/attachment.html>
+
+From admin at berlios.de  Wed Aug 15 11:43:10 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 15 Aug 2007 12:43:10 +0300 (EEST)
+Subject: [Linuxdcpp-developers] [Bug #11775] High CPU usage when using Compiz
+Message-ID: <200708150943.l7F9hAHd010212@unicorn.berlios.de>
+
+Bug #11775, was updated on 2007-Aug-15 12:43
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: admarginem
+Assigned to : none
+Summary: High CPU usage when using Compiz
+
+Details: High CPU usage when using Compiz after program startup and running.
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=11775&group_id=2230
+
+
+From admin at berlios.de  Wed Aug 22 20:16:08 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 22 Aug 2007 20:16:08 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Bug #11826] 2nd time use of "Download to"
+	does not allow Open click
+Message-ID: <200708221816.l7MIG8x1024425@unicorn.berlios.de>
+
+Bug #11826, was updated on 2007-Aug-22 20:16
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: peppot
+Assigned to : none
+Summary: 2nd time use of "Download to" does not allow Open click
+
+Details: On opening the Download to.../Browse dialog a second time, is it not possible to immediately click Open.
+To work around it one has to go upwards one directory and back down into the desired location.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=11826&group_id=2230
+
+
+From admin at berlios.de  Thu Aug 23 12:50:38 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 23 Aug 2007 12:50:38 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Feature #3686] multiple match queue
+Message-ID: <200708231050.l7NAoc67000525@unicorn.berlios.de>
+
+Feature Request #3686, was updated on 2007-Aug-23 12:50
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3686&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: multiple match queue
+
+By: barbro
+Date: 2007-Aug-23 12:50
+
+Message:
+Logged In: YES 
+user_id=40251
+Browser: Mozilla/5.0 (X11; U; Linux i686; sv-SE; rv:1.8.1.6) Gecko/20070810 Ubuntu/7.10 (gutsy) Firefox/2.0.0.6
+
+In search tab be able to select more than one hit and
+right-click and use "match queue"
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3686&group_id=2230
+
+
+From admin at berlios.de  Wed Aug 29 08:21:44 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 29 Aug 2007 08:21:44 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Feature #3699] online/offline status in pm
+Message-ID: <200708290621.l7T6Li3D021048@unicorn.berlios.de>
+
+Feature Request #3699, was updated on 2007-Aug-29 08:21
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3699&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: online/offline status in pm
+
+By: fracti0n
+Date: 2007-Aug-29 08:21
+
+Message:
+Logged In: YES 
+user_id=37717
+Browser: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.8.1.6) Gecko/20070730 SUSE/2.0.0.6-7.1 Firefox/2.0.0.6
+
+write something like user left the hub at ... user
+joined hub at ... when in pm
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3699&group_id=2230
+
+
+From admin at berlios.de  Wed Aug 29 08:22:58 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 29 Aug 2007 08:22:58 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Feature #3700] away button
+Message-ID: <200708290622.l7T6Mwt5023797@unicorn.berlios.de>
+
+Feature Request #3700, was updated on 2007-Aug-29 08:22
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3700&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: away button
+
+By: fracti0n
+Date: 2007-Aug-29 08:22
+
+Message:
+Logged In: YES 
+user_id=37717
+Browser: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.8.1.6) Gecko/20070730 SUSE/2.0.0.6-7.1 Firefox/2.0.0.6
+
+a classic button for switching to away mode and
+remember away status after restart
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3700&group_id=2230
+
+

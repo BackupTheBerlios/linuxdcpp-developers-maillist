@@ -1,0 +1,1398 @@
+From admin at berlios.de  Sun Sep  2 15:58:41 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 2 Sep 2007 05:58:41 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Bug #11904] crash and close
+Message-ID: <200709021358.l82DwfKC009551@unicorn.berlios.de>
+
+Bug #11904, was updated on 2007-Sep-02 05:58
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: stefanandrei02
+Assigned to : none
+Summary: crash and close
+
+Details: (linuxdcpp:3086): Pango-WARNING **: Invalid UTF-8 string passed to pango_layout_set_text()
+The program 'linuxdcpp' received an X Window System error.
+This probably reflects a bug in the program.
+The error was 'BadRequest (invalid request code or no such operation)'.
+  (Details: serial 27158894 error_code 1 request_code 0 minor_code 0)
+  (Note to programmers: normally, X errors are reported asynchronously;
+   that is, you will receive the error a while after causing it.
+   To debug your program, run it with the --sync command line
+   option to change this behavior. You can then get a meaningful
+   backtrace from your debugger if you break on the gdk_x_error() function.)
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=11904&group_id=2230
+
+
+From admin at berlios.de  Mon Sep  3 21:41:13 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 3 Sep 2007 11:41:13 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Bug #11915] Segmentation fault
+Message-ID: <200709031941.l83JfDO6007083@unicorn.berlios.de>
+
+Bug #11915, was updated on 2007-Sep-03 11:41
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: stefanandrei02
+Assigned to : none
+Summary: Segmentation fault
+
+Details: I was looking in the main chat window when the program crashed.
+
+the console said:
+(linuxdcpp:3836): Gtk-CRITICAL **: gtk_text_buffer_emit_insert: assertion `g_utf8_validate (text, len, NULL)' failed
+
+(linuxdcpp:3836): Gtk-CRITICAL **: gtk_text_buffer_emit_insert: assertion `g_utf8_validate (text, len, NULL)' failed
+
+(linuxdcpp:3836): Gtk-CRITICAL **: gtk_text_buffer_emit_insert: assertion `g_utf8_validate (text, len, NULL)' failed
+
+Program received signal SIGSEGV, Segmentation fault.
+[Switching to Thread -1258624112 (LWP 3844)]
+0x005dced7 in glade_xml_get_widget () from /usr/lib/libglade-2.0.so.0
+
+
+
+
+
+the gdb backtrace full is:
+
+
+(gdb) backtrace full
+#0  0x005dced7 in glade_xml_get_widget () from /usr/lib/libglade-2.0.so.0
+No symbol table info available.
+#1  0x081b3666 in Entry::getWidget (this=0xa214488, name=@0xb4fae308) at linux/entry.cc:52
+        widget = (GtkWidget *) 0x0
+        __PRETTY_FUNCTION__ = "GtkWidget* Entry::getWidget(const std::string&)"
+#2  0x081d141d in Hub::addMessage_gui (this=0xa214488, message=@0xb4fae360) at linux/hub.cc:295
+        iter = {dummy1 = 0xb4faeb50, dummy2 = 0x20fb24, dummy3 = 0, dummy4 = 165852664, dummy5 = -1258626296,
+  dummy6 = 1382468, dummy7 = 165852664, dummy8 = -1258626272, dummy9 = 0x20, dummy10 = 0x3119ff4, dummy11 = 178651888,
+  dummy12 = 3531061, dummy13 = -1379400572, dummy14 = 0xb4fae340}
+        adj = (GtkAdjustment *) 0xb4fae338
+        setBottom = 8
+        line = {static npos = 4294967295,
+  _M_dataplus = {<std::allocator<char>> = {<__gnu_cxx::new_allocator<char>> = {<No data fields>}, <No data fields>},
+    _M_p = 0x9eacde4 "[22:32] <[FL]CrIsTyVIP> ziceti`mi si mie un program care sa gaseasca daca am 2 melodii la fel in calc..si sa stearga una..ceva d genu :( plsss\n"}}
+#3  0x081ddd6b in Func1<Hub, std::string>::call (this=0xad5834c8) at linux/func.hh:67
+No locals.
+#4  0x0825f76f in WulforManager::processGuiQueue (this=0x9fbc8d8) at linux/wulformanager.cc:187
+        func = (FuncBase *) 0xad5834c8
+#5  0x0825f827 in WulforManager::threadFunc_gui (data=0x9fbc8d8) at linux/wulformanager.cc:153
+        man = (WulforManager *) 0x9fbc8d8
+#6  0x00dbb44b in start_thread () from /lib/libpthread.so.0
+No symbol table info available.
+#7  0x00ce980e in clone () from /lib/libc.so.6
+No symbol table info available.
+(gdb)                
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=11915&group_id=2230
+
+
+From admin at berlios.de  Mon Sep  3 21:52:52 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 3 Sep 2007 11:52:52 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Bug #11916] crash while loading users list,
+	and closing hub window.
+Message-ID: <200709031952.l83JqqfW007182@unicorn.berlios.de>
+
+Bug #11916, was updated on 2007-Sep-03 11:52
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: stefanandrei02
+Assigned to : none
+Summary: crash while loading users list, and closing hub window.
+
+Details: a few seconds after opening the program, the windows with favorite hubs open;
+while the list with users is loading(for example a big list  has 12000 users), close the hub main window; after a few seconds the program crashes.
+
+here is the console output:
+(linuxdcpp:3952): Pango-WARNING **: Invalid UTF-8 string passed to pango_layout_set_text()
+
+(linuxdcpp:3952): Pango-WARNING **: Invalid UTF-8 string passed to pango_layout_set_text()
+BufferedSocket: New command when already failed: 1
+BufferedSocket::run() end 0x919b500
+[Thread -1348482160 (LWP 3967) exited]
+
+(linuxdcpp:3952): Gtk-CRITICAL **: gtk_text_buffer_emit_insert: assertion `g_utf8_validate (text, len, NULL)' failed
+
+Program received signal SIGSEGV, Segmentation fault.
+[Switching to Thread -1258509424 (LWP 3959)]
+0x08060fe4 in __gnu_cxx::hashtable<std::pair<std::string const, std::string>, std::string, __gnu_cxx::hash<std::string>, std::_Select1st<std::pair<std::string const, std::string> >, std::equal_to<std::string>, std::allocator<std::string> >::find (
+    this=0x9019978, __key=@0x9593f28)
+    at /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/ext/hashtable.h:513
+513             for (__first = _M_buckets[__n];
+
+
+
+here is the gdb backtrace full:
+
+(gdb) backtrace full
+#0  0x08060fe4 in __gnu_cxx::hashtable<std::pair<std::string const, std::string>, std::string, __gnu_cxx::hash<std::string>, std::_Select1st<std::pair<std::string const, std::string> >, std::equal_to<std::string>, std::allocator<std::string> >::find (this=0x9019978, __key=@0x9593f28)
+    at /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/ext/hashtable.h:513
+        __n = 322842507
+        __first = (
+    struct __gnu_cxx::_Hashtable_node<std::pair<const std::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::basic_string<char, std::char_traits<char>, std::allocator<char> > > > *) 0x0
+#1  0x0806108b in __gnu_cxx::hash_map<std::string, std::string, __gnu_cxx::hash<std::string>, std::equal_to<std::string>, std::allocator<std::string> >::find (this=0x9019978, __key=@0x9593f28)
+    at /usr/lib/gcc/i386-redhat-linux/4.1.2/../../../../include/c++/4.1.2/ext/hash_map:225
+No locals.
+#2  0x081d002d in Hub::findUser_gui (this=0x9019948, nick=@0x9593f28, iter=0xb4fca174) at linux/hub.cc:153
+No locals.
+#3  0x081d3c86 in Hub::updateUser_gui (this=0x9019948, params=@0xb4fca350) at linux/hub.cc:176
+        iter = {stamp = 31189040, user_data = 0xb4fca198, user_data2 = 0x80657ef, user_data3 = 0x0}
+        shared = 10364247894
+#4  0x081debf9 in Func1<Hub, __gnu_cxx::hash_map<std::string, std::string, __gnu_cxx::hash<std::string>, std::equal_to<std::string>, std::allocator<std::string> > >::call (this=0xb18f7698) at linux/func.hh:67
+No locals.
+#5  0x0825f76f in WulforManager::processGuiQueue (this=0x8db38a0) at linux/wulformanager.cc:187
+        func = (FuncBase *) 0xb18f7698
+#6  0x0825f827 in WulforManager::threadFunc_gui (data=0x8db38a0) at linux/wulformanager.cc:153
+        man = (WulforManager *) 0x8db38a0
+#7  0x00dbb44b in start_thread () from /lib/libpthread.so.0
+No symbol table info available.
+#8  0x00ce980e in clone () from /lib/libc.so.6
+No symbol table info available.
+(gdb)                                                            
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=11916&group_id=2230
+
+
+From job-ad at rambler.ru  Thu Sep 13 01:25:54 2007
+From: job-ad at rambler.ru (job-ad)
+Date: Wed, 12 Sep 2007 23:25:54 +0000
+Subject: [Linuxdcpp-developers] Add new functions in linuxdcpp.
+Message-ID: <46E87582.4020106@rambler.ru>
+
+Add:
+
+1)Search file from Clipboard.
+    If string is "magnet" then search as "TTH" else search as "Any".
+
+2)Notes.
+    Notes save if "linuxdc++" shutdown or close tab with "Notes".
+
+All the changes are labeled: "//6ap    //6ap_end".
+Edit files:
+    linux/notes.cc
+    linux/notes.hh
+    glade/notes.glade
+
+    linux/mainwindow.cc
+    linux/mainwindow.hh
+    glade/mainwindow.glade
+
+    linux/wulformanager.cc
+    linux/wulformanager.hh
+
+    linux/SConstruct
+
+    pixmaps/notes.png
+    pixmaps/search-buffer.png
+
+    SConstruct
+    Changelog.txt
+
+I know little English ;)  (Russia).
+Please write to correct tips.
+
+Baryshkin Andrey job-ad at rambler.ru .
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: linuxdcpp-edit-version.tar.bz2
+Type: application/x-bzip
+Size: 344442 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070912/8d63f1aa/attachment.bin>
+
+From nagatoro at gmail.com  Thu Sep 13 07:05:42 2007
+From: nagatoro at gmail.com (Naga)
+Date: Thu, 13 Sep 2007 07:05:42 +0200
+Subject: [Linuxdcpp-developers] Add new functions in linuxdcpp.
+In-Reply-To: <46E87582.4020106@rambler.ru>
+References: <46E87582.4020106@rambler.ru>
+Message-ID: <200709130705.43035.nagatoro@gmail.com>
+
+On Thursday 13 September 2007 01:25:54 job-ad wrote:
+> Add:
+>
+> 1)Search file from Clipboard.
+>     If string is "magnet" then search as "TTH" else search as "Any".
+>
+> 2)Notes.
+>     Notes save if "linuxdc++" shutdown or close tab with "Notes".
+>
+
+Use diff -u ...
+
+> I know little English ;)  (Russia).
+> Please write to correct tips.
+
+(diff attached)
+-- 
+Naga
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: job-ad.diff
+Type: text/x-diff
+Size: 14370 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070913/a324028a/attachment.diff>
+
+From stanislav.maslovski at gmail.com  Thu Sep 13 14:29:10 2007
+From: stanislav.maslovski at gmail.com (Stanislav Maslovski)
+Date: Thu, 13 Sep 2007 16:29:10 +0400
+Subject: [Linuxdcpp-developers] Add new functions in linuxdcpp.
+In-Reply-To: <46E87582.4020106@rambler.ru>
+References: <46E87582.4020106@rambler.ru>
+Message-ID: <20070913122910.GA22050@shota.mine.nu>
+
+Hello,
+
+My 2 cents:
+
+On Wed, Sep 12, 2007 at 11:25:54PM +0000, job-ad wrote:
+> Add:
+>
+> 1)Search file from Clipboard.
+>    If string is "magnet" then search as "TTH" else search as "Any".
+
+There is a solid and well-checked patch from http://linuxdcpp-ru.sourceforge.net/
+that adds magnet links support. Is your work an addition to that or a replacement?
+Will they function together?
+
+> 2)Notes.
+>    Notes save if "linuxdc++" shutdown or close tab with "Notes".
+
+This seems to be unrelated to magnets, right? Then a good practice is to put
+unrelated changes into separate patches.
+
+Last but not the least: please learn how to use 'diff' and 'patch'.
+
+-- 
+Stanislav
+
+
+From alexandru.palade at thinkupdesign.net  Fri Sep 14 19:08:46 2007
+From: alexandru.palade at thinkupdesign.net (Alexandru Palade)
+Date: Fri, 14 Sep 2007 20:08:46 +0300
+Subject: [Linuxdcpp-developers] DC++ library
+Message-ID: <46EAC01E.4000105@thinkupdesign.net>
+
+Hi,
+
+
+I was wondering if there is any dc++ library that I can use in another
+application.
+
+Thank you,
+Alexandru Palade
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: alexandru.palade.vcf
+Type: text/x-vcard
+Size: 273 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070914/6e41bd3c/attachment.vcf>
+
+From steven.sheehy at gmail.com  Sat Sep 15 05:41:59 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Fri, 14 Sep 2007 22:41:59 -0500
+Subject: [Linuxdcpp-developers] DC++ library
+In-Reply-To: <46EAC01E.4000105@thinkupdesign.net>
+References: <46EAC01E.4000105@thinkupdesign.net>
+Message-ID: <46EB5487.1090702@gmail.com>
+
+Alexandru Palade wrote:
+> Hi,
+> 
+> 
+> I was wondering if there is any dc++ library that I can use in another
+> application.
+> 
+> Thank you,
+> Alexandru Palade
+> 
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+
+There's no DC++ library ... yet. Arnetheduck has plans to turn the DC++ core 
+into a library called libdcpp in the future, but for now you just have to copy 
+the dc++ core folder (client/ in our source, changed to dcpp/ in latest dc++ 
+svn) to your project and use it that way. Hope that helps.
+
+Steven
+
+
+From nollan at phreaker.net  Mon Sep 17 03:40:43 2007
+From: nollan at phreaker.net (nollan)
+Date: Mon, 17 Sep 2007 03:40:43 +0200
+Subject: [Linuxdcpp-developers] problem building from cvs on
+	FreeBSD6.2-RELEASE
+Message-ID: <20070917034043.5de7d7eb.nollan@phreaker.net>
+
+Hi list!
+
+ I have encountered a really annoying problem while trying to
+build linuxdcpp from cvs. scons doesn't seem to find my iconv.h
+file. I realized that FreeBSD has got its own iconv.h /usr/include
+but the one linuxdcpp needs is the libiconv.h in /usr/local/include.
+I've tried CFLAGS, CCFLAGS and scons -Y/usr/local/include. It still
+can't find it. I'd appreciate some help.
+
+I found this and wonder if it's the same problem?
+
++2007-02-06 - Steven Sheehy
++* Patch #1876: Fix compile on *BSD caused by inconsistent iconv API (thanks Mikael Eman).
+
+If so, is that patch applied? So it seems anyway. I know there is a
+ports-package with linuxdcpp for FreeBSD but it's really buggy (no offense). It must be an older version?
+
+Thanks in advance,
+Johan
+
+
+
+From steven.sheehy at gmail.com  Tue Sep 18 04:53:37 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Mon, 17 Sep 2007 21:53:37 -0500
+Subject: [Linuxdcpp-developers] problem building from cvs
+	on	FreeBSD6.2-RELEASE
+In-Reply-To: <20070917034043.5de7d7eb.nollan@phreaker.net>
+References: <20070917034043.5de7d7eb.nollan@phreaker.net>
+Message-ID: <46EF3DB1.8070401@gmail.com>
+
+nollan wrote:
+> Hi list!
+> 
+>  I have encountered a really annoying problem while trying to
+> build linuxdcpp from cvs. scons doesn't seem to find my iconv.h
+> file. I realized that FreeBSD has got its own iconv.h /usr/include
+> but the one linuxdcpp needs is the libiconv.h in /usr/local/include.
+> I've tried CFLAGS, CCFLAGS and scons -Y/usr/local/include. It still
+> can't find it. I'd appreciate some help.
+> 
+> I found this and wonder if it's the same problem?
+> 
+> +2007-02-06 - Steven Sheehy
+> +* Patch #1876: Fix compile on *BSD caused by inconsistent iconv API (thanks Mikael Eman).
+> 
+> If so, is that patch applied? So it seems anyway. I know there is a
+> ports-package with linuxdcpp for FreeBSD but it's really buggy (no offense). It must be an older version?
+> 
+> Thanks in advance,
+> Johan
+> 
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+> 
+
+
+It seems scons has some serious issues on *BSD. I've gotten a lot of complaints 
+about it recently. Scons does all the dependency checks, so if it can't find 
+your library and you do have it and the headers, then it is an issue with scons.
+
+The patch you mention is very old and was applied at the date stated in the 
+changelog. The FreeBSD package is kept up-to-date and reflects the latest cvs.
+
+-Steven
+
+
+From mezz7 at cox.net  Tue Sep 18 05:34:51 2007
+From: mezz7 at cox.net (Jeremy Messenger)
+Date: Mon, 17 Sep 2007 22:34:51 -0500
+Subject: [Linuxdcpp-developers] problem building from cvs on
+	FreeBSD6.2-RELEASE
+Message-ID: <op.tytywdfr9aq2h7@mezz.mezzweb.com>
+
+I am not on the list, but I do read in the archive once a while.
+
+You need to add /usr/local/include in CPPPATH and /usr/local/lib in  
+LIBPATH to run scons. It's how linuxdcpp port in FreeBSD can build it. I  
+haven't been able to update to the latest version of CVS, because  
+linuxdcpp doesn't work very well with new glib/gtk as I am testing  
+bleeding edge version on my desktop. I have glib 2.14.0, gtk 2.11.6 and  
+gnome 2.19.6. The gtk 2.12.0 has been released recently and a lot of GNOME  
+2.20 tarballs are out right now. I will see if linuxdcpp will working  
+again with new glib/gtk.
+
+If you still have stable version of glib/gtk, feel free to test  
+http://people.freebsd.org/~mezz/diff/linuxdcpp.diff that will update to  
+0.0.1.20070804. If it works for you, let me know and I shall commit it.
+
+As for your comment of 'it's really buggy'. I won't be surpised if you  
+will get same result if you install it on your own. LinuxDC++ is stable to  
+me until with that new glib/gtk. However, if you want to kill that 'it's  
+really buggy', I suggest you to start to make bug report with better  
+details.
+
+Cheers,
+Mezz
+
+
+-- 
+mezz7 at cox.net  -  mezz at FreeBSD.org
+FreeBSD GNOME Team  -  FreeBSD Multimedia Hat (ports, not src)
+http://www.FreeBSD.org/gnome/  -  gnome at FreeBSD.org
+http://wiki.freebsd.org/multimedia  -  multimedia at FreeBSD.org
+
+
+From mezz7 at cox.net  Tue Sep 18 19:50:12 2007
+From: mezz7 at cox.net (Jeremy Messenger)
+Date: Tue, 18 Sep 2007 12:50:12 -0500
+Subject: [Linuxdcpp-developers] problem building from cvs on
+	FreeBSD6.2-RELEASE
+In-Reply-To: <op.tytywdfr9aq2h7@mezz.mezzweb.com>
+References: <op.tytywdfr9aq2h7@mezz.mezzweb.com>
+Message-ID: <op.tyu2hy2n9aq2h7@mezz.mezzweb.com>
+
+On Mon, 17 Sep 2007 22:34:51 -0500, Jeremy Messenger <mezz7 at cox.net> wrote:
+
+> I am not on the list, but I do read in the archive once a while.
+>
+> You need to add /usr/local/include in CPPPATH and /usr/local/lib in  
+> LIBPATH to run scons. It's how linuxdcpp port in FreeBSD can build it. I  
+> haven't been able to update to the latest version of CVS, because  
+> linuxdcpp doesn't work very well with new glib/gtk as I am testing  
+> bleeding edge version on my desktop. I have glib 2.14.0, gtk 2.11.6 and  
+> gnome 2.19.6. The gtk 2.12.0 has been released recently and a lot of  
+> GNOME 2.20 tarballs are out right now. I will see if linuxdcpp will  
+> working again with new glib/gtk.
+>
+> If you still have stable version of glib/gtk, feel free to test  
+> http://people.freebsd.org/~mezz/diff/linuxdcpp.diff that will update to  
+> 0.0.1.20070804. If it works for you, let me know and I shall commit it.
+
+Nevermind, it looks like gtk 2.12.0 has fixed the crash issues for  
+LinuxDC++. I shall update it in ports tree sometime this evening.
+
+Cheers,
+Mezz
+
+> As for your comment of 'it's really buggy'. I won't be surpised if you  
+> will get same result if you install it on your own. LinuxDC++ is stable  
+> to me until with that new glib/gtk. However, if you want to kill that  
+> 'it's really buggy', I suggest you to start to make bug report with  
+> better details.
+>
+> Cheers,
+> Mezz
+
+
+-- 
+mezz7 at cox.net  -  mezz at FreeBSD.org
+FreeBSD GNOME Team  -  FreeBSD Multimedia Hat (ports, not src)
+http://www.FreeBSD.org/gnome/  -  gnome at FreeBSD.org
+http://wiki.freebsd.org/multimedia  -  multimedia at FreeBSD.org
+
+
+From admin at berlios.de  Wed Sep 19 20:24:49 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 19 Sep 2007 20:24:49 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Bug #12025] Unable to send national
+	characters to chat
+Message-ID: <200709191824.l8JIOnri023798@unicorn.berlios.de>
+
+Bug #12025, was updated on 2007-Sep-19 20:24
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: betlista
+Assigned to : none
+Summary: Unable to send national characters to chat
+
+Details: When I want to use national character in chat the message is not sent after enter pressed.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12025&group_id=2230
+
+
+From admin at berlios.de  Thu Sep 20 15:29:57 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 20 Sep 2007 16:29:57 +0300 (EEST)
+Subject: [Linuxdcpp-developers] [Bug #12033] High CPU usage,
+	slow user list loading. and crash.
+Message-ID: <200709201329.l8KDTvCE014897@unicorn.berlios.de>
+
+Bug #12033, was updated on 2007-Sep-20 16:29
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: raa
+Assigned to : none
+Summary: High CPU usage, slow user list loading. and crash.
+
+Details: I have installed LinuxDC++ on Ubuntu recently (linuxdcpp_0.0.1.cvs20070713-1~getdeb1_i386.deb). It was working just fine. But I've got a problem few days ago.
+
+The application is very slow right now. It seems it uses CPU a lot for every window refresh. When the status refreshes, it takes few seconds! When I try to connect to a hub, the CPU usega is high, and it adds 1 user per second. When the user list is loaded, it ouputs few messages in the chat window and craches.
+
+I downloaded old "stable" version (linuxdcpp0.691_0.0.1.cvs20061024-1_i386.deb) and installed it. But I still have the same problem.
+
+I'd like to help you to debug it somehow, but I'm not familiar with desktop applications. How do I help you?
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12033&group_id=2230
+
+
+From admin at berlios.de  Sat Sep 22 14:21:05 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 22 Sep 2007 04:21:05 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Bug #12045] Found and solved bug from gui
+	handling
+Message-ID: <200709221221.l8MCL5Gb028267@unicorn.berlios.de>
+
+Bug #12045, was updated on 2007-Sep-22 04:21
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: jikaheim
+Assigned to : none
+Summary: Found and solved bug from gui handling
+
+Details: Gui and client commands were queued in wuldorfmanager but only one item was read from the queue at a time, causing the queues to fill all the time.
+Solution was to handle all queued commands in a loop:
+method void WulforManager::processGuiQueue(
+...
+                pthread_rwlock_rdlock(&guiQueueLock);
+		int count =guiFuncs.size();
+		pthread_rwlock_unlock(&guiQueueLock);
+
+		for (int i=0;i<count;i++)
+		{
+			pthread_rwlock_rdlock(&guiQueueLock);
+			func = guiFuncs.front();
+			pthread_rwlock_unlock(&guiQueueLock);
+
+			func->call();
+
+			pthread_rwlock_wrlock(&guiQueueLock);
+			delete func;
+			guiFuncs.erase(guiFuncs.begin());
+			pthread_rwlock_unlock(&guiQueueLock);
+	
+			
+		}
+...
+
+Method WulforManager::processClientQueue()
+..
+                pthread_mutex_lock(&clientCallLock);
+		pthread_rwlock_rdlock(&clientQueueLock);
+		int count=clientFuncs.size();
+		pthread_rwlock_unlock(&clientQueueLock);
+
+		for (int i=0;i<count;i++)
+		{
+			pthread_rwlock_rdlock(&clientQueueLock);
+			func = clientFuncs.front();
+			pthread_rwlock_unlock(&clientQueueLock);
+
+			func->call();
+
+			pthread_rwlock_wrlock(&clientQueueLock);
+			delete func;
+			clientFuncs.erase(clientFuncs.begin());
+			pthread_rwlock_unlock(&clientQueueLock);
+		}
+		pthread_mutex_unlock(&clientCallLock);
+...
+
+Have fun!
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12045&group_id=2230
+
+
+From admin at berlios.de  Sat Sep 22 15:28:30 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 22 Sep 2007 05:28:30 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Bug #12051] Better fix to gui handling bug
+Message-ID: <200709221328.l8MDSUXr002497@unicorn.berlios.de>
+
+Bug #12051, was updated on 2007-Sep-22 05:28
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: jikaheim
+Assigned to : none
+Summary: Better fix to gui handling bug
+
+Details: processGuiQueue()
+...
+pthread_rwlock_rdlock(&guiQueueLock);
+
+		while (guiFuncs.size()>0)
+		{
+			func = guiFuncs.front();
+			pthread_rwlock_unlock(&guiQueueLock);
+
+			func->call();
+
+			pthread_rwlock_wrlock(&guiQueueLock);
+			delete func;
+			guiFuncs.erase(guiFuncs.begin());
+			pthread_rwlock_unlock(&guiQueueLock);
+	
+			pthread_rwlock_rdlock(&guiQueueLock);
+			
+		}
+		pthread_rwlock_unlock(&guiQueueLock);
+...
+
+processClientQueue()
+...
+pthread_mutex_lock(&clientCallLock);
+		pthread_rwlock_rdlock(&clientQueueLock);
+
+		while (clientFuncs.size()>0)
+		{
+			func = clientFuncs.front();
+			pthread_rwlock_unlock(&clientQueueLock);
+
+			func->call();
+
+			pthread_rwlock_wrlock(&clientQueueLock);
+			delete func;
+			clientFuncs.erase(clientFuncs.begin());
+			pthread_rwlock_unlock(&clientQueueLock);
+			
+			pthread_rwlock_rdlock(&clientQueueLock);
+		}
+		pthread_rwlock_unlock(&clientQueueLock);
+		pthread_mutex_unlock(&clientCallLock);
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12051&group_id=2230
+
+
+From admin at berlios.de  Sun Sep 23 23:28:04 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 23 Sep 2007 18:28:04 -0300 (ART)
+Subject: [Linuxdcpp-developers] [Bug #12058] Hubs are not removed from
+	search list after reconnection
+Message-ID: <200709232128.l8NLS4aH008154@unicorn.berlios.de>
+
+Bug #12058, was updated on 2007-Sep-23 18:28
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: adelfino
+Assigned to : none
+Summary: Hubs are not removed from search list after reconnection
+
+Details: Steps to reproduce:
+
+1. Open Search.
+2. Connect to a hub.
+3. See the hub appear under Hubs in Search.
+4. Reconnect to the hub.
+5. See the hub appear twice under Hubs in Search.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12058&group_id=2230
+
+
+From steven.sheehy at gmail.com  Sun Sep 23 23:41:07 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sun, 23 Sep 2007 16:41:07 -0500
+Subject: [Linuxdcpp-developers] LinuxDC++ 1.0.0
+Message-ID: <46F6DD73.4020407@gmail.com>
+
+                   Release Notes for LinuxDC++ 1.0.0
+                   ---------------------------------
+
+
+Overview
+========
+
+The LinuxDC++ team is pleased to announce the release of LinuxDC++ 1.0.0. This
+release is the culmination of almost three years worth of work. Hopefully
+you'll find it was worth the wait. Thanks to all of those who have contributed
+in making this release possible. You can look forward to many more things to
+come in the near future including i18n support, user commands and magnet
+support.
+
+
+Download
+========
+
+LinuxDC++ 1.0.0 is now available for download at:
+
+  ftp://ftp.berlios.de/pub/linuxdcpp
+
+linuxdcpp-1.0.0.tar.bz2   md5sum: 33c3b0ae46772dec3142e35c30401a27
+linuxdcpp-1.0.0.tar.gz    md5sum: 4692cce99875abf904036dc29241fa40
+
+At this time, we will not be offering binary packages. Please check with your
+distribution to see if they will be carrying this release and request that they
+include it if they do not.
+
+
+What is LinuxDC++
+=================
+
+LinuxDC++ is a Linux port of the Direct Connect client DC++. Though it is
+primarily aimed at Linux, it has been shown to work on other Unix-based
+operating systems as well. It is written in C++ and makes use of GTK+ for the
+user-interface. LinuxDC++ is free and open source software licensed under the
+GPL.
+
+Direct connect is a peer-to-peer file-sharing protocol. The most popular Windows
+client implementing this protocol currently is DC++. Direct connect clients
+connect to a central hub where they can view a list of clients or users
+connected to them. Users can search for files and download them from other
+clients, as well as chat with other users.
+
+
+Links
+=====
+
+  * LinuxDC++ home page (http://linuxdcpp.berlios.de/)
+  * LinuxDC++ Wiki: 
+http://openfacts.berlios.de/index-en.phtml?title=DC%2B%2B+for+Linux
+  * LinuxDC++ bug tracker: http://developer.berlios.de/bugs/?group_id=2230
+  * DC++: http://dcpp.net/
+  * DC++ FAQ: http://dcpp.net/faq/
+  * IRC Channel: #linuxdc++ at freenode.net
+
+
+Credits
+=======
+
+The LinuxDC++ Team:
+
+  Jens Oknelid (paskharen)
+  Alexander Nordfelth (phase)
+  Steven Sheehy
+
+
+Thanks to all the contributors to LinuxDC++, including:
+
+  Dyluck
+  s4kk3
+  Trent Lloyd
+  Kristian Berg/Ixan
+  luusl
+  Rikard Bj?rklind
+  clairvoyant
+  obi
+  John Armstrong
+  Naga
+  Vikram Aggarwal
+  Romain Beauxis
+  Tom Lofts
+  Matthew Ziegelbaum
+  Tobias Nygren
+  Johannes Sj?lund
+  Pavlov Konstantin
+  Fredrik Ullner
+  Mikael Eman
+  Rimas Kudelis
+  dorian
+  Bart Vullings
+  Razzloss
+  Jussi Peltola
+  Mattias Webj?rn Eriksson
+  Stanislav Maslovski
+  piotrp
+  kotnik
+
+
+
+Steven Sheehy
+September 23, 2007
+
+
+
+From admin at berlios.de  Mon Sep 24 16:27:15 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 24 Sep 2007 16:27:15 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #2185] add cp1250 encoding into list
+Message-ID: <200709241427.l8OERFoh020117@unicorn.berlios.de>
+
+Patch #2185 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: master_up
+Assigned to : none
+Summary: add cp1250 encoding into list
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2185&group_id=2230
+
+
+From toots at rastageeks.org  Mon Sep 24 18:33:14 2007
+From: toots at rastageeks.org (Romain Beauxis)
+Date: Mon, 24 Sep 2007 18:33:14 +0200
+Subject: [Linuxdcpp-developers] LinuxDC++ 1.0.0
+In-Reply-To: <46F6DD73.4020407@gmail.com>
+References: <46F6DD73.4020407@gmail.com>
+Message-ID: <200709241833.14176.toots@rastageeks.org>
+
+Le Sunday 23 September 2007 23:41:07 Steven Sheehy, vous avez ?crit?:
+> At this time, we will not be offering binary packages. Please check with
+> your distribution to see if they will be carrying this release and request
+> that they include it if they do not.
+
+Congratulations !
+
+Uploaded to debian !
+
+
+Romain
+-- 
+Lord is my light and my salvation. Who shall I be afraid of?
+- The Gladiators - My Thoughts
+The Lord is my light and my salvation; whom shall I fear?
+- Psalm 27:1
+
+
+From absorbb at gmail.com  Mon Sep 24 19:46:01 2007
+From: absorbb at gmail.com (=?utf-8?b?0JjQu9GM0LTQsNGAINCd0YPRgNC40YHQu9Cw0LzQvtCy?=)
+Date: Mon, 24 Sep 2007 21:46:01 +0400
+Subject: [Linuxdcpp-developers] LinuxDC++ 1.0.0
+In-Reply-To: <46F6DD73.4020407@gmail.com>
+References: <46F6DD73.4020407@gmail.com>
+Message-ID: <200709242146.01879.absorbb@gmail.com>
+
+Hi!
+
+Good news! But you forgot to make CVS commit.
+
+Thanks.
+
+
+From admin at berlios.de  Mon Sep 24 20:27:33 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 24 Sep 2007 10:27:33 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Patch #2186] Fix to CPU usage issues,
+	bugs 012051 and 010552
+Message-ID: <200709241827.l8OIRXGA019077@unicorn.berlios.de>
+
+Patch #2186 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: jikaheim
+Assigned to : none
+Summary: Fix to CPU usage issues, bugs 012051 and 010552
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2186&group_id=2230
+
+
+From admin at berlios.de  Mon Sep 24 20:31:02 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 24 Sep 2007 10:31:02 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Patch #2187] Compact output to search tab,
+	row per TTH
+Message-ID: <200709241831.l8OIV2hp025398@unicorn.berlios.de>
+
+Patch #2187 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: jikaheim
+Assigned to : none
+Summary: Compact output to search tab, row per TTH
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2187&group_id=2230
+
+
+From admin at berlios.de  Mon Sep 24 22:12:03 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 24 Sep 2007 23:12:03 +0300 (EEST)
+Subject: [Linuxdcpp-developers] [Patch #2188] Search grouping
+Message-ID: <200709242012.l8OKC33x013745@unicorn.berlios.de>
+
+Patch #2188 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: razzloss
+Assigned to : none
+Summary: Search grouping
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2188&group_id=2230
+
+
+From tomashnyk at gmail.com  Tue Sep 25 00:35:01 2007
+From: tomashnyk at gmail.com (=?utf-8?B?VG9tw6HFoSBIbnlr?=)
+Date: Tue, 25 Sep 2007 00:35:01 +0200
+Subject: [Linuxdcpp-developers] 1.0.0 fails to compile
+Message-ID: <op.ty6jonwitrbvx2@bill>
+
+Hello,
+I am an end user basically so feel free to disregard me, but since you  
+have released 1.0.0, I hope the situation has changed.
+I am on Ubuntu 7.04 (Feisty Fawn) and i try to install linuxDC++ iwth sudo  
+scons install but it gives me:
+cons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+Install file: "glade/downloadqueue.glade" as  
+"/usr/local/share/linuxdcpp/glade/downloadqueue.glade"
+Install file: "glade/favoritehubs.glade" as  
+"/usr/local/share/linuxdcpp/glade/favoritehubs.glade"
+Install file: "glade/finishedtransfers.glade" as  
+"/usr/local/share/linuxdcpp/glade/finishedtransfers.glade"
+Install file: "glade/hash.glade" as  
+"/usr/local/share/linuxdcpp/glade/hash.glade"
+Install file: "glade/hub.glade" as  
+"/usr/local/share/linuxdcpp/glade/hub.glade"
+Install file: "glade/mainwindow.glade" as  
+"/usr/local/share/linuxdcpp/glade/mainwindow.glade"
+Install file: "glade/privatemessage.glade" as  
+"/usr/local/share/linuxdcpp/glade/privatemessage.glade"
+Install file: "glade/publichubs.glade" as  
+"/usr/local/share/linuxdcpp/glade/publichubs.glade"
+Install file: "glade/search.glade" as  
+"/usr/local/share/linuxdcpp/glade/search.glade"
+Install file: "glade/settingsdialog.glade" as  
+"/usr/local/share/linuxdcpp/glade/settingsdialog.glade"
+Install file: "glade/sharebrowser.glade" as  
+"/usr/local/share/linuxdcpp/glade/sharebrowser.glade"
+Install file: "pixmaps/connect.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/connect.png"
+Install file: "pixmaps/dc++.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/dc++.png"
+Install file: "pixmaps/dc++-fw.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/dc++-fw.png"
+Install file: "pixmaps/dc++-fw-op.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/dc++-fw-op.png"
+Install file: "pixmaps/dc++-op.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/dc++-op.png"
+Install file: "pixmaps/download.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/download.png"
+Install file: "pixmaps/favhubs.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/favhubs.png"
+Install file: "pixmaps/FinishedDL.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/FinishedDL.png"
+Install file: "pixmaps/FinishedUL.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/FinishedUL.png"
+Install file: "pixmaps/hash.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/hash.png"
+Install file: "pixmaps/linuxdcpp.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/linuxdcpp.png"
+Install file: "pixmaps/linuxdcpp-icon.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/linuxdcpp-icon.png"
+Install file: "pixmaps/normal.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/normal.png"
+Install file: "pixmaps/normal-fw.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/normal-fw.png"
+Install file: "pixmaps/normal-fw-op.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/normal-fw-op.png"
+Install file: "pixmaps/normal-op.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/normal-op.png"
+Install file: "pixmaps/publichubs.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/publichubs.png"
+Install file: "pixmaps/queue.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/queue.png"
+Install file: "pixmaps/quit.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/quit.png"
+Install file: "pixmaps/search.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/search.png"
+Install file: "pixmaps/settings.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/settings.png"
+Install file: "pixmaps/upload.png" as  
+"/usr/local/share/linuxdcpp/pixmaps/upload.png"
+Install file: "Changelog.txt" as  
+"/usr/local/share/doc/linuxdcpp/Changelog.txt"
+Install file: "Credits.txt" as "/usr/local/share/doc/linuxdcpp/Credits.txt"
+Install file: "License.txt" as "/usr/local/share/doc/linuxdcpp/License.txt"
+Install file: "Readme.txt" as "/usr/local/share/doc/linuxdcpp/Readme.txt"
+scons: *** Source `linuxdcpp' not found, needed by target  
+`/usr/local/bin/linuxdcpp'.  Stop.
+scons: building terminated because of errors.
+
+I do not understand scons one bit, but I tried to look for linuxdcpp in  
+the tarball and there is no such file. I retrieved it from  
+tp://ftp.berlios.de/pub/linuxdcpp/ (tried both gz and bz2).
+
+I compiled cvs version of LinuxDC++ several months ago without any  
+problems. But now upgrade seems to not work anymore.
+
+I uninstalled the earlier version, even though it took me some time to  
+figure out that -c option is needed. A mention about uninstalling would be  
+nice in the readme, I guess not that many people are so familiar with  
+scons.
+
+BTW: the earlier version I was running was great, certainly much better  
+than something through wine.
+
+Regards,
+Tomas Hnyk
+
+
+
+
+-- 
+A: Because it fouls the order in which people normally read text.
+Q: Why is top-posting such a bad thing?
+A: Top-posting.
+Q: What is the most annoying thing in e-mail?
+
+
+From toots at rastageeks.org  Tue Sep 25 00:39:29 2007
+From: toots at rastageeks.org (Romain Beauxis)
+Date: Tue, 25 Sep 2007 00:39:29 +0200
+Subject: [Linuxdcpp-developers] 1.0.0 fails to compile
+In-Reply-To: <op.ty6jonwitrbvx2@bill>
+References: <op.ty6jonwitrbvx2@bill>
+Message-ID: <200709250039.30388.toots@rastageeks.org>
+
+Le Tuesday 25 September 2007 00:35:01 Tom?? Hnyk, vous avez ?crit?:
+> I am on Ubuntu 7.04 (Feisty Fawn) and i try to install linuxDC++ iwth sudo
+> ? scons install
+
+You should try 
+  sudo scons 
+to build the binary before installing I guess..
+
+Also, debian package has finally reached gusty, see:
+  http://packages.ubuntu.com/gutsy/net/linuxdcpp
+
+Romain
+-- 
+Hours beat, the scene moving right
+When all on a sudden
+Bam, bam, bam, a knocking pon the door
+"Who is dat?", aksed Weston, feeling right
+"Open up, it's the police, come on, open up"
+"What address do you want?"
+"Number 66, come on, open up"
+Weston, feeling high, replied, "Yes, this is Street 66, step right in and
+take some licks."
+
+
+From steven.sheehy at gmail.com  Tue Sep 25 02:29:58 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Mon, 24 Sep 2007 19:29:58 -0500
+Subject: [Linuxdcpp-developers] LinuxDC++ 1.0.0
+In-Reply-To: <200709242146.01879.absorbb@gmail.com>
+References: <46F6DD73.4020407@gmail.com> <200709242146.01879.absorbb@gmail.com>
+Message-ID: <46F85686.7060200@gmail.com>
+
+?????? ?????????? wrote:
+> Hi!
+> 
+> Good news! But you forgot to make CVS commit.
+> 
+> Thanks.
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+> 
+
+Not really, it uses August 4 cvs.
+
+
+From steven.sheehy at gmail.com  Tue Sep 25 02:42:43 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Mon, 24 Sep 2007 19:42:43 -0500
+Subject: [Linuxdcpp-developers] 1.0.0 fails to compile
+In-Reply-To: <200709250039.30388.toots@rastageeks.org>
+References: <op.ty6jonwitrbvx2@bill> <200709250039.30388.toots@rastageeks.org>
+Message-ID: <46F85983.9020002@gmail.com>
+
+Romain Beauxis wrote:
+> Le Tuesday 25 September 2007 00:35:01 Tom?? Hnyk, vous avez ?crit :
+>> I am on Ubuntu 7.04 (Feisty Fawn) and i try to install linuxDC++ iwth sudo
+>>   scons install
+> 
+> You should try 
+>   sudo scons 
+> to build the binary before installing I guess..
+> 
+> Also, debian package has finally reached gusty, see:
+>   http://packages.ubuntu.com/gutsy/net/linuxdcpp
+> 
+> Romain
+
+Please don't build the binary using sudo. Just run
+
+scons release=1
+
+then
+
+sudo scons install
+
+
+By the way, it does mention this information in the readme.
+
+-Steven
+
+
+From paskharen at gmail.com  Tue Sep 25 19:21:55 2007
+From: paskharen at gmail.com (Jens Oknelid)
+Date: Tue, 25 Sep 2007 19:21:55 +0200
+Subject: [Linuxdcpp-developers] LinuxDC++ 1.0.0
+In-Reply-To: <46F85686.7060200@gmail.com>
+References: <46F6DD73.4020407@gmail.com> <200709242146.01879.absorbb@gmail.com>
+	<46F85686.7060200@gmail.com>
+Message-ID: <32f194a0709251021r6a84f558h91330d5b96b57ca5@mail.gmail.com>
+
+Cool :) Good work everybody!
+
+/Jens
+
+On 9/25/07, Steven Sheehy <steven.sheehy at gmail.com> wrote:
+> ?????? ?????????? wrote:
+> > Hi!
+> >
+> > Good news! But you forgot to make CVS commit.
+> >
+> > Thanks.
+> > _______________________________________________
+> > Linuxdcpp-developers mailing list
+> > Linuxdcpp-developers at lists.berlios.de
+> > https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+> >
+>
+> Not really, it uses August 4 cvs.
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+>
+
+From admin at berlios.de  Tue Sep 25 20:21:45 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 25 Sep 2007 10:21:45 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Patch #2189] Search grouping with count
+Message-ID: <200709251821.l8PILjsp004649@unicorn.berlios.de>
+
+Patch #2189 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: jikaheim
+Assigned to : none
+Summary: Search grouping with count
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2189&group_id=2230
+
+
+From konstantin.vasiliev at gmail.com  Wed Sep 26 20:16:52 2007
+From: konstantin.vasiliev at gmail.com (Konstantin Vasiliev)
+Date: Wed, 26 Sep 2007 22:16:52 +0400
+Subject: [Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it
+In-Reply-To: <46F6DD73.4020407@gmail.com>
+References: <46F6DD73.4020407@gmail.com>
+Message-ID: <200709262216.52694.konstantin.vasiliev@gmail.com>
+
+? ????????? ?? 24 ???????? 2007 01:41 Steven Sheehy ???????(a):
+>                    Release Notes for LinuxDC++ 1.0.0
+>                    ---------------------------------
+>
+I run 
+$ scons PATH=/opt/linuxdcpp
+
+and I see only this
+
+client/Text.cpp: In static member function `static const std::string& 
+Text::convert(const std::string&, std::string&, const std::string&, const 
+std::string&)':
+client/Text.cpp:339: error: invalid conversion from `const char**' to `char**'
+client/Text.cpp:339: error:   initializing argument 2 of `size_t iconv(void*, 
+char**, size_t*, char**, size_t*)'
+scons: *** [build/client/Text.o] Error 1
+
+:-(
+
+
+From nagatoro at gmail.com  Wed Sep 26 21:44:35 2007
+From: nagatoro at gmail.com (Naga Toro)
+Date: Wed, 26 Sep 2007 21:44:35 +0200
+Subject: [Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it
+In-Reply-To: <200709262216.52694.konstantin.vasiliev@gmail.com>
+References: <46F6DD73.4020407@gmail.com>
+	<200709262216.52694.konstantin.vasiliev@gmail.com>
+Message-ID: <200709262144.35863.nagatoro@gmail.com>
+
+On Wednesday 26 September 2007 20.16.52 Konstantin Vasiliev wrote:
+> ? ????????? ?? 24 ???????? 2007 01:41 Steven Sheehy ???????(a):
+> >                    Release Notes for LinuxDC++ 1.0.0
+> >                    ---------------------------------
+>
+> I run
+> $ scons PATH=/opt/linuxdcpp
+>
+> and I see only this
+>
+> client/Text.cpp: In static member function `static const std::string&
+> Text::convert(const std::string&, std::string&, const std::string&, const
+> std::string&)':
+> client/Text.cpp:339: error: invalid conversion from `const char**' to
+> `char**' client/Text.cpp:339: error:   initializing argument 2 of `size_t
+> iconv(void*, char**, size_t*, char**, size_t*)'
+> scons: *** [build/client/Text.o] Error 1
+
+New gcc?
+If I'm not wrong this is a warnng turned error in the new gcc versions.
+
+-- 
+Naga
+
+
+From konstantin.vasiliev at gmail.com  Wed Sep 26 22:44:31 2007
+From: konstantin.vasiliev at gmail.com (Konstantin Vasiliev)
+Date: Thu, 27 Sep 2007 00:44:31 +0400
+Subject: [Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it
+In-Reply-To: <200709262144.35863.nagatoro@gmail.com>
+References: <46F6DD73.4020407@gmail.com>
+	<200709262216.52694.konstantin.vasiliev@gmail.com>
+	<200709262144.35863.nagatoro@gmail.com>
+Message-ID: <200709270044.32066.konstantin.vasiliev@gmail.com>
+
+? ????????? ?? 26 ???????? 2007 23:44 Naga Toro ???????(a):
+> On Wednesday 26 September 2007 20.16.52 Konstantin Vasiliev wrote:
+> > ? ????????? ?? 24 ???????? 2007 01:41 Steven Sheehy ???????(a):
+> > >                    Release Notes for LinuxDC++ 1.0.0
+> > >                    ---------------------------------
+> >
+> > I run
+> > $ scons PATH=/opt/linuxdcpp
+> >
+> > and I see only this
+> >
+> > client/Text.cpp: In static member function `static const std::string&
+> > Text::convert(const std::string&, std::string&, const std::string&, const
+> > std::string&)':
+> > client/Text.cpp:339: error: invalid conversion from `const char**' to
+> > `char**' client/Text.cpp:339: error:   initializing argument 2 of `size_t
+> > iconv(void*, char**, size_t*, char**, size_t*)'
+> > scons: *** [build/client/Text.o] Error 1
+>
+> New gcc?
+> If I'm not wrong this is a warnng turned error in the new gcc versions.
+
+And what can I do?
+Sorry, I'm not expert in Linux.
+Can you help me?   
+
+
+From admin at berlios.de  Sat Sep 29 02:12:50 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 28 Sep 2007 21:12:50 -0300 (ART)
+Subject: [Linuxdcpp-developers] [Bug #12091] Replace "window" occurrences
+	with "tab"
+Message-ID: <200709290012.l8T0CoJH020659@unicorn.berlios.de>
+
+Bug #12091, was updated on 2007-Sep-28 21:12
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: adelfino
+Assigned to : none
+Summary: Replace "window" occurrences with "tab"
+
+Details: LinuxDC++ does not use windows, so using that term is not the correct thing to do.
+
+Places I saw this happen: Windows menu; and stuff in Preferences\Appearance\Windows.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12091&group_id=2230
+
+
+From admin at berlios.de  Sun Sep 30 16:11:07 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 30 Sep 2007 11:11:07 -0300 (ART)
+Subject: [Linuxdcpp-developers] [Bug #12100] Away message says "DC++"
+Message-ID: <200709301411.l8UEB748012880@unicorn.berlios.de>
+
+Bug #12100, was updated on 2007-Sep-30 11:11
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: adelfino
+Assigned to : none
+Summary: Away message says "DC++"
+
+Details: Since this is not DC++, it should be changed to LinuxDC++:
+
+I'm away. State your business and I might answer later if you're lucky. <DC++ v0.698>
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=12100&group_id=2230
+
+

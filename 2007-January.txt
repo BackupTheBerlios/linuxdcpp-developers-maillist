@@ -1,0 +1,2600 @@
+From admin at berlios.de  Mon Jan  1 00:35:38 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 1 Jan 2007 00:35:38 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #1784] Patch for feature request 1806
+Message-ID: <200612312335.kBVNZcJJ015519@unicorn.berlios.de>
+
+Patch #1784 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: pemiem
+Assigned to : none
+Summary: Patch for feature request 1806
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1784&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Mon Jan  1 09:17:08 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Mon, 1 Jan 2007 09:17:08 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200701010817.l018H8Pl006440@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 1554 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070101/d8b5fc1b/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Mon Jan  1 22:21:11 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Mon, 1 Jan 2007 22:21:11 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200701012121.l01LLBXt018672@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 576 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070101/4f12736a/attachment.xml>
+
+From admin at berlios.de  Mon Jan  1 23:45:27 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 2 Jan 2007 01:45:27 +0300 (MSK)
+Subject: [Linuxdcpp-developers] [Patch #1790] 2 small bugs (filelist
+	download problems)
+Message-ID: <200701012245.l01MjRWX001935@unicorn.berlios.de>
+
+Patch #1790 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: b-s-a
+Assigned to : none
+Summary: 2 small bugs (filelist download problems)
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1790&group_id=2230
+
+
+From admin at berlios.de  Tue Jan  2 00:04:37 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 2 Jan 2007 02:04:37 +0300 (MSK)
+Subject: [Linuxdcpp-developers] [Patch #1791] My another patch for fix
+	codepage translation problems
+Message-ID: <200701012304.l01N4bHt002964@unicorn.berlios.de>
+
+Patch #1791 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: b-s-a
+Assigned to : none
+Summary: My another patch for fix codepage translation problems
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1791&group_id=2230
+
+
+From steven.sheehy at gmail.com  Thu Jan  4 07:18:48 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Thu, 04 Jan 2007 00:18:48 -0600
+Subject: [Linuxdcpp-developers] BerliOS
+Message-ID: <459C9C48.4020505@gmail.com>
+
+Lately, BerliOS seems to be more down than up. I may switch hosting services if 
+this continues (we have a Google code page, it's just empty right now). Luckily, 
+  the cvs still works so you can still retrieve the code. And of course this 
+mailing list works. Please send any bug reports, feature requests and patches to 
+the mailing list if BerliOS is down at that time.
+
+Thanks,
+Steven Sheehy
+
+
+From max.lapan at gmail.com  Thu Jan  4 08:32:19 2007
+From: max.lapan at gmail.com (Max Lapan)
+Date: Thu, 4 Jan 2007 10:32:19 +0300
+Subject: [Linuxdcpp-developers] [Patch] Magnet links support
+Message-ID: <20070104073219.GA23536@homenet.ru>
+
+Hello, 
+
+this patch adds support of magnet links in public and private chats.
+New functionality:
+
+1. Magnets highlighted as links in public and private chats
+
+2. You can copy links to clipboard, start search for it's TTH and examine
+it's properties using link context menu. Left mouse button click on link
+starts search, middle click opens properties dialog and left shows menu.
+
+3. you can copy magnet links of selected file (or group of files) in search
+result, share browser and download queue tabs.
+
+-- 
+Max Lapan <max.lapan at gmail.com>, +7(0855)296471, ICQ: 233841810
+PGP Fingerprint: 0C47 91E3 35BA 3E6D 64D5  5740 6F3C A37F C112 4765
+HPC Architect/Administrator, Engineering Analysis Systems Department
+JSC Saturn http://www.npo-saturn.ru
+-------------- next part --------------
+diff -Nru linuxdcpp/glade/downloadqueue.glade linuxdcpp-new/glade/downloadqueue.glade
+--- linuxdcpp/glade/downloadqueue.glade	2006-11-01 20:09:27.000000000 +0300
++++ linuxdcpp-new/glade/downloadqueue.glade	2007-01-03 23:58:16.000000000 +0300
+@@ -413,6 +413,20 @@
+       <property name="use_underline">True</property>
+     </widget>
+   </child>
++
++  <child>
++    <widget class="GtkSeparatorMenuItem" id="separator9">
++      <property name="visible">True</property>
++    </widget>
++  </child>
++
++  <child>
++    <widget class="GtkMenuItem" id="copyMagnetItem">
++      <property name="visible">True</property>
++      <property name="label" translatable="yes">Copy magnet</property>
++      <property name="use_underline">True</property>
++    </widget>
++  </child>
+ </widget>
+ 
+ <widget class="GtkFileChooserDialog" id="dirChooserDialog">
+diff -Nru linuxdcpp/glade/hub.glade linuxdcpp-new/glade/hub.glade
+--- linuxdcpp/glade/hub.glade	2006-09-28 01:16:15.000000000 +0400
++++ linuxdcpp-new/glade/hub.glade	2007-01-03 22:04:19.000000000 +0300
+@@ -336,7 +336,39 @@
+       <property name="use_underline">True</property>
+     </widget>
+   </child>
++</widget>
++
++<widget class="GtkMenu" id="magnetMenu">
++
++  <child>
++    <widget class="GtkMenuItem" id="searchMagnetItem">
++      <property name="visible">True</property>
++      <property name="label" translatable="yes">Search</property>
++      <property name="use_underline">True</property>
++    </widget>
++  </child>
++
++  <child>
++    <widget class="GtkMenuItem" id="copyMagnetItem">
++      <property name="visible">True</property>
++      <property name="label" translatable="yes">Copy</property>
++      <property name="use_underline">True</property>
++    </widget>
++  </child>
++
++  <child>
++    <widget class="GtkSeparatorMenuItem" id="separator1">
++      <property name="visible">True</property>
++    </widget>
++  </child>
+ 
++  <child>
++    <widget class="GtkMenuItem" id="magnetPropertiesItem">
++      <property name="visible">True</property>
++      <property name="label" translatable="yes">Properties...</property>
++      <property name="use_underline">True</property>
++    </widget>
++  </child>
+ </widget>
+ 
+ </glade-interface>
+diff -Nru linuxdcpp/glade/magnet.glade linuxdcpp-new/glade/magnet.glade
+--- linuxdcpp/glade/magnet.glade	1970-01-01 03:00:00.000000000 +0300
++++ linuxdcpp-new/glade/magnet.glade	2007-01-03 23:33:24.000000000 +0300
+@@ -0,0 +1,335 @@
++<?xml version="1.0" standalone="no"?> <!--*- mode: xml -*-->
++<!DOCTYPE glade-interface SYSTEM "http://glade.gnome.org/glade-2.0.dtd">
++
++<glade-interface>
++
++<widget class="GtkDialog" id="dialog">
++  <property name="visible">True</property>
++  <property name="title" translatable="yes">Magnet properties</property>
++  <property name="type">GTK_WINDOW_TOPLEVEL</property>
++  <property name="window_position">GTK_WIN_POS_NONE</property>
++  <property name="modal">False</property>
++  <property name="resizable">True</property>
++  <property name="destroy_with_parent">False</property>
++  <property name="decorated">True</property>
++  <property name="skip_taskbar_hint">False</property>
++  <property name="skip_pager_hint">False</property>
++  <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
++  <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
++  <property name="focus_on_map">True</property>
++  <property name="urgency_hint">False</property>
++  <property name="has_separator">True</property>
++
++  <child internal-child="vbox">
++    <widget class="GtkVBox" id="dialog-vbox1">
++      <property name="visible">True</property>
++      <property name="homogeneous">False</property>
++      <property name="spacing">0</property>
++
++      <child internal-child="action_area">
++	<widget class="GtkHButtonBox" id="dialog-action_area1">
++	  <property name="visible">True</property>
++	  <property name="layout_style">GTK_BUTTONBOX_END</property>
++
++	  <child>
++	    <widget class="GtkButton" id="closebutton1">
++	      <property name="visible">True</property>
++	      <property name="can_default">True</property>
++	      <property name="can_focus">True</property>
++	      <property name="label">gtk-find</property>
++	      <property name="use_stock">True</property>
++	      <property name="relief">GTK_RELIEF_NORMAL</property>
++	      <property name="focus_on_click">True</property>
++	      <property name="response_id">-5</property>
++	    </widget>
++	  </child>
++
++	  <child>
++	    <widget class="GtkButton" id="button1">
++	      <property name="visible">True</property>
++	      <property name="can_default">True</property>
++	      <property name="can_focus">True</property>
++	      <property name="label">gtk-close</property>
++	      <property name="use_stock">True</property>
++	      <property name="relief">GTK_RELIEF_NORMAL</property>
++	      <property name="focus_on_click">True</property>
++	      <property name="response_id">-7</property>
++	    </widget>
++	  </child>
++	</widget>
++	<packing>
++	  <property name="padding">0</property>
++	  <property name="expand">False</property>
++	  <property name="fill">True</property>
++	  <property name="pack_type">GTK_PACK_END</property>
++	</packing>
++      </child>
++
++      <child>
++	<widget class="GtkTable" id="table1">
++	  <property name="border_width">8</property>
++	  <property name="visible">True</property>
++	  <property name="n_rows">5</property>
++	  <property name="n_columns">2</property>
++	  <property name="homogeneous">False</property>
++	  <property name="row_spacing">5</property>
++	  <property name="column_spacing">6</property>
++
++	  <child>
++	    <widget class="GtkLabel" id="label1">
++	      <property name="visible">True</property>
++	      <property name="label" translatable="yes">Magnet</property>
++	      <property name="use_underline">False</property>
++	      <property name="use_markup">False</property>
++	      <property name="justify">GTK_JUSTIFY_LEFT</property>
++	      <property name="wrap">False</property>
++	      <property name="selectable">False</property>
++	      <property name="xalign">0</property>
++	      <property name="yalign">0.5</property>
++	      <property name="xpad">0</property>
++	      <property name="ypad">0</property>
++	      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
++	      <property name="width_chars">-1</property>
++	      <property name="single_line_mode">False</property>
++	      <property name="angle">0</property>
++	    </widget>
++	    <packing>
++	      <property name="left_attach">0</property>
++	      <property name="right_attach">1</property>
++	      <property name="top_attach">0</property>
++	      <property name="bottom_attach">1</property>
++	      <property name="x_options">fill</property>
++	      <property name="y_options"></property>
++	    </packing>
++	  </child>
++
++	  <child>
++	    <widget class="GtkLabel" id="label2">
++	      <property name="visible">True</property>
++	      <property name="label" translatable="yes">File name</property>
++	      <property name="use_underline">False</property>
++	      <property name="use_markup">False</property>
++	      <property name="justify">GTK_JUSTIFY_LEFT</property>
++	      <property name="wrap">False</property>
++	      <property name="selectable">False</property>
++	      <property name="xalign">0</property>
++	      <property name="yalign">0.5</property>
++	      <property name="xpad">0</property>
++	      <property name="ypad">0</property>
++	      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
++	      <property name="width_chars">-1</property>
++	      <property name="single_line_mode">False</property>
++	      <property name="angle">0</property>
++	    </widget>
++	    <packing>
++	      <property name="left_attach">0</property>
++	      <property name="right_attach">1</property>
++	      <property name="top_attach">1</property>
++	      <property name="bottom_attach">2</property>
++	      <property name="x_options">fill</property>
++	      <property name="y_options"></property>
++	    </packing>
++	  </child>
++
++	  <child>
++	    <widget class="GtkLabel" id="label3">
++	      <property name="visible">True</property>
++	      <property name="label" translatable="yes">Size</property>
++	      <property name="use_underline">False</property>
++	      <property name="use_markup">False</property>
++	      <property name="justify">GTK_JUSTIFY_LEFT</property>
++	      <property name="wrap">False</property>
++	      <property name="selectable">False</property>
++	      <property name="xalign">0</property>
++	      <property name="yalign">0.5</property>
++	      <property name="xpad">0</property>
++	      <property name="ypad">0</property>
++	      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
++	      <property name="width_chars">-1</property>
++	      <property name="single_line_mode">False</property>
++	      <property name="angle">0</property>
++	    </widget>
++	    <packing>
++	      <property name="left_attach">0</property>
++	      <property name="right_attach">1</property>
++	      <property name="top_attach">2</property>
++	      <property name="bottom_attach">3</property>
++	      <property name="x_options">fill</property>
++	      <property name="y_options"></property>
++	    </packing>
++	  </child>
++
++	  <child>
++	    <widget class="GtkLabel" id="label4">
++	      <property name="visible">True</property>
++	      <property name="label" translatable="yes">TTH</property>
++	      <property name="use_underline">False</property>
++	      <property name="use_markup">False</property>
++	      <property name="justify">GTK_JUSTIFY_LEFT</property>
++	      <property name="wrap">False</property>
++	      <property name="selectable">False</property>
++	      <property name="xalign">0</property>
++	      <property name="yalign">0.5</property>
++	      <property name="xpad">0</property>
++	      <property name="ypad">0</property>
++	      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
++	      <property name="width_chars">-1</property>
++	      <property name="single_line_mode">False</property>
++	      <property name="angle">0</property>
++	    </widget>
++	    <packing>
++	      <property name="left_attach">0</property>
++	      <property name="right_attach">1</property>
++	      <property name="top_attach">4</property>
++	      <property name="bottom_attach">5</property>
++	      <property name="x_options">fill</property>
++	      <property name="y_options"></property>
++	    </packing>
++	  </child>
++
++	  <child>
++	    <widget class="GtkEntry" id="nameEntry">
++	      <property name="visible">True</property>
++	      <property name="can_focus">True</property>
++	      <property name="editable">False</property>
++	      <property name="visibility">True</property>
++	      <property name="max_length">0</property>
++	      <property name="text" translatable="yes"></property>
++	      <property name="has_frame">True</property>
++	      <property name="invisible_char">*</property>
++	      <property name="activates_default">False</property>
++	    </widget>
++	    <packing>
++	      <property name="left_attach">1</property>
++	      <property name="right_attach">2</property>
++	      <property name="top_attach">1</property>
++	      <property name="bottom_attach">2</property>
++	      <property name="y_options"></property>
++	    </packing>
++	  </child>
++
++	  <child>
++	    <widget class="GtkEntry" id="sizeEntry">
++	      <property name="visible">True</property>
++	      <property name="can_focus">True</property>
++	      <property name="editable">False</property>
++	      <property name="visibility">True</property>
++	      <property name="max_length">0</property>
++	      <property name="text" translatable="yes"></property>
++	      <property name="has_frame">True</property>
++	      <property name="invisible_char">*</property>
++	      <property name="activates_default">False</property>
++	    </widget>
++	    <packing>
++	      <property name="left_attach">1</property>
++	      <property name="right_attach">2</property>
++	      <property name="top_attach">2</property>
++	      <property name="bottom_attach">3</property>
++	      <property name="y_options"></property>
++	    </packing>
++	  </child>
++
++	  <child>
++	    <widget class="GtkEntry" id="tthEntry">
++	      <property name="visible">True</property>
++	      <property name="can_focus">True</property>
++	      <property name="editable">False</property>
++	      <property name="visibility">True</property>
++	      <property name="max_length">0</property>
++	      <property name="text" translatable="yes"></property>
++	      <property name="has_frame">True</property>
++	      <property name="invisible_char">*</property>
++	      <property name="activates_default">False</property>
++	    </widget>
++	    <packing>
++	      <property name="left_attach">1</property>
++	      <property name="right_attach">2</property>
++	      <property name="top_attach">4</property>
++	      <property name="bottom_attach">5</property>
++	      <property name="y_options"></property>
++	    </packing>
++	  </child>
++
++	  <child>
++	    <widget class="GtkEntry" id="magnetEntry">
++	      <property name="visible">True</property>
++	      <property name="can_focus">True</property>
++	      <property name="has_focus">True</property>
++	      <property name="editable">False</property>
++	      <property name="visibility">True</property>
++	      <property name="max_length">0</property>
++	      <property name="text" translatable="yes"></property>
++	      <property name="has_frame">True</property>
++	      <property name="invisible_char">*</property>
++	      <property name="activates_default">False</property>
++	      <property name="width_chars">35</property>
++	    </widget>
++	    <packing>
++	      <property name="left_attach">1</property>
++	      <property name="right_attach">2</property>
++	      <property name="top_attach">0</property>
++	      <property name="bottom_attach">1</property>
++	      <property name="y_options"></property>
++	    </packing>
++	  </child>
++
++	  <child>
++	    <widget class="GtkLabel" id="label5">
++	      <property name="visible">True</property>
++	      <property name="label" translatable="yes">Exact size</property>
++	      <property name="use_underline">False</property>
++	      <property name="use_markup">False</property>
++	      <property name="justify">GTK_JUSTIFY_LEFT</property>
++	      <property name="wrap">False</property>
++	      <property name="selectable">False</property>
++	      <property name="xalign">0</property>
++	      <property name="yalign">0.5</property>
++	      <property name="xpad">0</property>
++	      <property name="ypad">0</property>
++	      <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
++	      <property name="width_chars">-1</property>
++	      <property name="single_line_mode">False</property>
++	      <property name="angle">0</property>
++	    </widget>
++	    <packing>
++	      <property name="left_attach">0</property>
++	      <property name="right_attach">1</property>
++	      <property name="top_attach">3</property>
++	      <property name="bottom_attach">4</property>
++	      <property name="x_options">fill</property>
++	      <property name="y_options"></property>
++	    </packing>
++	  </child>
++
++	  <child>
++	    <widget class="GtkEntry" id="exactSizeEntry">
++	      <property name="visible">True</property>
++	      <property name="can_focus">True</property>
++	      <property name="editable">False</property>
++	      <property name="visibility">True</property>
++	      <property name="max_length">0</property>
++	      <property name="text" translatable="yes"></property>
++	      <property name="has_frame">True</property>
++	      <property name="invisible_char">*</property>
++	      <property name="activates_default">False</property>
++	    </widget>
++	    <packing>
++	      <property name="left_attach">1</property>
++	      <property name="right_attach">2</property>
++	      <property name="top_attach">3</property>
++	      <property name="bottom_attach">4</property>
++	      <property name="y_options"></property>
++	    </packing>
++	  </child>
++	</widget>
++	<packing>
++	  <property name="padding">0</property>
++	  <property name="expand">True</property>
++	  <property name="fill">True</property>
++	</packing>
++      </child>
++    </widget>
++  </child>
++</widget>
++
++</glade-interface>
+diff -Nru linuxdcpp/glade/privatemessage.glade linuxdcpp-new/glade/privatemessage.glade
+--- linuxdcpp/glade/privatemessage.glade	2006-09-01 19:05:56.000000000 +0400
++++ linuxdcpp-new/glade/privatemessage.glade	2007-01-04 01:18:27.000000000 +0300
+@@ -65,4 +65,37 @@
+   </child>
+ </widget>
+ 
++<widget class="GtkMenu" id="magnetMenu">
++
++  <child>
++    <widget class="GtkMenuItem" id="searchMagnetItem">
++      <property name="visible">True</property>
++      <property name="label" translatable="yes">Search</property>
++      <property name="use_underline">True</property>
++    </widget>
++  </child>
++
++  <child>
++    <widget class="GtkMenuItem" id="copyMagnetItem">
++      <property name="visible">True</property>
++      <property name="label" translatable="yes">Copy</property>
++      <property name="use_underline">True</property>
++    </widget>
++  </child>
++
++  <child>
++    <widget class="GtkSeparatorMenuItem" id="separator1">
++      <property name="visible">True</property>
++    </widget>
++  </child>
++
++  <child>
++    <widget class="GtkMenuItem" id="magnetPropertiesItem">
++      <property name="visible">True</property>
++      <property name="label" translatable="yes">Properties...</property>
++      <property name="use_underline">True</property>
++    </widget>
++  </child>
++</widget>
++
+ </glade-interface>
+diff -Nru linuxdcpp/glade/search.glade linuxdcpp-new/glade/search.glade
+--- linuxdcpp/glade/search.glade	2007-01-01 15:14:20.000000000 +0300
++++ linuxdcpp-new/glade/search.glade	2007-01-03 23:59:28.000000000 +0300
+@@ -678,6 +678,20 @@
+       <property name="use_underline">True</property>
+     </widget>
+   </child>
++
++  <child>
++    <widget class="GtkSeparatorMenuItem" id="separator9">
++      <property name="visible">True</property>
++    </widget>
++  </child>
++
++  <child>
++    <widget class="GtkMenuItem" id="copyMagnetItem">
++      <property name="visible">True</property>
++      <property name="label" translatable="yes">Copy magnet</property>
++      <property name="use_underline">True</property>
++    </widget>
++  </child>
+ </widget>
+ 
+ <widget class="GtkFileChooserDialog" id="dirChooserDialog">
+diff -Nru linuxdcpp/glade/sharebrowser.glade linuxdcpp-new/glade/sharebrowser.glade
+--- linuxdcpp/glade/sharebrowser.glade	2006-09-24 03:03:09.000000000 +0400
++++ linuxdcpp-new/glade/sharebrowser.glade	2007-01-01 19:31:02.000000000 +0300
+@@ -398,6 +398,20 @@
+       <property name="use_underline">True</property>
+     </widget>
+   </child>
++
++  <child>
++    <widget class="GtkSeparatorMenuItem" id="separator9">
++      <property name="visible">True</property>
++    </widget>
++  </child>
++
++  <child>
++    <widget class="GtkMenuItem" id="copyMagnetItem">
++      <property name="visible">True</property>
++      <property name="label" translatable="yes">Copy magnet</property>
++      <property name="use_underline">True</property>
++    </widget>
++  </child>
+ </widget>
+ 
+ <widget class="GtkFileChooserDialog" id="dirChooserDialog">
+diff -Nru linuxdcpp/linux/downloadqueue.cc linuxdcpp-new/linux/downloadqueue.cc
+--- linuxdcpp/linux/downloadqueue.cc	2007-01-01 15:14:27.000000000 +0300
++++ linuxdcpp-new/linux/downloadqueue.cc	2007-01-04 00:49:45.000000000 +0300
+@@ -81,6 +81,7 @@
+ 	g_signal_connect(getWidget("fileHighPriorityItem"), "activate", G_CALLBACK(onFilePriorityClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("fileHighestPriorityItem"), "activate", G_CALLBACK(onFilePriorityClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("fileRemoveItem"), "activate", G_CALLBACK(onRemoveFileClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget("copyMagnetItem"), "activate", G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
+  	g_signal_connect(dirView.get(), "button-press-event", G_CALLBACK(onDirButtonPressed_gui), (gpointer)this);
+ 	g_signal_connect(dirView.get(), "button-release-event", G_CALLBACK(onDirButtonReleased_gui), (gpointer)this);
+ 	g_signal_connect(dirView.get(), "key-release-event", G_CALLBACK(onDirKeyReleased_gui), (gpointer)this);
+@@ -1020,6 +1021,38 @@
+ 	}
+ }
+ 
++
++void DownloadQueue::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
++{
++	DownloadQueue *dq = (DownloadQueue *)data;
++	GtkTreePath *path;
++	GtkTreeIter iter;
++	string magnets;
++	GList *list = gtk_tree_selection_get_selected_rows(dq->fileSelection, NULL);
++	int count = gtk_tree_selection_count_selected_rows(dq->fileSelection);
++
++	for (int i = 0; i < count; i++)
++	{
++		path = (GtkTreePath *)g_list_nth_data(list, i);
++		if (gtk_tree_model_get_iter(GTK_TREE_MODEL(dq->fileStore), &iter, path))
++		{
++			string magnet = WulforUtil::makeMagnet (dq->fileView.getValue<gpointer, QueueItem *>(&iter, "QueueItem"));
++
++			if (!magnet.empty ())
++			{
++				if (!magnets.empty ())
++					magnets += '\n';
++				magnets += magnet;
++			}
++		}
++		gtk_tree_path_free(path);
++	}
++	g_list_free(list);
++	if (!magnets.empty ())
++		gtk_clipboard_set_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD), magnets.c_str (), magnets.length ());
++}
++
++
+ void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) throw()
+ {
+ 	WulforManager::get()->dispatchGuiFunc(new Func1<DownloadQueue, QueueItem*>(this, &DownloadQueue::addItem_gui, item));
+diff -Nru linuxdcpp/linux/downloadqueue.hh linuxdcpp-new/linux/downloadqueue.hh
+--- linuxdcpp/linux/downloadqueue.hh	2007-01-01 15:14:27.000000000 +0300
++++ linuxdcpp-new/linux/downloadqueue.hh	2007-01-04 00:49:13.000000000 +0300
+@@ -74,6 +74,7 @@
+ 		static void onReAddSourceClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onRemoveSourceClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data);
+ 
+ 		// Client functions
+ 		void remove_client(std::string path);
+diff -Nru linuxdcpp/linux/hub.cc linuxdcpp-new/linux/hub.cc
+--- linuxdcpp/linux/hub.cc	2007-01-01 15:14:28.000000000 +0300
++++ linuxdcpp-new/linux/hub.cc	2007-01-04 10:20:17.000000000 +0300
+@@ -21,16 +21,21 @@
+ #include <client/FavoriteManager.h>
+ #include <client/HashManager.h>
+ #include <client/ShareManager.h>
++#include <client/SearchManager.h>
+ #include "privatemessage.hh"
+ #include "settingsmanager.hh"
+ #include "wulformanager.hh"
+ #include "WulforUtil.hh"
++#include "search.hh"
++
+ 
+ using namespace std;
+ 
+ Hub::Hub(const string &address):
+ 	BookEntry("Hub: " + address, "hub.glade")
+ {
++	linkCursor = gdk_cursor_new (GDK_HAND2);
++
+ 	// Configure the dialog
+ 	gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("passwordDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
+ 
+@@ -97,10 +102,15 @@
+ 	g_signal_connect(nickView.get(), "key-release-event", G_CALLBACK(onNickListKeyRelease_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("chatEntry"), "activate", G_CALLBACK(onSendMessage_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("chatEntry"), "key-press-event", G_CALLBACK(onEntryKeyPress_gui), (gpointer)this);
++	g_signal_connect(getWidget("chatText"), "motion-notify-event", G_CALLBACK(onChatPointerMoved_gui), (gpointer)this);
++	g_signal_connect(getWidget("chatText"), "visibility-notify-event", G_CALLBACK(onChatVisibilityChanged_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("browseItem"), "activate", G_CALLBACK(onBrowseItemClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("matchItem"), "activate", G_CALLBACK(onMatchItemClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("msgItem"), "activate", G_CALLBACK(onMsgItemClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("grantItem"), "activate", G_CALLBACK(onGrantItemClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget("searchMagnetItem"), "activate", G_CALLBACK(onSearchMagnetClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget("copyMagnetItem"), "activate", G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget("magnetPropertiesItem"), "activate", G_CALLBACK(onMagnetPropertiesClicked_gui), (gpointer)this);
+ 
+ 	gtk_widget_set_sensitive(getWidget("favoriteUserItem"), FALSE); // Not implemented yet
+ 	gtk_widget_grab_focus(getWidget("chatEntry"));
+@@ -286,6 +296,11 @@
+ 	GtkAdjustment *adj;
+ 	bool setBottom;
+ 	string line = "";
++	GArray* magnets;
++	string link;
++	gint link_s, link_f;
++	GtkTextTag* tag;
++	GtkTextIter i_start, i_end;
+ 
+ 	if (BOOLSETTING(TIME_STAMPS))
+ 		line = "[" + Util::getShortTimeString() + "] ";
+@@ -297,6 +312,34 @@
+ 	gtk_text_buffer_get_end_iter(chatBuffer, &iter);
+ 	gtk_text_buffer_insert(chatBuffer, &iter, line.c_str(), line.size());
+ 
++	// check for magnet links in line
++	magnets = WulforUtil::findMagnets (line);
++	gtk_text_buffer_get_end_iter(chatBuffer, &iter);
++
++	for (guint i = 0; i < magnets->len; i += 2)
++	{
++		link_s = g_array_index (magnets, gint, i);
++		link_f = g_array_index (magnets, gint, i+1);
++
++		link = line.substr (link_s, link_f-link_s);
++
++		// check for such magnet in our buffer
++		tag = gtk_text_tag_table_lookup (gtk_text_buffer_get_tag_table (chatBuffer), link.c_str ());
++
++		if (!tag) {
++			tag = gtk_text_buffer_create_tag (chatBuffer, link.c_str (), "foreground", "blue", "underline", PANGO_UNDERLINE_SINGLE, NULL);
++			g_signal_connect(tag, "event", G_CALLBACK(onMagnetTagEvent_gui), (gpointer)this);
++		}
++
++		i_start = i_end = iter;
++		gtk_text_iter_backward_chars (&i_start, line.size ()-link_s);
++		gtk_text_iter_backward_chars (&i_end,   line.size ()-link_f);
++
++		gtk_text_buffer_apply_tag (chatBuffer, tag, &i_start, &i_end);
++	}
++
++	g_array_free (magnets, TRUE);
++
+ 	if (gtk_text_buffer_get_line_count(chatBuffer) > maxLines)
+ 	{
+ 		GtkTextIter next;
+@@ -780,6 +823,86 @@
+ 	}
+ }
+ 
++
++gboolean Hub::onMagnetTagEvent_gui(GtkTextTag* tag, GObject* arg1, GdkEvent* event, GtkTextIter* iter, gpointer data)
++{
++	Hub* hub = (Hub*)data;
++	gboolean handled = FALSE;
++
++
++	if (event->type == GDK_BUTTON_PRESS)
++	{
++		hub->selectedMagnet = tag->name;
++		switch (event->button.button)
++		{
++		case 1:
++			// search for magnet
++			onSearchMagnetClicked_gui(NULL, data);
++			handled = TRUE;
++			break;
++		case 2:
++			// open magnet properties dialog
++			onMagnetPropertiesClicked_gui(NULL, data);
++			handled = TRUE;
++			break;
++		case 3:
++			// popup magnet context menu
++			gtk_menu_popup(GTK_MENU(hub->getWidget("magnetMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
++			gtk_widget_show_all(hub->getWidget("magnetMenu"));
++			handled = TRUE;
++			break;
++		}
++	}
++
++	return handled;
++}
++
++
++gboolean Hub::onChatPointerMoved_gui(GtkWidget* widget, GdkEventMotion* event, gpointer data)
++{
++	((Hub*)data)->handleCusrorPositionUpdate (widget);
++	return FALSE;
++}
++
++
++gboolean Hub::onChatVisibilityChanged_gui(GtkWidget* widget, GdkEventVisibility* event, gpointer data)
++{
++	((Hub*)data)->handleCusrorPositionUpdate (widget);
++	return FALSE;
++}
++
++
++void Hub::onSearchMagnetClicked_gui(GtkMenuItem *item, gpointer data)
++{
++	Hub* hub = (Hub*)data;
++	string name;
++	int64_t size;
++	TTHValue tth;
++	Search *s;
++
++	if (WulforUtil::splitMagnet (hub->selectedMagnet, name, size, tth)) {
++		s = dynamic_cast<Search *>(WulforManager::get()->addSearch_gui());
++		s->putValue_gui(tth.toBase32(), 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
++	}
++}
++
++
++void Hub::onCopyMagnetClicked_gui(GtkMenuItem *item, gpointer data)
++{
++	Hub* hub = (Hub*)data;
++	gtk_clipboard_set_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD), hub->selectedMagnet.c_str (), hub->selectedMagnet.length ());
++}
++
++
++void Hub::onMagnetPropertiesClicked_gui(GtkMenuItem *item, gpointer data)
++{
++	Hub* hub = (Hub*)data;
++
++	if (WulforManager::get ()->openMagnetDialog_gui (hub->selectedMagnet) == GTK_RESPONSE_OK)
++	onSearchMagnetClicked_gui (item, data);
++}
++
++
+ void Hub::connectClient_client(string address, string nick, string desc, string password)
+ {
+ 	dcassert(client == NULL);
+@@ -993,6 +1116,7 @@
+ 	params["CID"] = id.getUser()->getCID().toBase32();
+ }
+ 
++
+ void Hub::on(ClientListener::Connecting, Client *) throw()
+ {
+ 	typedef Func1<Hub, string> F1;
+@@ -1195,3 +1319,30 @@
+ 	F1 *func = new F1(this, &Hub::addStatusMessage_gui, "Search spam from " + msg);
+ 	WulforManager::get()->dispatchGuiFunc(func);
+ }
++
++
++void Hub::handleCusrorPositionUpdate (GtkWidget* widget)
++{
++	static gboolean alreadyAboveMagnet = FALSE;
++
++	gint x, y, buf_x, buf_y;
++	GtkTextIter iter;
++	gboolean aboveMagnet = FALSE;
++	string magnet;
++
++	gdk_window_get_pointer (widget->window, &x, &y, NULL);
++
++	// check for magnet tags under the cursor, and change mouse cursor apropriately
++	gtk_text_view_window_to_buffer_coords(GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_WIDGET, x, y, &buf_x, &buf_y);
++	gtk_text_view_get_iter_at_location(GTK_TEXT_VIEW(widget), &iter, buf_x, buf_y);
++	aboveMagnet = WulforUtil::isTextIterOnMagnet (&iter, magnet);
++
++	if (aboveMagnet != alreadyAboveMagnet) {
++		alreadyAboveMagnet = aboveMagnet;
++
++	if (aboveMagnet)
++		gdk_window_set_cursor (gtk_text_view_get_window (GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_TEXT), linkCursor);
++	else
++		gdk_window_set_cursor (gtk_text_view_get_window (GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_TEXT), NULL);
++	}
++}
+diff -Nru linuxdcpp/linux/hub.hh linuxdcpp-new/linux/hub.hh
+--- linuxdcpp/linux/hub.hh	2007-01-01 15:14:28.000000000 +0300
++++ linuxdcpp-new/linux/hub.hh	2007-01-04 01:40:06.000000000 +0300
+@@ -22,6 +22,7 @@
+ #include <client/stdinc.h>
+ #include <client/DCPlusPlus.h>
+ #include <client/Client.h>
++#include <client/SearchManager.h>
+ 
+ #include "bookentry.hh"
+ #include "treeview.hh"
+@@ -56,11 +57,17 @@
+ 		static gboolean onNickListButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+ 		static gboolean onNickListKeyRelease_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
+ 		static gboolean onEntryKeyPress_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
++		static gboolean onMagnetTagEvent_gui(GtkTextTag* tag, GObject* arg1, GdkEvent* event, GtkTextIter* iter, gpointer data);
++		static gboolean onChatPointerMoved_gui(GtkWidget* widget, GdkEventMotion* event, gpointer data);
++		static gboolean onChatVisibilityChanged_gui(GtkWidget* widget, GdkEventVisibility* event, gpointer data);
+ 		static void onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onMatchItemClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onMsgItemClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onGrantItemClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onRemoveUserItemClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onSearchMagnetClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onCopyMagnetClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onMagnetPropertiesClicked_gui(GtkMenuItem *item, gpointer data);
+ 
+ 		// Client functions
+ 		void setPassword_client(std::string password);
+@@ -92,6 +99,8 @@
+ 		virtual void on(ClientListener::NickTaken, Client *) throw();
+ 		virtual void on(ClientListener::SearchFlood, Client *, const string &message) throw();
+ 
++    		void handleCusrorPositionUpdate (GtkWidget* widget);
++
+ 		hash_map<std::string, std::string> userMap;
+ 		hash_map<std::string, GdkPixbuf *> userIcons;
+ 		std::string completionKey;
+@@ -101,12 +110,14 @@
+ 		GtkTreeSelection *nickSelection;
+ 		GtkTextBuffer *chatBuffer;
+ 		GtkTextMark *chatMark;
++		GdkCursor* linkCursor;
+ 		gint oldType;
+ 		std::vector<std::string> history;
+ 		int historyIndex;
+ 		static const int maxLines = 1000;
+ 		static const int maxHistory = 20;
+ 		int64_t totalShared;
++		std::string selectedMagnet;
+ };
+ 
+ #else
+diff -Nru linuxdcpp/linux/magnetdialog.cc linuxdcpp-new/linux/magnetdialog.cc
+--- linuxdcpp/linux/magnetdialog.cc	1970-01-01 03:00:00.000000000 +0300
++++ linuxdcpp-new/linux/magnetdialog.cc	2007-01-04 00:43:28.000000000 +0300
+@@ -0,0 +1,43 @@
++/*
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
++ */
++
++#include "magnetdialog.hh"
++#include "WulforUtil.hh"
++
++#include <client/Util.h>
++
++
++
++
++MagnetProps::MagnetProps (const std::string& magnet) : DialogEntry ("MagnetProps", "magnet.glade")
++{
++	string name;
++	int64_t size;
++	TTHValue tth;
++
++	if (!WulforUtil::splitMagnet (magnet, name, size, tth)) {
++		name = "Unknown";
++		size = 0;
++	}
++
++	// fill controls
++	gtk_entry_set_text (GTK_ENTRY (getWidget ("magnetEntry")), magnet.c_str ());
++	gtk_entry_set_text (GTK_ENTRY (getWidget ("nameEntry")), name.c_str ());
++	gtk_entry_set_text (GTK_ENTRY (getWidget ("sizeEntry")), Util::formatBytes (size).c_str ());
++	gtk_entry_set_text (GTK_ENTRY (getWidget ("exactSizeEntry")), Util::formatExactSize (size).c_str ());
++	gtk_entry_set_text (GTK_ENTRY (getWidget ("tthEntry")), tth.toBase32 ().c_str ());
++}
++
+diff -Nru linuxdcpp/linux/magnetdialog.hh linuxdcpp-new/linux/magnetdialog.hh
+--- linuxdcpp/linux/magnetdialog.hh	1970-01-01 03:00:00.000000000 +0300
++++ linuxdcpp-new/linux/magnetdialog.hh	2007-01-04 00:43:35.000000000 +0300
+@@ -0,0 +1,33 @@
++/*
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
++ */
++
++#ifndef WULFOR_MAGNETPROPS_HH
++#define WULFOR_MAGNETPROPS_HH
++
++#include <client/stdinc.h>
++#include "dialogentry.hh"
++
++
++class MagnetProps:
++	public DialogEntry
++{
++	public:
++		MagnetProps(const std::string& magnet);
++};
++
++#else
++class MagnetProps;
++#endif
+diff -Nru linuxdcpp/linux/privatemessage.cc linuxdcpp-new/linux/privatemessage.cc
+--- linuxdcpp/linux/privatemessage.cc	2006-11-01 20:09:27.000000000 +0300
++++ linuxdcpp-new/linux/privatemessage.cc	2007-01-04 10:20:39.000000000 +0300
+@@ -22,6 +22,8 @@
+ #include <client/FavoriteManager.h>
+ #include "wulformanager.hh"
+ #include "WulforUtil.hh"
++#include "search.hh"
++
+ 
+ using namespace std;
+ 
+@@ -29,6 +31,8 @@
+ 	BookEntry("PM: " + WulforUtil::getNicks(user), "privatemessage.glade"),
+ 	user(user)
+ {
++	linkCursor = gdk_cursor_new (GDK_HAND2);
++
+ 	// Intialize the chat window
+ 	if (SETTING(USE_OEM_MONOFONT))
+ 	{
+@@ -49,6 +53,11 @@
+ 	// Connect the signals to their callback functions.
+ 	g_signal_connect(getWidget("entry"), "activate", G_CALLBACK(onSendMessage_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("entry"), "key-press-event", G_CALLBACK(onKeyPress_gui), (gpointer)this);
++	g_signal_connect(getWidget("text"), "motion-notify-event", G_CALLBACK(onChatPointerMoved_gui), (gpointer)this);
++	g_signal_connect(getWidget("text"), "visibility-notify-event", G_CALLBACK(onChatVisibilityChanged_gui), (gpointer)this);
++	g_signal_connect(getWidget("searchMagnetItem"), "activate", G_CALLBACK(onSearchMagnetClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget("copyMagnetItem"), "activate", G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget("magnetPropertiesItem"), "activate", G_CALLBACK(onMagnetPropertiesClicked_gui), (gpointer)this);
+ 
+ 	gtk_widget_grab_focus(getWidget("entry"));
+ 
+@@ -84,6 +93,11 @@
+ 	GtkAdjustment *adj;
+ 	bool setBottom;
+ 	string line = "";
++	GArray* magnets;
++	string link;
++	gint link_s, link_f;
++	GtkTextTag* tag;
++	GtkTextIter i_start, i_end;
+ 
+ 	adj = gtk_scrolled_window_get_vadjustment(GTK_SCROLLED_WINDOW(getWidget("scroll")));
+ 	setBottom = gtk_adjustment_get_value(adj) >= (adj->upper - adj->page_size);
+@@ -95,6 +109,34 @@
+ 	gtk_text_buffer_get_end_iter(buffer, &iter);
+ 	gtk_text_buffer_insert(buffer, &iter, line.c_str(), line.size());
+ 
++	// check for magnet links in line
++	magnets = WulforUtil::findMagnets (line);
++	gtk_text_buffer_get_end_iter(buffer, &iter);
++
++	for (guint i = 0; i < magnets->len; i += 2)
++	{
++		link_s = g_array_index (magnets, gint, i);
++		link_f = g_array_index (magnets, gint, i+1);
++
++		link = line.substr (link_s, link_f-link_s);
++
++		// check for such magnet in our buffer
++		tag = gtk_text_tag_table_lookup (gtk_text_buffer_get_tag_table (buffer), link.c_str ());
++
++		if (!tag) {
++			tag = gtk_text_buffer_create_tag (buffer, link.c_str (), "foreground", "blue", "underline", PANGO_UNDERLINE_SINGLE, NULL);
++			g_signal_connect(tag, "event", G_CALLBACK(onMagnetTagEvent_gui), (gpointer)this);
++		}
++
++		i_start = i_end = iter;
++		gtk_text_iter_backward_chars (&i_start, line.size ()-link_s);
++		gtk_text_iter_backward_chars (&i_end,   line.size ()-link_f);
++
++		gtk_text_buffer_apply_tag (buffer, tag, &i_start, &i_end);
++	}
++
++	g_array_free (magnets, TRUE);
++
+ 	if (gtk_text_buffer_get_line_count(buffer) > maxLines)
+ 	{
+ 		GtkTextIter next;
+@@ -231,7 +273,115 @@
+ 	return FALSE;
+ }
+ 
++
++gboolean PrivateMessage::onMagnetTagEvent_gui(GtkTextTag* tag, GObject* arg1, GdkEvent* event, GtkTextIter* iter, gpointer data)
++{
++	PrivateMessage* hub = (PrivateMessage*)data;
++	gboolean handled = FALSE;
++
++
++	if (event->type == GDK_BUTTON_PRESS)
++	{
++		hub->selectedMagnet = tag->name;
++		switch (event->button.button)
++		{
++		case 1:
++			// search for magnet
++			onSearchMagnetClicked_gui(NULL, data);
++			handled = TRUE;
++			break;
++		case 2:
++			// open magnet properties dialog
++			onMagnetPropertiesClicked_gui(NULL, data);
++			handled = TRUE;
++			break;
++		case 3:
++			// popup magnet context menu
++			gtk_menu_popup(GTK_MENU(hub->getWidget("magnetMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
++			gtk_widget_show_all(hub->getWidget("magnetMenu"));
++			handled = TRUE;
++			break;
++		}
++	}
++
++	return handled;
++}
++
++
++gboolean PrivateMessage::onChatPointerMoved_gui(GtkWidget* widget, GdkEventMotion* event, gpointer data)
++{
++	((PrivateMessage*)data)->handleCusrorPositionUpdate (widget);
++	return FALSE;
++}
++
++
++gboolean PrivateMessage::onChatVisibilityChanged_gui(GtkWidget* widget, GdkEventVisibility* event, gpointer data)
++{
++	((PrivateMessage*)data)->handleCusrorPositionUpdate (widget);
++	return FALSE;
++}
++
++
++void PrivateMessage::onSearchMagnetClicked_gui(GtkMenuItem *item, gpointer data)
++{
++	PrivateMessage* hub = (PrivateMessage*)data;
++	string name;
++	int64_t size;
++	TTHValue tth;
++	Search *s;
++
++	if (WulforUtil::splitMagnet (hub->selectedMagnet, name, size, tth)) {
++		s = dynamic_cast<Search *>(WulforManager::get()->addSearch_gui());
++		s->putValue_gui(tth.toBase32(), 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
++	}
++}
++
++
++void PrivateMessage::onCopyMagnetClicked_gui(GtkMenuItem *item, gpointer data)
++{
++	PrivateMessage* hub = (PrivateMessage*)data;
++	gtk_clipboard_set_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD), hub->selectedMagnet.c_str (), hub->selectedMagnet.length ());
++}
++
++
++void PrivateMessage::onMagnetPropertiesClicked_gui(GtkMenuItem *item, gpointer data)
++{
++	PrivateMessage* hub = (PrivateMessage*)data;
++
++	if (WulforManager::get ()->openMagnetDialog_gui (hub->selectedMagnet) == GTK_RESPONSE_OK)
++	onSearchMagnetClicked_gui (item, data);
++}
++
++
+ void PrivateMessage::sendMessage_client(std::string message)
+ {
+ 	ClientManager::getInstance()->privateMessage(user, message);
+ }
++
++
++
++void PrivateMessage::handleCusrorPositionUpdate (GtkWidget* widget)
++{
++	static gboolean alreadyAboveMagnet = FALSE;
++
++	gint x, y, buf_x, buf_y;
++	GtkTextIter iter;
++	gboolean aboveMagnet = FALSE;
++	string magnet;
++
++	gdk_window_get_pointer (widget->window, &x, &y, NULL);
++
++	// check for magnet tags under the cursor, and change mouse cursor apropriately
++	gtk_text_view_window_to_buffer_coords(GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_WIDGET, x, y, &buf_x, &buf_y);
++	gtk_text_view_get_iter_at_location(GTK_TEXT_VIEW(widget), &iter, buf_x, buf_y);
++	aboveMagnet = WulforUtil::isTextIterOnMagnet (&iter, magnet);
++
++	if (aboveMagnet != alreadyAboveMagnet) {
++		alreadyAboveMagnet = aboveMagnet;
++
++	if (aboveMagnet)
++		gdk_window_set_cursor (gtk_text_view_get_window (GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_TEXT), linkCursor);
++	else
++		gdk_window_set_cursor (gtk_text_view_get_window (GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_TEXT), NULL);
++	}
++}
+diff -Nru linuxdcpp/linux/privatemessage.hh linuxdcpp-new/linux/privatemessage.hh
+--- linuxdcpp/linux/privatemessage.hh	2007-01-01 15:14:28.000000000 +0300
++++ linuxdcpp-new/linux/privatemessage.hh	2007-01-04 01:45:08.000000000 +0300
+@@ -42,11 +42,19 @@
+ 
+ 		// GUI callbacks
+ 		static void onSendMessage_gui(GtkEntry *entry, gpointer data);
++		static void onSearchMagnetClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onCopyMagnetClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onMagnetPropertiesClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static gboolean onKeyPress_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
++		static gboolean onMagnetTagEvent_gui(GtkTextTag* tag, GObject* arg1, GdkEvent* event, GtkTextIter* iter, gpointer data);
++		static gboolean onChatPointerMoved_gui(GtkWidget* widget, GdkEventMotion* event, gpointer data);
++		static gboolean onChatVisibilityChanged_gui(GtkWidget* widget, GdkEventVisibility* event, gpointer data);
+ 
+ 		// Client functions
+ 		void sendMessage_client(std::string message);
+ 
++    		void handleCusrorPositionUpdate (GtkWidget* widget);
++
+ 		GtkTextBuffer *buffer;
+ 		GtkTextMark *mark;
+ 		User::Ptr user;
+@@ -54,6 +62,8 @@
+ 		int historyIndex;
+ 		static const int maxLines = 500; ///@todo: make these preferences
+ 		static const int maxHistory = 20;
++		GdkCursor* linkCursor;
++		std::string selectedMagnet;
+ };
+ 
+ #else
+diff -Nru linuxdcpp/linux/SConstruct linuxdcpp-new/linux/SConstruct
+--- linuxdcpp/linux/SConstruct	2006-11-01 20:09:27.000000000 +0300
++++ linuxdcpp-new/linux/SConstruct	2007-01-03 22:14:48.000000000 +0300
+@@ -9,6 +9,7 @@
+ 	'hashdialog.cc',
+ 	'hub.cc',
+ 	'mainwindow.cc',
++	'magnetdialog.cc',
+ 	'privatemessage.cc',
+ 	'publichubs.cc',
+ 	'search.cc',
+diff -Nru linuxdcpp/linux/search.cc linuxdcpp-new/linux/search.cc
+--- linuxdcpp/linux/search.cc	2007-01-01 15:14:28.000000000 +0300
++++ linuxdcpp-new/linux/search.cc	2007-01-04 00:44:49.000000000 +0300
+@@ -135,6 +135,7 @@
+ 	g_signal_connect(getWidget("grantExtraSlotItem"), "activate", G_CALLBACK(onGrantExtraSlotClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("removeUserFromQueueItem"), "activate", G_CALLBACK(onRemoveUserFromQueueClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("removeItem"), "activate", G_CALLBACK(onRemoveClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget("copyMagnetItem"), "activate", G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("comboboxSize"), "changed", G_CALLBACK(onComboBoxChanged_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("comboboxentrySearch"), "changed", G_CALLBACK(onComboBoxChanged_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("comboboxUnit"), "changed", G_CALLBACK(onComboBoxChanged_gui), (gpointer)this);
+@@ -1197,6 +1198,43 @@
+ 	}
+ }
+ 
++
++void Search::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
++{
++	Search *s = (Search *)data;
++
++	if (gtk_tree_selection_count_selected_rows(s->selection) > 0)
++	{
++		string fav;
++		GtkTreeIter iter;
++		GtkTreePath *path;
++		GList *list = gtk_tree_selection_get_selected_rows(s->selection, NULL);
++		string magnets;
++
++		for (GList *i = list; i; i = i->next)
++		{
++			path = (GtkTreePath *)i->data;
++			if (gtk_tree_model_get_iter(s->sortedFilterModel, &iter, path))
++			{
++				string magnet = WulforUtil::makeMagnet (s->resultView.getValue<gpointer, SearchResult *>(&iter, "SearchResult"));
++
++				if (!magnet.empty ())
++				{
++					if (!magnets.empty ())
++						magnets += '\n';
++					magnets += magnet;
++				}
++			}
++			gtk_tree_path_free(path);
++		}
++		g_list_free(list);
++		if (!magnets.empty ())
++			gtk_clipboard_set_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD), magnets.c_str (), magnets.length ());
++	}
++}
++
++
++
+ void Search::download_client(string target, SearchResult *result)
+ {
+ 	target = Text::utf8ToAcp(target);
+diff -Nru linuxdcpp/linux/search.hh linuxdcpp-new/linux/search.hh
+--- linuxdcpp/linux/search.hh	2007-01-01 15:14:28.000000000 +0300
++++ linuxdcpp-new/linux/search.hh	2007-01-04 00:44:03.000000000 +0300
+@@ -77,6 +77,7 @@
+ 		static void onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onRemoveClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data);
+ 
+ 		// Client functions
+ 		void download_client(std::string target, SearchResult *result);
+diff -Nru linuxdcpp/linux/sharebrowser.cc linuxdcpp-new/linux/sharebrowser.cc
+--- linuxdcpp/linux/sharebrowser.cc	2007-01-01 15:14:29.000000000 +0300
++++ linuxdcpp-new/linux/sharebrowser.cc	2007-01-04 00:46:05.000000000 +0300
+@@ -101,6 +101,7 @@
+ 	g_signal_connect(getWidget("dirDownloadItem"), "activate", G_CALLBACK(onDownloadDirClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("fileDownloadItem"), "activate", G_CALLBACK(onDownloadClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget("searchForAlternatesItem"), "activate", G_CALLBACK(onSearchAlternatesClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget("copyMagnetItem"), "activate", G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
+ 
+ 	// Load the xml file containing the share list.
+ 	try
+@@ -109,7 +110,7 @@
+ 
+ 		// Set name of root entry to user nick.
+ 		listing.getRoot()->setName(WulforUtil::getNicks(user));
+-		
++
+ 		// Add entries to dir tree view starting with the root entry.
+ 		buildDirs_gui(listing.getRoot(), NULL);
+ 
+@@ -638,12 +639,12 @@
+ 		{
+ 			bool selected = gtk_tree_selection_path_is_selected(sb->fileSelection, path);
+ 			gtk_tree_path_free(path);
+-			
++
+ 			if (selected)
+ 				return TRUE;
+ 		}
+ 	}
+-	
++
+ 	return FALSE;
+ }
+ 
+@@ -884,6 +885,48 @@
+ 	g_list_free(list);
+ }
+ 
++
++void ShareBrowser::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
++{
++	ShareBrowser *sb = (ShareBrowser *)data;
++	GtkTreeIter iter;
++	GtkTreePath *path;
++	gpointer ptr;
++	string fileOrder;
++	GtkTreeModel *m = GTK_TREE_MODEL(sb->fileStore);
++	GList *list = gtk_tree_selection_get_selected_rows(sb->fileSelection, NULL);
++	gint count = gtk_tree_selection_count_selected_rows(sb->fileSelection);
++	string magnets;
++
++	for (int i = 0; i < count; i++)
++	{
++		path = (GtkTreePath *)g_list_nth_data(list, i);
++		if (gtk_tree_model_get_iter(m, &iter, path))
++		{
++			ptr = sb->fileView.getValue<gpointer>(&iter, "DL File");
++			fileOrder = sb->fileView.getString(&iter, "File Order");
++
++			if (fileOrder[0] == 'f')
++			{
++				string magnet = WulforUtil::makeMagnet ((DirectoryListing::File *)ptr);
++
++				if (!magnet.empty ())
++				{
++					if (!magnets.empty ())
++						magnets += '\n';
++					magnets += magnet;
++				}
++			}
++		}
++		gtk_tree_path_free(path);
++	}
++	g_list_free(list);
++
++	if (!magnets.empty ())
++		gtk_clipboard_set_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD), magnets.c_str (), magnets.length ());
++}
++
++
+ void ShareBrowser::downloadFile_client(DirectoryListing::File *file, string target)
+ {
+ 	try
+diff -Nru linuxdcpp/linux/sharebrowser.hh linuxdcpp-new/linux/sharebrowser.hh
+--- linuxdcpp/linux/sharebrowser.hh	2007-01-01 15:14:29.000000000 +0300
++++ linuxdcpp-new/linux/sharebrowser.hh	2007-01-04 00:45:43.000000000 +0300
+@@ -65,6 +65,7 @@
+ 		static void onDownloadDirToClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onDownloadFavoriteDirClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onSearchAlternatesClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data);
+ 
+ 		// Client functions
+ 		void downloadFile_client(DirectoryListing::File *file, std::string target);
+diff -Nru linuxdcpp/linux/wulformanager.cc linuxdcpp-new/linux/wulformanager.cc
+--- linuxdcpp/linux/wulformanager.cc	2007-01-01 15:14:29.000000000 +0300
++++ linuxdcpp-new/linux/wulformanager.cc	2007-01-04 00:48:01.000000000 +0300
+@@ -24,6 +24,7 @@
+ #include "finishedtransfers.hh"
+ #include "hashdialog.hh"
+ #include "hub.hh"
++#include "magnetdialog.hh"
+ #include "privatemessage.hh"
+ #include "publichubs.hh"
+ #include "search.hh"
+@@ -589,3 +590,10 @@
+ 
+ 	return Settings::getResponseID();
+ }
++
++int WulforManager::openMagnetDialog_gui (const string& magnet)
++{
++	MagnetProps *m = new MagnetProps (magnet);
++	insertDialogEntry_gui(m);
++	return MagnetProps::getResponseID();
++}
+diff -Nru linuxdcpp/linux/wulformanager.hh linuxdcpp-new/linux/wulformanager.hh
+--- linuxdcpp/linux/wulformanager.hh	2007-01-01 15:14:29.000000000 +0300
++++ linuxdcpp-new/linux/wulformanager.hh	2007-01-04 00:47:22.000000000 +0300
+@@ -59,7 +59,7 @@
+ 		// DialogEntry functions
+ 		int openHashDialog_gui();
+ 		int openSettingsDialog_gui();
+-
++		int openMagnetDialog_gui (const std::string& magnet);
+ 	private:
+ 		// MainWindow-related functions
+ 		void createMainWindow();
+diff -Nru linuxdcpp/linux/WulforUtil.cc linuxdcpp-new/linux/WulforUtil.cc
+--- linuxdcpp/linux/WulforUtil.cc	2006-11-01 20:09:27.000000000 +0300
++++ linuxdcpp-new/linux/WulforUtil.cc	2007-01-04 01:10:09.000000000 +0300
+@@ -18,6 +18,9 @@
+ 
+ #include "WulforUtil.hh"
+ #include <client/ClientManager.h>
++#include <client/Util.h>
++#include <client/SearchManager.h>
++#include <client/QueueItem.h>
+ 
+ vector<int> WulforUtil::splitString(const string &str, const string &delimiter)
+ {
+@@ -90,3 +93,119 @@
+ 
+ 	return text;
+ }
++
++
++// Magnet support routines
++static const char* magnet_sig = "magnet:?xt=urn:tree:tiger:";
++
++
++string WulforUtil::makeMagnet(const string& name, const int64_t size, const TTHValue& tth)
++{
++	gchar len_buf[100];
++
++	if (g_snprintf (len_buf, sizeof (len_buf), "%lld", size) >= (gint)sizeof (len_buf))
++		return string ();
++
++	return string (magnet_sig) +
++		tth.toBase32 () +
++		string ("&xl=") +
++		string (len_buf) +
++		string ("&dn=") +
++		Util::encodeURI (name);
++}
++
++string WulforUtil::makeMagnet(const DirectoryListing::File* file)
++{
++	return makeMagnet (file->getName (), file->getSize (), file->getTTH ());
++}
++
++
++string WulforUtil::makeMagnet(const SearchResult* item)
++{
++	if (!item || item->getType () != SearchResult::TYPE_FILE)
++		return string ();
++
++	return makeMagnet (item->getFile (), item->getSize (), item->getTTH ());
++}
++
++
++string WulforUtil::makeMagnet(const QueueItem* item)
++{
++	return makeMagnet (item->getTargetFileName (), item->getSize (), item->getTTH ());
++}
++
++
++gboolean WulforUtil::splitMagnet(const string& magnet, string& name, int64_t& size, TTHValue& tth)
++{
++	string::size_type pos, pos2;
++	size_t len = strlen (magnet_sig);
++
++	if (!isMagnet (magnet.c_str ()))
++		return FALSE;
++
++	pos = magnet.find ("&xl=", 0);
++	if (pos == string::npos)
++		return FALSE;
++
++	tth = TTHValue (magnet.substr (len, pos-len));
++
++	pos2 = magnet.find ("&dn=", pos);
++	if (pos2 == string::npos)
++		return FALSE;
++
++	size = Util::toInt64 (magnet.substr (pos+4, pos2-pos-4));
++	name = Util::encodeURI (magnet.substr (pos2+4), TRUE);
++	return TRUE;
++}
++
++
++// returns array of gint pairs. First item is an offset of link in a
++// string, second is offset of link's end.
++GArray* WulforUtil::findMagnets (const string& line)
++{
++	string::size_type pos = 0, new_pos, end_pos;
++	GArray* result = g_array_new (FALSE, FALSE, sizeof (gint));
++
++	while (1) {
++		new_pos = line.find (magnet_sig, pos);
++
++		if (new_pos == string::npos)
++			break;
++
++		end_pos = line.find_first_of (" \n\r\t", new_pos);
++		if (end_pos == string::npos)
++			end_pos = line.size ();
++		g_array_append_val (result, new_pos);
++		g_array_append_val (result, end_pos);
++		pos = end_pos;
++	}
++
++	return result;
++}
++
++
++gboolean WulforUtil::isMagnet (const gchar* text)
++{
++	return strncmp (text, magnet_sig, strlen (magnet_sig)) == 0;
++}
++
++
++
++gboolean WulforUtil::isTextIterOnMagnet (GtkTextIter* iter, string& magnet)
++{
++	GSList *tags, *tag_p;
++	gboolean result = FALSE;
++
++	tag_p = tags = gtk_text_iter_get_tags(iter);
++
++	while (tag_p && !result) {
++		result = WulforUtil::isMagnet (((GtkTextTag*)tag_p->data)->name);
++		if (result)
++			magnet = ((GtkTextTag*)tag_p->data)->name;
++		tag_p = g_slist_next (tag_p);
++	}
++
++	g_slist_free (tags);
++
++	return result;
++}
+diff -Nru linuxdcpp/linux/WulforUtil.hh linuxdcpp-new/linux/WulforUtil.hh
+--- linuxdcpp/linux/WulforUtil.hh	2006-11-01 20:09:27.000000000 +0300
++++ linuxdcpp-new/linux/WulforUtil.hh	2007-01-04 01:09:44.000000000 +0300
+@@ -24,6 +24,10 @@
+ #include <client/DCPlusPlus.h>
+ #include <client/CID.h>
+ #include <client/User.h>
++#include <client/DirectoryListing.h>
++#include <client/SearchManager.h>
++#include <client/QueueItem.h>
++
+ 
+ class WulforUtil
+ {
+@@ -36,6 +40,15 @@
+ 		static std::string getHubNames(const CID& cid);
+ 		static std::string getHubNames(const User::Ptr& user);
+ 		static std::string getTextFromMenu(GtkMenuItem *item);
++		// magnet links
++		static std::string makeMagnet(const std::string& name, const int64_t size, const TTHValue& tth);
++		static std::string makeMagnet(const DirectoryListing::File* file);
++		static std::string makeMagnet(const SearchResult* item);
++		static std::string makeMagnet(const QueueItem* item);
++		static gboolean splitMagnet(const std::string& magnet, std::string& name, int64_t& size, TTHValue& tth);
++		static GArray* findMagnets (const std::string& line);
++		static gboolean isMagnet (const gchar* text);
++		static gboolean isTextIterOnMagnet (GtkTextIter* iter, string& magnet);
+ };
+ 
+ #endif
+diff -Nru linuxdcpp/SConstruct linuxdcpp-new/SConstruct
+--- linuxdcpp/SConstruct	2007-01-01 15:14:10.000000000 +0300
++++ linuxdcpp-new/SConstruct	2007-01-03 23:45:40.000000000 +0300
+@@ -197,6 +197,7 @@
+ 	'glade/hash.glade',
+ 	'glade/hub.glade',
+ 	'glade/mainwindow.glade',
++	'glade/magnet.glade',
+ 	'glade/privatemessage.glade',
+ 	'glade/publichubs.glade',
+ 	'glade/search.glade',
+
+From max.lapan at gmail.com  Thu Jan  4 21:45:14 2007
+From: max.lapan at gmail.com (Max Lapan)
+Date: Thu, 4 Jan 2007 23:45:14 +0300
+Subject: [Linuxdcpp-developers] [Patch] Magnet links support
+In-Reply-To: <459D6232.20202@gmail.com>
+References: <20070104073219.GA23536@homenet.ru> <459D6232.20202@gmail.com>
+Message-ID: <20070104204514.GA8976@homenet.ru>
+
+On Thu, Jan 04, 2007 at 02:23:14PM -0600, Steven Sheehy wrote:
+> Max Lapan wrote:
+> >Hello, 
+> >
+> >this patch adds support of magnet links in public and private chats.
+> >New functionality:
+> >
+> >1. Magnets highlighted as links in public and private chats
+> >
+> >2. You can copy links to clipboard, start search for it's TTH and examine
+> >it's properties using link context menu. Left mouse button click on link
+> >starts search, middle click opens properties dialog and left shows menu.
+> >
+> >3. you can copy magnet links of selected file (or group of files) in search
+> >result, share browser and download queue tabs.
+> 
+> Hi,
+> 
+> Thanks for the patch. In the future, you should probably ask if such a 
+> feature would be accepted before making such a big patch. I don't really 
+> see the need for adding magnet link support, it seems a bit useless to me. 
+> I asked in the IRC channel if anyone else would want magnet support and no 
+> one responded in the affirmative. We may have ported DC++ to linux, but we 
+> don't plan on implementing all features of it. It is better to keep things 
+> simple and efficient.
+
+In DC hubs I use regulary, magnets are de-facto standard, because it's
+the only comfortable way to exchange DC links and they are implemented
+on all win32 clients.
+
+I've posted this patch announce today in russian discussion board and
+at least 3 people find it useful.
+
+> Unless people respond to this thread saying that such a feature
+> would be desirable, I don't think I can accept this patch.
+
+In that case it would be better to post message in maillist, instead
+of private ;-).
+
+> We are trying to gear up for a release soon and are mainly looking for bug 
+> fixes at the moment. I hope rejecting your patch doesn't put you off on 
+> working on any future patches.
+
+Of course, no ;-). I've made this primarily for my own comfort. Since
+October I am maintaining such unofficial linuxdcpp changes, and if you
+find them usefull sometime in future, they can be found here:
+http://linuxdcpp-ru.sf.net (there is no page, just a bunch of patches,
+sorry).
+
+In any way, I'll announce all such changes in maillist/patch tracker.
+
+-- 
+Max Lapan <max.lapan at gmail.com>, +7(0855)296471, ICQ: 233841810
+PGP Fingerprint: 0C47 91E3 35BA 3E6D 64D5  5740 6F3C A37F C112 4765
+HPC Architect/Administrator, Engineering Analysis Systems Department
+JSC Saturn http://www.npo-saturn.ru
+
+
+From steven.sheehy at gmail.com  Thu Jan  4 22:17:47 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Thu, 04 Jan 2007 15:17:47 -0600
+Subject: [Linuxdcpp-developers] [Patch] Magnet links support
+In-Reply-To: <20070104204514.GA8976@homenet.ru>
+References: <20070104073219.GA23536@homenet.ru> <459D6232.20202@gmail.com>
+	<20070104204514.GA8976@homenet.ru>
+Message-ID: <459D6EFB.5060005@gmail.com>
+
+Max Lapan wrote:
+> On Thu, Jan 04, 2007 at 02:23:14PM -0600, Steven Sheehy wrote:
+>> Max Lapan wrote:
+>>> Hello, 
+>>>
+>>> this patch adds support of magnet links in public and private chats.
+>>> New functionality:
+>>>
+>>> 1. Magnets highlighted as links in public and private chats
+>>>
+>>> 2. You can copy links to clipboard, start search for it's TTH and examine
+>>> it's properties using link context menu. Left mouse button click on link
+>>> starts search, middle click opens properties dialog and left shows menu.
+>>>
+>>> 3. you can copy magnet links of selected file (or group of files) in search
+>>> result, share browser and download queue tabs.
+>> Hi,
+>>
+>> Thanks for the patch. In the future, you should probably ask if such a 
+>> feature would be accepted before making such a big patch. I don't really 
+>> see the need for adding magnet link support, it seems a bit useless to me. 
+>> I asked in the IRC channel if anyone else would want magnet support and no 
+>> one responded in the affirmative. We may have ported DC++ to linux, but we 
+>> don't plan on implementing all features of it. It is better to keep things 
+>> simple and efficient.
+> 
+> In DC hubs I use regulary, magnets are de-facto standard, because it's
+> the only comfortable way to exchange DC links and they are implemented
+> on all win32 clients.
+> 
+> I've posted this patch announce today in russian discussion board and
+> at least 3 people find it useful.
+> 
+>> Unless people respond to this thread saying that such a feature
+>> would be desirable, I don't think I can accept this patch.
+> 
+> In that case it would be better to post message in maillist, instead
+> of private ;-).
+> 
+
+Oops. I just clicked reply and forgot to check to make sure it was sent to the 
+list. :)
+
+>> We are trying to gear up for a release soon and are mainly looking for bug 
+>> fixes at the moment. I hope rejecting your patch doesn't put you off on 
+>> working on any future patches.
+> 
+> Of course, no ;-). I've made this primarily for my own comfort. Since
+> October I am maintaining such unofficial linuxdcpp changes, and if you
+> find them usefull sometime in future, they can be found here:
+> http://linuxdcpp-ru.sf.net (there is no page, just a bunch of patches,
+> sorry).
+> 
+> In any way, I'll announce all such changes in maillist/patch tracker.
+> 
+
+ok
+
+
+From nagatoro at gmail.com  Thu Jan  4 23:08:22 2007
+From: nagatoro at gmail.com (Naga Toro)
+Date: Thu, 4 Jan 2007 23:08:22 +0100
+Subject: [Linuxdcpp-developers] [Patch] Magnet links support
+In-Reply-To: <20070104204514.GA8976@homenet.ru>
+References: <20070104073219.GA23536@homenet.ru> <459D6232.20202@gmail.com>
+	<20070104204514.GA8976@homenet.ru>
+Message-ID: <200701042308.22656.nagatoro@gmail.com>
+
+On Thursday 04 January 2007 21:45, Max Lapan wrote:
+> On Thu, Jan 04, 2007 at 02:23:14PM -0600, Steven Sheehy wrote:
+> > Max Lapan wrote:
+
+> > Thanks for the patch. In the future, you should probably ask if such a
+> > feature would be accepted before making such a big patch. I don't really
+> > see the need for adding magnet link support, it seems a bit useless to
+> > me. I asked in the IRC channel if anyone else would want magnet support
+> > and no one responded in the affirmative. We may have ported DC++ to
+> > linux, but we don't plan on implementing all features of it. It is better
+> > to keep things simple and efficient.
+
+[...]
+
+> > Unless people respond to this thread saying that such a feature
+> > would be desirable, I don't think I can accept this patch.
+
+I'm all for this patch.
+But I must say that a short note on IRC hardly catches all users of linuxdc++.
+
+> > We are trying to gear up for a release soon and are mainly looking for
+
+Nice to hear, any ETA
+
+> > bug fixes at the moment. I hope rejecting your patch doesn't put you off
+> > on working on any future patches.
+
+That doesn't mean it has to be rejected just delayed (change to svn...).
+
+>
+> Of course, no ;-). I've made this primarily for my own comfort. Since
+> October I am maintaining such unofficial linuxdcpp changes, and if you
+> find them usefull sometime in future, they can be found here:
+> http://linuxdcpp-ru.sf.net (there is no page, just a bunch of patches,
+> sorry).
+>
+> In any way, I'll announce all such changes in maillist/patch tracker.
+
+Added as a bookmark :)
+
+/ Naga
+
+
+From cvs at linuxdcpp.berlios.de  Thu Jan  4 23:40:33 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Thu, 4 Jan 2007 23:40:33 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200701042240.l04MeXtG009603@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 739 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070104/0cc417b7/attachment.xml>
+
+From steven.sheehy at gmail.com  Thu Jan  4 23:48:49 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Thu, 04 Jan 2007 16:48:49 -0600
+Subject: [Linuxdcpp-developers] [Patch] Magnet links support
+In-Reply-To: <200701042308.22656.nagatoro@gmail.com>
+References: <20070104073219.GA23536@homenet.ru>
+	<459D6232.20202@gmail.com>	<20070104204514.GA8976@homenet.ru>
+	<200701042308.22656.nagatoro@gmail.com>
+Message-ID: <459D8451.9000802@gmail.com>
+
+Naga Toro wrote:
+> On Thursday 04 January 2007 21:45, Max Lapan wrote:
+>> On Thu, Jan 04, 2007 at 02:23:14PM -0600, Steven Sheehy wrote:
+>>> Max Lapan wrote:
+> 
+>>> Thanks for the patch. In the future, you should probably ask if such a
+>>> feature would be accepted before making such a big patch. I don't really
+>>> see the need for adding magnet link support, it seems a bit useless to
+>>> me. I asked in the IRC channel if anyone else would want magnet support
+>>> and no one responded in the affirmative. We may have ported DC++ to
+>>> linux, but we don't plan on implementing all features of it. It is better
+>>> to keep things simple and efficient.
+> 
+> [...]
+> 
+>>> Unless people respond to this thread saying that such a feature
+>>> would be desirable, I don't think I can accept this patch.
+> 
+> I'm all for this patch.
+> But I must say that a short note on IRC hardly catches all users of linuxdc++.
+> 
+
+Which is why I sent it to the mailing list (or at least attempted to) asking for 
+further discussion.
+
+>>> We are trying to gear up for a release soon and are mainly looking for
+> 
+> Nice to hear, any ETA
+
+No, I don't want to make any promises that I may not be able to keep.
+
+> 
+>>> bug fixes at the moment. I hope rejecting your patch doesn't put you off
+>>> on working on any future patches.
+> 
+> That doesn't mean it has to be rejected just delayed (change to svn...).
+> 
+>> Of course, no ;-). I've made this primarily for my own comfort. Since
+>> October I am maintaining such unofficial linuxdcpp changes, and if you
+>> find them usefull sometime in future, they can be found here:
+>> http://linuxdcpp-ru.sf.net (there is no page, just a bunch of patches,
+>> sorry).
+>>
+>> In any way, I'll announce all such changes in maillist/patch tracker.
+> 
+> Added as a bookmark :)
+> 
+> / Naga
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+> 
+
+
+
+From nagatoro at gmail.com  Fri Jan  5 00:28:14 2007
+From: nagatoro at gmail.com (Naga)
+Date: Fri, 5 Jan 2007 00:28:14 +0100
+Subject: [Linuxdcpp-developers] [Patch] Magnet links support
+In-Reply-To: <459D8451.9000802@gmail.com>
+References: <20070104073219.GA23536@homenet.ru>
+	<200701042308.22656.nagatoro@gmail.com>
+	<459D8451.9000802@gmail.com>
+Message-ID: <200701050028.20812.nagatoro@gmail.com>
+
+On Thursday 04 January 2007 23:48, Steven Sheehy wrote:
+> Naga Toro wrote:
+> > But I must say that a short note on IRC hardly catches all users of
+> > linuxdc++.
+>
+> Which is why I sent it to the mailing list (or at least attempted to)
+> asking for further discussion.
+
+Ok, I must have missunderstood that part. Sorry.
+
+> >>> We are trying to gear up for a release soon and are mainly looking for
+> >
+> > Nice to hear, any ETA
+>
+> No, I don't want to make any promises that I may not be able to keep.
+
+:) Just curious. 
+
+-- 
+Naga
+
+
+From cvs at linuxdcpp.berlios.de  Fri Jan  5 02:15:22 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Fri, 5 Jan 2007 02:15:22 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200701050115.l051FM7g002761@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 1105 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070105/99120b0c/attachment.xml>
+
+From thresh at altlinux.ru  Fri Jan  5 13:44:17 2007
+From: thresh at altlinux.ru (Pavlov Konstantin)
+Date: Fri, 5 Jan 2007 15:44:17 +0300
+Subject: [Linuxdcpp-developers] [Patch] Magnet links support
+In-Reply-To: <200701042308.22656.nagatoro@gmail.com>
+References: <20070104073219.GA23536@homenet.ru>
+	<20070104204514.GA8976@homenet.ru>
+	<200701042308.22656.nagatoro@gmail.com>
+Message-ID: <200701051544.17513.thresh@altlinux.ru>
+
+On Friday 05 January 2007 01:08, Naga Toro wrote:
+> On Thursday 04 January 2007 21:45, Max Lapan wrote:
+> > On Thu, Jan 04, 2007 at 02:23:14PM -0600, Steven Sheehy wrote:
+> > > Max Lapan wrote:
+> > >
+> > > Thanks for the patch. In the future, you should probably ask if such a
+> > > feature would be accepted before making such a big patch. I don't
+> > > really see the need for adding magnet link support, it seems a bit
+> > > useless to me. I asked in the IRC channel if anyone else would want
+> > > magnet support and no one responded in the affirmative. We may have
+> > > ported DC++ to linux, but we don't plan on implementing all features of
+> > > it. It is better to keep things simple and efficient.
+>
+> > > Unless people respond to this thread saying that such a feature
+> > > would be desirable, I don't think I can accept this patch.
+>
+> I'm all for this patch.
+> But I must say that a short note on IRC hardly catches all users of
+> linuxdc++.
+I'm for that patch, too. Should be extremely useful here.
+
+-- 
+Pavlov Konstantin,
+ALT Linux Team,
+VideoLAN Team,
+jid: thresh at altlinux.org
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070105/bf8bfa1e/attachment.pgp>
+
+From thresh at altlinux.ru  Fri Jan  5 13:45:25 2007
+From: thresh at altlinux.ru (Pavlov Konstantin)
+Date: Fri, 5 Jan 2007 15:45:25 +0300
+Subject: [Linuxdcpp-developers] [PATCH] gtk-help issue with current CVS
+Message-ID: <200701051545.25609.thresh@altlinux.ru>
+
+Hello.
+
+Looks like someone forgot setting "stock" on gtk-help item in 
+mainwindow.glade, so it says "gtk-help" now instead of "Help" :)
+
+The attached patch fixes it.
+
+-- 
+Pavlov Konstantin,
+ALT Linux Team,
+VideoLAN Team,
+jid: thresh at altlinux.org
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gtk-help-stock.patch
+Type: text/x-diff
+Size: 732 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070105/6b8f494b/attachment.patch>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070105/6b8f494b/attachment.pgp>
+
+From thresh at altlinux.ru  Fri Jan  5 13:20:43 2007
+From: thresh at altlinux.ru (Pavlov Konstantin)
+Date: Fri, 5 Jan 2007 15:20:43 +0300
+Subject: [Linuxdcpp-developers] [Patch] Magnet links support
+In-Reply-To: <200701042308.22656.nagatoro@gmail.com>
+References: <20070104073219.GA23536@homenet.ru>
+	<20070104204514.GA8976@homenet.ru>
+	<200701042308.22656.nagatoro@gmail.com>
+Message-ID: <200701051520.44421.thresh@altlinux.ru>
+
+On Friday 05 January 2007 01:08, Naga Toro wrote:
+> On Thursday 04 January 2007 21:45, Max Lapan wrote:
+> > On Thu, Jan 04, 2007 at 02:23:14PM -0600, Steven Sheehy wrote:
+> > > Max Lapan wrote:
+> > >
+> > > Thanks for the patch. In the future, you should probably ask if such a
+> > > feature would be accepted before making such a big patch. I don't
+> > > really see the need for adding magnet link support, it seems a bit
+> > > useless to me. I asked in the IRC channel if anyone else would want
+> > > magnet support and no one responded in the affirmative. We may have
+> > > ported DC++ to linux, but we don't plan on implementing all features of
+> > > it. It is better to keep things simple and efficient.
+>
+> > > Unless people respond to this thread saying that such a feature
+> > > would be desirable, I don't think I can accept this patch.
+>
+> I'm all for this patch.
+> But I must say that a short note on IRC hardly catches all users of
+> linuxdc++.
+I'm for that patch, too. Should be extremely useful here.
+
+-- 
+Pavlov Konstantin,
+ALT Linux Team,
+VideoLAN Team,
+jid: thresh at altlinux.org
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070105/586e8cbb/attachment.pgp>
+
+From admin at berlios.de  Fri Jan  5 15:55:40 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 5 Jan 2007 16:55:40 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Patch #1802] Fix for Total Item/Size counts
+	not updated in dlqueue
+Message-ID: <200701051455.l05EteBK016139@unicorn.berlios.de>
+
+Patch #1802 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: razzloss
+Assigned to : none
+Summary: Fix for Total Item/Size counts not updated in dlqueue
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1802&group_id=2230
+
+
+From nagatoro at gmail.com  Fri Jan  5 21:05:18 2007
+From: nagatoro at gmail.com (Naga Toro)
+Date: Fri, 5 Jan 2007 21:05:18 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+In-Reply-To: <200701042240.l04MeXtG009603@sheep.berlios.de>
+References: <200701042240.l04MeXtG009603@sheep.berlios.de>
+Message-ID: <200701052105.19663.nagatoro@gmail.com>
+
+On Thursday 04 January 2007 23:40, cvs at linuxdcpp.berlios.de wrote:
+> download queue rewrite
+
+Nice work, that was really needed.
+
+-- 
+Naga
+
+
+From admin at berlios.de  Fri Jan  5 23:22:49 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 5 Jan 2007 17:22:49 -0500 (EST)
+Subject: [Linuxdcpp-developers] [Bug #9878] Feature #1806: Get file list to
+	be expanded to selected
+Message-ID: <200701052222.l05MMnLg010311@unicorn.berlios.de>
+
+Bug #9878, was updated on 2007-Jan-05 17:22
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: gregf
+Assigned to : none
+Summary:  Feature #1806: Get file list to be expanded to selected
+
+Details: Does not seem to work with you do get file list when search by directory. Would be great since I normally do my searches by directory. Great work on the patch how it is either way.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=9878&group_id=2230
+
+
+From admin at berlios.de  Sat Jan  6 21:54:16 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 6 Jan 2007 21:54:16 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #1804] Patch for bug #9878
+Message-ID: <200701062054.l06KsG1K027666@unicorn.berlios.de>
+
+Patch #1804 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: pemiem
+Assigned to : none
+Summary: Patch for bug #9878
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1804&group_id=2230
+
+
+From admin at berlios.de  Mon Jan  8 00:38:55 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 7 Jan 2007 14:38:55 -0900 (AKST)
+Subject: [Linuxdcpp-developers] [Feature #3023] AND, NOT and Quoted strings
+Message-ID: <200701072338.l07NctPV000684@unicorn.berlios.de>
+
+Feature Request #3023, was updated on 2007-Jan-07 14:38
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3023&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: AND, NOT and Quoted strings
+
+By: rince
+Date: 2007-Jan-07 14:38
+
+Message:
+Logged In: YES 
+user_id=34932
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.1) Gecko/20061220 Firefox/2.0.0.1 (Swiftfox)
+
+I am missing the ability to search quoted strings
+(which means find the quoted keywords in this exact
+order) in the search field. For instance, it is
+impossible to find the band "The The" at the moment,
+because it would return thousands of irrelevant hits.
+To have the boolean keywords AND, NOT and OR would be
+useful, too.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3023&group_id=2230
+
+
+From admin at berlios.de  Sat Jan 13 12:31:35 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 13 Jan 2007 12:31:35 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Bug #9955] Selected files lose focus when
+	transfer window is updated
+Message-ID: <200701131131.l0DBVZg0004477@unicorn.berlios.de>
+
+Bug #9955, was updated on 2007-Jan-13 12:31
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: larstobi
+Assigned to : none
+Summary: Selected files lose focus when transfer window is updated
+
+Details: The selected files in the DownloadQueue, possibly when the Transfer window is updated.
+
+Steps to reproduce:
+
+1. Download a directory
+2. Go to the directory in the DownloadQueue
+3. Select some files.
+4. Right click the selection to i.e. change the priority.
+5. In a few seconds the selection loses focus, and the right click menu fails to update the selection (that is no longer selected).
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=9955&group_id=2230
+
+
+From steven.sheehy at gmail.com  Sat Jan 13 20:15:36 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sat, 13 Jan 2007 13:15:36 -0600
+Subject: [Linuxdcpp-developers] [Patch] Magnet links support
+In-Reply-To: <20070104073219.GA23536@homenet.ru>
+References: <20070104073219.GA23536@homenet.ru>
+Message-ID: <45A92FD8.1000407@gmail.com>
+
+Max Lapan wrote:
+> Hello, 
+> 
+> this patch adds support of magnet links in public and private chats.
+> New functionality:
+> 
+> 1. Magnets highlighted as links in public and private chats
+> 
+> 2. You can copy links to clipboard, start search for it's TTH and examine
+> it's properties using link context menu. Left mouse button click on link
+> starts search, middle click opens properties dialog and left shows menu.
+> 
+> 3. you can copy magnet links of selected file (or group of files) in search
+> result, share browser and download queue tabs.
+> 
+> 
+
+I think enough people have shown support for this that I will include it. 
+However, it'll have to be done after a release as I'm not accepting any more 
+features at the moment.
+
+-Steven
+
+
+From frank at splra.org  Mon Jan 15 22:48:35 2007
+From: frank at splra.org (Frank Claycomb)
+Date: Mon, 15 Jan 2007 16:48:35 -0500
+Subject: [Linuxdcpp-developers] few usability bugs
+Message-ID: <1168897716.6993.65.camel@localhost.localdomain>
+
+Hello,
+
+I have noticed a few bugs in the latest linuxdc++ (not sure if they were
+there before as I just used dc++ via wine).  They are just usability
+errors, so they are not life threatening.
+
+The first is when you bring ldc++ back from an icon the last tab is
+selected by default rather than the tab that you were last one.
+
+The second is that when changing to a tab with a chat or a pm, the text
+area is not select by default.
+
+The last is that / commands are not recognized in the pm window.  It
+gives the error of  *** Unknown command /help: type /help for a list of
+valid commands.  This occurs even when typing /help.
+
+Well those are all of them.  Like i said nothing life threatening, but
+just annoying.
+
+-Frank
+
+
+
+From steven.sheehy at gmail.com  Tue Jan 16 00:27:21 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Mon, 15 Jan 2007 17:27:21 -0600
+Subject: [Linuxdcpp-developers] few usability bugs
+In-Reply-To: <1168897716.6993.65.camel@localhost.localdomain>
+References: <1168897716.6993.65.camel@localhost.localdomain>
+Message-ID: <45AC0DD9.6080600@gmail.com>
+
+Frank Claycomb wrote:
+> Hello,
+> 
+> I have noticed a few bugs in the latest linuxdc++ (not sure if they were
+> there before as I just used dc++ via wine).  They are just usability
+> errors, so they are not life threatening.
+> 
+> The first is when you bring ldc++ back from an icon the last tab is
+> selected by default rather than the tab that you were last one.
+> 
+
+I can fix this by just calling gtk_widget_hide(window) instead of hide_all(), 
+but it has the side effect of not hiding any dialog windows that might be open. 
+Is this an acceptable tradeoff? I don't really want to have to manually store 
+the tab and restore it later.
+
+> The second is that when changing to a tab with a chat or a pm, the text
+> area is not select by default.
+> 
+
+Already a feature request for this:
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=2821&group_id=2230
+
+> The last is that / commands are not recognized in the pm window.  It
+> gives the error of  *** Unknown command /help: type /help for a list of
+> valid commands.  This occurs even when typing /help.
+> 
+
+Fixed, will be in cvs. For some reason std::transform() on newer g++ or 
+libstdc++ must have the destination iterator already pointing to allocated 
+memory. This must've changed since it worked previously and this code hasn't 
+been modified in awhile.
+
+> Well those are all of them.  Like i said nothing life threatening, but
+> just annoying.
+> 
+> -Frank
+
+Thanks for your report. Keep on bug huntin'. :)
+
+-Steven
+
+
+From admin at berlios.de  Thu Jan 18 15:07:20 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 18 Jan 2007 16:07:20 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Bug #10044] Public Hubs tab doesn't work
+	right
+Message-ID: <200701181407.l0IE7K9l009415@unicorn.berlios.de>
+
+Bug #10044, was updated on 2007-Jan-18 16:07
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: madmax1984ro
+Assigned to : none
+Summary: Public Hubs tab doesn't work right
+
+Details: The first time i open up the Public Hubs tab it displays all the entries properly but after i close and reopen it it's all messed up (it starts displaying them from another point). I'm using http://www.xboss.ro/PublicHubList.config
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10044&group_id=2230
+
+
+From admin at berlios.de  Sun Jan 21 01:21:59 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 21 Jan 2007 01:21:59 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #1843] Fix fo HubName - when Hub DC
+	have spaces in name.
+Message-ID: <200701210021.l0L0Lx5q018031@unicorn.berlios.de>
+
+Patch #1843 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: perry
+Assigned to : none
+Summary: Fix fo HubName - when Hub DC have spaces in name.
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1843&group_id=2230
+
+
+From support at b4uparty.com  Mon Jan 22 00:24:56 2007
+From: support at b4uparty.com (John Armstrong)
+Date: Sun, 21 Jan 2007 23:24:56 +0000
+Subject: [Linuxdcpp-developers] Your Invitation
+Message-ID: <011046FA.0B639B91@mail.b4uparty.com>
+
+Your friend John
+has invited you to
+B4UParty.com
+ 
+The best party on the planet. They have sent you this personal invite for
+you to join and enjoy the benefits of this great site. Follow the link to
+start your very own party.  
+http://www.b4uparty.com/index.cfm?event=signup&invitecode=6aVurw1bMmUTyfCsV+o0uA==
+  
+If you wish to be removed browse to
+http://www.b4uparty.com/default.cfm?method=B5yU0e9JET/Wfq1aPthEvzCSaQdFHK+8EX5xWoCkRUUYcP78AZGohKHI3qCU7YBp
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070121/b09b0cd8/attachment.html>
+
+From admin at berlios.de  Mon Jan 22 14:24:24 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 22 Jan 2007 14:24:24 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #1850] Fixes "Disconnected" as being
+	shown instead of "No Slots"
+Message-ID: <200701221324.l0MDOOOg023997@unicorn.berlios.de>
+
+Patch #1850 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: naga
+Assigned to : none
+Summary: Fixes "Disconnected" as being shown instead of "No Slots"
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1850&group_id=2230
+
+
+From admin at berlios.de  Mon Jan 22 18:24:31 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 22 Jan 2007 19:24:31 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Bug #10093] Feature request
+Message-ID: <200701221724.l0MHOVnN008128@unicorn.berlios.de>
+
+Bug #10093, was updated on 2007-Jan-22 19:24
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: madmax1984ro
+Assigned to : none
+Summary: Feature request
+
+Details: Could you please make the public hubs tab not sort by default? In some hublists the most important hubs appear at the beggining with 9999 users.
+
+I hate this about GTK. Once you order a list by a column you can't go back to unordered (initial order).
+
+At least make this as an option somewhere.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10093&group_id=2230
+
+
+From admin at berlios.de  Mon Jan 22 18:53:00 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 22 Jan 2007 19:53:00 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Bug #10094] Download queue bug
+Message-ID: <200701221753.l0MHr0sR011455@unicorn.berlios.de>
+
+Bug #10094, was updated on 2007-Jan-22 19:53
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: madmax1984ro
+Assigned to : none
+Summary: Download queue bug
+
+Details: The Download queue is buggy: sometimes when i select the directory that is currently downloading it shows me two entries for every item.
+If I figure out when this happens exactly (so far I couldn't) I'll add a comment.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10094&group_id=2230
+
+
+From admin at berlios.de  Wed Jan 24 03:15:31 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 24 Jan 2007 04:15:31 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Patch #1853] Patch for successfull russian
+	search, chat and download.
+Message-ID: <200701240215.l0O2FVgD006267@unicorn.berlios.de>
+
+Patch #1853 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: asmer
+Assigned to : none
+Summary: Patch for successfull russian search, chat and download.
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1853&group_id=2230
+
+
+From admin at berlios.de  Wed Jan 24 03:26:40 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 24 Jan 2007 04:26:40 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Patch #1854] Amarok Now Playing.
+Message-ID: <200701240226.l0O2QemB018986@unicorn.berlios.de>
+
+Patch #1854 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: asmer
+Assigned to : none
+Summary: Amarok Now Playing.
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1854&group_id=2230
+
+
+From admin at berlios.de  Wed Jan 24 19:21:54 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 24 Jan 2007 19:21:54 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Feature #3084] Disconnect slow downlaod
+Message-ID: <200701241821.l0OILsfu009404@unicorn.berlios.de>
+
+Feature Request #3084, was updated on 2007-Jan-24 19:21
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3084&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Disconnect slow downlaod
+
+By: ledzgio
+Date: 2007-Jan-24 19:21
+
+Message:
+Logged In: YES 
+user_id=29029
+Browser: Mozilla/5.0 (X11; U; Linux i686; it; rv:1.8.1.1) Gecko/20060601 Firefox/2.0.0.1 (Ubuntu-edgy)
+
+A nice feature of the best dc clients, is that option
+that allow you to set a download speed and when the
+download of a file is less then setted speed, the
+download will be disconnected and another source will
+be searched. Sorry for my english, thanks
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3084&group_id=2230
+
+
+From admin at berlios.de  Tue Jan 30 22:08:02 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 30 Jan 2007 16:08:02 -0500 (EST)
+Subject: [Linuxdcpp-developers] [Bug #10172] irssi-like nick completion and
+	cyrillic
+Message-ID: <200701302108.l0UL82JN006038@unicorn.berlios.de>
+
+Bug #10172, was updated on 2007-Jan-30 16:08
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: grayich
+Assigned to : none
+Summary: irssi-like nick completion  and  cyrillic
+
+Details: 
+?ompletion not working after cyrillic charset
+
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10172&group_id=2230
+
+

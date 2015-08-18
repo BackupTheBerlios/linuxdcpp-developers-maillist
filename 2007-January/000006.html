@@ -1,0 +1,1595 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Patch] Magnet links support
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPatch%5D%20Magnet%20links%20support&In-Reply-To=%3C20070104073219.GA23536%40homenet.ru%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000005.html">
+   <LINK REL="Next"  HREF="000023.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Patch] Magnet links support</H1>
+    <B>Max Lapan</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPatch%5D%20Magnet%20links%20support&In-Reply-To=%3C20070104073219.GA23536%40homenet.ru%3E"
+       TITLE="[Linuxdcpp-developers] [Patch] Magnet links support">max.lapan at gmail.com
+       </A><BR>
+    <I>Thu Jan  4 08:32:19 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000005.html">[Linuxdcpp-developers] BerliOS
+</A></li>
+        <LI>Next message: <A HREF="000023.html">[Linuxdcpp-developers] [Patch] Magnet links support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, 
+
+this patch adds support of magnet links in public and private chats.
+New functionality:
+
+1. Magnets highlighted as links in public and private chats
+
+2. You can copy links to clipboard, start search for it's TTH and examine
+it's properties using link context menu. Left mouse button click on link
+starts search, middle click opens properties dialog and left shows menu.
+
+3. you can copy magnet links of selected file (or group of files) in search
+result, share browser and download queue tabs.
+
+-- 
+Max Lapan &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">max.lapan at gmail.com</A>&gt;, +7(0855)296471, ICQ: 233841810
+PGP Fingerprint: 0C47 91E3 35BA 3E6D 64D5  5740 6F3C A37F C112 4765
+HPC Architect/Administrator, Engineering Analysis Systems Department
+JSC Saturn <A HREF="http://www.npo-saturn.ru">http://www.npo-saturn.ru</A>
+-------------- next part --------------
+diff -Nru linuxdcpp/glade/downloadqueue.glade linuxdcpp-new/glade/downloadqueue.glade
+--- linuxdcpp/glade/downloadqueue.glade	2006-11-01 20:09:27.000000000 +0300
++++ linuxdcpp-new/glade/downloadqueue.glade	2007-01-03 23:58:16.000000000 +0300
+@@ -413,6 +413,20 @@
+       &lt;property name=&quot;use_underline&quot;&gt;True&lt;/property&gt;
+     &lt;/widget&gt;
+   &lt;/child&gt;
++
++  &lt;child&gt;
++    &lt;widget class=&quot;GtkSeparatorMenuItem&quot; id=&quot;separator9&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
++
++  &lt;child&gt;
++    &lt;widget class=&quot;GtkMenuItem&quot; id=&quot;copyMagnetItem&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++      &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Copy magnet&lt;/property&gt;
++      &lt;property name=&quot;use_underline&quot;&gt;True&lt;/property&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
+ &lt;/widget&gt;
+ 
+ &lt;widget class=&quot;GtkFileChooserDialog&quot; id=&quot;dirChooserDialog&quot;&gt;
+diff -Nru linuxdcpp/glade/hub.glade linuxdcpp-new/glade/hub.glade
+--- linuxdcpp/glade/hub.glade	2006-09-28 01:16:15.000000000 +0400
++++ linuxdcpp-new/glade/hub.glade	2007-01-03 22:04:19.000000000 +0300
+@@ -336,7 +336,39 @@
+       &lt;property name=&quot;use_underline&quot;&gt;True&lt;/property&gt;
+     &lt;/widget&gt;
+   &lt;/child&gt;
++&lt;/widget&gt;
++
++&lt;widget class=&quot;GtkMenu&quot; id=&quot;magnetMenu&quot;&gt;
++
++  &lt;child&gt;
++    &lt;widget class=&quot;GtkMenuItem&quot; id=&quot;searchMagnetItem&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++      &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Search&lt;/property&gt;
++      &lt;property name=&quot;use_underline&quot;&gt;True&lt;/property&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
++
++  &lt;child&gt;
++    &lt;widget class=&quot;GtkMenuItem&quot; id=&quot;copyMagnetItem&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++      &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Copy&lt;/property&gt;
++      &lt;property name=&quot;use_underline&quot;&gt;True&lt;/property&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
++
++  &lt;child&gt;
++    &lt;widget class=&quot;GtkSeparatorMenuItem&quot; id=&quot;separator1&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
+ 
++  &lt;child&gt;
++    &lt;widget class=&quot;GtkMenuItem&quot; id=&quot;magnetPropertiesItem&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++      &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Properties...&lt;/property&gt;
++      &lt;property name=&quot;use_underline&quot;&gt;True&lt;/property&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
+ &lt;/widget&gt;
+ 
+ &lt;/glade-interface&gt;
+diff -Nru linuxdcpp/glade/magnet.glade linuxdcpp-new/glade/magnet.glade
+--- linuxdcpp/glade/magnet.glade	1970-01-01 03:00:00.000000000 +0300
++++ linuxdcpp-new/glade/magnet.glade	2007-01-03 23:33:24.000000000 +0300
+@@ -0,0 +1,335 @@
++&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt; &lt;!--*- mode: xml -*--&gt;
++&lt;!DOCTYPE glade-interface SYSTEM &quot;<A HREF="http://glade.gnome.org/glade-2.0.dtd">http://glade.gnome.org/glade-2.0.dtd</A>&quot;&gt;
++
++&lt;glade-interface&gt;
++
++&lt;widget class=&quot;GtkDialog&quot; id=&quot;dialog&quot;&gt;
++  &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++  &lt;property name=&quot;title&quot; translatable=&quot;yes&quot;&gt;Magnet properties&lt;/property&gt;
++  &lt;property name=&quot;type&quot;&gt;GTK_WINDOW_TOPLEVEL&lt;/property&gt;
++  &lt;property name=&quot;window_position&quot;&gt;GTK_WIN_POS_NONE&lt;/property&gt;
++  &lt;property name=&quot;modal&quot;&gt;False&lt;/property&gt;
++  &lt;property name=&quot;resizable&quot;&gt;True&lt;/property&gt;
++  &lt;property name=&quot;destroy_with_parent&quot;&gt;False&lt;/property&gt;
++  &lt;property name=&quot;decorated&quot;&gt;True&lt;/property&gt;
++  &lt;property name=&quot;skip_taskbar_hint&quot;&gt;False&lt;/property&gt;
++  &lt;property name=&quot;skip_pager_hint&quot;&gt;False&lt;/property&gt;
++  &lt;property name=&quot;type_hint&quot;&gt;GDK_WINDOW_TYPE_HINT_DIALOG&lt;/property&gt;
++  &lt;property name=&quot;gravity&quot;&gt;GDK_GRAVITY_NORTH_WEST&lt;/property&gt;
++  &lt;property name=&quot;focus_on_map&quot;&gt;True&lt;/property&gt;
++  &lt;property name=&quot;urgency_hint&quot;&gt;False&lt;/property&gt;
++  &lt;property name=&quot;has_separator&quot;&gt;True&lt;/property&gt;
++
++  &lt;child internal-child=&quot;vbox&quot;&gt;
++    &lt;widget class=&quot;GtkVBox&quot; id=&quot;dialog-vbox1&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++      &lt;property name=&quot;homogeneous&quot;&gt;False&lt;/property&gt;
++      &lt;property name=&quot;spacing&quot;&gt;0&lt;/property&gt;
++
++      &lt;child internal-child=&quot;action_area&quot;&gt;
++	&lt;widget class=&quot;GtkHButtonBox&quot; id=&quot;dialog-action_area1&quot;&gt;
++	  &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++	  &lt;property name=&quot;layout_style&quot;&gt;GTK_BUTTONBOX_END&lt;/property&gt;
++
++	  &lt;child&gt;
++	    &lt;widget class=&quot;GtkButton&quot; id=&quot;closebutton1&quot;&gt;
++	      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;can_default&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;can_focus&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;label&quot;&gt;gtk-find&lt;/property&gt;
++	      &lt;property name=&quot;use_stock&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;relief&quot;&gt;GTK_RELIEF_NORMAL&lt;/property&gt;
++	      &lt;property name=&quot;focus_on_click&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;response_id&quot;&gt;-5&lt;/property&gt;
++	    &lt;/widget&gt;
++	  &lt;/child&gt;
++
++	  &lt;child&gt;
++	    &lt;widget class=&quot;GtkButton&quot; id=&quot;button1&quot;&gt;
++	      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;can_default&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;can_focus&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;label&quot;&gt;gtk-close&lt;/property&gt;
++	      &lt;property name=&quot;use_stock&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;relief&quot;&gt;GTK_RELIEF_NORMAL&lt;/property&gt;
++	      &lt;property name=&quot;focus_on_click&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;response_id&quot;&gt;-7&lt;/property&gt;
++	    &lt;/widget&gt;
++	  &lt;/child&gt;
++	&lt;/widget&gt;
++	&lt;packing&gt;
++	  &lt;property name=&quot;padding&quot;&gt;0&lt;/property&gt;
++	  &lt;property name=&quot;expand&quot;&gt;False&lt;/property&gt;
++	  &lt;property name=&quot;fill&quot;&gt;True&lt;/property&gt;
++	  &lt;property name=&quot;pack_type&quot;&gt;GTK_PACK_END&lt;/property&gt;
++	&lt;/packing&gt;
++      &lt;/child&gt;
++
++      &lt;child&gt;
++	&lt;widget class=&quot;GtkTable&quot; id=&quot;table1&quot;&gt;
++	  &lt;property name=&quot;border_width&quot;&gt;8&lt;/property&gt;
++	  &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++	  &lt;property name=&quot;n_rows&quot;&gt;5&lt;/property&gt;
++	  &lt;property name=&quot;n_columns&quot;&gt;2&lt;/property&gt;
++	  &lt;property name=&quot;homogeneous&quot;&gt;False&lt;/property&gt;
++	  &lt;property name=&quot;row_spacing&quot;&gt;5&lt;/property&gt;
++	  &lt;property name=&quot;column_spacing&quot;&gt;6&lt;/property&gt;
++
++	  &lt;child&gt;
++	    &lt;widget class=&quot;GtkLabel&quot; id=&quot;label1&quot;&gt;
++	      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Magnet&lt;/property&gt;
++	      &lt;property name=&quot;use_underline&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;use_markup&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;justify&quot;&gt;GTK_JUSTIFY_LEFT&lt;/property&gt;
++	      &lt;property name=&quot;wrap&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;selectable&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;xalign&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;yalign&quot;&gt;0.5&lt;/property&gt;
++	      &lt;property name=&quot;xpad&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;ypad&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;ellipsize&quot;&gt;PANGO_ELLIPSIZE_NONE&lt;/property&gt;
++	      &lt;property name=&quot;width_chars&quot;&gt;-1&lt;/property&gt;
++	      &lt;property name=&quot;single_line_mode&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;angle&quot;&gt;0&lt;/property&gt;
++	    &lt;/widget&gt;
++	    &lt;packing&gt;
++	      &lt;property name=&quot;left_attach&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;right_attach&quot;&gt;1&lt;/property&gt;
++	      &lt;property name=&quot;top_attach&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;bottom_attach&quot;&gt;1&lt;/property&gt;
++	      &lt;property name=&quot;x_options&quot;&gt;fill&lt;/property&gt;
++	      &lt;property name=&quot;y_options&quot;&gt;&lt;/property&gt;
++	    &lt;/packing&gt;
++	  &lt;/child&gt;
++
++	  &lt;child&gt;
++	    &lt;widget class=&quot;GtkLabel&quot; id=&quot;label2&quot;&gt;
++	      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;File name&lt;/property&gt;
++	      &lt;property name=&quot;use_underline&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;use_markup&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;justify&quot;&gt;GTK_JUSTIFY_LEFT&lt;/property&gt;
++	      &lt;property name=&quot;wrap&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;selectable&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;xalign&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;yalign&quot;&gt;0.5&lt;/property&gt;
++	      &lt;property name=&quot;xpad&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;ypad&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;ellipsize&quot;&gt;PANGO_ELLIPSIZE_NONE&lt;/property&gt;
++	      &lt;property name=&quot;width_chars&quot;&gt;-1&lt;/property&gt;
++	      &lt;property name=&quot;single_line_mode&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;angle&quot;&gt;0&lt;/property&gt;
++	    &lt;/widget&gt;
++	    &lt;packing&gt;
++	      &lt;property name=&quot;left_attach&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;right_attach&quot;&gt;1&lt;/property&gt;
++	      &lt;property name=&quot;top_attach&quot;&gt;1&lt;/property&gt;
++	      &lt;property name=&quot;bottom_attach&quot;&gt;2&lt;/property&gt;
++	      &lt;property name=&quot;x_options&quot;&gt;fill&lt;/property&gt;
++	      &lt;property name=&quot;y_options&quot;&gt;&lt;/property&gt;
++	    &lt;/packing&gt;
++	  &lt;/child&gt;
++
++	  &lt;child&gt;
++	    &lt;widget class=&quot;GtkLabel&quot; id=&quot;label3&quot;&gt;
++	      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Size&lt;/property&gt;
++	      &lt;property name=&quot;use_underline&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;use_markup&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;justify&quot;&gt;GTK_JUSTIFY_LEFT&lt;/property&gt;
++	      &lt;property name=&quot;wrap&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;selectable&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;xalign&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;yalign&quot;&gt;0.5&lt;/property&gt;
++	      &lt;property name=&quot;xpad&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;ypad&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;ellipsize&quot;&gt;PANGO_ELLIPSIZE_NONE&lt;/property&gt;
++	      &lt;property name=&quot;width_chars&quot;&gt;-1&lt;/property&gt;
++	      &lt;property name=&quot;single_line_mode&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;angle&quot;&gt;0&lt;/property&gt;
++	    &lt;/widget&gt;
++	    &lt;packing&gt;
++	      &lt;property name=&quot;left_attach&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;right_attach&quot;&gt;1&lt;/property&gt;
++	      &lt;property name=&quot;top_attach&quot;&gt;2&lt;/property&gt;
++	      &lt;property name=&quot;bottom_attach&quot;&gt;3&lt;/property&gt;
++	      &lt;property name=&quot;x_options&quot;&gt;fill&lt;/property&gt;
++	      &lt;property name=&quot;y_options&quot;&gt;&lt;/property&gt;
++	    &lt;/packing&gt;
++	  &lt;/child&gt;
++
++	  &lt;child&gt;
++	    &lt;widget class=&quot;GtkLabel&quot; id=&quot;label4&quot;&gt;
++	      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;TTH&lt;/property&gt;
++	      &lt;property name=&quot;use_underline&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;use_markup&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;justify&quot;&gt;GTK_JUSTIFY_LEFT&lt;/property&gt;
++	      &lt;property name=&quot;wrap&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;selectable&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;xalign&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;yalign&quot;&gt;0.5&lt;/property&gt;
++	      &lt;property name=&quot;xpad&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;ypad&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;ellipsize&quot;&gt;PANGO_ELLIPSIZE_NONE&lt;/property&gt;
++	      &lt;property name=&quot;width_chars&quot;&gt;-1&lt;/property&gt;
++	      &lt;property name=&quot;single_line_mode&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;angle&quot;&gt;0&lt;/property&gt;
++	    &lt;/widget&gt;
++	    &lt;packing&gt;
++	      &lt;property name=&quot;left_attach&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;right_attach&quot;&gt;1&lt;/property&gt;
++	      &lt;property name=&quot;top_attach&quot;&gt;4&lt;/property&gt;
++	      &lt;property name=&quot;bottom_attach&quot;&gt;5&lt;/property&gt;
++	      &lt;property name=&quot;x_options&quot;&gt;fill&lt;/property&gt;
++	      &lt;property name=&quot;y_options&quot;&gt;&lt;/property&gt;
++	    &lt;/packing&gt;
++	  &lt;/child&gt;
++
++	  &lt;child&gt;
++	    &lt;widget class=&quot;GtkEntry&quot; id=&quot;nameEntry&quot;&gt;
++	      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;can_focus&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;editable&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;visibility&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;max_length&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;text&quot; translatable=&quot;yes&quot;&gt;&lt;/property&gt;
++	      &lt;property name=&quot;has_frame&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;invisible_char&quot;&gt;*&lt;/property&gt;
++	      &lt;property name=&quot;activates_default&quot;&gt;False&lt;/property&gt;
++	    &lt;/widget&gt;
++	    &lt;packing&gt;
++	      &lt;property name=&quot;left_attach&quot;&gt;1&lt;/property&gt;
++	      &lt;property name=&quot;right_attach&quot;&gt;2&lt;/property&gt;
++	      &lt;property name=&quot;top_attach&quot;&gt;1&lt;/property&gt;
++	      &lt;property name=&quot;bottom_attach&quot;&gt;2&lt;/property&gt;
++	      &lt;property name=&quot;y_options&quot;&gt;&lt;/property&gt;
++	    &lt;/packing&gt;
++	  &lt;/child&gt;
++
++	  &lt;child&gt;
++	    &lt;widget class=&quot;GtkEntry&quot; id=&quot;sizeEntry&quot;&gt;
++	      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;can_focus&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;editable&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;visibility&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;max_length&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;text&quot; translatable=&quot;yes&quot;&gt;&lt;/property&gt;
++	      &lt;property name=&quot;has_frame&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;invisible_char&quot;&gt;*&lt;/property&gt;
++	      &lt;property name=&quot;activates_default&quot;&gt;False&lt;/property&gt;
++	    &lt;/widget&gt;
++	    &lt;packing&gt;
++	      &lt;property name=&quot;left_attach&quot;&gt;1&lt;/property&gt;
++	      &lt;property name=&quot;right_attach&quot;&gt;2&lt;/property&gt;
++	      &lt;property name=&quot;top_attach&quot;&gt;2&lt;/property&gt;
++	      &lt;property name=&quot;bottom_attach&quot;&gt;3&lt;/property&gt;
++	      &lt;property name=&quot;y_options&quot;&gt;&lt;/property&gt;
++	    &lt;/packing&gt;
++	  &lt;/child&gt;
++
++	  &lt;child&gt;
++	    &lt;widget class=&quot;GtkEntry&quot; id=&quot;tthEntry&quot;&gt;
++	      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;can_focus&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;editable&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;visibility&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;max_length&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;text&quot; translatable=&quot;yes&quot;&gt;&lt;/property&gt;
++	      &lt;property name=&quot;has_frame&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;invisible_char&quot;&gt;*&lt;/property&gt;
++	      &lt;property name=&quot;activates_default&quot;&gt;False&lt;/property&gt;
++	    &lt;/widget&gt;
++	    &lt;packing&gt;
++	      &lt;property name=&quot;left_attach&quot;&gt;1&lt;/property&gt;
++	      &lt;property name=&quot;right_attach&quot;&gt;2&lt;/property&gt;
++	      &lt;property name=&quot;top_attach&quot;&gt;4&lt;/property&gt;
++	      &lt;property name=&quot;bottom_attach&quot;&gt;5&lt;/property&gt;
++	      &lt;property name=&quot;y_options&quot;&gt;&lt;/property&gt;
++	    &lt;/packing&gt;
++	  &lt;/child&gt;
++
++	  &lt;child&gt;
++	    &lt;widget class=&quot;GtkEntry&quot; id=&quot;magnetEntry&quot;&gt;
++	      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;can_focus&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;has_focus&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;editable&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;visibility&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;max_length&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;text&quot; translatable=&quot;yes&quot;&gt;&lt;/property&gt;
++	      &lt;property name=&quot;has_frame&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;invisible_char&quot;&gt;*&lt;/property&gt;
++	      &lt;property name=&quot;activates_default&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;width_chars&quot;&gt;35&lt;/property&gt;
++	    &lt;/widget&gt;
++	    &lt;packing&gt;
++	      &lt;property name=&quot;left_attach&quot;&gt;1&lt;/property&gt;
++	      &lt;property name=&quot;right_attach&quot;&gt;2&lt;/property&gt;
++	      &lt;property name=&quot;top_attach&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;bottom_attach&quot;&gt;1&lt;/property&gt;
++	      &lt;property name=&quot;y_options&quot;&gt;&lt;/property&gt;
++	    &lt;/packing&gt;
++	  &lt;/child&gt;
++
++	  &lt;child&gt;
++	    &lt;widget class=&quot;GtkLabel&quot; id=&quot;label5&quot;&gt;
++	      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Exact size&lt;/property&gt;
++	      &lt;property name=&quot;use_underline&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;use_markup&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;justify&quot;&gt;GTK_JUSTIFY_LEFT&lt;/property&gt;
++	      &lt;property name=&quot;wrap&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;selectable&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;xalign&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;yalign&quot;&gt;0.5&lt;/property&gt;
++	      &lt;property name=&quot;xpad&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;ypad&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;ellipsize&quot;&gt;PANGO_ELLIPSIZE_NONE&lt;/property&gt;
++	      &lt;property name=&quot;width_chars&quot;&gt;-1&lt;/property&gt;
++	      &lt;property name=&quot;single_line_mode&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;angle&quot;&gt;0&lt;/property&gt;
++	    &lt;/widget&gt;
++	    &lt;packing&gt;
++	      &lt;property name=&quot;left_attach&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;right_attach&quot;&gt;1&lt;/property&gt;
++	      &lt;property name=&quot;top_attach&quot;&gt;3&lt;/property&gt;
++	      &lt;property name=&quot;bottom_attach&quot;&gt;4&lt;/property&gt;
++	      &lt;property name=&quot;x_options&quot;&gt;fill&lt;/property&gt;
++	      &lt;property name=&quot;y_options&quot;&gt;&lt;/property&gt;
++	    &lt;/packing&gt;
++	  &lt;/child&gt;
++
++	  &lt;child&gt;
++	    &lt;widget class=&quot;GtkEntry&quot; id=&quot;exactSizeEntry&quot;&gt;
++	      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;can_focus&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;editable&quot;&gt;False&lt;/property&gt;
++	      &lt;property name=&quot;visibility&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;max_length&quot;&gt;0&lt;/property&gt;
++	      &lt;property name=&quot;text&quot; translatable=&quot;yes&quot;&gt;&lt;/property&gt;
++	      &lt;property name=&quot;has_frame&quot;&gt;True&lt;/property&gt;
++	      &lt;property name=&quot;invisible_char&quot;&gt;*&lt;/property&gt;
++	      &lt;property name=&quot;activates_default&quot;&gt;False&lt;/property&gt;
++	    &lt;/widget&gt;
++	    &lt;packing&gt;
++	      &lt;property name=&quot;left_attach&quot;&gt;1&lt;/property&gt;
++	      &lt;property name=&quot;right_attach&quot;&gt;2&lt;/property&gt;
++	      &lt;property name=&quot;top_attach&quot;&gt;3&lt;/property&gt;
++	      &lt;property name=&quot;bottom_attach&quot;&gt;4&lt;/property&gt;
++	      &lt;property name=&quot;y_options&quot;&gt;&lt;/property&gt;
++	    &lt;/packing&gt;
++	  &lt;/child&gt;
++	&lt;/widget&gt;
++	&lt;packing&gt;
++	  &lt;property name=&quot;padding&quot;&gt;0&lt;/property&gt;
++	  &lt;property name=&quot;expand&quot;&gt;True&lt;/property&gt;
++	  &lt;property name=&quot;fill&quot;&gt;True&lt;/property&gt;
++	&lt;/packing&gt;
++      &lt;/child&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
++&lt;/widget&gt;
++
++&lt;/glade-interface&gt;
+diff -Nru linuxdcpp/glade/privatemessage.glade linuxdcpp-new/glade/privatemessage.glade
+--- linuxdcpp/glade/privatemessage.glade	2006-09-01 19:05:56.000000000 +0400
++++ linuxdcpp-new/glade/privatemessage.glade	2007-01-04 01:18:27.000000000 +0300
+@@ -65,4 +65,37 @@
+   &lt;/child&gt;
+ &lt;/widget&gt;
+ 
++&lt;widget class=&quot;GtkMenu&quot; id=&quot;magnetMenu&quot;&gt;
++
++  &lt;child&gt;
++    &lt;widget class=&quot;GtkMenuItem&quot; id=&quot;searchMagnetItem&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++      &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Search&lt;/property&gt;
++      &lt;property name=&quot;use_underline&quot;&gt;True&lt;/property&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
++
++  &lt;child&gt;
++    &lt;widget class=&quot;GtkMenuItem&quot; id=&quot;copyMagnetItem&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++      &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Copy&lt;/property&gt;
++      &lt;property name=&quot;use_underline&quot;&gt;True&lt;/property&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
++
++  &lt;child&gt;
++    &lt;widget class=&quot;GtkSeparatorMenuItem&quot; id=&quot;separator1&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
++
++  &lt;child&gt;
++    &lt;widget class=&quot;GtkMenuItem&quot; id=&quot;magnetPropertiesItem&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++      &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Properties...&lt;/property&gt;
++      &lt;property name=&quot;use_underline&quot;&gt;True&lt;/property&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
++&lt;/widget&gt;
++
+ &lt;/glade-interface&gt;
+diff -Nru linuxdcpp/glade/search.glade linuxdcpp-new/glade/search.glade
+--- linuxdcpp/glade/search.glade	2007-01-01 15:14:20.000000000 +0300
++++ linuxdcpp-new/glade/search.glade	2007-01-03 23:59:28.000000000 +0300
+@@ -678,6 +678,20 @@
+       &lt;property name=&quot;use_underline&quot;&gt;True&lt;/property&gt;
+     &lt;/widget&gt;
+   &lt;/child&gt;
++
++  &lt;child&gt;
++    &lt;widget class=&quot;GtkSeparatorMenuItem&quot; id=&quot;separator9&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
++
++  &lt;child&gt;
++    &lt;widget class=&quot;GtkMenuItem&quot; id=&quot;copyMagnetItem&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++      &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Copy magnet&lt;/property&gt;
++      &lt;property name=&quot;use_underline&quot;&gt;True&lt;/property&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
+ &lt;/widget&gt;
+ 
+ &lt;widget class=&quot;GtkFileChooserDialog&quot; id=&quot;dirChooserDialog&quot;&gt;
+diff -Nru linuxdcpp/glade/sharebrowser.glade linuxdcpp-new/glade/sharebrowser.glade
+--- linuxdcpp/glade/sharebrowser.glade	2006-09-24 03:03:09.000000000 +0400
++++ linuxdcpp-new/glade/sharebrowser.glade	2007-01-01 19:31:02.000000000 +0300
+@@ -398,6 +398,20 @@
+       &lt;property name=&quot;use_underline&quot;&gt;True&lt;/property&gt;
+     &lt;/widget&gt;
+   &lt;/child&gt;
++
++  &lt;child&gt;
++    &lt;widget class=&quot;GtkSeparatorMenuItem&quot; id=&quot;separator9&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
++
++  &lt;child&gt;
++    &lt;widget class=&quot;GtkMenuItem&quot; id=&quot;copyMagnetItem&quot;&gt;
++      &lt;property name=&quot;visible&quot;&gt;True&lt;/property&gt;
++      &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Copy magnet&lt;/property&gt;
++      &lt;property name=&quot;use_underline&quot;&gt;True&lt;/property&gt;
++    &lt;/widget&gt;
++  &lt;/child&gt;
+ &lt;/widget&gt;
+ 
+ &lt;widget class=&quot;GtkFileChooserDialog&quot; id=&quot;dirChooserDialog&quot;&gt;
+diff -Nru linuxdcpp/linux/downloadqueue.cc linuxdcpp-new/linux/downloadqueue.cc
+--- linuxdcpp/linux/downloadqueue.cc	2007-01-01 15:14:27.000000000 +0300
++++ linuxdcpp-new/linux/downloadqueue.cc	2007-01-04 00:49:45.000000000 +0300
+@@ -81,6 +81,7 @@
+ 	g_signal_connect(getWidget(&quot;fileHighPriorityItem&quot;), &quot;activate&quot;, G_CALLBACK(onFilePriorityClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;fileHighestPriorityItem&quot;), &quot;activate&quot;, G_CALLBACK(onFilePriorityClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;fileRemoveItem&quot;), &quot;activate&quot;, G_CALLBACK(onRemoveFileClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget(&quot;copyMagnetItem&quot;), &quot;activate&quot;, G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
+  	g_signal_connect(dirView.get(), &quot;button-press-event&quot;, G_CALLBACK(onDirButtonPressed_gui), (gpointer)this);
+ 	g_signal_connect(dirView.get(), &quot;button-release-event&quot;, G_CALLBACK(onDirButtonReleased_gui), (gpointer)this);
+ 	g_signal_connect(dirView.get(), &quot;key-release-event&quot;, G_CALLBACK(onDirKeyReleased_gui), (gpointer)this);
+@@ -1020,6 +1021,38 @@
+ 	}
+ }
+ 
++
++void DownloadQueue::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
++{
++	DownloadQueue *dq = (DownloadQueue *)data;
++	GtkTreePath *path;
++	GtkTreeIter iter;
++	string magnets;
++	GList *list = gtk_tree_selection_get_selected_rows(dq-&gt;fileSelection, NULL);
++	int count = gtk_tree_selection_count_selected_rows(dq-&gt;fileSelection);
++
++	for (int i = 0; i &lt; count; i++)
++	{
++		path = (GtkTreePath *)g_list_nth_data(list, i);
++		if (gtk_tree_model_get_iter(GTK_TREE_MODEL(dq-&gt;fileStore), &amp;iter, path))
++		{
++			string magnet = WulforUtil::makeMagnet (dq-&gt;fileView.getValue&lt;gpointer, QueueItem *&gt;(&amp;iter, &quot;QueueItem&quot;));
++
++			if (!magnet.empty ())
++			{
++				if (!magnets.empty ())
++					magnets += '\n';
++				magnets += magnet;
++			}
++		}
++		gtk_tree_path_free(path);
++	}
++	g_list_free(list);
++	if (!magnets.empty ())
++		gtk_clipboard_set_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD), magnets.c_str (), magnets.length ());
++}
++
++
+ void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) throw()
+ {
+ 	WulforManager::get()-&gt;dispatchGuiFunc(new Func1&lt;DownloadQueue, QueueItem*&gt;(this, &amp;DownloadQueue::addItem_gui, item));
+diff -Nru linuxdcpp/linux/downloadqueue.hh linuxdcpp-new/linux/downloadqueue.hh
+--- linuxdcpp/linux/downloadqueue.hh	2007-01-01 15:14:27.000000000 +0300
++++ linuxdcpp-new/linux/downloadqueue.hh	2007-01-04 00:49:13.000000000 +0300
+@@ -74,6 +74,7 @@
+ 		static void onReAddSourceClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onRemoveSourceClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data);
+ 
+ 		// Client functions
+ 		void remove_client(std::string path);
+diff -Nru linuxdcpp/linux/hub.cc linuxdcpp-new/linux/hub.cc
+--- linuxdcpp/linux/hub.cc	2007-01-01 15:14:28.000000000 +0300
++++ linuxdcpp-new/linux/hub.cc	2007-01-04 10:20:17.000000000 +0300
+@@ -21,16 +21,21 @@
+ #include &lt;client/FavoriteManager.h&gt;
+ #include &lt;client/HashManager.h&gt;
+ #include &lt;client/ShareManager.h&gt;
++#include &lt;client/SearchManager.h&gt;
+ #include &quot;privatemessage.hh&quot;
+ #include &quot;settingsmanager.hh&quot;
+ #include &quot;wulformanager.hh&quot;
+ #include &quot;WulforUtil.hh&quot;
++#include &quot;search.hh&quot;
++
+ 
+ using namespace std;
+ 
+ Hub::Hub(const string &amp;address):
+ 	BookEntry(&quot;Hub: &quot; + address, &quot;hub.glade&quot;)
+ {
++	linkCursor = gdk_cursor_new (GDK_HAND2);
++
+ 	// Configure the dialog
+ 	gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget(&quot;passwordDialog&quot;)), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
+ 
+@@ -97,10 +102,15 @@
+ 	g_signal_connect(nickView.get(), &quot;key-release-event&quot;, G_CALLBACK(onNickListKeyRelease_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;chatEntry&quot;), &quot;activate&quot;, G_CALLBACK(onSendMessage_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;chatEntry&quot;), &quot;key-press-event&quot;, G_CALLBACK(onEntryKeyPress_gui), (gpointer)this);
++	g_signal_connect(getWidget(&quot;chatText&quot;), &quot;motion-notify-event&quot;, G_CALLBACK(onChatPointerMoved_gui), (gpointer)this);
++	g_signal_connect(getWidget(&quot;chatText&quot;), &quot;visibility-notify-event&quot;, G_CALLBACK(onChatVisibilityChanged_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;browseItem&quot;), &quot;activate&quot;, G_CALLBACK(onBrowseItemClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;matchItem&quot;), &quot;activate&quot;, G_CALLBACK(onMatchItemClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;msgItem&quot;), &quot;activate&quot;, G_CALLBACK(onMsgItemClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;grantItem&quot;), &quot;activate&quot;, G_CALLBACK(onGrantItemClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget(&quot;searchMagnetItem&quot;), &quot;activate&quot;, G_CALLBACK(onSearchMagnetClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget(&quot;copyMagnetItem&quot;), &quot;activate&quot;, G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget(&quot;magnetPropertiesItem&quot;), &quot;activate&quot;, G_CALLBACK(onMagnetPropertiesClicked_gui), (gpointer)this);
+ 
+ 	gtk_widget_set_sensitive(getWidget(&quot;favoriteUserItem&quot;), FALSE); // Not implemented yet
+ 	gtk_widget_grab_focus(getWidget(&quot;chatEntry&quot;));
+@@ -286,6 +296,11 @@
+ 	GtkAdjustment *adj;
+ 	bool setBottom;
+ 	string line = &quot;&quot;;
++	GArray* magnets;
++	string link;
++	gint link_s, link_f;
++	GtkTextTag* tag;
++	GtkTextIter i_start, i_end;
+ 
+ 	if (BOOLSETTING(TIME_STAMPS))
+ 		line = &quot;[&quot; + Util::getShortTimeString() + &quot;] &quot;;
+@@ -297,6 +312,34 @@
+ 	gtk_text_buffer_get_end_iter(chatBuffer, &amp;iter);
+ 	gtk_text_buffer_insert(chatBuffer, &amp;iter, line.c_str(), line.size());
+ 
++	// check for magnet links in line
++	magnets = WulforUtil::findMagnets (line);
++	gtk_text_buffer_get_end_iter(chatBuffer, &amp;iter);
++
++	for (guint i = 0; i &lt; magnets-&gt;len; i += 2)
++	{
++		link_s = g_array_index (magnets, gint, i);
++		link_f = g_array_index (magnets, gint, i+1);
++
++		link = line.substr (link_s, link_f-link_s);
++
++		// check for such magnet in our buffer
++		tag = gtk_text_tag_table_lookup (gtk_text_buffer_get_tag_table (chatBuffer), link.c_str ());
++
++		if (!tag) {
++			tag = gtk_text_buffer_create_tag (chatBuffer, link.c_str (), &quot;foreground&quot;, &quot;blue&quot;, &quot;underline&quot;, PANGO_UNDERLINE_SINGLE, NULL);
++			g_signal_connect(tag, &quot;event&quot;, G_CALLBACK(onMagnetTagEvent_gui), (gpointer)this);
++		}
++
++		i_start = i_end = iter;
++		gtk_text_iter_backward_chars (&amp;i_start, line.size ()-link_s);
++		gtk_text_iter_backward_chars (&amp;i_end,   line.size ()-link_f);
++
++		gtk_text_buffer_apply_tag (chatBuffer, tag, &amp;i_start, &amp;i_end);
++	}
++
++	g_array_free (magnets, TRUE);
++
+ 	if (gtk_text_buffer_get_line_count(chatBuffer) &gt; maxLines)
+ 	{
+ 		GtkTextIter next;
+@@ -780,6 +823,86 @@
+ 	}
+ }
+ 
++
++gboolean Hub::onMagnetTagEvent_gui(GtkTextTag* tag, GObject* arg1, GdkEvent* event, GtkTextIter* iter, gpointer data)
++{
++	Hub* hub = (Hub*)data;
++	gboolean handled = FALSE;
++
++
++	if (event-&gt;type == GDK_BUTTON_PRESS)
++	{
++		hub-&gt;selectedMagnet = tag-&gt;name;
++		switch (event-&gt;button.button)
++		{
++		case 1:
++			// search for magnet
++			onSearchMagnetClicked_gui(NULL, data);
++			handled = TRUE;
++			break;
++		case 2:
++			// open magnet properties dialog
++			onMagnetPropertiesClicked_gui(NULL, data);
++			handled = TRUE;
++			break;
++		case 3:
++			// popup magnet context menu
++			gtk_menu_popup(GTK_MENU(hub-&gt;getWidget(&quot;magnetMenu&quot;)), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
++			gtk_widget_show_all(hub-&gt;getWidget(&quot;magnetMenu&quot;));
++			handled = TRUE;
++			break;
++		}
++	}
++
++	return handled;
++}
++
++
++gboolean Hub::onChatPointerMoved_gui(GtkWidget* widget, GdkEventMotion* event, gpointer data)
++{
++	((Hub*)data)-&gt;handleCusrorPositionUpdate (widget);
++	return FALSE;
++}
++
++
++gboolean Hub::onChatVisibilityChanged_gui(GtkWidget* widget, GdkEventVisibility* event, gpointer data)
++{
++	((Hub*)data)-&gt;handleCusrorPositionUpdate (widget);
++	return FALSE;
++}
++
++
++void Hub::onSearchMagnetClicked_gui(GtkMenuItem *item, gpointer data)
++{
++	Hub* hub = (Hub*)data;
++	string name;
++	int64_t size;
++	TTHValue tth;
++	Search *s;
++
++	if (WulforUtil::splitMagnet (hub-&gt;selectedMagnet, name, size, tth)) {
++		s = dynamic_cast&lt;Search *&gt;(WulforManager::get()-&gt;addSearch_gui());
++		s-&gt;putValue_gui(tth.toBase32(), 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
++	}
++}
++
++
++void Hub::onCopyMagnetClicked_gui(GtkMenuItem *item, gpointer data)
++{
++	Hub* hub = (Hub*)data;
++	gtk_clipboard_set_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD), hub-&gt;selectedMagnet.c_str (), hub-&gt;selectedMagnet.length ());
++}
++
++
++void Hub::onMagnetPropertiesClicked_gui(GtkMenuItem *item, gpointer data)
++{
++	Hub* hub = (Hub*)data;
++
++	if (WulforManager::get ()-&gt;openMagnetDialog_gui (hub-&gt;selectedMagnet) == GTK_RESPONSE_OK)
++	onSearchMagnetClicked_gui (item, data);
++}
++
++
+ void Hub::connectClient_client(string address, string nick, string desc, string password)
+ {
+ 	dcassert(client == NULL);
+@@ -993,6 +1116,7 @@
+ 	params[&quot;CID&quot;] = id.getUser()-&gt;getCID().toBase32();
+ }
+ 
++
+ void Hub::on(ClientListener::Connecting, Client *) throw()
+ {
+ 	typedef Func1&lt;Hub, string&gt; F1;
+@@ -1195,3 +1319,30 @@
+ 	F1 *func = new F1(this, &amp;Hub::addStatusMessage_gui, &quot;Search spam from &quot; + msg);
+ 	WulforManager::get()-&gt;dispatchGuiFunc(func);
+ }
++
++
++void Hub::handleCusrorPositionUpdate (GtkWidget* widget)
++{
++	static gboolean alreadyAboveMagnet = FALSE;
++
++	gint x, y, buf_x, buf_y;
++	GtkTextIter iter;
++	gboolean aboveMagnet = FALSE;
++	string magnet;
++
++	gdk_window_get_pointer (widget-&gt;window, &amp;x, &amp;y, NULL);
++
++	// check for magnet tags under the cursor, and change mouse cursor apropriately
++	gtk_text_view_window_to_buffer_coords(GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_WIDGET, x, y, &amp;buf_x, &amp;buf_y);
++	gtk_text_view_get_iter_at_location(GTK_TEXT_VIEW(widget), &amp;iter, buf_x, buf_y);
++	aboveMagnet = WulforUtil::isTextIterOnMagnet (&amp;iter, magnet);
++
++	if (aboveMagnet != alreadyAboveMagnet) {
++		alreadyAboveMagnet = aboveMagnet;
++
++	if (aboveMagnet)
++		gdk_window_set_cursor (gtk_text_view_get_window (GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_TEXT), linkCursor);
++	else
++		gdk_window_set_cursor (gtk_text_view_get_window (GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_TEXT), NULL);
++	}
++}
+diff -Nru linuxdcpp/linux/hub.hh linuxdcpp-new/linux/hub.hh
+--- linuxdcpp/linux/hub.hh	2007-01-01 15:14:28.000000000 +0300
++++ linuxdcpp-new/linux/hub.hh	2007-01-04 01:40:06.000000000 +0300
+@@ -22,6 +22,7 @@
+ #include &lt;client/stdinc.h&gt;
+ #include &lt;client/DCPlusPlus.h&gt;
+ #include &lt;client/Client.h&gt;
++#include &lt;client/SearchManager.h&gt;
+ 
+ #include &quot;bookentry.hh&quot;
+ #include &quot;treeview.hh&quot;
+@@ -56,11 +57,17 @@
+ 		static gboolean onNickListButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+ 		static gboolean onNickListKeyRelease_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
+ 		static gboolean onEntryKeyPress_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
++		static gboolean onMagnetTagEvent_gui(GtkTextTag* tag, GObject* arg1, GdkEvent* event, GtkTextIter* iter, gpointer data);
++		static gboolean onChatPointerMoved_gui(GtkWidget* widget, GdkEventMotion* event, gpointer data);
++		static gboolean onChatVisibilityChanged_gui(GtkWidget* widget, GdkEventVisibility* event, gpointer data);
+ 		static void onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onMatchItemClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onMsgItemClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onGrantItemClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onRemoveUserItemClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onSearchMagnetClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onCopyMagnetClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onMagnetPropertiesClicked_gui(GtkMenuItem *item, gpointer data);
+ 
+ 		// Client functions
+ 		void setPassword_client(std::string password);
+@@ -92,6 +99,8 @@
+ 		virtual void on(ClientListener::NickTaken, Client *) throw();
+ 		virtual void on(ClientListener::SearchFlood, Client *, const string &amp;message) throw();
+ 
++    		void handleCusrorPositionUpdate (GtkWidget* widget);
++
+ 		hash_map&lt;std::string, std::string&gt; userMap;
+ 		hash_map&lt;std::string, GdkPixbuf *&gt; userIcons;
+ 		std::string completionKey;
+@@ -101,12 +110,14 @@
+ 		GtkTreeSelection *nickSelection;
+ 		GtkTextBuffer *chatBuffer;
+ 		GtkTextMark *chatMark;
++		GdkCursor* linkCursor;
+ 		gint oldType;
+ 		std::vector&lt;std::string&gt; history;
+ 		int historyIndex;
+ 		static const int maxLines = 1000;
+ 		static const int maxHistory = 20;
+ 		int64_t totalShared;
++		std::string selectedMagnet;
+ };
+ 
+ #else
+diff -Nru linuxdcpp/linux/magnetdialog.cc linuxdcpp-new/linux/magnetdialog.cc
+--- linuxdcpp/linux/magnetdialog.cc	1970-01-01 03:00:00.000000000 +0300
++++ linuxdcpp-new/linux/magnetdialog.cc	2007-01-04 00:43:28.000000000 +0300
+@@ -0,0 +1,43 @@
++/*
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
++ */
++
++#include &quot;magnetdialog.hh&quot;
++#include &quot;WulforUtil.hh&quot;
++
++#include &lt;client/Util.h&gt;
++
++
++
++
++MagnetProps::MagnetProps (const std::string&amp; magnet) : DialogEntry (&quot;MagnetProps&quot;, &quot;magnet.glade&quot;)
++{
++	string name;
++	int64_t size;
++	TTHValue tth;
++
++	if (!WulforUtil::splitMagnet (magnet, name, size, tth)) {
++		name = &quot;Unknown&quot;;
++		size = 0;
++	}
++
++	// fill controls
++	gtk_entry_set_text (GTK_ENTRY (getWidget (&quot;magnetEntry&quot;)), magnet.c_str ());
++	gtk_entry_set_text (GTK_ENTRY (getWidget (&quot;nameEntry&quot;)), name.c_str ());
++	gtk_entry_set_text (GTK_ENTRY (getWidget (&quot;sizeEntry&quot;)), Util::formatBytes (size).c_str ());
++	gtk_entry_set_text (GTK_ENTRY (getWidget (&quot;exactSizeEntry&quot;)), Util::formatExactSize (size).c_str ());
++	gtk_entry_set_text (GTK_ENTRY (getWidget (&quot;tthEntry&quot;)), tth.toBase32 ().c_str ());
++}
++
+diff -Nru linuxdcpp/linux/magnetdialog.hh linuxdcpp-new/linux/magnetdialog.hh
+--- linuxdcpp/linux/magnetdialog.hh	1970-01-01 03:00:00.000000000 +0300
++++ linuxdcpp-new/linux/magnetdialog.hh	2007-01-04 00:43:35.000000000 +0300
+@@ -0,0 +1,33 @@
++/*
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
++ */
++
++#ifndef WULFOR_MAGNETPROPS_HH
++#define WULFOR_MAGNETPROPS_HH
++
++#include &lt;client/stdinc.h&gt;
++#include &quot;dialogentry.hh&quot;
++
++
++class MagnetProps:
++	public DialogEntry
++{
++	public:
++		MagnetProps(const std::string&amp; magnet);
++};
++
++#else
++class MagnetProps;
++#endif
+diff -Nru linuxdcpp/linux/privatemessage.cc linuxdcpp-new/linux/privatemessage.cc
+--- linuxdcpp/linux/privatemessage.cc	2006-11-01 20:09:27.000000000 +0300
++++ linuxdcpp-new/linux/privatemessage.cc	2007-01-04 10:20:39.000000000 +0300
+@@ -22,6 +22,8 @@
+ #include &lt;client/FavoriteManager.h&gt;
+ #include &quot;wulformanager.hh&quot;
+ #include &quot;WulforUtil.hh&quot;
++#include &quot;search.hh&quot;
++
+ 
+ using namespace std;
+ 
+@@ -29,6 +31,8 @@
+ 	BookEntry(&quot;PM: &quot; + WulforUtil::getNicks(user), &quot;privatemessage.glade&quot;),
+ 	user(user)
+ {
++	linkCursor = gdk_cursor_new (GDK_HAND2);
++
+ 	// Intialize the chat window
+ 	if (SETTING(USE_OEM_MONOFONT))
+ 	{
+@@ -49,6 +53,11 @@
+ 	// Connect the signals to their callback functions.
+ 	g_signal_connect(getWidget(&quot;entry&quot;), &quot;activate&quot;, G_CALLBACK(onSendMessage_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;entry&quot;), &quot;key-press-event&quot;, G_CALLBACK(onKeyPress_gui), (gpointer)this);
++	g_signal_connect(getWidget(&quot;text&quot;), &quot;motion-notify-event&quot;, G_CALLBACK(onChatPointerMoved_gui), (gpointer)this);
++	g_signal_connect(getWidget(&quot;text&quot;), &quot;visibility-notify-event&quot;, G_CALLBACK(onChatVisibilityChanged_gui), (gpointer)this);
++	g_signal_connect(getWidget(&quot;searchMagnetItem&quot;), &quot;activate&quot;, G_CALLBACK(onSearchMagnetClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget(&quot;copyMagnetItem&quot;), &quot;activate&quot;, G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget(&quot;magnetPropertiesItem&quot;), &quot;activate&quot;, G_CALLBACK(onMagnetPropertiesClicked_gui), (gpointer)this);
+ 
+ 	gtk_widget_grab_focus(getWidget(&quot;entry&quot;));
+ 
+@@ -84,6 +93,11 @@
+ 	GtkAdjustment *adj;
+ 	bool setBottom;
+ 	string line = &quot;&quot;;
++	GArray* magnets;
++	string link;
++	gint link_s, link_f;
++	GtkTextTag* tag;
++	GtkTextIter i_start, i_end;
+ 
+ 	adj = gtk_scrolled_window_get_vadjustment(GTK_SCROLLED_WINDOW(getWidget(&quot;scroll&quot;)));
+ 	setBottom = gtk_adjustment_get_value(adj) &gt;= (adj-&gt;upper - adj-&gt;page_size);
+@@ -95,6 +109,34 @@
+ 	gtk_text_buffer_get_end_iter(buffer, &amp;iter);
+ 	gtk_text_buffer_insert(buffer, &amp;iter, line.c_str(), line.size());
+ 
++	// check for magnet links in line
++	magnets = WulforUtil::findMagnets (line);
++	gtk_text_buffer_get_end_iter(buffer, &amp;iter);
++
++	for (guint i = 0; i &lt; magnets-&gt;len; i += 2)
++	{
++		link_s = g_array_index (magnets, gint, i);
++		link_f = g_array_index (magnets, gint, i+1);
++
++		link = line.substr (link_s, link_f-link_s);
++
++		// check for such magnet in our buffer
++		tag = gtk_text_tag_table_lookup (gtk_text_buffer_get_tag_table (buffer), link.c_str ());
++
++		if (!tag) {
++			tag = gtk_text_buffer_create_tag (buffer, link.c_str (), &quot;foreground&quot;, &quot;blue&quot;, &quot;underline&quot;, PANGO_UNDERLINE_SINGLE, NULL);
++			g_signal_connect(tag, &quot;event&quot;, G_CALLBACK(onMagnetTagEvent_gui), (gpointer)this);
++		}
++
++		i_start = i_end = iter;
++		gtk_text_iter_backward_chars (&amp;i_start, line.size ()-link_s);
++		gtk_text_iter_backward_chars (&amp;i_end,   line.size ()-link_f);
++
++		gtk_text_buffer_apply_tag (buffer, tag, &amp;i_start, &amp;i_end);
++	}
++
++	g_array_free (magnets, TRUE);
++
+ 	if (gtk_text_buffer_get_line_count(buffer) &gt; maxLines)
+ 	{
+ 		GtkTextIter next;
+@@ -231,7 +273,115 @@
+ 	return FALSE;
+ }
+ 
++
++gboolean PrivateMessage::onMagnetTagEvent_gui(GtkTextTag* tag, GObject* arg1, GdkEvent* event, GtkTextIter* iter, gpointer data)
++{
++	PrivateMessage* hub = (PrivateMessage*)data;
++	gboolean handled = FALSE;
++
++
++	if (event-&gt;type == GDK_BUTTON_PRESS)
++	{
++		hub-&gt;selectedMagnet = tag-&gt;name;
++		switch (event-&gt;button.button)
++		{
++		case 1:
++			// search for magnet
++			onSearchMagnetClicked_gui(NULL, data);
++			handled = TRUE;
++			break;
++		case 2:
++			// open magnet properties dialog
++			onMagnetPropertiesClicked_gui(NULL, data);
++			handled = TRUE;
++			break;
++		case 3:
++			// popup magnet context menu
++			gtk_menu_popup(GTK_MENU(hub-&gt;getWidget(&quot;magnetMenu&quot;)), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
++			gtk_widget_show_all(hub-&gt;getWidget(&quot;magnetMenu&quot;));
++			handled = TRUE;
++			break;
++		}
++	}
++
++	return handled;
++}
++
++
++gboolean PrivateMessage::onChatPointerMoved_gui(GtkWidget* widget, GdkEventMotion* event, gpointer data)
++{
++	((PrivateMessage*)data)-&gt;handleCusrorPositionUpdate (widget);
++	return FALSE;
++}
++
++
++gboolean PrivateMessage::onChatVisibilityChanged_gui(GtkWidget* widget, GdkEventVisibility* event, gpointer data)
++{
++	((PrivateMessage*)data)-&gt;handleCusrorPositionUpdate (widget);
++	return FALSE;
++}
++
++
++void PrivateMessage::onSearchMagnetClicked_gui(GtkMenuItem *item, gpointer data)
++{
++	PrivateMessage* hub = (PrivateMessage*)data;
++	string name;
++	int64_t size;
++	TTHValue tth;
++	Search *s;
++
++	if (WulforUtil::splitMagnet (hub-&gt;selectedMagnet, name, size, tth)) {
++		s = dynamic_cast&lt;Search *&gt;(WulforManager::get()-&gt;addSearch_gui());
++		s-&gt;putValue_gui(tth.toBase32(), 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
++	}
++}
++
++
++void PrivateMessage::onCopyMagnetClicked_gui(GtkMenuItem *item, gpointer data)
++{
++	PrivateMessage* hub = (PrivateMessage*)data;
++	gtk_clipboard_set_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD), hub-&gt;selectedMagnet.c_str (), hub-&gt;selectedMagnet.length ());
++}
++
++
++void PrivateMessage::onMagnetPropertiesClicked_gui(GtkMenuItem *item, gpointer data)
++{
++	PrivateMessage* hub = (PrivateMessage*)data;
++
++	if (WulforManager::get ()-&gt;openMagnetDialog_gui (hub-&gt;selectedMagnet) == GTK_RESPONSE_OK)
++	onSearchMagnetClicked_gui (item, data);
++}
++
++
+ void PrivateMessage::sendMessage_client(std::string message)
+ {
+ 	ClientManager::getInstance()-&gt;privateMessage(user, message);
+ }
++
++
++
++void PrivateMessage::handleCusrorPositionUpdate (GtkWidget* widget)
++{
++	static gboolean alreadyAboveMagnet = FALSE;
++
++	gint x, y, buf_x, buf_y;
++	GtkTextIter iter;
++	gboolean aboveMagnet = FALSE;
++	string magnet;
++
++	gdk_window_get_pointer (widget-&gt;window, &amp;x, &amp;y, NULL);
++
++	// check for magnet tags under the cursor, and change mouse cursor apropriately
++	gtk_text_view_window_to_buffer_coords(GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_WIDGET, x, y, &amp;buf_x, &amp;buf_y);
++	gtk_text_view_get_iter_at_location(GTK_TEXT_VIEW(widget), &amp;iter, buf_x, buf_y);
++	aboveMagnet = WulforUtil::isTextIterOnMagnet (&amp;iter, magnet);
++
++	if (aboveMagnet != alreadyAboveMagnet) {
++		alreadyAboveMagnet = aboveMagnet;
++
++	if (aboveMagnet)
++		gdk_window_set_cursor (gtk_text_view_get_window (GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_TEXT), linkCursor);
++	else
++		gdk_window_set_cursor (gtk_text_view_get_window (GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_TEXT), NULL);
++	}
++}
+diff -Nru linuxdcpp/linux/privatemessage.hh linuxdcpp-new/linux/privatemessage.hh
+--- linuxdcpp/linux/privatemessage.hh	2007-01-01 15:14:28.000000000 +0300
++++ linuxdcpp-new/linux/privatemessage.hh	2007-01-04 01:45:08.000000000 +0300
+@@ -42,11 +42,19 @@
+ 
+ 		// GUI callbacks
+ 		static void onSendMessage_gui(GtkEntry *entry, gpointer data);
++		static void onSearchMagnetClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onCopyMagnetClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onMagnetPropertiesClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static gboolean onKeyPress_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
++		static gboolean onMagnetTagEvent_gui(GtkTextTag* tag, GObject* arg1, GdkEvent* event, GtkTextIter* iter, gpointer data);
++		static gboolean onChatPointerMoved_gui(GtkWidget* widget, GdkEventMotion* event, gpointer data);
++		static gboolean onChatVisibilityChanged_gui(GtkWidget* widget, GdkEventVisibility* event, gpointer data);
+ 
+ 		// Client functions
+ 		void sendMessage_client(std::string message);
+ 
++    		void handleCusrorPositionUpdate (GtkWidget* widget);
++
+ 		GtkTextBuffer *buffer;
+ 		GtkTextMark *mark;
+ 		User::Ptr user;
+@@ -54,6 +62,8 @@
+ 		int historyIndex;
+ 		static const int maxLines = 500; ///@todo: make these preferences
+ 		static const int maxHistory = 20;
++		GdkCursor* linkCursor;
++		std::string selectedMagnet;
+ };
+ 
+ #else
+diff -Nru linuxdcpp/linux/SConstruct linuxdcpp-new/linux/SConstruct
+--- linuxdcpp/linux/SConstruct	2006-11-01 20:09:27.000000000 +0300
++++ linuxdcpp-new/linux/SConstruct	2007-01-03 22:14:48.000000000 +0300
+@@ -9,6 +9,7 @@
+ 	'hashdialog.cc',
+ 	'hub.cc',
+ 	'mainwindow.cc',
++	'magnetdialog.cc',
+ 	'privatemessage.cc',
+ 	'publichubs.cc',
+ 	'search.cc',
+diff -Nru linuxdcpp/linux/search.cc linuxdcpp-new/linux/search.cc
+--- linuxdcpp/linux/search.cc	2007-01-01 15:14:28.000000000 +0300
++++ linuxdcpp-new/linux/search.cc	2007-01-04 00:44:49.000000000 +0300
+@@ -135,6 +135,7 @@
+ 	g_signal_connect(getWidget(&quot;grantExtraSlotItem&quot;), &quot;activate&quot;, G_CALLBACK(onGrantExtraSlotClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;removeUserFromQueueItem&quot;), &quot;activate&quot;, G_CALLBACK(onRemoveUserFromQueueClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;removeItem&quot;), &quot;activate&quot;, G_CALLBACK(onRemoveClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget(&quot;copyMagnetItem&quot;), &quot;activate&quot;, G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;comboboxSize&quot;), &quot;changed&quot;, G_CALLBACK(onComboBoxChanged_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;comboboxentrySearch&quot;), &quot;changed&quot;, G_CALLBACK(onComboBoxChanged_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;comboboxUnit&quot;), &quot;changed&quot;, G_CALLBACK(onComboBoxChanged_gui), (gpointer)this);
+@@ -1197,6 +1198,43 @@
+ 	}
+ }
+ 
++
++void Search::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
++{
++	Search *s = (Search *)data;
++
++	if (gtk_tree_selection_count_selected_rows(s-&gt;selection) &gt; 0)
++	{
++		string fav;
++		GtkTreeIter iter;
++		GtkTreePath *path;
++		GList *list = gtk_tree_selection_get_selected_rows(s-&gt;selection, NULL);
++		string magnets;
++
++		for (GList *i = list; i; i = i-&gt;next)
++		{
++			path = (GtkTreePath *)i-&gt;data;
++			if (gtk_tree_model_get_iter(s-&gt;sortedFilterModel, &amp;iter, path))
++			{
++				string magnet = WulforUtil::makeMagnet (s-&gt;resultView.getValue&lt;gpointer, SearchResult *&gt;(&amp;iter, &quot;SearchResult&quot;));
++
++				if (!magnet.empty ())
++				{
++					if (!magnets.empty ())
++						magnets += '\n';
++					magnets += magnet;
++				}
++			}
++			gtk_tree_path_free(path);
++		}
++		g_list_free(list);
++		if (!magnets.empty ())
++			gtk_clipboard_set_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD), magnets.c_str (), magnets.length ());
++	}
++}
++
++
++
+ void Search::download_client(string target, SearchResult *result)
+ {
+ 	target = Text::utf8ToAcp(target);
+diff -Nru linuxdcpp/linux/search.hh linuxdcpp-new/linux/search.hh
+--- linuxdcpp/linux/search.hh	2007-01-01 15:14:28.000000000 +0300
++++ linuxdcpp-new/linux/search.hh	2007-01-04 00:44:03.000000000 +0300
+@@ -77,6 +77,7 @@
+ 		static void onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onRemoveClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data);
+ 
+ 		// Client functions
+ 		void download_client(std::string target, SearchResult *result);
+diff -Nru linuxdcpp/linux/sharebrowser.cc linuxdcpp-new/linux/sharebrowser.cc
+--- linuxdcpp/linux/sharebrowser.cc	2007-01-01 15:14:29.000000000 +0300
++++ linuxdcpp-new/linux/sharebrowser.cc	2007-01-04 00:46:05.000000000 +0300
+@@ -101,6 +101,7 @@
+ 	g_signal_connect(getWidget(&quot;dirDownloadItem&quot;), &quot;activate&quot;, G_CALLBACK(onDownloadDirClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;fileDownloadItem&quot;), &quot;activate&quot;, G_CALLBACK(onDownloadClicked_gui), (gpointer)this);
+ 	g_signal_connect(getWidget(&quot;searchForAlternatesItem&quot;), &quot;activate&quot;, G_CALLBACK(onSearchAlternatesClicked_gui), (gpointer)this);
++	g_signal_connect(getWidget(&quot;copyMagnetItem&quot;), &quot;activate&quot;, G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
+ 
+ 	// Load the xml file containing the share list.
+ 	try
+@@ -109,7 +110,7 @@
+ 
+ 		// Set name of root entry to user nick.
+ 		listing.getRoot()-&gt;setName(WulforUtil::getNicks(user));
+-		
++
+ 		// Add entries to dir tree view starting with the root entry.
+ 		buildDirs_gui(listing.getRoot(), NULL);
+ 
+@@ -638,12 +639,12 @@
+ 		{
+ 			bool selected = gtk_tree_selection_path_is_selected(sb-&gt;fileSelection, path);
+ 			gtk_tree_path_free(path);
+-			
++
+ 			if (selected)
+ 				return TRUE;
+ 		}
+ 	}
+-	
++
+ 	return FALSE;
+ }
+ 
+@@ -884,6 +885,48 @@
+ 	g_list_free(list);
+ }
+ 
++
++void ShareBrowser::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
++{
++	ShareBrowser *sb = (ShareBrowser *)data;
++	GtkTreeIter iter;
++	GtkTreePath *path;
++	gpointer ptr;
++	string fileOrder;
++	GtkTreeModel *m = GTK_TREE_MODEL(sb-&gt;fileStore);
++	GList *list = gtk_tree_selection_get_selected_rows(sb-&gt;fileSelection, NULL);
++	gint count = gtk_tree_selection_count_selected_rows(sb-&gt;fileSelection);
++	string magnets;
++
++	for (int i = 0; i &lt; count; i++)
++	{
++		path = (GtkTreePath *)g_list_nth_data(list, i);
++		if (gtk_tree_model_get_iter(m, &amp;iter, path))
++		{
++			ptr = sb-&gt;fileView.getValue&lt;gpointer&gt;(&amp;iter, &quot;DL File&quot;);
++			fileOrder = sb-&gt;fileView.getString(&amp;iter, &quot;File Order&quot;);
++
++			if (fileOrder[0] == 'f')
++			{
++				string magnet = WulforUtil::makeMagnet ((DirectoryListing::File *)ptr);
++
++				if (!magnet.empty ())
++				{
++					if (!magnets.empty ())
++						magnets += '\n';
++					magnets += magnet;
++				}
++			}
++		}
++		gtk_tree_path_free(path);
++	}
++	g_list_free(list);
++
++	if (!magnets.empty ())
++		gtk_clipboard_set_text (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD), magnets.c_str (), magnets.length ());
++}
++
++
+ void ShareBrowser::downloadFile_client(DirectoryListing::File *file, string target)
+ {
+ 	try
+diff -Nru linuxdcpp/linux/sharebrowser.hh linuxdcpp-new/linux/sharebrowser.hh
+--- linuxdcpp/linux/sharebrowser.hh	2007-01-01 15:14:29.000000000 +0300
++++ linuxdcpp-new/linux/sharebrowser.hh	2007-01-04 00:45:43.000000000 +0300
+@@ -65,6 +65,7 @@
+ 		static void onDownloadDirToClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onDownloadFavoriteDirClicked_gui(GtkMenuItem *item, gpointer data);
+ 		static void onSearchAlternatesClicked_gui(GtkMenuItem *item, gpointer data);
++		static void onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data);
+ 
+ 		// Client functions
+ 		void downloadFile_client(DirectoryListing::File *file, std::string target);
+diff -Nru linuxdcpp/linux/wulformanager.cc linuxdcpp-new/linux/wulformanager.cc
+--- linuxdcpp/linux/wulformanager.cc	2007-01-01 15:14:29.000000000 +0300
++++ linuxdcpp-new/linux/wulformanager.cc	2007-01-04 00:48:01.000000000 +0300
+@@ -24,6 +24,7 @@
+ #include &quot;finishedtransfers.hh&quot;
+ #include &quot;hashdialog.hh&quot;
+ #include &quot;hub.hh&quot;
++#include &quot;magnetdialog.hh&quot;
+ #include &quot;privatemessage.hh&quot;
+ #include &quot;publichubs.hh&quot;
+ #include &quot;search.hh&quot;
+@@ -589,3 +590,10 @@
+ 
+ 	return Settings::getResponseID();
+ }
++
++int WulforManager::openMagnetDialog_gui (const string&amp; magnet)
++{
++	MagnetProps *m = new MagnetProps (magnet);
++	insertDialogEntry_gui(m);
++	return MagnetProps::getResponseID();
++}
+diff -Nru linuxdcpp/linux/wulformanager.hh linuxdcpp-new/linux/wulformanager.hh
+--- linuxdcpp/linux/wulformanager.hh	2007-01-01 15:14:29.000000000 +0300
++++ linuxdcpp-new/linux/wulformanager.hh	2007-01-04 00:47:22.000000000 +0300
+@@ -59,7 +59,7 @@
+ 		// DialogEntry functions
+ 		int openHashDialog_gui();
+ 		int openSettingsDialog_gui();
+-
++		int openMagnetDialog_gui (const std::string&amp; magnet);
+ 	private:
+ 		// MainWindow-related functions
+ 		void createMainWindow();
+diff -Nru linuxdcpp/linux/WulforUtil.cc linuxdcpp-new/linux/WulforUtil.cc
+--- linuxdcpp/linux/WulforUtil.cc	2006-11-01 20:09:27.000000000 +0300
++++ linuxdcpp-new/linux/WulforUtil.cc	2007-01-04 01:10:09.000000000 +0300
+@@ -18,6 +18,9 @@
+ 
+ #include &quot;WulforUtil.hh&quot;
+ #include &lt;client/ClientManager.h&gt;
++#include &lt;client/Util.h&gt;
++#include &lt;client/SearchManager.h&gt;
++#include &lt;client/QueueItem.h&gt;
+ 
+ vector&lt;int&gt; WulforUtil::splitString(const string &amp;str, const string &amp;delimiter)
+ {
+@@ -90,3 +93,119 @@
+ 
+ 	return text;
+ }
++
++
++// Magnet support routines
++static const char* magnet_sig = &quot;magnet:?xt=urn:tree:tiger:&quot;;
++
++
++string WulforUtil::makeMagnet(const string&amp; name, const int64_t size, const TTHValue&amp; tth)
++{
++	gchar len_buf[100];
++
++	if (g_snprintf (len_buf, sizeof (len_buf), &quot;%lld&quot;, size) &gt;= (gint)sizeof (len_buf))
++		return string ();
++
++	return string (magnet_sig) +
++		tth.toBase32 () +
++		string (&quot;&amp;xl=&quot;) +
++		string (len_buf) +
++		string (&quot;&amp;dn=&quot;) +
++		Util::encodeURI (name);
++}
++
++string WulforUtil::makeMagnet(const DirectoryListing::File* file)
++{
++	return makeMagnet (file-&gt;getName (), file-&gt;getSize (), file-&gt;getTTH ());
++}
++
++
++string WulforUtil::makeMagnet(const SearchResult* item)
++{
++	if (!item || item-&gt;getType () != SearchResult::TYPE_FILE)
++		return string ();
++
++	return makeMagnet (item-&gt;getFile (), item-&gt;getSize (), item-&gt;getTTH ());
++}
++
++
++string WulforUtil::makeMagnet(const QueueItem* item)
++{
++	return makeMagnet (item-&gt;getTargetFileName (), item-&gt;getSize (), item-&gt;getTTH ());
++}
++
++
++gboolean WulforUtil::splitMagnet(const string&amp; magnet, string&amp; name, int64_t&amp; size, TTHValue&amp; tth)
++{
++	string::size_type pos, pos2;
++	size_t len = strlen (magnet_sig);
++
++	if (!isMagnet (magnet.c_str ()))
++		return FALSE;
++
++	pos = magnet.find (&quot;&amp;xl=&quot;, 0);
++	if (pos == string::npos)
++		return FALSE;
++
++	tth = TTHValue (magnet.substr (len, pos-len));
++
++	pos2 = magnet.find (&quot;&amp;dn=&quot;, pos);
++	if (pos2 == string::npos)
++		return FALSE;
++
++	size = Util::toInt64 (magnet.substr (pos+4, pos2-pos-4));
++	name = Util::encodeURI (magnet.substr (pos2+4), TRUE);
++	return TRUE;
++}
++
++
++// returns array of gint pairs. First item is an offset of link in a
++// string, second is offset of link's end.
++GArray* WulforUtil::findMagnets (const string&amp; line)
++{
++	string::size_type pos = 0, new_pos, end_pos;
++	GArray* result = g_array_new (FALSE, FALSE, sizeof (gint));
++
++	while (1) {
++		new_pos = line.find (magnet_sig, pos);
++
++		if (new_pos == string::npos)
++			break;
++
++		end_pos = line.find_first_of (&quot; \n\r\t&quot;, new_pos);
++		if (end_pos == string::npos)
++			end_pos = line.size ();
++		g_array_append_val (result, new_pos);
++		g_array_append_val (result, end_pos);
++		pos = end_pos;
++	}
++
++	return result;
++}
++
++
++gboolean WulforUtil::isMagnet (const gchar* text)
++{
++	return strncmp (text, magnet_sig, strlen (magnet_sig)) == 0;
++}
++
++
++
++gboolean WulforUtil::isTextIterOnMagnet (GtkTextIter* iter, string&amp; magnet)
++{
++	GSList *tags, *tag_p;
++	gboolean result = FALSE;
++
++	tag_p = tags = gtk_text_iter_get_tags(iter);
++
++	while (tag_p &amp;&amp; !result) {
++		result = WulforUtil::isMagnet (((GtkTextTag*)tag_p-&gt;data)-&gt;name);
++		if (result)
++			magnet = ((GtkTextTag*)tag_p-&gt;data)-&gt;name;
++		tag_p = g_slist_next (tag_p);
++	}
++
++	g_slist_free (tags);
++
++	return result;
++}
+diff -Nru linuxdcpp/linux/WulforUtil.hh linuxdcpp-new/linux/WulforUtil.hh
+--- linuxdcpp/linux/WulforUtil.hh	2006-11-01 20:09:27.000000000 +0300
++++ linuxdcpp-new/linux/WulforUtil.hh	2007-01-04 01:09:44.000000000 +0300
+@@ -24,6 +24,10 @@
+ #include &lt;client/DCPlusPlus.h&gt;
+ #include &lt;client/CID.h&gt;
+ #include &lt;client/User.h&gt;
++#include &lt;client/DirectoryListing.h&gt;
++#include &lt;client/SearchManager.h&gt;
++#include &lt;client/QueueItem.h&gt;
++
+ 
+ class WulforUtil
+ {
+@@ -36,6 +40,15 @@
+ 		static std::string getHubNames(const CID&amp; cid);
+ 		static std::string getHubNames(const User::Ptr&amp; user);
+ 		static std::string getTextFromMenu(GtkMenuItem *item);
++		// magnet links
++		static std::string makeMagnet(const std::string&amp; name, const int64_t size, const TTHValue&amp; tth);
++		static std::string makeMagnet(const DirectoryListing::File* file);
++		static std::string makeMagnet(const SearchResult* item);
++		static std::string makeMagnet(const QueueItem* item);
++		static gboolean splitMagnet(const std::string&amp; magnet, std::string&amp; name, int64_t&amp; size, TTHValue&amp; tth);
++		static GArray* findMagnets (const std::string&amp; line);
++		static gboolean isMagnet (const gchar* text);
++		static gboolean isTextIterOnMagnet (GtkTextIter* iter, string&amp; magnet);
+ };
+ 
+ #endif
+diff -Nru linuxdcpp/SConstruct linuxdcpp-new/SConstruct
+--- linuxdcpp/SConstruct	2007-01-01 15:14:10.000000000 +0300
++++ linuxdcpp-new/SConstruct	2007-01-03 23:45:40.000000000 +0300
+@@ -197,6 +197,7 @@
+ 	'glade/hash.glade',
+ 	'glade/hub.glade',
+ 	'glade/mainwindow.glade',
++	'glade/magnet.glade',
+ 	'glade/privatemessage.glade',
+ 	'glade/publichubs.glade',
+ 	'glade/search.glade',
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000005.html">[Linuxdcpp-developers] BerliOS
+</A></li>
+	<LI>Next message: <A HREF="000023.html">[Linuxdcpp-developers] [Patch] Magnet links support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

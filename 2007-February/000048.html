@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Bug #10314] Not starting sometimes -	missing files
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2310314%5D%20Not%20starting%20sometimes%20-%0A%09missing%20files&In-Reply-To=%3C200702121407.l1CE7dba025739%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000047.html">
+   <LINK REL="Next"  HREF="000049.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Bug #10314] Not starting sometimes -	missing files</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2310314%5D%20Not%20starting%20sometimes%20-%0A%09missing%20files&In-Reply-To=%3C200702121407.l1CE7dba025739%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Bug #10314] Not starting sometimes -	missing files">admin at berlios.de
+       </A><BR>
+    <I>Mon Feb 12 15:07:39 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000047.html">[Linuxdcpp-developers] [Bug #10303] Not download files with	cyrillic names
+</A></li>
+        <LI>Next message: <A HREF="000049.html">[Linuxdcpp-developers] [Bug #10429] Can't compile on Suse 10.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#48">[ date ]</a>
+              <a href="thread.html#48">[ thread ]</a>
+              <a href="subject.html#48">[ subject ]</a>
+              <a href="author.html#48">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #10314, was updated on 2007-Feb-12 15:07
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: sidelve
+Assigned to : none
+Summary: Not starting sometimes - missing files
+
+Details: I noticed, that sometimes new cvs version works normally, and sometimes after compiling just doesn't start.
+
+When it doesn't start I have:
+
+
+terminate called after throwing an instance of 'FileException'
+Aborted
+
+
+I run it with strace and noticed that there are missing files:
+&quot;/etc/dcppboot.xml&quot;, 0xbf882b24) = -1 ENOENT (No such file or directory)
+
+
+That file isn't that file on sources from cvs, but I found it on my win partition in 
+Program Files/DC++/dcpboot.xml
+
+I copied that to /etc, then with strace again and I had one more missing file:
+
+$HOME/.dc++/GeoIpCountryWhois.csv&quot;
+
+
+It wasn't on sources too so I found *SIMILAR* file in windows dc++ again :
+
+Program\ Files/DC++/GeoIPCountryWhois.csv
+
+
+It still didn't work... had to rename file (in ~/dc++)
+from:
+
+GeoIPCountryWhois.csv
+
+to
+
+GeoIpCountryWhois.csv
+
+
+ = P to p :)
+
+
+After this (copy 2 files from windows, which weren't in cvs sources) LinuxDC++ normally run...
+
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=10314&amp;group_id=2230">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=10314&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000047.html">[Linuxdcpp-developers] [Bug #10303] Not download files with	cyrillic names
+</A></li>
+	<LI>Next message: <A HREF="000049.html">[Linuxdcpp-developers] [Bug #10429] Can't compile on Suse 10.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#48">[ date ]</a>
+              <a href="thread.html#48">[ thread ]</a>
+              <a href="subject.html#48">[ subject ]</a>
+              <a href="author.html#48">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

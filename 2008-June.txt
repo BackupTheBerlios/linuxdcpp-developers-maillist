@@ -1,0 +1,466 @@
+From admin at berlios.de  Sun Jun  1 19:29:11 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 1 Jun 2008 19:29:11 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Feature #4168] Automatic external IP
+	address detection
+Message-ID: <200806011729.m51HTBJC015149@unicorn.berlios.de>
+
+Feature Request #4168, was updated on 2008-Jun-01 19:28
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4168&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Automatic external IP address detection
+
+By: rpolach
+Date: 2008-Jun-01 19:28
+
+Message:
+Logged In: YES 
+user_id=42071
+Browser: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9) Gecko/2008052909 Firefox/3.0
+
+As I can see e.g. in Pidgin or Carrier, application
+can detect external (NAT) router IP address, so manual
+setting of this IP address is not necessary.
+
+It would be nice to have this feature also in Linux DC++.
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4168&group_id=2230
+
+
+From admin at berlios.de  Fri Jun  6 02:24:19 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 5 Jun 2008 16:24:19 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Bug #13959] Sorting by "speed" sorts speeds
+	alphabetically
+Message-ID: <200806060024.m560OJDq008934@unicorn.berlios.de>
+
+Bug #13959, was updated on 2008-Jun-05 16:24
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: victorzamanian
+Assigned to : none
+Summary: Sorting by "speed" sorts speeds alphabetically
+
+Details: Sorting the "Finished downloads" and "Finished uploads" by speed or size seemingly sorts the speeds and sizes by their alphanumeric representations and not by their numeric values.
+
+Expected behavior:
+106.48 KiB/s
+112.30 KiB/s
+1.09 MiB/s
+
+Current behavior:
+106.48 KiB/s
+1.09 MiB/s
+112.30 KiB/s
+(seems like points are ignored, too. This is an example of the behavior--longer lists will more clearly show this erroneous behavior.)
+
+Thanks for a great piece of software!
+
+When sorting by Size, the pattern is a bit more indistinguishable to the 2 AM eye... but I can at least say that it doesn't sort correctly by Size.
+Using CVS snapshot fetched and compiled on June 5th, '08.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13959&group_id=2230
+
+
+From admin at berlios.de  Wed Jun  4 11:01:36 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 4 Jun 2008 13:01:36 +0400 (MSD)
+Subject: [Linuxdcpp-developers] [Feature #4173] Different external IPs for
+	each hub
+Message-ID: <200806040901.m5491as9022666@unicorn.berlios.de>
+
+Feature Request #4173, was updated on 2008-Jun-04 13:01
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4173&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Different external IPs for each hub
+
+By: ghost99
+Date: 2008-Jun-04 13:01
+
+Message:
+Logged In: YES 
+user_id=46208
+Browser: Mozilla/5.0 (X11; U; Linux i686; ru; rv:1.8.1.14) Gecko/20080420 Firefox/2.0.0.14
+
+Hello.
+I'm using two local networks with different DC hubs in
+each network. With your good DC client i can't "seed"
+in both hubs in different networks (except in passive
+mode, of course) in same time.
+In... other operational system clients this feature
+exist long time.
+
+This feature will be extremly useful for me, and for
+other users, that have more than one network with DC hubs.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4173&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Mon Jun  9 04:42:53 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Mon, 9 Jun 2008 04:42:53 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200806090242.m592gr35010201@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 978 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080609/7a7bd846/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Mon Jun  9 05:59:16 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Mon, 9 Jun 2008 05:59:16 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200806090359.m593xG96015001@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 630 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080609/bf4b03ce/attachment.xml>
+
+From admin at berlios.de  Sat Jun 14 13:27:30 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 14 Jun 2008 15:27:30 +0400 (MSD)
+Subject: [Linuxdcpp-developers] [Feature #4186] just simple script for you
+Message-ID: <200806141127.m5EBRURH020269@unicorn.berlios.de>
+
+Feature Request #4186, was updated on 2008-Jun-14 15:27
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4186&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: just simple script for you
+
+By: guest
+Date: 2008-Jun-14 15:27
+
+Message:
+Logged In: YES 
+user_id=46391
+Browser: Opera/9.26 (X11; Linux i686; U; en)
+
+I use this simple bash scroptie to assign public IP to the client 
+each time it is restarted. My ISP tends to change IP every 12 
+hours, so when this happens Linuxdcpp crashes badly. BUT script 
+retrives new address, feeds it to the client and restarts it. quite 
+ugly, but working solution. Maybe it would be ok to build such a 
+function inside program itself. Script following:
+#~/bin/bash
+hostname=`hostname`
+cd "~/.dc++/"
+log="/home/headhunter/.dcpp_crash_log"
+#30 is just some value in case it gets stuck on restart-fail cycle.
+for (( i=0 ; i<30; i++))
+do
+        #cut parameters are not a good style, maybe sed would be 
+better
+        IP=`host $hostname | cut -c 38-`
+        echo "running attempt $i with IP $IP" >>$log
+        cat DCPlusPlus.xml | head -n 7 > 1.tmp
+        echo '          <ExternalIp type="string">'$IP'</ExternalIp>' 
+>>1.tmp
+        cat DCPlusPlus.xml | tail -n +9 >>1.tmp
+        mv 1.tmp DCPlusPlus.xml
+        sleep 2
+        nice -n 3 linuxdcpp >>$log
+done
+
+of course, all debug info goes to log as well as ip's obtained from 
+ISP. Good luck, answer directly to email in my profile.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4186&group_id=2230
+
+
+From admin at berlios.de  Sat Jun 14 13:30:43 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 14 Jun 2008 15:30:43 +0400 (MSD)
+Subject: [Linuxdcpp-developers] [Feature #4187] CPU TIME
+Message-ID: <200806141130.m5EBUh44024604@unicorn.berlios.de>
+
+Feature Request #4187, was updated on 2008-Jun-14 15:30
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4187&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: CPU TIME
+
+By: guest
+Date: 2008-Jun-14 15:30
+
+Message:
+Logged In: YES 
+user_id=46391
+Browser: Opera/9.26 (X11; Linux i686; U; en)
+
+why does DCPP client has to consume so much CPU? i was unable 
+to even start it on my old 300 MHz pentium machine wich i use as 
+a gate... Very much bad. You ask if i know how to fix it? I hope i 
+do - get rid of that damned GTK gui - switch to qt or Ncurses.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4187&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Sun Jun 15 04:15:40 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sun, 15 Jun 2008 04:15:40 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200806150215.m5F2Fepd030726@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 652 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080615/7f538ee9/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Mon Jun 16 06:53:28 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Mon, 16 Jun 2008 06:53:28 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200806160453.m5G4rSHt015356@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 759 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080616/ce81269d/attachment.xml>
+
+From admin at berlios.de  Tue Jun 17 08:18:25 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 17 Jun 2008 13:18:25 +0700 (NOVST)
+Subject: [Linuxdcpp-developers] [Bug #14047] start LDC++ in trayicon with
+	session start
+Message-ID: <200806170618.m5H6IPi4027637@unicorn.berlios.de>
+
+Bug #14047, was updated on 2008-Jun-17 13:18
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: asashnov
+Assigned to : none
+Summary: start LDC++ in trayicon with session start
+
+Details: I put linuxdcpp command in my .config/autostart/
+but linuxdcpp show its main windows on each login.
+
+It is necessary to add "minimize on startup" option to configuration dialog.
+
+Also usefull "minimize to tray on close".
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=14047&group_id=2230
+
+
+From admin at berlios.de  Wed Jun 18 22:56:17 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 18 Jun 2008 22:56:17 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #2498] [ Bug #12990 ]
+	case-sensitivity in hash db?
+Message-ID: <200806182056.m5IKuHX4012837@unicorn.berlios.de>
+
+Patch #2498 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: windkracht8
+Assigned to : none
+Summary: [ Bug #12990 ] case-sensitivity in hash db?
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2498&group_id=2230
+
+
+From admin at berlios.de  Sat Jun 21 13:58:26 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 21 Jun 2008 14:58:26 +0300 (EEST)
+Subject: [Linuxdcpp-developers] [Bug #14064] incorrect message when out of
+	disk space
+Message-ID: <200806211158.m5LBwQoU005128@unicorn.berlios.de>
+
+Bug #14064, was updated on 2008-Jun-21 14:58
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: nerijus
+Assigned to : none
+Summary: incorrect message when out of disk space
+
+Details: It writes "No slots available" when there is no disk space left in Incomplete directory.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=14064&group_id=2230
+
+
+From admin at berlios.de  Tue Jun 24 20:23:41 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 24 Jun 2008 22:23:41 +0400 (MSD)
+Subject: [Linuxdcpp-developers] [Feature #4213] show/hide interface hotkey
+Message-ID: <200806241823.m5OINfF0011966@unicorn.berlios.de>
+
+Feature Request #4213, was updated on 2008-Jun-24 22:23
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4213&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: show/hide interface hotkey
+
+By: borx
+Date: 2008-Jun-24 22:23
+
+Message:
+Logged In: YES 
+user_id=45864
+Browser: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.0) Gecko/2008061600 SUSE/3.0-1.2 Firefox/3.0
+
+Add a global hotkey to show/hide interface.
+
+I propose the following way to do that. When main
+window is closed do not stop LinuxDC++, instead hide it
+to tray. When new instance is started do not show
+message box, instead activate/unhide existing instance.
+
+This behavior is similar to KDE's Kontact.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4213&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Sun Jun 29 17:34:41 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sun, 29 Jun 2008 17:34:41 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200806291534.m5TFYfX7004471@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 677 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080629/dbbabfea/attachment.xml>
+
+From cvs at linuxdcpp.berlios.de  Sun Jun 29 17:42:32 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sun, 29 Jun 2008 17:42:32 +0200
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200806291542.m5TFgWb1005163@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 616 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080629/f8cf6a49/attachment.xml>
+
+From toots at rastageeks.org  Mon Jun 30 10:51:14 2008
+From: toots at rastageeks.org (Romain Beauxis)
+Date: Mon, 30 Jun 2008 10:51:14 +0200
+Subject: [Linuxdcpp-developers] SSL licence exception,
+	security issue and debian package..
+Message-ID: <200806301051.14747.toots@rastageeks.org>
+
+	Hi all !
+
+I have filed a bug some months ago concerning linuxdcpp's licence violating 
+SSL's licence terms when linked against it:
+  http://developer.berlios.de/bugs/?func=detailbug&bug_id=13782&group_id=2230
+
+This isssue is a major concern for the debian distribution. So far, I was 
+waiting for a fix to update again the package, or to drop it for lenny if it 
+wasn't fixed on time.
+
+Now, a security bug was filed against linuxdcpp recently:
+  http://bugs.debian.org/488630
+
+As a consequence, I will have to shorten the delay for this decision, and make 
+it within the next days. If the licence does not get fixed at this moment, I 
+will have no choice but to drop linuxdcpp for debian (and possibly ubuntu and 
+others..), since the package does not seem to compile without openssl 
+instaled in the system:
+> Checking for C library crypto... no
+>         crypto library not found
+>         Note: This library may be a part of libssl on your system
+> make: *** [build/linuxdcpp] Erreur 1
+
+It would be very nice if you could fix this issue. It is only a matter of 
+adding a single sentence to the licence:
+"This program is released under the GPL with the additional exemption that 
+compiling, linking, and/or using OpenSSL is allowed."
+which is quite straight forward, since the software, indeed, is made to be 
+compiled and linked against it...
+
+
+Romain
+
+
+From srikar at students.iiit.ac.in  Mon Jun 30 11:02:45 2008
+From: srikar at students.iiit.ac.in (srikar at students.iiit.ac.in)
+Date: Mon, 30 Jun 2008 14:32:45 +0530 (IST)
+Subject: [Linuxdcpp-developers] Need Help in Understanding linuxdcpp source
+	code
+Message-ID: <58495.192.168.36.204.1214816565.squirrel@students.iiit.ac.in>
+
+Hi,
+  This is srikar from IIIT-Hyderabad, India.
+  I need some help in understanding linuxdcpp source code. I need to
+implement some key management protocols (like grid, diagonal and some
+space efficient keying protocols) as part of my project. Is there any
+documentation kind of thing, or how should i start.
+      We need to encrypt/decrypt packets while sending/receiving using our
+keys. Please help me in this regard.
+
+Regards,
+Srikar.
+
+
+
+

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] LinuxDC++ and I18N
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20LinuxDC%2B%2B%20and%20I18N&In-Reply-To=%3C47A75C8E.2030108%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000345.html">
+   <LINK REL="Next"  HREF="000347.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] LinuxDC++ and I18N</H1>
+    <B>Steven Sheehy</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20LinuxDC%2B%2B%20and%20I18N&In-Reply-To=%3C47A75C8E.2030108%40gmail.com%3E"
+       TITLE="[Linuxdcpp-developers] LinuxDC++ and I18N">steven.sheehy at gmail.com
+       </A><BR>
+    <I>Mon Feb  4 19:42:22 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000345.html">[Linuxdcpp-developers] [Patch #2358] [ Bug #13060 ] Automatic	Auto-Away on Minimize not working
+</A></li>
+        <LI>Next message: <A HREF="000347.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#346">[ date ]</a>
+              <a href="thread.html#346">[ thread ]</a>
+              <a href="subject.html#346">[ subject ]</a>
+              <a href="author.html#346">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Nyitrai Istv&#225;n wrote:
+&gt;<i> Hi!
+</I>&gt;<i> 
+</I>&gt;<i> There will be a Translator Weekend at this week-end and linuxdc++ is on 
+</I>&gt;<i> our tasklist. But at this moment this LinuxDc++ doesn't support Gnu 
+</I>&gt;<i> gettext. I don't ask to you do it, I just need a little help. I'm not a 
+</I>&gt;<i> professional C++ programmer, but I know what is necessary for this. I 
+</I>&gt;<i> can do the bigger part of this job, but I need your help.
+</I>&gt;<i> 
+</I>&gt;<i> So, can we work together?
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> -- 
+</I>&gt;<i> Best regards...Nyitrai &quot;Sianis&quot; Istv&#225;n
+</I>
+Hello,
+
+We were actually waiting on the DC++ core to finish switching to gettext so we 
+can have a fully translated program. I think they just finished the switch last 
+week, now we just need a stable release from them that includes these changes. 
+The actual GUI part of the program does support gettext. I've gone through the 
+entire source and added _() around all translatable strings, although it still 
+may be missing some strings and we need to check if any strings have positional 
+arguments and handle accordingly.
+
+Any help you can give would be greatly appreciated in this regard. For now we 
+can't do anything with the core (e.g. the client/ folder), but until that time 
+we can get the GUI translated (since the core will have separate POT files 
+anyway). We can probably copy a lot of the l18n infrastructure code from DC++ 
+(pot, po, mo generation, etc.) since they also use scons. Let me know what you 
+think.
+
+Thanks,
+Steven
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000345.html">[Linuxdcpp-developers] [Patch #2358] [ Bug #13060 ] Automatic	Auto-Away on Minimize not working
+</A></li>
+	<LI>Next message: <A HREF="000347.html">[Linuxdcpp-developers] CVS Commit
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#346">[ date ]</a>
+              <a href="thread.html#346">[ thread ]</a>
+              <a href="subject.html#346">[ subject ]</a>
+              <a href="author.html#346">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

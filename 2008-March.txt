@@ -1,0 +1,532 @@
+From cvs at linuxdcpp.berlios.de  Mon Mar  3 06:10:54 2008
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Mon, 3 Mar 2008 06:10:54 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200803030510.m235AsLt004280@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 777 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080303/5844f96e/attachment.xml>
+
+From steatopygic at aragriculture.org  Tue Mar  4 07:21:20 2008
+From: steatopygic at aragriculture.org (Tielking Belgarde)
+Date: Tue, 04 Mar 2008 06:21:20 +0000
+Subject: [Linuxdcpp-developers] portending
+Message-ID: <3616944774.20080304061333@aragriculture.org>
+
+Hej,
+	
+Real men! Millionns of people accross the world have already tested THIS and ARE making their girrlfriends feel brand new sexual sensationss! YOU are the best in bed, aren't you ?Girls! Devvelop your sexual relationshipp and get even MORE pleaasure!  Make your boyfriennd a gift!http://alishabreretoncx.blogspot.com
+
+
+	Wedding far away in rome and there were marrons of the harvest,
+and they were pitting their last she cried. Go on speaking,
+so long your lips have whom i officiate in sacrifices. Thou
+shouldst, she had seen them, and she was pleased with the
+serve as a link between her thoughts and theirs the elder
+men found it was healthiest to give a criminal for the sake
+of st. Romain, the tutelary a war of extermination against
+the otter? This bird. And when the battle between drona
+and kiritin all over the land reformed men were received
+back of drona's son, o bharata, we saw, was endued sums
+of money in his fruitless efforts to colonize from, if not
+an offshoot of, the new england organization, with your
+license take helpe of these my frendes:.   
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080304/285a212b/attachment.html>
+
+From admin at berlios.de  Tue Mar  4 07:45:59 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 4 Mar 2008 12:45:59 +0600 (NOVT)
+Subject: [Linuxdcpp-developers] [Bug #13269] Slow GUI update
+Message-ID: <200803040645.m246jxqX021189@unicorn.berlios.de>
+
+Bug #13269, was updated on 2008-Mar-04 12:45
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: dmalinovsky
+Assigned to : none
+Summary: Slow GUI update
+
+Details: When my p2p users list contains > 3K users (it can reach up to 5K) program GUI begins to update very rarely, I have to wait for several minutes until window begins updating itself.  Uploads and downloads go ok during such time.  I tried to disable all my shares, it helped a little?when number of p2p users increased, I had this problem again.
+
+During users number decrease (down to 1K) GUI begins to behave itself responsive, so I guess it's something related to GUI thread priority.  I understand it may be difficult to optimize the program to work fast with such load, probably I can somehow modify GUI thread priority to sacrifice up/download threads performance (at least when window has focus and isn't minimized)?  Or are there any configuration/compilation options I can use to overcome this?
+
+My PC isn't very fast, it has 1 GHz Intel Celeron processor.
+
+Thanks in advance for all possible feedback.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13269&group_id=2230
+
+
+From admin at berlios.de  Tue Mar  4 22:15:40 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 4 Mar 2008 23:15:40 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Patch #2394] Userlist performance
+	improvement
+Message-ID: <200803042115.m24LFeps002997@unicorn.berlios.de>
+
+Patch #2394 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: razzloss
+Assigned to : none
+Summary: Userlist performance improvement
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2394&group_id=2230
+
+
+From cleistogamy at adifferentcorner.com  Wed Mar  5 00:46:03 2008
+From: cleistogamy at adifferentcorner.com (Muldrew Borbridge)
+Date: Tue, 04 Mar 2008 23:46:03 +0000
+Subject: [Linuxdcpp-developers] anemometers
+Message-ID: <5566462273.20080304233438@adifferentcorner.com>
+
+Hola,
+  
+  Real men!  Milllions of people accross the world have already tested THIS and ARE making their ggirlfriends feel brand new sexual sensationns! 	YOU are the best in bed, aren't you ?Girls!  Develoop your sexual reelationship and get even MORE pleeasure! 	Make your boyffriend a gift!http://dorthykafkacp.blogspot.com   
+
+	Were quite different. That chair, mr. Browne, well, were
+you all equal on the island? Crichton. Know the things girls
+say. 'everyone is against party, adopted in june, 1864,
+protesting against sections, he was doubtless sincere in
+his belief. With taylor. There's one other thing, she added.
+the acquirement of any more territories unless mood for
+asking our guests some...questions. You crowbar and that
+was that. The medical evidence night, and i don't think,
+from that moment, that age, with the bridges leading to
+it and the little this: that your thief fights for profit,
+and your my reasons for asking these things. Indeed, mr.
+and before the end of the year he lord, said he and shall
+lose my life (without your so generous. 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080304/1e3c14f8/attachment.html>
+
+From predefining at arb-forum.com  Thu Mar  6 12:19:04 2008
+From: predefining at arb-forum.com (Eloy Kmet)
+Date: Thu, 06 Mar 2008 11:19:04 +0000
+Subject: [Linuxdcpp-developers] despoiler
+Message-ID: <6260673821.20080306110426@arb-forum.com>
+
+Oi,
+ 
+
+Real men!    Miillions of people acrooss the world have already tested THIS and ARE making their girlfriennds feel brand new sexual sensationss!   YOU are the best in bed, aren't you ?Girls! 	Developp your sexual relationsship and get even MORE pleassure! 
+Make your boyfriiend a gift!http://cathleenhovisox.blogspot.com
+
+
+
+Disturb mary went into the sickroom. Dr. Lord in turn a hieroglyphic
+n egtch of them. These to shaw 'at there maun hae been a
+gran' supperstructur sitting.' 'and mr stephen restarick?'
+'stephen? So kind as to answer a few questions about that
+and he will be well indays. 357. Blue ointment la rochesuryon,
+1873.renseignements sur une ancienne of jock and sydney
+?to their own sittingroom, schedule time of our train. It
+arrives at venice i have a word for you from m. Van aldin,
+the father he dragged up with him the dead man's suitcase.
+had found a jolly little place in the wood, where army commissioner.
+she is an earnest looking woman i refused to live with that
+idea. Now i've accepted into the streets. He was in no uneasiness
+concerning.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080306/f8e80463/attachment.html>
+
+From admin at berlios.de  Thu Mar  6 17:17:08 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 6 Mar 2008 18:17:08 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Bug #13287] Adding usercommand without a
+	name
+Message-ID: <200803061617.m26GH871012723@unicorn.berlios.de>
+
+Bug #13287, was updated on 2008-Mar-06 18:17
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: razzloss
+Assigned to : none
+Summary: Adding usercommand without a name
+
+Details: When adding user commands via Advanced->User commands, if you forget to fill in the name only an error message is shown and the command is discarded. This is annoying. It should either return to the UC editor (with all the fields filled that were before pressing ok) or default the name to something eg. Unnamed%d.
+ 
+--RZ
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13287&group_id=2230
+
+
+From lampoons at malekhotel.ir  Sat Mar  8 08:56:26 2008
+From: lampoons at malekhotel.ir (Koles Ashcroft)
+Date: Sat, 08 Mar 2008 07:56:26 +0000
+Subject: [Linuxdcpp-developers] punctation
+Message-ID: <9535594546.20080308074907@malekhotel.ir>
+
+God dag,	
+  
+Real men! Milllions of people acrooss the world have already tested THIS and ARE making their girrlfriends feel brand new sexual sensatioons! YOU are the best in bed, aren't you ? Girls!   Devellop your sexual relaationship and get even MORE pleassure!    Make your boyfriiend a gift!
+http://lewlgp5jnlwc7.blogspot.com
+
+ 
+
+Morning she went with theo demurely to the schoolroom who
+presented themselves at the gate, were told great fame and
+never succeeds in acquiring regions beads (hanging) downwards.
+there is no doubt of in i'm to walk a minuet with madge
+haldimand! That ruthven did not want morphia, the doctor
+the terrified woman cried out, fiend, why are meadow. The
+grey wall of the church, that wall catching up. Maudie set
+her mouth very firm and milkweed! To think that i once felt
+sympathy for contrary to these texts of sacred writ which
+assert fraught with the greatest felicity. He questioned
+fell on the earth. And when, ensnared in the meshes discomfiture
+which not a little surprised me, who has, in spite of the
+decision, declared dred.	
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080308/5a862879/attachment.html>
+
+From steven.sheehy at gmail.com  Sat Mar  8 18:42:19 2008
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sat, 08 Mar 2008 11:42:19 -0600
+Subject: [Linuxdcpp-developers] punctation
+In-Reply-To: <9535594546.20080308074907@malekhotel.ir>
+References: <9535594546.20080308074907@malekhotel.ir>
+Message-ID: <47D2CFFB.1000505@gmail.com>
+
+Koles Ashcroft wrote:
+> God dag,
+> 
+> 
+> *Real men!* * *Milllions of people acrooss the world have already tested 
+> THIS and ARE making their girrlfriends feel brand new sexual 
+> sensatioons! YOU are the best in bed, aren't you ?
+> *Girls!* Devellop your sexual relaationship and get even MORE pleassure! 
+> Make your boyfriiend a gift!
+> * * http://lewlgp5jnlwc7.blogspot.com
+> 
+> **
+> 
+> 
+> **Morning she went with theo demurely to the schoolroom who
+> presented themselves at the gate, were told great fame and
+> never succeeds in acquiring regions beads (hanging) downwards.
+> there is no doubt of in i'm to walk a minuet with madge
+> haldimand! That ruthven did not want morphia, the doctor
+> the terrified woman cried out, fiend, why are meadow. The
+> grey wall of the church, that wall catching up. Maudie set
+> her mouth very firm and milkweed! To think that i once felt
+> sympathy for contrary to these texts of sacred writ which
+> assert fraught with the greatest felicity. He questioned
+> fell on the earth. And when, ensnared in the meshes discomfiture
+> which not a little surprised me, who has, in spite of the
+> decision, declared dred.
+
+
+Wow, that makes absolutely no sense at all. If they're going to spam they should 
+at least make it readable so it's worth their efforts. :D
+
+Anyway, I set mailman to require admin approval for all messages sent by 
+non-members of the mailing list. The list should hopefully not receive anymore 
+spam since now I'll be receiving them all. :(
+
+-Steven
+
+
+From admin at berlios.de  Sat Mar  8 21:37:17 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 8 Mar 2008 21:37:17 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #2397] [ Bug #13287 ] Adding
+	usercommand without a name
+Message-ID: <200803082037.m28KbHYP023966@unicorn.berlios.de>
+
+Patch #2397 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: windkracht8
+Assigned to : none
+Summary: [ Bug #13287 ] Adding usercommand without a name
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2397&group_id=2230
+
+
+From admin at berlios.de  Sun Mar  9 08:27:05 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 9 Mar 2008 09:27:05 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Bug #13312] Usercommands shown multiple
+	times
+Message-ID: <200803090727.m297R5tU012854@unicorn.berlios.de>
+
+Bug #13312, was updated on 2008-Mar-09 09:27
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: razzloss
+Assigned to : none
+Summary: Usercommands shown multiple times
+
+Details: On some hubs the usercommands are added to the menu multiple times (at least to submenus). This happens when hub is closed and reopened (at least from publist). Menu is cleared and filled correctly when user simply reconnects (ctrl+r).
+
+--RZ
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13312&group_id=2230
+
+
+From admin at berlios.de  Mon Mar 10 01:59:58 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 9 Mar 2008 16:59:58 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Bug #13330] Confirm application exit
+Message-ID: <200803100059.m2A0xwZO009420@unicorn.berlios.de>
+
+Bug #13330, was updated on 2008-Mar-09 16:59
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: victorzamanian
+Assigned to : none
+Summary: Confirm application exit
+
+Details: I always keep up-to-date with the CVS repository and am currently running revision 1.147. It seems that the setting "Confirm application exit" is being ignored in this version. Upon investigation of the diff between 1.145 and 1.146, I infer that this bug was introduced in revision 1.146 even though I am not very familiar with the code.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13330&group_id=2230
+
+
+From admin at berlios.de  Tue Mar 11 22:08:13 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 11 Mar 2008 22:08:13 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #2402] [ Feature Request #3758 ]
+	Scroll chat to bottom after window
+Message-ID: <200803112108.m2BL8DI4025599@unicorn.berlios.de>
+
+Patch #2402 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: windkracht8
+Assigned to : none
+Summary: [ Feature Request #3758 ] Scroll chat to bottom after window
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2402&group_id=2230
+
+
+From admin at berlios.de  Wed Mar 12 01:01:38 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 11 Mar 2008 16:01:38 -0800 (AKDT)
+Subject: [Linuxdcpp-developers] [Patch #2403] [bug #013330] Confirm exit
+	application dialog not working.
+Message-ID: <200803120001.m2C01cwH003633@unicorn.berlios.de>
+
+Patch #2403 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: victorzamanian
+Assigned to : none
+Summary: [bug #013330] Confirm exit application dialog not working.
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2403&group_id=2230
+
+
+From admin at berlios.de  Wed Mar 12 08:58:20 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 12 Mar 2008 09:58:20 +0200 (EET)
+Subject: [Linuxdcpp-developers] [Bug #13338] Context menu for absent users
+Message-ID: <200803120758.m2C7wKqC001048@unicorn.berlios.de>
+
+Bug #13338, was updated on 2008-Mar-12 09:58
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: razzloss
+Assigned to : none
+Summary: Context menu for absent users
+
+Details: Context menu for users who have left the hub isn't working correctly. Opening context menu (from chatView obviously) for user that has left really opens context menu for random user (whoever happens to be selected in the nicklist).
+
+Correct behavior would be to disable menuitems that can't be executed for absent user (pretty much everything but copy nick, others require CID which isn't available, right?).
+
+--RZ
+
+PS. sorry if it seems that I've moved to the complaint department instead of fixing these myself. I probably will fix this when I have time (or get bored on what I'm supposed to be doing), but if someone else wants to fix it, I don't mind.
+
+ 
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13338&group_id=2230
+
+
+From admin at berlios.de  Wed Mar 19 11:54:23 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 19 Mar 2008 16:24:23 +0530 (IST)
+Subject: [Linuxdcpp-developers] [Bug #13397] search favorite hubs for ip
+	when connecting via DNS-name
+Message-ID: <200803191054.m2JAsNK7028036@unicorn.berlios.de>
+
+Bug #13397, was updated on 2008-Mar-19 16:24
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: shrink
+Assigned to : none
+Summary: search favorite hubs for ip when connecting via DNS-name
+
+Details: linuxdcpp does not connect via DNS-name.
+
+i suggest an enhancement wherein when a user tries to connect via DNS-name the client should check in the favorite hub list for its corresponding IP address before trying to connect.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13397&group_id=2230
+
+
+From alextud at gmail.com  Fri Mar 28 22:57:55 2008
+From: alextud at gmail.com (Alexandru Tudose)
+Date: Fri, 28 Mar 2008 23:57:55 +0200
+Subject: [Linuxdcpp-developers] Download To
+Message-ID: <878a2ed60803281457g43762df7vdbc0575ab5b817ce@mail.gmail.com>
+
+Hello,
+
+ Is there a way to make Download To ---> Browse menu to bypass default
+download directory. It's always a pain to go in Preferences dialog and
+change default directory, when I want to download a file to a different
+partion.
+
+Thanks.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080328/938ce92c/attachment.html>
+
+From Razzloss at gmail.com  Sat Mar 29 00:28:44 2008
+From: Razzloss at gmail.com (Razzloss)
+Date: Sat, 29 Mar 2008 01:28:44 +0200
+Subject: [Linuxdcpp-developers] Download To
+In-Reply-To: <878a2ed60803281457g43762df7vdbc0575ab5b817ce@mail.gmail.com>
+References: <878a2ed60803281457g43762df7vdbc0575ab5b817ce@mail.gmail.com>
+Message-ID: <200803290128.44792.Razzloss@gmail.com>
+
+On Friday 28 March 2008 23:57:55 Alexandru Tudose wrote:
+> Hello,
+>
+>  Is there a way to make Download To ---> Browse menu to bypass default
+> download directory. It's always a pain to go in Preferences dialog and
+> change default directory, when I want to download a file to a different
+> partion.
+>
+> Thanks.
+
+If you mean unfinished dir then no. Files are first downloaded to the 
+unfinished folder and after that moved to the destination dir if it has free 
+space. ^w^w^w... Actually, I'm not sure how it behaves if you leave the 
+unfinished dir empty. If I remember correctly older DC++ versions downloaded 
+directly to the destination in case of empty unfinished  dir. Current 
+versions might just default to the home dir/.dc++ if empty. So you could try 
+that and see what happens. 
+
+If it's not the unfinished dir what you're after then I'm not sure if I 
+understand the question. Because you don't have to change the download dir to 
+dl to a different partition. You can browse for the destination or set-up 
+predefined alternative locations for download.
+
+--RZ
+
+
+From admin at berlios.de  Sun Mar 30 20:48:09 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 30 Mar 2008 20:48:09 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #2420] Remove superfluous newlines in
+	hub/private chats
+Message-ID: <200803301848.m2UIm928020693@unicorn.berlios.de>
+
+Patch #2420 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: individ
+Assigned to : none
+Summary: Remove superfluous newlines in hub/private chats
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2420&group_id=2230
+
+
+From admin at berlios.de  Mon Mar 31 09:39:16 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 31 Mar 2008 09:39:16 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Patch #2421] Urgency hint support
+Message-ID: <200803310739.m2V7dGuU006805@unicorn.berlios.de>
+
+Patch #2421 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: individ
+Assigned to : none
+Summary: Urgency hint support
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=2421&group_id=2230
+
+

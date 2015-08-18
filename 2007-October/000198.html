@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20LinuxDC%2B%2B%201.0.0%20I%20can%27t%20build%20it&In-Reply-To=%3C470EB7E4.5040705%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000194.html">
+   <LINK REL="Next"  HREF="000190.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it</H1>
+    <B>Steven Sheehy</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20LinuxDC%2B%2B%201.0.0%20I%20can%27t%20build%20it&In-Reply-To=%3C470EB7E4.5040705%40gmail.com%3E"
+       TITLE="[Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it">steven.sheehy at gmail.com
+       </A><BR>
+    <I>Fri Oct 12 01:55:16 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000194.html">[Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it
+</A></li>
+        <LI>Next message: <A HREF="000190.html">[Linuxdcpp-developers] [Patch #2200] Add the filter kickmessages to	Hub::on(ClientListener::Messa
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#198">[ date ]</a>
+              <a href="thread.html#198">[ thread ]</a>
+              <a href="subject.html#198">[ subject ]</a>
+              <a href="author.html#198">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Konstantin Vasiliev wrote:
+&gt;<i> &#1042; &#1089;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1080; &#1086;&#1090; 2 &#1086;&#1082;&#1090;&#1103;&#1073;&#1088;&#1103; 2007 07:22 Steven Sheehy &#1085;&#1072;&#1087;&#1080;&#1089;&#1072;&#1083;(a):
+</I>&gt;&gt;<i> Konstantin Vasiliev wrote:
+</I>&gt;&gt;&gt;<i> &#1042; &#1089;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1080; &#1086;&#1090; 24 &#1089;&#1077;&#1085;&#1090;&#1103;&#1073;&#1088;&#1103; 2007 01:41 Steven Sheehy &#1085;&#1072;&#1087;&#1080;&#1089;&#1072;&#1083;(a):
+</I>&gt;&gt;&gt;&gt;<i>                    Release Notes for LinuxDC++ 1.0.0
+</I>&gt;&gt;&gt;&gt;<i>                    ---------------------------------
+</I>&gt;&gt;&gt;<i> I run
+</I>&gt;&gt;&gt;<i> $ scons PATH=/opt/linuxdcpp
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> and I see only this
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> client/Text.cpp: In static member function `static const std::string&amp;
+</I>&gt;&gt;&gt;<i> Text::convert(const std::string&amp;, std::string&amp;, const std::string&amp;, const
+</I>&gt;&gt;&gt;<i> std::string&amp;)':
+</I>&gt;&gt;&gt;<i> client/Text.cpp:339: error: invalid conversion from `const char**' to
+</I>&gt;&gt;&gt;<i> `char**' client/Text.cpp:339: error:   initializing argument 2 of `size_t
+</I>&gt;&gt;&gt;<i> iconv(void*, char**, size_t*, char**, size_t*)'
+</I>&gt;&gt;&gt;<i> scons: *** [build/client/Text.o] Error 1
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> :-(
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;<i> Linuxdcpp-developers mailing list
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">Linuxdcpp-developers at lists.berlios.de</A>
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers</A>
+</I>&gt;&gt;<i> Which distro are you using? What version of scons (run scons -v to check).
+</I>&gt;&gt;<i> Looks like scons is messed up in your distro and doesn't properly check to
+</I>&gt;&gt;<i> see what parameters iconv requires.
+</I>&gt;<i> 
+</I>&gt;<i> I using Slackware 11. 
+</I>&gt;<i> 
+</I>&gt;<i> bash-3.1$ scons -v
+</I>&gt;<i> SCons by Steven Knight et al.:
+</I>&gt;<i>         script: v0.96.92.D002, 2006/04/11 07:39:43, by knight on roxbury
+</I>&gt;<i>         engine: v0.96.92.D002, 2006/04/11 07:39:43, by knight on roxbury
+</I>&gt;<i> Copyright (c) 2001, 2002, 2003, 2004 The SCons Foundation
+</I>&gt;<i> 
+</I>&gt;<i> Do you have ideas? Can you help me to build Linuxdcpp?
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Linuxdcpp-developers mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">Linuxdcpp-developers at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers</A>
+</I>
+I have the same version of scons as you do. Actually, your problem doesn't seem 
+to be with scons. Instead it seems your iconv headers and the iconv library API 
+is out of sync. The headers seem to expect `size_t iconv(void*, const char**, 
+size_t*, char**, size_t*)' while the library itself expects `size_t iconv(void*, 
+char**, size_t*, char**, size_t*)'. I can't fix that for you, that's an issue 
+with your distribution or your configuration of said distribution.
+
+I can however tell you how to hack the code in order to get it to work pretty 
+easily. :) You just need to delete &quot;ICONV_CONST&quot; from line 339 of 
+client/Text.cpp and it should compile.
+
+-Steven
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000194.html">[Linuxdcpp-developers] LinuxDC++ 1.0.0 I can't build it
+</A></li>
+	<LI>Next message: <A HREF="000190.html">[Linuxdcpp-developers] [Patch #2200] Add the filter kickmessages to	Hub::on(ClientListener::Messa
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#198">[ date ]</a>
+              <a href="thread.html#198">[ thread ]</a>
+              <a href="subject.html#198">[ subject ]</a>
+              <a href="author.html#198">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

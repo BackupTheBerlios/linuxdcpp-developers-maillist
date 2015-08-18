@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] Some ideas about minor improvements
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Some%20ideas%20about%20minor%20improvements&In-Reply-To=%3C46BDF40B.8030900%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000145.html">
+   <LINK REL="Next"  HREF="000147.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] Some ideas about minor improvements</H1>
+    <B>Steven Sheehy</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20Some%20ideas%20about%20minor%20improvements&In-Reply-To=%3C46BDF40B.8030900%40gmail.com%3E"
+       TITLE="[Linuxdcpp-developers] Some ideas about minor improvements">steven.sheehy at gmail.com
+       </A><BR>
+    <I>Sat Aug 11 19:38:19 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000145.html">[Linuxdcpp-developers] Some ideas about minor improvements
+</A></li>
+        <LI>Next message: <A HREF="000147.html">[Linuxdcpp-developers] Fwd:  Some ideas about minor improvements
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#146">[ date ]</a>
+              <a href="thread.html#146">[ thread ]</a>
+              <a href="subject.html#146">[ subject ]</a>
+              <a href="author.html#146">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Alexey Kuznetsov wrote:
+&gt;<i> Good (hmm...) evening everybody :)
+</I>&gt;<i> 
+</I>&gt;<i> So, I'd like to suggest some minor LinuxDC++ improvements. I know these 
+</I>&gt;<i> improvements are not critical, but by making these patches I'll beter 
+</I>&gt;<i> understand what's going on in LinuxDC++ project and it's quite 
+</I>&gt;<i> reasonable for me to start with something like this :)
+</I>&gt;<i> 
+</I>&gt;<i> So, I've two ideas:
+</I>&gt;<i> 
+</I>&gt;<i> 1) Finished Uploads. It's not very usable for me when some clients 
+</I>&gt;<i> download files by parts. The &quot;Finished Uploads&quot; log shows many records 
+</I>&gt;<i> with the same {user, file, hub} and different {time, size, speed}. This 
+</I>&gt;<i> overhead depends on size of downloaded file and can be very very big. 
+</I>&gt;<i> That's why it's quite difficult to look through this log. I think it 
+</I>&gt;<i> would be much better if we'll merge records with the same {user, file, 
+</I>&gt;<i> hub} by updating time to the latest, by summation of sizes and by 
+</I>&gt;<i> averaging download speed. May be it is reasonable to make this logging 
+</I>&gt;<i> mode optional ;)
+</I>&gt;<i> 
+</I>&gt;<i> 2) Searching. Well. When I tried LinuxDC++, the first thought was: how 
+</I>&gt;<i> do they guess the file types? When I choose to search for &quot;Video&quot;, what 
+</I>&gt;<i> video files would be accepted? Yesterday I looked through 
+</I>&gt;<i> ShareManager::initTypeMap() and understood that extensions are hardcoded 
+</I>&gt;<i> ;) May be it is cool to provide some kind of categories editor?
+</I>&gt;<i> 
+</I>&gt;<i> I can try to make these patches. Btw, it was a long time ago when I used 
+</I>&gt;<i> to make C/C++ code and I'd like to make something easy for the first time :)
+</I>&gt;<i> 
+</I>&gt;<i> Waiting for your comments :)
+</I>&gt;<i> 
+</I>&gt;<i> -- 
+</I>&gt;<i> Alexey Kuznetsov
+</I>
+Hello,
+
+Thanks for your comments. One of the things you have to understand about 
+LinuxDC++ is that it is split into two parts: the DC++ core and the GUI. The 
+DC++ core (client/ folder) is copied from the windows version and any changes 
+made to it are generally only to make it better support *nix platforms. These 
+changes are then set upstream to DC++ for approval and hopefully added into 
+their source. Any changes to the GUI is controlled by us, so there's no problem 
+there.
+
+Both of the changes you mentioned are DC++ core changes that are not *nix 
+specific bugs. Thus, if you want to make those changes you'd have to get DC++ to 
+approve them so that they'll make their way into LinuxDC++ the next time we 
+upgrade the core.
+
+As far as logging, I'm not sure if you mean the actual log file stored on the 
+hard disk or if you mean the finished uploads tab in the gui. It's not practical 
+to go back through the physical log file and merge entries since the log file 
+entries are just appended each time and the file can get quite large. If you 
+mean the finished upload tab, then it's a bit more easy to implement. But 
+considering DC++ doesn't even officially support partial file uploads, I don't 
+think adding support for it in finished uploads would be something upstream 
+would accept.
+
+If you think the file types is bad now, you should've seen it before the patch 
+to make ShareManager::checkTypes endian-safe (it also added a ton more file 
+extensions to check). Upstream still hasn't accepted that patch we sent them.
+
+I'm not trying to discourage you, just letting you know it's probably better to 
+focus on changes in the gui or *nix-specific bugs in the core if you want them 
+to make their way into LinuxDC++.
+
+-Steven Sheehy
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000145.html">[Linuxdcpp-developers] Some ideas about minor improvements
+</A></li>
+	<LI>Next message: <A HREF="000147.html">[Linuxdcpp-developers] Fwd:  Some ideas about minor improvements
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#146">[ date ]</a>
+              <a href="thread.html#146">[ thread ]</a>
+              <a href="subject.html#146">[ subject ]</a>
+              <a href="author.html#146">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

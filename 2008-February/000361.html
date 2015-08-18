@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [Bug #13105] Bus error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2313105%5D%20Bus%20error&In-Reply-To=%3C200802091845.m19Ij1nt001912%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000360.html">
+   <LINK REL="Next"  HREF="000362.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [Bug #13105] Bus error</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BBug%20%2313105%5D%20Bus%20error&In-Reply-To=%3C200802091845.m19Ij1nt001912%40unicorn.berlios.de%3E"
+       TITLE="[Linuxdcpp-developers] [Bug #13105] Bus error">admin at berlios.de
+       </A><BR>
+    <I>Sat Feb  9 19:45:01 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000360.html">[Linuxdcpp-developers] [Bug #13101] [feature]timestamps for all	messages in chat window
+</A></li>
+        <LI>Next message: <A HREF="000362.html">[Linuxdcpp-developers] [patch] add search by magnet links
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#361">[ date ]</a>
+              <a href="thread.html#361">[ thread ]</a>
+              <a href="subject.html#361">[ subject ]</a>
+              <a href="author.html#361">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #13105, was updated on 2008-Feb-09 19:45
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: tybulewicz
+Assigned to : none
+Summary: Bus error 
+
+Details: Just after running linuxdcpp it quits with comment Bus error:
+
+$linuxdcpp 
+Thrown: FileException: Could not open file
+Thrown: FileException: Could not open file
+Thrown: FileException: Could not open file
+FavoriteManager::load: FileException: Could not open file
+Loading: Hash database
+Loading: Shared Files
+Thrown: FileException: Could not open file
+FileException: Could not open file
+Loading: Download Queue
+Bus error (core dumped)
+
+And a backtrace from gdb
+
+#0  0x08176b29 in TigerHash::update (this=0xb707c080, data=0xb4c86000, 
+    length=1024) at client/TigerHash.cpp:166
+#1  0x080c2325 in MerkleTree&lt;TigerHash, 1024u&gt;::update (this=0xb707c314, 
+    data=0xb407a000, len=16777216) at client/MerkleTree.h:105
+#2  0x080db6fd in HashManager::Hasher::fastHash (this=0x831b178, 
+    filename=@0xb707c2c4, tth=@0xb707c314, size=730607616, xcrc32=0x0)
+    at client/HashManager.cpp:629
+#3  0x080df84e in HashManager::Hasher::run (this=0x831b178)
+    at client/HashManager.cpp:716
+#4  0x081728cc in Thread::starter (p=0x831b178) at client/Thread.h:137
+#5  0xb7f6646b in start_thread () from /lib/tls/i686/cmov/libpthread.so.0
+#6  0xb75d96de in clone () from /lib/tls/i686/cmov/libc.so.6
+
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=13105&amp;group_id=2230">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=13105&amp;group_id=2230</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000360.html">[Linuxdcpp-developers] [Bug #13101] [feature]timestamps for all	messages in chat window
+</A></li>
+	<LI>Next message: <A HREF="000362.html">[Linuxdcpp-developers] [patch] add search by magnet links
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#361">[ date ]</a>
+              <a href="thread.html#361">[ thread ]</a>
+              <a href="subject.html#361">[ subject ]</a>
+              <a href="author.html#361">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

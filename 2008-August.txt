@@ -1,0 +1,80 @@
+From steven.sheehy at gmail.com  Sun Aug  3 04:54:17 2008
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sat, 02 Aug 2008 21:54:17 -0500
+Subject: [Linuxdcpp-developers] Moved to Launchpad
+Message-ID: <48951DD9.7000607@gmail.com>
+
+LinuxDC++ has moved project hosting from Berlios to Launchpad. The Berlios site 
+will stay up awhile until bugs and feature requests can be transferred or 
+closed. We would request that all new bugs be opened on the Launchpad site. The 
+new website is located at:
+
+https://launchpad.net/linuxdcpp
+
+
+From anirudh at anirudhsanjeev.org  Thu Aug 14 15:39:02 2008
+From: anirudh at anirudhsanjeev.org (Anirudh Sanjeev)
+Date: Thu, 14 Aug 2008 19:09:02 +0530
+Subject: [Linuxdcpp-developers] I want to log incoming searches on client.
+Message-ID: <cd1a57e60808140639q3dd8175fs3b72cb741ca9c53a@mail.gmail.com>
+
+Hi,
+
+I grabbed the 1.0.2 linuxdcpp source code and was able to build it. For a
+particular project, I need to log every search request that comes in, along
+with the IP and time to an SQLite database.
+
+If you can point me to the function that's called when a search is recieved,
+I can extract the right data and log it. I'm guessing I need to look in
+SearchManager.cpp.
+
+Thank you.
+Anirudh
+
+-- 
+Anirudh Sanjeev
+Third Year Undergraduate Student, Indian Institute of Technology, Kharagpur
+http://anirudhsanjeev.org
+Mail: anirudh at anirudhsanjeev.org
+Phone: +91-97335-04828
+jabber/googletalk: anirudh at anirudhsanjeev.org
+If this message is signed with PGP, you can verify with my public key at
+http://anirudhsanjeev.org/pubkey.txt
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20080814/f29de4db/attachment.html>
+
+From admin at berlios.de  Fri Aug 22 19:25:43 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 22 Aug 2008 19:25:43 +0200 (CEST)
+Subject: [Linuxdcpp-developers] [Bug #14410] Ver 1.0.2 2008-07-04 crashes on
+	startup
+Message-ID: <200808221725.m7MHPhAj010679@unicorn.berlios.de>
+
+Bug #14410, was updated on 2008-Aug-22 19:25
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: thomasnovin
+Assigned to : none
+Summary: Ver 1.0.2 2008-07-04 crashes on startup
+
+Details: Since a month back maybe I can only start linuxdcpp every 1/10 times I try.
+
+I was able to get some debug output + backtrace with gdb.
+
+$ lsb_release -rd
+Description:	Ubuntu 8.04.1
+Release:	8.04
+
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=14410&group_id=2230
+
+

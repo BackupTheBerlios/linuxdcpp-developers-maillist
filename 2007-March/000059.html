@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Linuxdcpp-developers] [PATCH] parse locale string to get the charset
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/linuxdcpp-developers/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPATCH%5D%20parse%20locale%20string%20to%20get%20the%0A%20charset&In-Reply-To=%3C45F1FD66.2020405%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000058.html">
+   <LINK REL="Next"  HREF="000060.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Linuxdcpp-developers] [PATCH] parse locale string to get the charset</H1>
+    <B>Steven Sheehy</B> 
+    <A HREF="mailto:linuxdcpp-developers%40lists.berlios.de?Subject=Re%3A%20%5BLinuxdcpp-developers%5D%20%5BPATCH%5D%20parse%20locale%20string%20to%20get%20the%0A%20charset&In-Reply-To=%3C45F1FD66.2020405%40gmail.com%3E"
+       TITLE="[Linuxdcpp-developers] [PATCH] parse locale string to get the charset">steven.sheehy at gmail.com
+       </A><BR>
+    <I>Sat Mar 10 01:35:50 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000058.html">[Linuxdcpp-developers] [PATCH] parse locale string to get the	charset
+</A></li>
+        <LI>Next message: <A HREF="000060.html">[Linuxdcpp-developers] [PATCH] parse locale string to get the	charset
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#59">[ date ]</a>
+              <a href="thread.html#59">[ thread ]</a>
+              <a href="subject.html#59">[ subject ]</a>
+              <a href="author.html#59">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>This is not the first time that someone has misinterpreted what 
+Text::getSystemCharset() does. Another person pointed out that nl_langinfo() 
+would be better to determine the charset, but I gave him the same argument that 
+I'm about to give here.
+
+It is completely pointless to parse for the charset the way it is used here; its 
+value simply doesn't matter. Text::getSystemCharset() is never passed to 
+iconv(), it only needs to be some unique value so that Text::convert() knows 
+that it should call Text::acpToUtf8() or Text::utf8ToAcp(). I could've used an 
+empty string to denote this if I wanted, but I chose to use setlocale(LC_CTYPE, 
+NULL)'s value since it would be more human-readable. I still use these acp funcs 
+in Text::convert() since I doubt upstream would accept my encoding patch otherwise.
+
+By the way, your patch would introduce a memory leak (strdup). Also, this is a 
+C++ program, so it's better to do string manipulation using the stl than string.h.
+
+-Steven
+
+Stanislav Maslovski wrote:
+&gt;<i> Parse the string returned by setlocale() to get only the charset part of the
+</I>&gt;<i> locale if possible. The standard locale format is explained in setlocale() manpage.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> Index: client/Text.cpp
+</I>&gt;<i> ===================================================================
+</I>&gt;<i> RCS file: /cvsroot/linuxdcpp/linuxdcpp/client/Text.cpp,v
+</I>&gt;<i> retrieving revision 1.14
+</I>&gt;<i> diff -u -r1.14 Text.cpp
+</I>&gt;<i> --- client/Text.cpp	7 Feb 2007 03:27:05 -0000	1.14
+</I>&gt;<i> +++ client/Text.cpp	9 Mar 2007 09:32:45 -0000
+</I>&gt;<i> @@ -38,7 +38,17 @@
+</I>&gt;<i>  
+</I>&gt;<i>  	char *ctype = setlocale(LC_CTYPE, NULL);
+</I>&gt;<i>  	if(ctype) {
+</I>&gt;<i> +		/* parse for the charset if possible, see man setlocale */
+</I>&gt;<i> +		char *s, *p, *q;
+</I>&gt;<i> +		if(s = strdup(ctype)) {
+</I>&gt;<i> +			if(p = strchr(s, '.')) {
+</I>&gt;<i> +				if(q = strchr(++p, '@'))
+</I>&gt;<i> +					*q = 0;
+</I>&gt;<i> +				ctype = p;
+</I>&gt;<i> +			}
+</I>&gt;<i> +		}
+</I>&gt;<i>  		systemCharset = string(ctype);
+</I>&gt;<i> +		dcdebug(&quot;systemCharset: %s\n&quot;, systemCharset.c_str());
+</I>&gt;<i>  	} else {
+</I>&gt;<i>  		dcdebug(&quot;Unable to determine the program's locale&quot;);
+</I>&gt;<i>  	}
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Linuxdcpp-developers mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">Linuxdcpp-developers at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000058.html">[Linuxdcpp-developers] [PATCH] parse locale string to get the	charset
+</A></li>
+	<LI>Next message: <A HREF="000060.html">[Linuxdcpp-developers] [PATCH] parse locale string to get the	charset
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#59">[ date ]</a>
+              <a href="thread.html#59">[ thread ]</a>
+              <a href="subject.html#59">[ subject ]</a>
+              <a href="author.html#59">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers">More information about the Linuxdcpp-developers
+mailing list</a><br>
+</body></html>

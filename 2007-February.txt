@@ -1,0 +1,848 @@
+From cvs at linuxdcpp.berlios.de  Sun Feb  4 21:50:54 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Sun, 4 Feb 2007 21:50:54 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200702042050.l14Kos2i013895@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 3120 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070204/0d23c7c7/attachment.xml>
+
+From steven.sheehy at gmail.com  Sun Feb  4 22:07:57 2007
+From: steven.sheehy at gmail.com (Steven Sheehy)
+Date: Sun, 04 Feb 2007 15:07:57 -0600
+Subject: [Linuxdcpp-developers] CVS Commit
+In-Reply-To: <200702042050.l14Kos2i013895@sheep.berlios.de>
+References: <200702042050.l14Kos2i013895@sheep.berlios.de>
+Message-ID: <45C64B2D.8050707@gmail.com>
+
+Yep, finally a proper 100% fix for character encoding issues that everyone has 
+been waiting forever for. No more gtk/glib-specific hacks. There's now a global 
+default hub encoding and a per hub encoding. If you join a hub from the public 
+hub list, it uses your default hub encoding. If you reconnect to a different hub 
+from within the existing hub (e.g. /join command or a redirect) then it will use 
+the current hub's encoding). Every user is assumed to have the same encoding as 
+the hub they are on. Enjoy.
+
+Next up: adding translation capability and preparing for a release.
+
+Steven Sheehy
+
+cvs at linuxdcpp.berlios.de wrote:
+> <message>
+>    <generator>
+>        <name>CIA Perl client for CVS</name>
+>        <version>2.4</version>
+>        <url>http://cia.navi.cx/clients/cvs/ciabot_cvs.pl</url>
+>    </generator>
+>    <source>
+>        <project>linuxdcpp</project>
+>        <module>linuxdcpp</module>
+>    </source>
+>    <timestamp>1170622254</timestamp>
+>    <body>
+>        <commit>
+>            <author>stevensheehy</author>
+>            <files>
+>              <file>Changelog.txt</file>
+>              <file>Readme.txt</file>
+>              <file>SConstruct</file>
+>              <file>client/Client.cpp</file>
+>              <file>client/Client.h</file>
+>              <file>client/ClientManager.cpp</file>
+>              <file>client/ClientManager.h</file>
+>              <file>client/ConnectionManager.cpp</file>
+>              <file>client/ConnectionManager.h</file>
+>              <file>client/CryptoManager.cpp</file>
+>              <file>client/DirectoryListing.cpp</file>
+>              <file>client/DirectoryListing.h</file>
+>              <file>client/FavoriteManager.cpp</file>
+>              <file>client/FavoriteManager.h</file>
+>              <file>client/File.cpp</file>
+>              <file>client/HashManager.cpp</file>
+>              <file>client/NmdcHub.cpp</file>
+>              <file>client/NmdcHub.h</file>
+>              <file>client/QueueManager.cpp</file>
+>              <file>client/SConstruct</file>
+>              <file>client/SFVReader.cpp</file>
+>              <file>client/SearchManager.cpp</file>
+>              <file>client/SettingsManager.cpp</file>
+>              <file>client/ShareManager.cpp</file>
+>              <file>client/SimpleXML.cpp</file>
+>              <file>client/SimpleXML.h</file>
+>              <file>client/Text.cpp</file>
+>              <file>client/Text.h</file>
+>              <file>client/UserConnection.cpp</file>
+>              <file>client/UserConnection.h</file>
+>              <file>client/Util.cpp</file>
+>              <file>client/Util.h</file>
+>              <file>glade/favoritehubs.glade</file>
+>              <file>glade/mainwindow.glade</file>
+>              <file>glade/search.glade</file>
+>              <file>glade/settingsdialog.glade</file>
+>              <file>linux/WulforUtil.cc</file>
+>              <file>linux/WulforUtil.hh</file>
+>              <file>linux/downloadqueue.cc</file>
+>              <file>linux/downloadqueue.hh</file>
+>              <file>linux/favoritehubs.cc</file>
+>              <file>linux/favoritehubs.hh</file>
+>              <file>linux/finishedtransfers.cc</file>
+>              <file>linux/hub.cc</file>
+>              <file>linux/hub.hh</file>
+>              <file>linux/mainwindow.cc</file>
+>              <file>linux/mainwindow.hh</file>
+>              <file>linux/privatemessage.cc</file>
+>              <file>linux/search.cc</file>
+>              <file>linux/settingsdialog.cc</file>
+>              <file>linux/settingsdialog.hh</file>
+>              <file>linux/settingsmanager.cc</file>
+>              <file>linux/sharebrowser.cc</file>
+>              <file>linux/wulformanager.cc</file>
+>              <file>linux/wulformanager.hh</file>
+>            </files>
+>            <log>
+> Fixed character encoding issues
+>            </log>
+>        </commit>
+>    </body>
+> </message>
+> 
+> 
+> ------------------------------------------------------------------------
+> 
+> _______________________________________________
+> Linuxdcpp-developers mailing list
+> Linuxdcpp-developers at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/linuxdcpp-developers
+
+
+
+From max.lapan at gmail.com  Mon Feb  5 18:50:02 2007
+From: max.lapan at gmail.com (Max Lapan)
+Date: Mon, 5 Feb 2007 20:50:02 +0300
+Subject: [Linuxdcpp-developers] CVS Commit
+In-Reply-To: <45C64B2D.8050707@gmail.com>
+References: <200702042050.l14Kos2i013895@sheep.berlios.de>
+	<45C64B2D.8050707@gmail.com>
+Message-ID: <20070205175002.GA8864@homenet.ru>
+
+Thanks a lot. Russian is working now without any problems. 
+
+On Sun, Feb 04, 2007 at 03:07:57PM -0600, Steven Sheehy wrote:
+> Yep, finally a proper 100% fix for character encoding issues that everyone has 
+> been waiting forever for. No more gtk/glib-specific hacks. There's now a global 
+> default hub encoding and a per hub encoding. If you join a hub from the public 
+> hub list, it uses your default hub encoding. If you reconnect to a different hub 
+> from within the existing hub (e.g. /join command or a redirect) then it will use 
+> the current hub's encoding). Every user is assumed to have the same encoding as 
+> the hub they are on. Enjoy.
+> 
+> Next up: adding translation capability and preparing for a release.
+> 
+> Steven Sheehy
+
+-- 
+Max Lapan <max.lapan at gmail.com>, +7(0855)296471, ICQ: 233841810
+PGP Fingerprint: 0C47 91E3 35BA 3E6D 64D5  5740 6F3C A37F C112 4765
+HPC Architect/Administrator, Engineering Analysis Systems Department
+JSC Saturn http://www.npo-saturn.ru
+
+
+From admin at berlios.de  Tue Feb  6 00:16:49 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 6 Feb 2007 00:16:49 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Bug #10254] buss error (while hashing)
+Message-ID: <200702052316.l15NGns0020303@unicorn.berlios.de>
+
+Bug #10254, was updated on 2007-Feb-06 00:16
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: ronaldb
+Assigned to : none
+Summary: buss error (while hashing)
+
+Details: this error raises when hashing... here's the backtrace:
+
+<code>
+(gdb) run --sync
+Starting program: /usr/local/bin/linuxdcpp --sync
+[Thread debugging using libthread_db enabled]
+[New Thread -1221711568 (LWP 5923)]
+Thrown: FileException: Could not open file
+Thrown: FileException: Could not open file
+Loading: Hash database
+[New Thread -1222976608 (LWP 5954)]
+Loading: Shared Files
+Thrown: FileException: Could not open file
+FileException: Could not open file
+[New Thread -1231369312 (LWP 5957)]
+[Thread -1231369312 (LWP 5957) exited]
+Loading: Download Queue
+[New Thread -1231369312 (LWP 6024)]
+[New Thread -1271497824 (LWP 6028)]
+[New Thread -1279890528 (LWP 6029)]
+[New Thread -1311749216 (LWP 6039)]
+[New Thread -1320141920 (LWP 6040)]
+[Thread -1311749216 (LWP 6039) exited]
+[Thread -1320141920 (LWP 6040) exited]
+[New Thread -1320141920 (LWP 6041)]
+[New Thread -1311749216 (LWP 6042)]
+[New Thread -1328534624 (LWP 6043)]
+BufferedSocket::connect() 0xb4a00a90
+[New Thread -1336927328 (LWP 6044)]
+BufferedSocket::run() start 0xb4a00a90
+threadConnect 127.0.0.1:18643
+Thrown: SocketException: Connection closed
+BufferedSocket::connect() 0xb4a00798
+BufferedSocket: New command when already failed: 1
+BufferedSocket::run() end 0xb4a00a90
+[Thread -1336927328 (LWP 6044) exited]
+[New Thread -1302946912 (LWP 6087)]
+BufferedSocket::run() start 0xb4a00798
+threadConnect 127.0.0.1:18643
+Thrown: SocketException: Connection closed
+BufferedSocket: New command when already failed: 1
+BufferedSocket::run() end 0xb4a00798
+BufferedSocket::connect() 0xb4a00a70
+[Thread -1302946912 (LWP 6087) exited]
+[New Thread -1336927328 (LWP 6090)]
+BufferedSocket::run() start 0xb4a00a70
+threadConnect 127.0.0.1:18643
+Thrown: SocketException: Connection closed
+[New Thread -1302946912 (LWP 6095)]
+[New Thread -1345320032 (LWP 6096)]
+[Thread -1302946912 (LWP 6095) exited]
+[Thread -1345320032 (LWP 6096) exited]
+
+Program received signal SIGBUS, Bus error.
+[Switching to Thread -1222976608 (LWP 5954)]
+0x08172751 in TigerHash::update (this=0xb71ad130, data=0xaf3af000, length=1024)
+    at client/TigerHash.cpp:166
+166     client/TigerHash.cpp: No such file or directory.
+        in client/TigerHash.cpp
+(gdb) 
+(gdb) backtrace
+#0  0x08172751 in TigerHash::update (this=0xb71ad130, data=0xaf3af000, 
+    length=1024) at client/TigerHash.cpp:166
+#1  0x080c1d6d in MerkleTree<TigerHash, 1024u>::update (this=0xb71ad3c4, 
+    data=0xaecaf000, len=8719539) at client/MerkleTree.h:105
+#2  0x080db161 in HashManager::Hasher::fastHash (this=0x82f9488, 
+    filename=@0xb71ad374, tth=@0xb71ad3c4, size=8719539, xcrc32=0x0)
+    at client/HashManager.cpp:629
+#3  0x080df360 in HashManager::Hasher::run (this=0x82f9488)
+    at client/HashManager.cpp:716
+#4  0x0816e4f4 in Thread::starter (p=0x82f9488) at client/Thread.h:137
+#5  0xb7f94504 in start_thread () from /lib/tls/i686/cmov/libpthread.so.0
+#6  0xb780251e in clone () from /lib/tls/i686/cmov/libc.so.6
+
+</code>
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10254&group_id=2230
+
+
+From admin at berlios.de  Tue Feb  6 10:45:37 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 6 Feb 2007 10:45:37 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #1874] DL queue regression fix,
+	DLQ won't show "root" entries.
+Message-ID: <200702060945.l169jbsa021387@unicorn.berlios.de>
+
+Patch #1874 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: naga
+Assigned to : none
+Summary: DL queue regression fix, DLQ won't show "root" entries.
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1874&group_id=2230
+
+
+From admin at berlios.de  Tue Feb  6 15:15:46 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 6 Feb 2007 08:15:46 -0600 (CST)
+Subject: [Linuxdcpp-developers] [Bug #10257] Needs to add and check on
+	ICONV_CONST...
+Message-ID: <200702061415.l16EFk4U014146@unicorn.berlios.de>
+
+Bug #10257, was updated on 2007-Feb-06 08:15
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: mezz7
+Assigned to : none
+Summary: Needs to add and check on ICONV_CONST...
+
+Details: On the lastest CVS at 2007-02-04 in Changelog.txt that has iconv added. I get a build failure on FreeBSD 6.2-STABLE:
+
+===================================
+client/Text.cpp: In static member function `static std::string& Text::convert(const std::string&, std::string&, const std::string&, const std::string&)':
+client/Text.cpp:312: error: invalid conversion from `char**' to `const char**'
+client/Text.cpp:312: error:   initializing argument 2 of `size_t libiconv(void*, const char**, size_t*, char**, size_t*)'
+===================================
+
+I had to create a patch for it looks like this:
+
+===================================
+-		rv = iconv(cd, (char **)&inbuf, &inleft, &outbuf, &outleft);
++		rv = iconv(cd, &inbuf, &inleft, &outbuf, &outleft);
+===================================
+
+A correct solution would be add and check on ICONV_CONST. See more info over at http://tinyurl.com/2l69s6 .. I am not sure how to do it with scons, so I don't have any of patch available. Thanks.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10257&group_id=2230
+
+
+From admin at berlios.de  Tue Feb  6 23:37:04 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 6 Feb 2007 23:37:04 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #1876] Attempt to fix bug #10257
+Message-ID: <200702062237.l16Mb4ni016826@unicorn.berlios.de>
+
+Patch #1876 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: pemiem
+Assigned to : none
+Summary: Attempt to fix bug #10257
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1876&group_id=2230
+
+
+From admin at berlios.de  Wed Feb  7 03:55:06 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 7 Feb 2007 02:55:06 GMT
+Subject: [Linuxdcpp-developers] [Bug #10261] ShareManager::checkTypes is not
+	endian-safe
+Message-ID: <200702070255.l172t6ao028973@unicorn.berlios.de>
+
+Bug #10261, was updated on 2007-Feb-07 02:55
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: stevensheehy
+Assigned to : none
+Summary: ShareManager::checkTypes is not endian-safe
+
+Details: I'm hoping someone will rewrite it for me and submit the patch upstream. :)
+
+I would suggest simplifying the function to use a HASH_MAP_X for quick lookups.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10261&group_id=2230
+
+
+From cvs at linuxdcpp.berlios.de  Wed Feb  7 04:27:11 2007
+From: cvs at linuxdcpp.berlios.de (cvs at linuxdcpp.berlios.de)
+Date: Wed, 7 Feb 2007 04:27:11 +0100
+Subject: [Linuxdcpp-developers] CVS Commit
+Message-ID: <200702070327.l173RBJY030960@sheep.berlios.de>
+
+A non-text attachment was scrubbed...
+Name: not available
+Type: text/xml
+Size: 671 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070207/8377839b/attachment.xml>
+
+From admin at berlios.de  Wed Feb  7 03:15:32 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 7 Feb 2007 02:15:32 GMT
+Subject: [Linuxdcpp-developers] [Feature #3128] Auto-respond when in Away
+	mode
+Message-ID: <200702070215.l172FWeh015431@unicorn.berlios.de>
+
+Feature Request #3128, was updated on 2007-Feb-07 02:15
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3128&group_id=2230
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Auto-respond when in Away mode
+
+By: stevensheehy
+Date: 2007-Feb-07 02:15
+
+Message:
+Logged In: YES 
+user_id=24509
+Browser: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.8.1.1) Gecko/20060601 Firefox/2.0.0.1
+
+Missing win32 functionality of auto-responding to PMs
+to let the user know you're away. Without it, /away and
+/back commands have no purpose.
+
+Also needs investigation in order to determine what
+win32 does if a user mentions an away user in the main
+chat (e.g. does it do nothing or send to the chat or to
+a pm saying that he's away).
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3128&group_id=2230
+
+
+From admin at berlios.de  Thu Feb  8 23:24:07 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 8 Feb 2007 23:24:07 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Bug #10278] missing '-liconv' param when
+	linking
+Message-ID: <200702082224.l18MO7fd028762@unicorn.berlios.de>
+
+Bug #10278, was updated on 2007-Feb-08 23:24
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: dorian
+Assigned to : none
+Summary: missing '-liconv' param when linking
+
+Details: hi guys!
+i just tried to build the latest cvs version and got some errors, when scons tried to link the whole thing:
+
+Text.cpp:(.text+0xb63): undefined reference to `libiconv_open'
+Text.cpp:(.text+0xc04): undefined reference to `libiconv'
+Text.cpp:(.text+0xd68): undefined reference to `libiconv_close'
+
+when i manually did the linking and added '-liconv' to the g++ command line it worked fine. 
+so maybe there's something wrong with the build scripts, but i don't know anything about that stuff...
+
+keep up the good work!
+cheers
+Dorian
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10278&group_id=2230
+
+
+From admin at berlios.de  Sun Feb 11 06:01:20 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 11 Feb 2007 00:01:20 -0500 (EST)
+Subject: [Linuxdcpp-developers] [Bug #10303] Not download files with
+	cyrillic names
+Message-ID: <200702110501.l1B51KDD017965@unicorn.berlios.de>
+
+Bug #10303, was updated on 2007-Feb-11 00:01
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: grayich
+Assigned to : none
+Summary: Not download files with cyrillic names
+
+Details: Not download files with cyrillic names.
+
+locale  --  ru_RU.KOI8-R
+Default hub encoding --  CP1251 (Cyrillic) 
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10303&group_id=2230
+
+
+From admin at berlios.de  Mon Feb 12 15:07:39 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 12 Feb 2007 15:07:39 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Bug #10314] Not starting sometimes -
+	missing files
+Message-ID: <200702121407.l1CE7dba025739@unicorn.berlios.de>
+
+Bug #10314, was updated on 2007-Feb-12 15:07
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: sidelve
+Assigned to : none
+Summary: Not starting sometimes - missing files
+
+Details: I noticed, that sometimes new cvs version works normally, and sometimes after compiling just doesn't start.
+
+When it doesn't start I have:
+
+
+terminate called after throwing an instance of 'FileException'
+Aborted
+
+
+I run it with strace and noticed that there are missing files:
+"/etc/dcppboot.xml", 0xbf882b24) = -1 ENOENT (No such file or directory)
+
+
+That file isn't that file on sources from cvs, but I found it on my win partition in 
+Program Files/DC++/dcpboot.xml
+
+I copied that to /etc, then with strace again and I had one more missing file:
+
+$HOME/.dc++/GeoIpCountryWhois.csv"
+
+
+It wasn't on sources too so I found *SIMILAR* file in windows dc++ again :
+
+Program\ Files/DC++/GeoIPCountryWhois.csv
+
+
+It still didn't work... had to rename file (in ~/dc++)
+from:
+
+GeoIPCountryWhois.csv
+
+to
+
+GeoIpCountryWhois.csv
+
+
+ = P to p :)
+
+
+After this (copy 2 files from windows, which weren't in cvs sources) LinuxDC++ normally run...
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10314&group_id=2230
+
+
+From admin at berlios.de  Mon Feb 19 09:43:35 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 19 Feb 2007 09:43:35 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Bug #10429] Can't compile on Suse 10.2
+Message-ID: <200702190843.l1J8hZoP003784@unicorn.berlios.de>
+
+Bug #10429, was updated on 2007-Feb-19 09:43
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: valent
+Assigned to : none
+Summary: Can't compile on Suse 10.2
+
+Details: Hi i got the latest cvs version of linuxdc++ but I can't compile it.
+
+I did this:
+cd linuxdcpp
+scons
+
+scons: Reading SConscript files ...
+Checking for g++ >= 3.4...(cached) yes
+Checking for pkg-config... yes
+Checking for gtk+-2.0 >= 2.6... yes
+Checking for gthread-2.0 >= 2.4... yes
+Checking for libglade-2.0 >= 2.4... no
+        libglade-2.0 >= 2.4 not found.
+        Note: You might have the lib but not the headers
+
+
+So I checked suse for libglade:
+# smart install libglade2
+Loading cache...
+Updating cache...                                    ############################ [100%]
+
+warning: libglade2-2.6.0-23 at i586 is already installed
+Computing transaction...
+Saving cache...
+
+
+Any ideas?
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10429&group_id=2230
+
+
+From pelzi at pelzi.net  Mon Feb 19 10:06:52 2007
+From: pelzi at pelzi.net (Jussi Peltola)
+Date: Mon, 19 Feb 2007 11:06:52 +0200
+Subject: [Linuxdcpp-developers] [Bug #10429] Can't compile on Suse 10.2
+In-Reply-To: <200702190843.l1J8hZoP003784@unicorn.berlios.de>
+References: <200702190843.l1J8hZoP003784@unicorn.berlios.de>
+Message-ID: <20070219090652.GB9264@hemmo.net>
+
+You need to install a libglade development package, which probably ends
+in -dev. I never used SUSE so no idea about it exactly, but usually the
+package without -dev is a runtime library and the one with -dev are the
+headers.
+
+-- 
+Jussi Peltola
+
+
+
+From thresh at altlinux.ru  Mon Feb 19 16:00:51 2007
+From: thresh at altlinux.ru (Pavlov Konstantin)
+Date: Mon, 19 Feb 2007 18:00:51 +0300
+Subject: [Linuxdcpp-developers] [Bug #10429] Can't compile on Suse 10.2
+In-Reply-To: <20070219090652.GB9264@hemmo.net>
+References: <200702190843.l1J8hZoP003784@unicorn.berlios.de>
+	<20070219090652.GB9264@hemmo.net>
+Message-ID: <20070219150051.GA4353@cryo.net.ru>
+
+On Mon, Feb 19, 2007 at 11:06:52AM +0200, Jussi Peltola wrote:
+> You need to install a libglade development package, which probably ends
+> in -dev. I never used SUSE so no idea about it exactly, but usually the
+> package without -dev is a runtime library and the one with -dev are the
+> headers.
+
+No need to reply to this list, user filed a bugreport into berlios bug
+tracker.
+
+-- 
+The world has many unintentionally cruel mechanisms that are not
+designed for people who walk on their hands.
+		-- John Irving, "The World According to Garp"
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/linuxdcpp-developers/attachments/20070219/6f05f445/attachment.pgp>
+
+From admin at berlios.de  Mon Feb 19 20:40:19 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 19 Feb 2007 20:40:19 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #1891] USer commands, a start to it,
+	that is
+Message-ID: <200702191940.l1JJeJ5i018433@unicorn.berlios.de>
+
+Patch #1891 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: windkracht8
+Assigned to : none
+Summary: USer commands, a start to it, that is
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1891&group_id=2230
+
+
+From admin at berlios.de  Thu Feb 22 04:01:56 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 22 Feb 2007 04:01:56 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #1892] add cp1250 codepage to the
+	select box list
+Message-ID: <200702220301.l1M31ucN009394@unicorn.berlios.de>
+
+Patch #1892 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: drunkenbear
+Assigned to : none
+Summary: add cp1250 codepage to the select box list
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1892&group_id=2230
+
+
+From admin at berlios.de  Sat Feb 24 20:11:42 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 24 Feb 2007 20:11:42 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Patch #1899] add kick and ban msg to the
+	status bar...
+Message-ID: <200702241911.l1OJBg1m008294@unicorn.berlios.de>
+
+Patch #1899 has been updated. 
+
+Project: linuxdcpp
+Category: None
+Status: Open
+Submitted by: drunkenbear
+Assigned to : none
+Summary: add kick and ban msg to the status bar...
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/patch/?func=detailpatch&patch_id=1899&group_id=2230
+
+
+From admin at berlios.de  Tue Feb 27 19:23:36 2007
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 27 Feb 2007 19:23:36 +0100 (CET)
+Subject: [Linuxdcpp-developers] [Bug #10511] Crash when clicking "OK" in
+	configuration
+Message-ID: <200702271823.l1RINaJ0013000@unicorn.berlios.de>
+
+Bug #10511, was updated on 2007-Feb-27 19:23
+Here is a current snapshot of the bug.
+
+Project: LinuxDC++
+Category: None
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: jazzgossen
+Assigned to : none
+Summary: Crash when clicking "OK" in configuration
+
+Details: Running ldcpp from the current CVS as of today, crashes when I click "OK" in the configuration dialog. Running it in gdb gives the following backtrace, after a number of GTK assertions:
+
+terminate called after throwing an instance of 'std::logic_error'
+  what():  basic_string::_S_construct NULL not valid
+
+Program received signal SIGABRT, Aborted.
+[Switching to Thread -1219660096 (LWP 7392)]
+0xffffe410 in __kernel_vsyscall ()
+(gdb) bt
+#0  0xffffe410 in __kernel_vsyscall ()
+#1  0xb75d49a1 in raise () from /lib/tls/i686/cmov/libc.so.6
+#2  0xb75d62b9 in abort () from /lib/tls/i686/cmov/libc.so.6
+#3  0xb77b3c84 in __gnu_cxx::__verbose_terminate_handler ()
+   from /usr/lib/libstdc++.so.6
+#4  0xb77b1915 in __gxx_personality_v0 () from /usr/lib/libstdc++.so.6
+#5  0xb77b194a in std::terminate () from /usr/lib/libstdc++.so.6
+#6  0xb77b1a7e in __cxa_throw () from /usr/lib/libstdc++.so.6
+#7  0xb774e3e9 in std::__throw_logic_error () from /usr/lib/libstdc++.so.6
+#8  0xb778f9b3 in std::string::_Rep::_M_destroy () from /usr/lib/libstdc++.so.6
+#9  0xb778fafd in std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string () from /usr/lib/libstdc++.so.6
+#10 0x082208b0 in Settings::saveSettings ()
+#11 0x08246436 in WulforManager::onCloseDialogEntry_gui ()
+#12 0xb788168b in g_cclosure_marshal_VOID () from /usr/lib/libgobject-2.0.so.0
+#13 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#14 0xb78842ea in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#15 0xb7885b19 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#16 0xb7885e89 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#17 0xb7cd30ee in gtk_dialog_response () from /usr/lib/libgtk-x11-2.0.so.0
+#18 0xb7cd3143 in gtk_dialog_response () from /usr/lib/libgtk-x11-2.0.so.0
+#19 0xb7881423 in g_cclosure_marshal_VOID__VOID ()
+   from /usr/lib/libgobject-2.0.so.0
+#20 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#21 0xb78842ea in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#22 0xb7885b19 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#23 0xb7885e89 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#24 0xb7c8a49f in gtk_button_clicked () from /usr/lib/libgtk-x11-2.0.so.0
+#25 0xb7c8bcda in _gtk_button_set_depressed ()
+   from /usr/lib/libgtk-x11-2.0.so.0
+#26 0xb7881423 in g_cclosure_marshal_VOID__VOID ()
+   from /usr/lib/libgobject-2.0.so.0
+#27 0xb787516f in g_cclosure_new_swap () from /usr/lib/libgobject-2.0.so.0
+#28 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#29 0xb78845cc in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#30 0xb7885b19 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#31 0xb7885e89 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#32 0xb7c8a41c in gtk_button_released () from /usr/lib/libgtk-x11-2.0.so.0
+#33 0xb7c8b38c in _gtk_button_paint () from /usr/lib/libgtk-x11-2.0.so.0
+#34 0xb7d4b8e0 in _gtk_marshal_BOOLEAN__BOXED ()
+   from /usr/lib/libgtk-x11-2.0.so.0
+#35 0xb787516f in g_cclosure_new_swap () from /usr/lib/libgobject-2.0.so.0
+#36 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#37 0xb78849ce in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#38 0xb7885886 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#39 0xb7885e89 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#40 0xb7e2ddcf in gtk_widget_activate () from /usr/lib/libgtk-x11-2.0.so.0
+#41 0xb7d4a05d in gtk_propagate_event () from /usr/lib/libgtk-x11-2.0.so.0
+#42 0xb7d4a46b in gtk_main_do_event () from /usr/lib/libgtk-x11-2.0.so.0
+#43 0xb7adddec in _gdk_events_queue () from /usr/lib/libgdk-x11-2.0.so.0
+#44 0xb78048d6 in g_main_context_dispatch () from /usr/lib/libglib-2.0.so.0
+#45 0xb7807996 in g_main_context_check () from /usr/lib/libglib-2.0.so.0
+#46 0xb7807cb8 in g_main_loop_run () from /usr/lib/libglib-2.0.so.0
+---Type <return> to continue, or q <return> to quit---
+#47 0xb7cd3363 in gtk_dialog_run () from /usr/lib/libgtk-x11-2.0.so.0
+#48 0x082482cd in WulforManager::insertDialogEntry_gui ()
+#49 0x0824832d in WulforManager::openSettingsDialog_gui ()
+#50 0x081dc497 in MainWindow::settingsClicked_gui ()
+#51 0xb7881423 in g_cclosure_marshal_VOID__VOID ()
+   from /usr/lib/libgobject-2.0.so.0
+#52 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#53 0xb78842ea in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#54 0xb7885b19 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#55 0xb7889030 in g_signal_emit_by_name () from /usr/lib/libgobject-2.0.so.0
+#56 0xb7ded93e in gtk_tool_button_get_type () from /usr/lib/libgtk-x11-2.0.so.0
+#57 0xb7881423 in g_cclosure_marshal_VOID__VOID ()
+   from /usr/lib/libgobject-2.0.so.0
+#58 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#59 0xb78842ea in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#60 0xb7885b19 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#61 0xb7885e89 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#62 0xb7c8a49f in gtk_button_clicked () from /usr/lib/libgtk-x11-2.0.so.0
+#63 0xb7c8bcda in _gtk_button_set_depressed ()
+   from /usr/lib/libgtk-x11-2.0.so.0
+#64 0xb7881423 in g_cclosure_marshal_VOID__VOID ()
+   from /usr/lib/libgobject-2.0.so.0
+#65 0xb787516f in g_cclosure_new_swap () from /usr/lib/libgobject-2.0.so.0
+#66 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#67 0xb78845cc in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#68 0xb7885b19 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#69 0xb7885e89 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#70 0xb7c8a41c in gtk_button_released () from /usr/lib/libgtk-x11-2.0.so.0
+#71 0xb7c8b38c in _gtk_button_paint () from /usr/lib/libgtk-x11-2.0.so.0
+#72 0xb7d4b8e0 in _gtk_marshal_BOOLEAN__BOXED ()
+   from /usr/lib/libgtk-x11-2.0.so.0
+#73 0xb787516f in g_cclosure_new_swap () from /usr/lib/libgobject-2.0.so.0
+#74 0xb787579f in g_closure_invoke () from /usr/lib/libgobject-2.0.so.0
+#75 0xb78849ce in g_signal_stop_emission () from /usr/lib/libgobject-2.0.so.0
+#76 0xb7885886 in g_signal_emit_valist () from /usr/lib/libgobject-2.0.so.0
+#77 0xb7885e89 in g_signal_emit () from /usr/lib/libgobject-2.0.so.0
+#78 0xb7e2ddcf in gtk_widget_activate () from /usr/lib/libgtk-x11-2.0.so.0
+#79 0xb7d4a05d in gtk_propagate_event () from /usr/lib/libgtk-x11-2.0.so.0
+#80 0xb7d4a46b in gtk_main_do_event () from /usr/lib/libgtk-x11-2.0.so.0
+#81 0xb7adddec in _gdk_events_queue () from /usr/lib/libgdk-x11-2.0.so.0
+#82 0xb78048d6 in g_main_context_dispatch () from /usr/lib/libglib-2.0.so.0
+#83 0xb7807996 in g_main_context_check () from /usr/lib/libglib-2.0.so.0
+#84 0xb7807cb8 in g_main_loop_run () from /usr/lib/libglib-2.0.so.0
+#85 0xb7d49765 in gtk_main () from /usr/lib/libgtk-x11-2.0.so.0
+#86 0x08245a2d in main ()
+(gdb)
+
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=10511&group_id=2230
+
+
